@@ -1,1 +1,1 @@
-﻿AN.data.moreinfo1 = '測試成功!';
+﻿AN.data.moreinfo1 = '';
