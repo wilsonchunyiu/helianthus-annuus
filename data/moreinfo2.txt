@@ -1,0 +1,1 @@
+﻿AN.data.moreinfo2 = '測試成功!';
