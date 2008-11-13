@@ -3,17 +3,17 @@
 
 = Maxthon 2 使用者 =
 
- # 點擊[此處 xxx]下載Helianthus.Annuus專用過濾包
- # 正常來說Maxthon 2會自動詢問是否安裝, 如沒有請下載該過濾包並將其拖放至Maxthon 2視窗
- # 安裝後請跟據下圖指示啟用Helianthus.Annuus專用過濾包
+ # 點擊[此處 xxx]下載Helianthus.Annuus專用過濾包.
+ # 正常來說Maxthon 2會自動詢問是否安裝, 如沒有請下載該過濾包並將其拖放至Maxthon 2視窗.
+ # 安裝後請跟據下圖指示啟用Helianthus.Annuus專用過濾包.
 
 
 = Firefox 使用者 =
 
- # 請先安裝[https://addons.mozilla.org/en-US/firefox/addon/748 GreaseMonkey]
- # 點擊[此處 xxx]安裝Helianthus.Annuus:Main Script
+ # 請先安裝[https://addons.mozilla.org/en-US/firefox/addon/748 GreaseMonkey].
+ # 點擊[此處 xxx]安裝Helianthus.Annuus:Main Script .
 
 
 = 其他瀏覽器 =
 
-若你知道如何將Helianthus.Annuus套用至其他瀏覽器的話, 請告知[AboutAuthor 作者]
+若你知道如何將Helianthus.Annuus套用至其他瀏覽器的話, 請告知[AboutAuthor 作者].
