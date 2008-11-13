@@ -1,4 +1,5 @@
 #summary 如何安裝Helianthus.Annuus
+#labels Featured
 
 = Maxthon 2 使用者 =
 
