@@ -10,3 +10,7 @@
 
  # 請先安裝[https://addons.mozilla.org/en-US/firefox/addon/748 GreaseMonkey]
  # 點擊[此處 xxx]安裝Helianthus.Annuus:Main Script
+
+= 其他瀏覽器 =
+
+若你知道如何將Helianthus.Annuus套用至其他瀏覽器的話, 請告知[Helianthus.Annuus作者]
