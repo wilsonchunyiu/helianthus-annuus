@@ -24,12 +24,15 @@ nightly build不設自動更新功能,
 
  http://helianthus-annuus.googlecode.com/files/howtoinstall_m2_2.png
 
+另外請閱讀[NotesOnMaxthon].
+
 
 == Firefox 使用者 ==
 
  # 請先安裝[https://addons.mozilla.org/en-US/firefox/addon/748 GreaseMonkey].
  # 點擊[http://helianthus-annuus.googlecode.com/svn/trunk/AN_MainScript.user.js 此處]安裝Helianthus.Annuus:Main Script nightly build.
 
+另外請閱讀[NotesOnFirefox].
 
 == 其他瀏覽器 ==
 
