@@ -1,4 +1,2 @@
 #labels Deprecated
- * [HowToInstall]
- * [NotesOnFirefox]
- * [AboutAuthor]
+<wiki:toc max_depth="1" />
