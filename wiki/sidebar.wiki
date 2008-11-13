@@ -1,1 +1,3 @@
-test
+ * [HowToInstall]
+ * [NotesOnFirefox]
+ * [About Author]
