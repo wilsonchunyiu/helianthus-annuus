@@ -15,4 +15,4 @@
 
 = 其他瀏覽器 =
 
-若你知道如何將Helianthus.Annuus套用至其他瀏覽器的話, 請告知[作者]
+若你知道如何將Helianthus.Annuus套用至其他瀏覽器的話, 請告知[AboutAuthor 作者]
