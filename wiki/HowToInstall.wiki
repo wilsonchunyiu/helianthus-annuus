@@ -13,7 +13,7 @@
 nightly build不設自動更新功能,
 用戶須自行檢查是否有新版本並手動更新.
 
-提示: 可到http://code.google.com/p/helianthus-annuus/source/browse/#svn/trunk/ 查看最近修改日期
+提示: 可到 http://code.google.com/p/helianthus-annuus/source/browse/#svn/trunk/ 查看最近修改日期
 
 = Maxthon 2 使用者 =
 
