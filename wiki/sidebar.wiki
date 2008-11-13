@@ -1,3 +1,0 @@
- * [HowToInstall]
- * [NotesOnFirefox]
- * [About Author]
