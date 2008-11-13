@@ -1,1 +1,1 @@
-﻿AN.data.moreinfo2 = '';
+﻿AN.data.moreinfo2 = ':)';

@@ -1,1 +1,1 @@
-﻿AN.data.moreinfo1 = '';
+﻿AN.data.moreinfo1 = '沙發';
