@@ -1,0 +1,4 @@
+#labels Deprecated
+ * [HowToInstall]
+ * [NotesOnFirefox]
+ * [AboutAuthor]
