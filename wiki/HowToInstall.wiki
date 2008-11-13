@@ -13,8 +13,6 @@
 nightly build不設自動更新功能,
 用戶須自行檢查是否有新版本及手動更新.
 
-= 各版本安裝方法 =
-
 == Maxthon 2 使用者 ==
 
  # 點擊[xx 此處]下載Helianthus.Annuus專用過濾包.
