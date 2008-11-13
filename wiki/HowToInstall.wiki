@@ -1,17 +1,22 @@
 #summary 如何安裝Helianthus.Annuus
 #labels Featured
 
+<wiki:toc depth="1" />
+
 = Maxthon 2 使用者 =
 
- # 點擊[此處 xxx]下載Helianthus.Annuus專用過濾包.
+ # 點擊[xx 此處]下載Helianthus.Annuus專用過濾包.
  # 正常來說Maxthon 2會自動詢問是否安裝, 如沒有請下載該過濾包並將其拖放至Maxthon 2視窗.
- # 安裝後請跟據下圖指示啟用Helianthus.Annuus專用過濾包.
+ # 安裝後右鍵點擊[xx 此處]另存下載Helianthus.Annuus:Main Script.
+ # 下載完成後將該檔移至 %Maxthon的安裝位置%\Filter\Helianthus.Annuus\SharedScripts (預設位置為 C:\Program Files\Maxthon2\Filter\Helianthus.Annuus\ShareScripts)
+ # 跟據下圖指示啟用Helianthus.Annuus專用過濾包:
+
 
 
 = Firefox 使用者 =
 
  # 請先安裝[https://addons.mozilla.org/en-US/firefox/addon/748 GreaseMonkey].
- # 點擊[此處 xxx]安裝Helianthus.Annuus:Main Script .
+ # 點擊[xx 此處]安裝Helianthus.Annuus:Main Script.
 
 
 = 其他瀏覽器 =
