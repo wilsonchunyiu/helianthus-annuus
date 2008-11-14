@@ -1,1 +1,1 @@
-﻿AN.data.test = '你已成功安裝Helianthus Annuus';
+﻿AN.data.test = '你已成功安裝Helianthus Annuus<br/><img src="http://helianthus-annuus.googlecode.com/files/screen_01.png" />';
