@@ -1,0 +1,1 @@
+﻿AN.data.test = '你已成功安裝Helianthus Annuus';
