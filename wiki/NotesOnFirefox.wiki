@@ -2,6 +2,21 @@
 
 = 關於廣告移除 =
 
-由於使用javascript移除廣告的速度較慢, 廣告亦會於頁面載入後才被移除, 並不可取, 因此作者決定將移除廣告的工作交予其他附加元件負責(很可能是adblock plus).
+== Helianthus.Annuus:Rubbish Remover ==
 
-作者將會盡快發佈移除廣告的方法.
+Helianthus.Annuus:Rubbish Remover與Helianthus.Annuus:Main Script為獨立組件,
+用戶必須安裝Helianthus.Annuus:Initializer,
+但可選擇不安裝Helianthus.Annuus:Main Script.
+
+
+ # 請先確定已經安裝[http://helianthus-annuus.googlecode.com/svn/trunk/AN_Initializer.user.js Helianthus.Annuus:Initializer], 詳見[HowToInstall 如何安裝Helianthus.Annuus].
+ # 點擊[http://helianthus-annuus.googlecode.com/svn/trunk/AN_RubbishRemover.user.js 此處]安裝Helianthus.Annuus:Rubbish Remover.
+ # 安裝附加元件[https://addons.mozilla.org/en-US/firefox/addon/1865 Adblock Plus].
+ # 重新啟動Firefox.
+ # 跟據下圖指示加入filter list:
+
+ http://helianthus-annuus.googlecode.com/files/rubbishremover_01.png
+
+ http://helianthus-annuus.googlecode.com/files/rubbishremover_02.png
+
+ 名稱可自選, 位址請複製此地址: http://helianthus-annuus.googlecode.com/files/Helianthus.Annuus_AdblockPlus.txt
