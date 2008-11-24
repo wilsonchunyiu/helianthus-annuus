@@ -34,7 +34,8 @@ nightly build不設自動更新功能,
 
 = Firefox 使用者 =
 
- # 請先安裝[https://addons.mozilla.org/en-US/firefox/addon/748 GreaseMonkey].
+ # 請先安裝附加元件[https://addons.mozilla.org/en-US/firefox/addon/748 GreaseMonkey].
+ # 重新啟動Firefox.
  # 點擊[http://helianthus-annuus.googlecode.com/svn/trunk/AN_Initializer.user.js 此處]安裝Helianthus.Annuus:Initializer.
  # 點擊[http://helianthus-annuus.googlecode.com/svn/trunk/AN_MainScript.user.js 此處]安裝Helianthus.Annuus:Main Script nightly build.
  # 有關垃圾移除請閱讀[NotesOnFirefox Firefox用戶注意事項].
