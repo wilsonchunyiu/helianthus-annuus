@@ -1,4 +1,4 @@
-#summary 如何安裝Helianthus.Annuus
+﻿#summary 如何安裝Helianthus.Annuus
 #labels Featured
 
 <wiki:toc depth="1" />
@@ -21,13 +21,13 @@ nightly build不設自動更新功能,
 = Maxthon 2 使用者 =
 
  # 點擊[http://helianthus-annuus.googlecode.com/files/Helianthus.Annuus_1.2.0.m2f 此處]安裝Helianthus.Annuus專用過濾包 v1.2.0.
- # 正常來說Maxthon 2會自動詢問是否安裝, 如沒有請下載該過濾包並將其拖放至Maxthon 2視窗. 
+ # 正常來說Maxthon 2會自動詢問是否安裝, 如沒有請下載該過濾包並將其拖放至Maxthon 2視窗.
  # 安裝後另存下載[http://helianthus-annuus.googlecode.com/svn/trunk/AN_Initializer.user.js Helianthus.Annuus:Initializer]及[http://helianthus-annuus.googlecode.com/svn/trunk/AN_MainScript.user.js Helianthus.Annuus:Main Script nightly build].
  # 下載完成後將該兩個檔案移至 %Maxthon的安裝位置%\Filter\Helianthus.Annuus\SharedScripts (預設位置為 C:\Program Files\Maxthon2\Filter\Helianthus.Annuus\ShareScripts)
  # 跟據下圖指示啟用Helianthus.Annuus專用過濾包:
- http://helianthus-annuus.googlecode.com/files/howtoinstall_m2_1.png
+ http://helianthus-annuus.googlecode.com/svn/site/howtoinstall_m2_1.png
 
- http://helianthus-annuus.googlecode.com/files/howtoinstall_m2_2.png
+ http://helianthus-annuus.googlecode.com/svn/site/howtoinstall_m2_2.png
 
 另外請閱讀[NotesOnMaxthon Maxthon 2用戶注意事項].
 

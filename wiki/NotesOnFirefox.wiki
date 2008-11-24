@@ -1,4 +1,4 @@
-#summary Firefox使用者注意事項
+﻿#summary Firefox使用者注意事項
 
 = 關於廣告移除 =
 
@@ -15,8 +15,8 @@ Helianthus.Annuus:Rubbish Remover與Helianthus.Annuus:Main Script為獨立組件
  # 重新啟動Firefox.
  # 跟據下圖指示加入filter list:
 
- http://helianthus-annuus.googlecode.com/files/rubbishremover_01.png
+ http://helianthus-annuus.googlecode.com/svn/site/rubbishremover_01.png
 
- http://helianthus-annuus.googlecode.com/files/rubbishremover_02.png
+ http://helianthus-annuus.googlecode.com/svn/site/rubbishremover_02.png
 
  名稱可自選, 位址請複製此地址: http://helianthus-annuus.googlecode.com/svn/other/Helianthus.Annuus_AdblockPlus.txt
