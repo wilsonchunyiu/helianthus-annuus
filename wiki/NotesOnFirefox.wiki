@@ -19,4 +19,4 @@ Helianthus.Annuus:Rubbish Remover與Helianthus.Annuus:Main Script為獨立組件
 
  http://helianthus-annuus.googlecode.com/files/rubbishremover_02.png
 
- 名稱可自選, 位址請複製此地址: http://helianthus-annuus.googlecode.com/files/Helianthus.Annuus_AdblockPlus.txt
+ 名稱可自選, 位址請複製此地址: http://helianthus-annuus.googlecode.com/svn/other/Helianthus.Annuus_AdblockPlus.txt
