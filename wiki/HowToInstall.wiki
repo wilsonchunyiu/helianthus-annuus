@@ -20,7 +20,7 @@ nightly build不設自動更新功能,
 
 = Maxthon 2 使用者 =
 
- # 點擊[http://helianthus-annuus.googlecode.com/files/Helianthus.Annuus_1.3.0.m2f 此處]安裝Helianthus.Annuus專用過濾包.
+ # 點擊[http://helianthus-annuus.googlecode.com/files/Helianthus.Annuus_1.3.1.m2f 此處]安裝Helianthus.Annuus專用過濾包.
  # 正常來說Maxthon 2會自動詢問是否安裝, 如沒有請下載該過濾包並將其拖放至Maxthon 2視窗.
  # 安裝後另存下載[http://helianthus-annuus.googlecode.com/svn/trunk/AN_Initializer.user.js Helianthus.Annuus:Initializer]及[http://helianthus-annuus.googlecode.com/svn/trunk/AN_MainScript.user.js Helianthus.Annuus:Main Script nightly build].
  # 下載完成後將該兩個檔案移至 %Maxthon的安裝位置%\Filter\Helianthus.Annuus\SharedScripts (預設位置為 C:\Program Files\Maxthon2\Filter\Helianthus.Annuus\ShareScripts)
