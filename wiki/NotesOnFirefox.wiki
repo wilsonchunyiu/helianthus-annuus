@@ -2,7 +2,7 @@
 
 = 關於廣告移除 =
 
-作者雖然已提供 Helianthus.Annuus:Rubbish Remover 以移除廣告, 但若配合Adblock Plus使用可使運行速度更快.
+== 作者雖然已提供 Helianthus.Annuus:Rubbish Remover 以移除廣告, 但若配合Adblock Plus使用可使運行速度更快. ==
 
  # 先安裝附加元件[https://addons.mozilla.org/en-US/firefox/addon/1865 Adblock Plus].
  # 重新啟動Firefox.
