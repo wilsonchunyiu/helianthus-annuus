@@ -75,6 +75,8 @@ nightly build不設自動更新功能,
  * 將所下載的檔案移至剛開設的文件夾.
  * 無需重新啟動即可使用.
 
+另外, 用戶可參考[http://userjs.org/help/resources/toggle-user-javascript 此處]了解如何加入user scripts開關按扭.
+
 
 = 其他瀏覽器 =
 
