@@ -22,7 +22,7 @@ nightly build不設自動更新功能,
 
  # 點擊[http://helianthus-annuus.googlecode.com/svn/trunk/Helianthus.Annuus_latest.m2f 此處]安裝Helianthus.Annuus專用過濾包 dev version.
  # 正常來說Maxthon 2會自動詢問是否安裝, 如沒有請下載該過濾包並將其拖放至Maxthon 2視窗.
- # 安裝後另存下載[http://helianthus-annuus.googlecode.com/svn/trunk/AN_Initializer.user.js Helianthus.Annuus:Initializer]及[http://helianthus-annuus.googlecode.com/svn/trunk/AN_MainScript.user.js Helianthus.Annuus:Main Script nightly build].
+ # 安裝後另存下載[http://helianthus-annuus.googlecode.com/svn/trunk/AN_Initializer.user.js Helianthus.Annuus:Initializer]及[http://helianthus-annuus.googlecode.com/svn/trunk/AN_MainScript.user.js Helianthus.Annuus:Main Script].
  # 下載完成後將該兩個檔案移至 %Maxthon的安裝位置%\Filter\Helianthus.Annuus\SharedScripts (預設位置為 C:\Program Files\Maxthon2\Filter\Helianthus.Annuus\ShareScripts)
  # 跟據下圖指示啟用Helianthus.Annuus專用過濾包:
  http://helianthus-annuus.googlecode.com/svn/site/howtoinstall_m2_1.png
@@ -37,10 +37,37 @@ nightly build不設自動更新功能,
  # 請先安裝附加元件[https://addons.mozilla.org/en-US/firefox/addon/748 GreaseMonkey].
  # 重新啟動Firefox.
  # 點擊[http://helianthus-annuus.googlecode.com/svn/trunk/AN_Initializer.user.js 此處]安裝Helianthus.Annuus:Initializer.
- # 點擊[http://helianthus-annuus.googlecode.com/svn/trunk/AN_MainScript.user.js 此處]安裝Helianthus.Annuus:Main Script nightly build.
+ # 點擊[http://helianthus-annuus.googlecode.com/svn/trunk/AN_MainScript.user.js 此處]安裝Helianthus.Annuus:Main Script.
  # 有關垃圾移除請閱讀[NotesOnFirefox Firefox用戶注意事項].
 
 另外請閱讀[NotesOnFirefox Firefox用戶注意事項].
+
+= Internet Explorer 7 使用者 =
+
+ # 請先安裝[http://www.ie7pro.com/ IE7Pro].
+ # 按[http://www.ie7pro.com/user-script.html 此教學]指示啟用使用者指令碼.
+ # 按順序左擊安裝以下檔案:
+   # [http://helianthus-annuus.googlecode.com/svn/trunk/AN_jQuery.ieuser.js Helianthus.Annuus:jQuery (必要)]
+   # [http://helianthus-annuus.googlecode.com/svn/trunk/AN_Initializer.ieuser.js Helianthus.Annuus:Initializer (必要)]
+   # [http://helianthus-annuus.googlecode.com/svn/trunk/AN_MainScript.ieuser.js Helianthus.Annuus:Main Script (可選)]
+   # [http://helianthus-annuus.googlecode.com/svn/trunk/AN_RubbishRemover.ieuser.js Helianthus.Annuus:Rubbish Remover (可選)]
+
+= Google Chrome 使用者 =
+
+ # 請先安裝[http://greasemetal.31tools.com/ Greasemetal].
+ # 於開始選單啟動Greasemetal (以後若想使用Helianthus.Annuus必須透過Greasemetal啟動Google Chrome)
+ # 下載以下檔案:
+   # [http://helianthus-annuus.googlecode.com/svn/trunk/AN_jQuery.user.js Helianthus.Annuus:jQuery (必要)]
+   # [http://helianthus-annuus.googlecode.com/svn/trunk/AN_Initializer.user.js Helianthus.Annuus:Initializer (必要)]
+   # [http://helianthus-annuus.googlecode.com/svn/trunk/AN_MainScript.user.js Helianthus.Annuus:Main Script (可選)]
+   # [http://helianthus-annuus.googlecode.com/svn/trunk/AN_RubbishRemover.user.js Helianthus.Annuus:Rubbish Remover (可選)]
+ # 將所下載的檔案移至{我的文件\userjs}(XP)或{文件\userjs}(Vista).
+
+= Opera 使用者 =
+
+ # 
+
+
 
 = 其他瀏覽器 =
 
