@@ -5,7 +5,7 @@
 
 = !!!注意!!! =
 
-=== 由於Helianthus.Annuus現在正處於alpha階段, 因此現只提供nightly build下載以作測試, 這些版本極可能含有bug, 敬請留意. ===
+由於Helianthus.Annuus現在正處於alpha階段, 因此現只提供nightly build下載以作測試, 這些版本極可能含有bug, 敬請留意.
 
 另外,
 nightly build不設自動更新功能,
