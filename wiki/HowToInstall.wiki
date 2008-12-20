@@ -36,9 +36,12 @@ nightly build不設自動更新功能,
 
  * 請先安裝附加元件[https://addons.mozilla.org/en-US/firefox/addon/748 GreaseMonkey].
  * 重新啟動Firefox.
- * 點擊[http://helianthus-annuus.googlecode.com/svn/trunk/AN_Initializer.user.js 此處]安裝Helianthus.Annuus:Initializer.
- * 點擊[http://helianthus-annuus.googlecode.com/svn/trunk/AN_MainScript.user.js 此處]安裝Helianthus.Annuus:Main Script.
- * 有關垃圾移除請閱讀[NotesOnFirefox Firefox用戶注意事項].
+ * 按順序左擊安裝以下檔案:
+   * [http://helianthus-annuus.googlecode.com/svn/trunk/AN_jQuery.ieuser.js Helianthus.Annuus:jQuery (必要)]
+   * [http://helianthus-annuus.googlecode.com/svn/trunk/AN_Initializer.ieuser.js Helianthus.Annuus:Initializer (必要)]
+   * [http://helianthus-annuus.googlecode.com/svn/trunk/AN_MainScript.ieuser.js Helianthus.Annuus:Main Script (可選)]
+   * [http://helianthus-annuus.googlecode.com/svn/trunk/AN_RubbishRemover.ieuser.js Helianthus.Annuus:Rubbish Remover (可選)]
+ * 無需重新啟動即可使用.
 
 另外請閱讀[NotesOnFirefox Firefox用戶注意事項].
 
@@ -51,6 +54,7 @@ nightly build不設自動更新功能,
    * [http://helianthus-annuus.googlecode.com/svn/trunk/AN_Initializer.ieuser.js Helianthus.Annuus:Initializer (必要)]
    * [http://helianthus-annuus.googlecode.com/svn/trunk/AN_MainScript.ieuser.js Helianthus.Annuus:Main Script (可選)]
    * [http://helianthus-annuus.googlecode.com/svn/trunk/AN_RubbishRemover.ieuser.js Helianthus.Annuus:Rubbish Remover (可選)]
+ * 無需重新啟動即可使用.
 
 = Google Chrome 使用者 =
 
@@ -62,6 +66,7 @@ nightly build不設自動更新功能,
    * [http://helianthus-annuus.googlecode.com/svn/trunk/AN_MainScript.user.js Helianthus.Annuus:Main Script (可選)]
    * [http://helianthus-annuus.googlecode.com/svn/trunk/AN_RubbishRemover.user.js Helianthus.Annuus:Rubbish Remover (可選)]
  * 將所下載的檔案移至{我的文件\userjs}(XP)或{文件\userjs}(Vista).
+ * 無需重新啟動即可使用.
 
 = Opera 使用者 =
 
@@ -73,6 +78,7 @@ nightly build不設自動更新功能,
    * [http://helianthus-annuus.googlecode.com/svn/trunk/AN_MainScript.user.js Helianthus.Annuus:Main Script (可選)]
    * [http://helianthus-annuus.googlecode.com/svn/trunk/AN_RubbishRemover.user.js Helianthus.Annuus:Rubbish Remover (可選)]
  * 將所下載的檔案移至剛開設的文件夾.
+ * 無需重新啟動即可使用.
 
 
 = 其他瀏覽器 =
