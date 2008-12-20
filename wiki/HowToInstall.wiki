@@ -43,7 +43,7 @@
 = Internet Explorer 7 使用者 =
 
  * 請先安裝[http://www.ie7pro.com/ IE7Pro].
- * 按[http://www.ie7pro.com/user-script.html 此教學]指示啟用使用者指令碼.
+ * 右按IE7Pro圖示 -> 喜好設定 -> 使用者指令碼 -> 啟用使用者指令碼 -> 確定.
  * 按順序左擊安裝以下檔案:
    * [http://helianthus-annuus.googlecode.com/svn/trunk/AN_jQuery.ieuser.js Helianthus.Annuus:jQuery (必要)]
    * [http://helianthus-annuus.googlecode.com/svn/trunk/AN_Initializer.ieuser.js Helianthus.Annuus:Initializer (必要)]
