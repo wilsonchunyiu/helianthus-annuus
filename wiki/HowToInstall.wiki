@@ -73,7 +73,7 @@
  * 請先於任何一處開設一個文件夾用作儲存user scripts (例如C:\userjs).
  * 於選項選擇剛開設的文件夾:
    * 英文: Tools -> Preferences -> Advanced -> Content -> JavaScript Options -> My JavaScript files
-   * 中文: 工具 -> 功能設定 -> 進階 -> 內容 -> JavaScript 選項 -> 使用者 Javascript 檔案
+   * 中文: 工具 -> 功能設定 -> 進階 -> 內容 -> JavaScript 選項 -> 使用者 JavaScript 檔案
  * 另存下載以下檔案:
    * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_jQuery.user.js Helianthus.Annuus:jQuery (必要)]
    * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_Initializer.user.js Helianthus.Annuus:Initializer (必要)]
