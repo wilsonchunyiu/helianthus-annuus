@@ -75,10 +75,10 @@
    * 英文: Tools -> Preferences -> Advanced -> Content -> JavaScript Options -> My JavaScript files
    * 中文: 工具 -> 功能設定 -> 進階 -> 內容 -> JavaScript 選項 -> 使用者 JavaScript 檔案
  * 另存下載以下檔案:
-   * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_jQuery.user.js Helianthus.Annuus:jQuery (必要)]
-   * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_Initializer.user.js Helianthus.Annuus:Initializer (必要)]
-   * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_MainScript.user.js Helianthus.Annuus:Main Script (可選)]
-   * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_RubbishRemover.user.js Helianthus.Annuus:Rubbish Remover (可選)]
+   * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_jQuery.ieuser.js Helianthus.Annuus:jQuery (必要)]
+   * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_Initializer.ieuser.js Helianthus.Annuus:Initializer (必要)]
+   * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_MainScript.ieuser.js Helianthus.Annuus:Main Script (可選)]
+   * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_RubbishRemover.ieuser.js Helianthus.Annuus:Rubbish Remover (可選)]
  * 將所下載的檔案移至剛開設的文件夾.
  * 無需重新啟動即可使用.
 
