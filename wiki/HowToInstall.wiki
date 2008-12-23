@@ -84,6 +84,15 @@
 
 另外, 用戶可參考[http://userjs.org/help/resources/toggle-user-javascript 此處]了解如何加入user scripts開關按扭.
 
+= Safari(Mac) =
+
+ * 由於作者沒有Mac OS, 所以無法測試, 請曾嘗試的用戶回報能否使用, 謝謝.
+ * Greasekit: http://8-p.info/greasekit/
+ * 大概該使用下列檔案:
+   * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_jQuery.user.js Helianthus.Annuus:jQuery (必要)]
+   * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_Initializer.user.js Helianthus.Annuus:Initializer (必要)]
+   * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_MainScript.user.js Helianthus.Annuus:Main Script (可選)]
+   * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_RubbishRemover.user.js Helianthus.Annuus:Rubbish Remover (可選)]
 
 = 其他瀏覽器 =
 
