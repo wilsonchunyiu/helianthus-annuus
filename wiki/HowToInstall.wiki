@@ -16,9 +16,9 @@
  * 點擊[http://helianthus-annuus.googlecode.com/svn/trunk/Helianthus.Annuus_latest.m2f 此處]安裝Helianthus.Annuus專用過濾包 dev version.
  * 正常來說Maxthon 2會自動詢問是否安裝, 如沒有請下載該過濾包並將其拖放至Maxthon 2視窗.
  * 安裝後另存下載:
-   * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_jQuery.ieuser.js Helianthus.Annuus:jQuery (必要)]
-   * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_Initializer.ieuser.js Helianthus.Annuus:Initializer (必要)]
-   * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_MainScript.ieuser.js Helianthus.Annuus:Main Script (可選)]
+   * [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/AN_jQuery.ieuser.js Helianthus.Annuus:jQuery (必要)]
+   * [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/AN_Initializer.ieuser.js Helianthus.Annuus:Initializer (必要)]
+   * [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/AN_MainScript.ieuser.js Helianthus.Annuus:Main Script (可選)]
  * 下載完成後將該兩個檔案移至:
    * %Maxthon的安裝位置%\Filter\Helianthus.Annuus\SharedScripts
    * (預設位置為 C:\Program Files\Maxthon2\Filter\Helianthus.Annuus\ShareScripts)
@@ -75,10 +75,10 @@
    * 英文: Tools -> Preferences -> Advanced -> Content -> JavaScript Options -> My JavaScript files
    * 中文: 工具 -> 功能設定 -> 進階 -> 內容 -> JavaScript 選項 -> 使用者 JavaScript 檔案
  * 另存下載以下檔案:
-   * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_jQuery.ieuser.js Helianthus.Annuus:jQuery (必要)]
-   * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_Initializer.ieuser.js Helianthus.Annuus:Initializer (必要)]
-   * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_MainScript.ieuser.js Helianthus.Annuus:Main Script (可選)]
-   * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_RubbishRemover.ieuser.js Helianthus.Annuus:Rubbish Remover (可選)]
+   * [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/AN_jQuery.ieuser.js Helianthus.Annuus:jQuery (必要)]
+   * [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/AN_Initializer.ieuser.js Helianthus.Annuus:Initializer (必要)]
+   * [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/AN_MainScript.ieuser.js Helianthus.Annuus:Main Script (可選)]
+   * [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/AN_RubbishRemover.ieuser.js Helianthus.Annuus:Rubbish Remover (可選)]
  * 將所下載的檔案移至剛開設的文件夾.
  * 無需重新啟動即可使用.
 
