@@ -34,7 +34,7 @@
 
  * 請先安裝附加元件[https://addons.mozilla.org/en-US/firefox/addon/748 GreaseMonkey].
  * 重新啟動Firefox.
- * 按左擊安裝以下檔案:
+ * 左擊安裝以下檔案:
    * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_jQuery.user.js Helianthus.Annuus:jQuery (必要)]
    * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_Initializer.user.js Helianthus.Annuus:Initializer (必要)]
    * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_MainScript.user.js Helianthus.Annuus:Main Script (可選)]
@@ -46,8 +46,8 @@
 = Internet Explorer 7 =
 
  * 請先安裝[http://www.ie7pro.com/ IE7Pro].
- * 右按IE7Pro圖示 -> 喜好設定 -> 使用者指令碼 -> 啟用使用者指令碼 -> 確定.
- * 按左擊安裝以下檔案:
+ * 右擊IE7Pro圖示 -> 喜好設定 -> 使用者指令碼 -> 啟用使用者指令碼 -> 確定.
+ * 左擊安裝以下檔案:
    * [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/AN_jQuery.ieuser.js Helianthus.Annuus:jQuery (必要)]
    * [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/AN_Initializer.ieuser.js Helianthus.Annuus:Initializer (必要)]
    * [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/AN_MainScript.ieuser.js Helianthus.Annuus:Main Script (可選)]
