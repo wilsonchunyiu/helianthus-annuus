@@ -56,8 +56,13 @@
 
 = Google Chrome =
 
- * 請先安裝[http://greasemetal.31tools.com/ Greasemetal].
+ * 參考此處: http://dev.chromium.org/developers/design-documents/user-scripts
+ *
+ * 或
+ *
+ * 安裝[http://greasemetal.31tools.com/ Greasemetal].
  * 於開始選單啟動Greasemetal (以後若想使用Helianthus.Annuus必須透過Greasemetal啟動Google Chrome)
+ *
  * 另存下載以下檔案:
    * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_jQuery.user.js Helianthus.Annuus:jQuery (必要)]
    * [http://helianthus-annuus.googlecode.com/svn/trunk/user/AN_Initializer.user.js Helianthus.Annuus:Initializer (必要)]
