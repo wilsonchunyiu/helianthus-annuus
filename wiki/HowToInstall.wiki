@@ -70,7 +70,7 @@ with GreaseMetal:
    * Vista: 文件\userjs
  * 無需重新啟動即可使用.
 
-without GreaseMetal(無需安裝額外軟件, 但比較繁複, 適合進階使用者):
+without GreaseMetal(無需安裝額外軟件, 但比較繁複, 適合進階使用者, 僅適用於2.0+?):
 
  * 參考[http://dev.chromium.org/developers/design-documents/user-scripts 此處]了解如何安裝userscripts.
  * 所需檔案:
