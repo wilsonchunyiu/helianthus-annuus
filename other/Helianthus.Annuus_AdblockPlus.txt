@@ -2,5 +2,4 @@
 http://*.googlesyndication.com/
 http://*.pixelinteractivemedia.com/
 http://*.imrworldwide.com/
-http://*google-analytics.com/
 */200609design/*
