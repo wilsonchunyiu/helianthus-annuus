@@ -1,4 +1,4 @@
-﻿AN.box.oMain =
+﻿AN.box.external.main =
 {
 	"ver":
 	{
