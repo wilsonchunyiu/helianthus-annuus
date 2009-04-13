@@ -1,6 +1,6 @@
 ﻿#summary 如何安裝Helianthus.Annuus v3
 
-|| *官方元件* || *必要元件?* || *最新版本* || *下載地址* ||
+|| *官方元件* || *是否必要* || *最新版本* |||| *下載地址* ||
 || Libraries || V || 1.0.0 || [http://www.google.com/ user] || [http://www.google.com/ ieuser] ||
 || Kernels || V || 1.0.0 || [http://www.google.com/ user] || [http://www.google.com/ ieuser] ||
 || User Interface || X || 1.0.0 || [http://www.google.com/ user] || [http://www.google.com/ ieuser] ||
