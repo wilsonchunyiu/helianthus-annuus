@@ -1,4 +1,5 @@
 ﻿#summary 如何安裝Helianthus.Annuus v3
+#labels Featured,Phase-Deploy
 
 || *官方元件* || *是否必要* || *最新版本* |||| *下載地址* ||
 || Libraries || V || 1.0.0 || [http://www.google.com/ user] || [http://www.google.com/ ieuser] ||
