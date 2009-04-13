@@ -26,7 +26,11 @@
 || AJAX Integrator || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.ajax.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.ajax.ieuser.js ieuser] ||
 || 打包下載 || N/A || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.all.zip user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.all.zip ieuser] ||
 
+----
+<h1>安裝方法</h1>
 <wiki:toc depth="1" />
+
+----
 
 = Maxthon 2 (w/ IE8) =
 
@@ -36,8 +40,9 @@
   * %Maxthon的安裝位置%\Filter\Helianthus.Annuus\Scripts
   * (預設位置為 C:\Program Files\Maxthon2\Filter\Helianthus.Annuus\Scripts)
  * 跟據下圖指示啟用Helianthus.Annuus: Filter
- * http://helianthus-annuus.googlecode.com/svn/site/howtoinstall_m2_1.png
- * http://helianthus-annuus.googlecode.com/svn/site/howtoinstall_m2_2.png
+ http://helianthus-annuus.googlecode.com/svn/site/howtoinstall_m2_1.png
+
+ http://helianthus-annuus.googlecode.com/svn/site/howtoinstall_m2_2.png
 
 Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否啟用:
 
@@ -45,6 +50,7 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
 || 移除垃圾 || T ||
 || 快取圖片 || F ||
 
+----
 
 = Firefox 3 w/ Greasemonkey =
 
@@ -54,10 +60,12 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
 
 另外, 用戶可使用Adblock plus 配合 Helianthus.Annuus: Adblock Plus filter list使運行更快:
  * 跟據下圖指示加入filter list
- * http://helianthus-annuus.googlecode.com/svn/site/rubbishremover_01.png
- * http://helianthus-annuus.googlecode.com/svn/site/rubbishremover_02.png
- * 名稱可自選, 位址請複製此地址: http://helianthus-annuus.googlecode.com/svn/other/Helianthus.Annuus_AdblockPlus.txt
+ http://helianthus-annuus.googlecode.com/svn/site/rubbishremover_01.png
 
+ http://helianthus-annuus.googlecode.com/svn/site/rubbishremover_02.png
+ 名稱可自選, 位址請複製此地址: http://helianthus-annuus.googlecode.com/svn/other/Helianthus.Annuus_AdblockPlus.txt
+
+----
 
 = Google Chrome(Win) 1+ w/ Greasemetal =
 
@@ -67,16 +75,18 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
   * Vista/Win7: 文件\userjs
  * 於開始選單啟動Greasemetal (以後若想使用Helianthus.Annuus必須透過Greasemetal啟動Google Chrome)
 
+----
 
 = Google Chrome 2 =
 
- * `[[http://dev.chromium.org/developers/design-documents/user-scripts 此處]`]
+ * `[`[http://dev.chromium.org/developers/design-documents/user-scripts 此處]`]`
  * 於以下位置建立文件夾 - User Scripts:
-  * XP: C:\Documents and Settings\`<username`>\Local Settings\Application Data\Google\Chrome\User Data\Default
-  * Vista/Win7: C:\Users\`<username`>\AppData\Local\Google\Chrome\User Data\Default
+  * XP: C:\Documents and Settings\`<username>`\Local Settings\Application Data\Google\Chrome\User Data\Default
+  * Vista/Win7: C:\Users\`<username>`\AppData\Local\Google\Chrome\User Data\Default
  * 下載js元件至User Scripts文件夾
  * 以--enable-user-scripts命令行參數啟動Google Chrome
 
+----
 
 = Opera 9 =
 
@@ -88,6 +98,7 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
 
 另外, 用戶可參考[http://userjs.org/help/resources/toggle-user-javascript 此處]了解如何加入user scripts開關按扭
 
+----
 
 = Internet Explorer 8 w/ IE7Pro =
 
@@ -95,11 +106,13 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
  * 右擊IE7Pro圖示 -> 喜好設定 -> 使用者指令碼 -> 啟用使用者指令碼 -> 確定
  * 左鍵點擊js元件以進行安裝
 
+----
 
 = Safari(Mac) 3+ w/ Greasekit =
 
  * 由於作者沒有Mac OS, 所以無法測試, 請曾嘗試的用戶回報能否使用, 謝謝
 
+----
 
 = 其他瀏覽器 =
 
