@@ -68,7 +68,6 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
  http://helianthus-annuus.googlecode.com/svn/site/rubbishremover_01.png
 
  http://helianthus-annuus.googlecode.com/svn/site/rubbishremover_02.png
- 名稱可自選, 位址請複製此地址: http://helianthus-annuus.googlecode.com/svn/other/Helianthus.Annuus_AdblockPlus.txt
 
 ----
 
