@@ -2,11 +2,11 @@
 #labels Featured,Phase-Deploy
 
 || *瀏覽器* || *所需插件* || *user* || *ieuser* ||
-|| Maxthon 2 (w/ IE8) || 內置 || O || X ||
+|| Maxthon 2 (w/ IE8) || 內建 || O || X ||
 || Firefox 3 || [https://addons.mozilla.org/en-US/firefox/addon/748/ Greasemonkey] || O || X ||
 || Google Chrome(Win) 1+ || [http://greasemetal.31tools.com/ Greasemetal] || O || X ||
-|| Google Chrome 2 || 內置 || O || X ||
-|| Opera 9 || 內置 || O || X ||
+|| Google Chrome 2 || 內建 || O || X ||
+|| Opera 9 || 內建 || O || X ||
 || Internet Explorer 8 || [http://www.ie7pro.com/ IE7Pro] || X || O ||
 || Safari(Mac) 3+ || [http://8-p.info/greasekit/ GreaseKit] || O || X ||
 || 任何與以上內核相同或更新之瀏覽器 || 任何可動態修改HTML之軟件(eg. Proxomitron, Privoxy)? || O || O ||
