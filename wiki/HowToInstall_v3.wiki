@@ -1,6 +1,22 @@
 ﻿#summary 如何安裝Helianthus.Annuus v3
 #labels Featured,Phase-Deploy
 
+|| *官方元件* || *是否必要* || *最新版本* |||| *下載地址* ||
+|| Libraries || T || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.lib.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.lib.ieuser.js ieuser] ||
+|| Kernel || T || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.kernel.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.kernel.ieuser.js ieuser] ||
+|| User Interface || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.ui.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.ui.ieuser.js ieuser] ||
+|| Main Script || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.main.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.main.ieuser.js ieuser] ||
+|| Layout Designer || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.layout.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.layout.ieuser.js ieuser] ||
+|| Style Editor || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.style.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.style.ieuser.js ieuser] ||
+|| Comonents Redesigner || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.redesign.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.redesign.ieuser.js ieuser] ||
+|| AJAX Integrator || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.ajax.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.ajax.ieuser.js ieuser] ||
+|| 打包下載 || N/A || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.all.zip user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.all.zip ieuser] ||
+
+注1: user與ieuser內容完全相同, 唯一的分別是檔案名稱不同
+注2: 以上所有檔案皆屬於最新穩定版, 若要使用beta/nightly請參考[NotesOnNightly 此處]
+
+----
+
 || *瀏覽器* || *所需插件* || *user* || *ieuser* ||
 || Maxthon 2 (w/ IE8) || 內建 || O || X ||
 || Firefox 3 || [https://addons.mozilla.org/en-US/firefox/addon/748/ Greasemonkey] || O || X ||
@@ -12,19 +28,8 @@
 || 任何與以上內核相同或更新之瀏覽器 || 任何可動態修改HTML之軟件(eg. Proxomitron, Privoxy)? || O || O ||
 
 || *瀏覽器* || *額外元件* || *是否必要* || *最新版本* ||
-|| Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/an.m2filter.m2f Helianthus.Annuus: Filter] || T || 3.0.0 ||
-|| Firefox 3 || [http://helianthus-annuus.googlecode.com/svn/other/an.adblockplus.txt Helianthus.Annuus: Adblock Plus filter list] || F || N/A ||
-
-|| *官方元件* || *是否必要* || *最新版本* |||| *下載地址* ||
-|| Libraries || T || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.lib.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.lib.ieuser.js ieuser] ||
-|| Kernel || T || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.kernel.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.kernel.ieuser.js ieuser] ||
-|| User Interface || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.ui.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.ui.ieuser.js ieuser] ||
-|| Main Script || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.main.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.main.ieuser.js ieuser] ||
-|| Layout Designer || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.layout.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.layout.ieuser.js ieuser] ||
-|| Style Editor || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.style.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.style.ieuser.js ieuser] ||
-|| Comonents Redesigner || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.redesign.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.redesign.ieuser.js ieuser] ||
-|| AJAX Integrator || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.ajax.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.ajax.ieuser.js ieuser] ||
-|| 打包下載 || N/A || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.all.zip user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.all.zip ieuser] ||
+|| Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/an.m2filter.m2f Helianthus.Annuus: M2 Filter] || T || 3.0.0 ||
+|| Firefox 3 || [http://helianthus-annuus.googlecode.com/svn/other/an.adblockplus.txt Helianthus.Annuus: Adblock Plus Filter List] || F || N/A ||
 
 ----
 <h1>安裝方法</h1>
