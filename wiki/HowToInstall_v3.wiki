@@ -72,8 +72,8 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
 
  * `[[http://dev.chromium.org/developers/design-documents/user-scripts 此處]`]
  * 於以下位置建立文件夾 - User Scripts:
-  * XP: C:\Documents and Settings\<username>\Local Settings\Application Data\Google\Chrome\User Data\Default
-  * Vista/Win7: C:\Users\<username>\AppData\Local\Google\Chrome\User Data\Default
+  * XP: C:\Documents and Settings\`<username`>\Local Settings\Application Data\Google\Chrome\User Data\Default
+  * Vista/Win7: C:\Users\`<username`>\AppData\Local\Google\Chrome\User Data\Default
  * 下載js元件至User Scripts文件夾
  * 以--enable-user-scripts命令行參數啟動Google Chrome
 
@@ -103,5 +103,5 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
 
 = 其他瀏覽器 =
 
- * 用戶可參考此做法: http://blog.endflow.net/?p=63&lang=en
+ * 用戶可參考此做法(如成功實行煩請通知作者, 謝謝): http://blog.endflow.net/?p=63&lang=en
  * 若你知道如何在其他瀏覽器使用Helianthus.Annuus, 請告知[AboutAuthor 作者]
