@@ -1,6 +1,16 @@
 ﻿#summary 如何安裝Helianthus.Annuus v3
 #labels Featured,Phase-Deploy
 
+|| *瀏覽器* || *user* || *ieuser* ||
+|| Maxthon 2 || O || X ||
+|| Firefox 3 || O || X ||
+|| Google Chrome 1 w/ Greasemetal || O || X ||
+|| Google Chrome 2 || O || X ||
+|| Opera 9 || O || X ||
+|| IE8 w/ IE7Pro || X || O ||
+|| Safari(Mac) w/ GreaseKit || O || X ||
+|| 任何瀏覽器配合可動態修改HTML之軟件(eg. Proxomitron, Privoxy) || O || O ||
+
 || *官方元件* || *是否必要* || *最新版本* |||| *下載地址* ||
 || Libraries || T || 1.0.0 || [http://www.google.com/ user] || [http://www.google.com/ ieuser] ||
 || Kernels || T || 1.0.0 || [http://www.google.com/ user] || [http://www.google.com/ ieuser] ||
@@ -12,15 +22,8 @@
 || AJAX Integrator || F || 1.0.0 || [http://www.google.com/ user] || [http://www.google.com/ ieuser] ||
 || 打包下載 || N/A || N/A || [http://www.google.com/ user] || [http://www.google.com/ ieuser] ||
 
-|| *瀏覽器* || *user* || *ieuser* ||
-|| Maxthon 2 || O || X ||
-|| Firefox 3 || O || X ||
-|| Google Chrome 1 w/ Greasemetal || O || X ||
-|| Google Chrome 2 || O || X ||
-|| Opera 9 || O || X ||
-|| IE8 w/ IE7Pro || X || O ||
-|| Safari(Mac) w/ GreaseKit || X || O ||
-|| 任何瀏覽器配合可動態修改HTML之軟件(eg. Proxomitron, Privoxy) || O || O ||
+|| *瀏覽器* || *額外元件* || *是否必要* || *最新版本* ||
+|| Maxthon 2 || [http://www.google.com/ Helianthus.Annuus專用過濾包] || T || 3.0.0 ||
 
 <wiki:toc depth="1" />
 
