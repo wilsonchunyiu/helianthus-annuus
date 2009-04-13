@@ -12,8 +12,8 @@
 || AJAX Integrator || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.ajax.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.ajax.ieuser.js ieuser] ||
 || 打包下載 || N/A || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.all.zip user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.all.zip ieuser] ||
 
-注1: user與ieuser內容完全相同, 唯一的分別是檔案名稱不同
-注2: 以上所有檔案皆屬於最新穩定版, 若要使用beta/nightly請參考[NotesOnNightly 此處]
+* 注1: user與ieuser內容完全相同, 唯一的分別是檔案名稱不同
+* 注2: 以上所有檔案皆屬於最新穩定版, 若要使用beta/nightly請參考[NotesOnNightly 此處]
 
 ----
 
