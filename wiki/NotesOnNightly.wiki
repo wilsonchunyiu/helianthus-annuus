@@ -1,0 +1,9 @@
+﻿#summary 關於 Nightly builds
+
+= 關於 Nightly builds =
+
+由於Helianthus.Annuus現在正處於alpha階段, 因此現只提供nightly build下載以作測試, 這些版本極可能含有bug, 敬請留意.
+
+另外, nightly build不設自動更新功能, 用戶須自行檢查是否有新版本並手動更新.
+
+提示: 可到 http://code.google.com/p/helianthus-annuus/source/browse/#svn/trunk/user/ 查看最近修改日期

@@ -1,5 +1,4 @@
-﻿#summary 如何安裝Helianthus.Annuus
-#labels Deprecated
+﻿#summary 如何安裝Helianthus.Annuus v2
 
 <wiki:toc depth="1" />
 
