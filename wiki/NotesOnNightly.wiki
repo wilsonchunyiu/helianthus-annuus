@@ -1,7 +1,9 @@
-﻿#summary 關於 Beta/Nightly 版本
-= 關於 Beta/Nightly 版本 =
+﻿#summary 關於 beta/nightly 版本
+= 關於 beta/nightly 版本 =
 
-Nightly版本通常帶有新功能, 但可能完全未經測試, 含有bug的機會極大, 因此使用nightly版本前請記得備份選項資料<br />
-用戶可到http://helianthus-annuus.googlecode.com/svn/trunk/下載nightly版本<br />
+nightly版本通常帶有新功能, 但可能完全未經測試, 含有bug的機會極大, 因此使用nightly版本前請記得備份選項資料<br />
+
+用戶可到 http://helianthus-annuus.googlecode.com/svn/trunk/ 下載nightly版本
+
 另外, 由於nightly版本暫時無法自動更新, 用戶須自行檢查是否有新版本並手動更新<br />
-用戶可到 http://code.google.com/p/helianthus-annuus/source/browse/#svn/trunk/user/ 查看最近修改日期<br />
+用戶可到 http://code.google.com/p/helianthus-annuus/source/browse/#svn/trunk/ 查看最近修改日期<br />
