@@ -13,7 +13,7 @@
 || 打包下載 || N/A || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.all.zip user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.all.zip ieuser] ||
 
 注1: user與ieuser內容完全相同, 唯一的分別是檔案名稱不同<br />
-注2: 以上所有檔案皆屬於最新穩定版, 若要使用beta/nightly請參考[NotesOnNightly 此處]
+注2: 以上所有檔案皆屬於最新穩定版, 若想使用beta/nightly版本請參考[NotesOnNightly 此處]
 
 ----
 
