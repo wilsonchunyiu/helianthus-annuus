@@ -13,6 +13,10 @@ nightly版本通常帶有新功能, 但可能完全未經測試, 含有bug的機
 || Comonents Redesigner || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.redesign.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/an.redesign.ieuser.js ieuser] ||
 || AJAX Integrator || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.ajax.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/an.ajax.ieuser.js ieuser] ||
 
+
+|| *瀏覽器* || *額外元件* ||
+|| Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/trunk/an.m2filter.m2f Helianthus.Annuus: M2 Filter] ||
+
 另外, 由於nightly版本暫時無法自動更新, 用戶須自行檢查是否有新版本並手動更新<br />
 用戶可到 [http://code.google.com/p/helianthus-annuus/source/browse/#svn/trunk/] 查看最近修改日期,<br />
 或 [http://code.google.com/p/helianthus-annuus/source/list] 查看最新改動
