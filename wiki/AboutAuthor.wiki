@@ -9,6 +9,6 @@
 若對於Helianthus.Annuus有任何問題、意見, 可透過以下方法聯絡作者:
 
  # 使用google code內建的Issue tracking來提交bug report
- # Helianthus.Annuus位於高登論壇的最新發佈帖: http://forum1.hkgolden.com/view.aspx?message=1452132
+ # Helianthus.Annuus位於高登論壇的最新發佈帖: http://forum1.hkgolden.com/view.aspx?message=1664716
  # 高登PM: http://forum1.hkgolden.com/ProfilePage.aspx?userid=148720
  # email: project.helianthus@gmail.com
