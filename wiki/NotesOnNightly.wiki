@@ -15,5 +15,5 @@ nightly版本通常帶有新功能, 但可能完全未經測試, 含有bug的機
 || 打包下載 || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.all.user.zip user] || [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/an.all.ieuser.zip ieuser] ||
 
 另外, 由於nightly版本暫時無法自動更新, 用戶須自行檢查是否有新版本並手動更新<br />
-用戶可到 [http://code.google.com/p/helianthus-annuus/source/browse/#svn/trunk/] 查看最近修改日期,
+用戶可到 [http://code.google.com/p/helianthus-annuus/source/browse/#svn/trunk/] 查看最近修改日期,<br />
 或 [http://code.google.com/p/helianthus-annuus/source/list] 查看最新改動
