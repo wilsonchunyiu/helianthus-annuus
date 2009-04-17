@@ -4,6 +4,8 @@
 
 <wiki:toc max_depth="2" />
 
+----
+
 == 安裝後沒有效果? ==
 
 請確認瀏覽器已安裝flash player
