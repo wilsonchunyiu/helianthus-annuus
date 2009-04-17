@@ -12,8 +12,10 @@
   * 可制定profile
   * 回覆失敗訊息
   * 改進帖子開新頁
+
  * 次要
   * 整合westkit功能(eg. public banlist)
+
  * 有需求才做
   * check pm
   * ajax loading icon
@@ -34,6 +36,7 @@
   * 移除用戶級別圖片
   * UI加入跳頁按扭
   * 同步登入所有foru
+
  * 待接受
   * 顯示引文作者
   * 與其他script兼容
