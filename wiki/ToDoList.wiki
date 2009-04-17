@@ -2,26 +2,27 @@
 
 === To-do ===
 
-必做:
- * 按扭元件
- * 快速回覆元件
-
- * Color picker for settings / 寫個webpage去幫助自訂化
- * 加入/修改另類引文方式
- * 拉闊頁面可set %
- * 可制定profile
- * 回覆失敗訊息
- * 改進帖子開新頁
-
-有需求才做:
- * check pm
- * ajax loading icon
- * 移除留名post
- * ajax化標題頁轉頁
+ * 主要
+  * 按扭元件
+  * 快速回覆元件
+  *
+  * Color picker for settings / 寫個webpage去幫助自訂化
+  * 加入/修改另類引文方式
+  * 拉闊頁面可set %
+  * 可制定profile
+  * 回覆失敗訊息
+  * 改進帖子開新頁
+ * 次要
+  * 整合westkit功能(eg. public banlist)
+ * 有需求才做
+  * check pm
+  * ajax loading icon
+  * 移除留名post
+  * ajax化標題頁轉頁
 
 === Feature Request ===
 
-已接受:
+ * 已接受
   * 加入另一種快速回覆隱藏方式
   * 改進引用風格顯示
   * 引用風格可預設顯示多於一層
@@ -32,8 +33,11 @@
   * 快速回覆可選擇透明度
   * 移除用戶級別圖片
   * UI加入跳頁按扭
-  * 同步登入所有forum
-
-待接受:
+  * 同步登入所有foru
+ * 待接受
   * 顯示引文作者
   * 與其他script兼容
+
+=== v4 改進 ===
+
+ * 可即時啟動某功能
