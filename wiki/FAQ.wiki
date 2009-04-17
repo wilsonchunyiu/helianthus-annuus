@@ -1,0 +1,11 @@
+#summary 常見問題
+
+= 常見問題 =
+
+<wiki:toc max_depth="2" />
+
+== 安裝後沒有效果? ==
+
+請確認瀏覽器已安裝flash player
+
+Firefox用戶, 如有使用Adblock, 建議改為使用Adblock Plus; 如有使用NoScript, 則請將googlecode.com加入白名單
