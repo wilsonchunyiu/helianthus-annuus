@@ -39,6 +39,7 @@
 
 = Maxthon 2 (w/ IE8) =
 
+ * 啟用Use IE8 Standard Rendering Mode(使用 IE8 標準轉譯模式)選項, 然後重新開啟Maxthon 2
  * 安裝Helianthus.Annuus: Filter
  * 正常來說Maxthon 2會自動詢問是否安裝, 如沒有請下載該過濾包並將其拖放至Maxthon 2視窗
  * 下載js元件移至:
