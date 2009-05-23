@@ -110,6 +110,7 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
 
 = Internet Explorer 8 w/ IE7Pro =
 
+ * (暫時停止支持, 詳情: [http://forum1.hkgolden.com/view.aspx?message=1705086])
  * 安裝IE7Pro
  * 右擊IE7Pro圖示 -> 喜好設定 -> 使用者指令碼 -> 啟用使用者指令碼 -> 確定
  * 左鍵點擊js元件以進行安裝
