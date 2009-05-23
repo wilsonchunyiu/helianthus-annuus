@@ -13,7 +13,7 @@
 
 Firefox用戶:
  * 如有使用Adblock, 建議改為使用Adblock Plus
- * 如有使用NoScript, 則請將googlecode.com加入白名單
+ * 如有使用!NoScript, 則請將googlecode.com加入白名單
 
 Maxthon 2用戶:
  * 據知Internet Download Manager會使Maxthon 2 filter功能失效, 如有安裝, 請嘗試將其解安裝再作嘗試
