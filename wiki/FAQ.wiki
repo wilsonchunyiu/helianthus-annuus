@@ -8,6 +8,28 @@
 
 == 安裝後沒有效果? ==
 
-請確認瀏覽器已安裝flash player
+所有用戶:
+ * 請確認瀏覽器已安裝flash player
 
-Firefox用戶, 如有使用Adblock, 建議改為使用Adblock Plus; 如有使用NoScript, 則請將googlecode.com加入白名單
+Firefox用戶:
+ * 如有使用Adblock, 建議改為使用Adblock Plus
+ * 如有使用NoScript, 則請將googlecode.com加入白名單
+
+Maxthon 2用戶:
+ * 據知Internet Download Manager會使Maxthon 2 filter功能失效, 如有安裝, 請嘗試將其解安裝再作嘗試
+
+== 部份功能失效/部份介面顯示出錯? ==
+
+Maxthon 2用戶:
+ * 請確認已安裝IE8, 及已啟用Use IE8 Standard Rendering Mode(使用 IE8 標準轉譯模式)選項
+
+== Flash與DOM儲存方式有何不同? ==
+
+Flash:
+ * 特點: 所有瀏覽器, 所有伺服器共用同一個設定
+ * 缺點: 會使網頁載入較慢, 原因是每次載入皆須讀取一個外部的flash檔案
+
+DOM:
+ * 特點: 無論是瀏覽器或是伺服器, 設定皆不互通
+ * 優點: 讀取速度較快
+ * 缺點: Opera及Chrome暫時不支持
