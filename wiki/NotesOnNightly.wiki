@@ -12,6 +12,7 @@ nightly版本通常帶有新功能, 但可能完全未經測試, 含有bug的機
 || Style Editor || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.style.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/an.style.ieuser.js ieuser] ||
 || Comonents Redesigner || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.redesign.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/an.redesign.ieuser.js ieuser] ||
 || AJAX Integrator || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.ajax.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/an.ajax.ieuser.js ieuser] ||
+|| 打包下載 || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.user.zip user] || [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/an.ieuser.zip ieuser] ||
 
 
 || *瀏覽器* || *額外元件* ||
