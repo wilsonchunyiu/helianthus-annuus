@@ -12,6 +12,8 @@
   * 可制定profile
   * 回覆失敗訊息
   * 改進帖子開新頁
+  * settings選項強化, 如組合checkbox+radio
+  * 顯示盜鏈, domain被禁圖片
 
  * 次要
   * 整合westkit功能(eg. public banlist)
