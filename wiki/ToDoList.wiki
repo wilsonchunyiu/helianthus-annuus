@@ -18,6 +18,8 @@
   * 回覆失敗訊息
   * 改進帖子開新頁
   * 顯示盜鏈, domain被禁圖片
+  * 重製bookmark bar
+  * 一鍵留名
 
  * 次要
   * 整合westkit功能(eg. public banlist)
