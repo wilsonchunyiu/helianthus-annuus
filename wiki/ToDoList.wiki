@@ -22,6 +22,7 @@
   * 顯示盜鏈, domain被禁圖片
   * 重製bookmark bar
   * 一鍵留名
+  * jetpack, chrome extension
 
  * 次要
   * 整合westkit功能(eg. public banlist)
