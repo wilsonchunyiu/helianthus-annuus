@@ -5,6 +5,11 @@
  * 元件
   * 按扭元件
   * 快速回覆元件
+ * 急切
+  * DOMLoad前移除廣告script (Chrome & Opera)
+  * IE8 window.open bug?
+  * 開新頁功能改進 (eg.所有連結)
+  * 研究IE8動態更新已訪問連結顏色bug
  * 主要
   * Color picker for settings / 寫個webpage去幫助自訂化
   * 加入/修改另類引文方式
