@@ -7,7 +7,7 @@
   * IE8, Opera flash問題
   * check filter update
   * DOMLoad前移除廣告script (Chrome & Opera)
-  * IE8 window.open bug?
+  * IE8開新頁bug?
   * 開新頁功能改進 (eg.所有連結)
   * 研究IE8動態更新已訪問連結顏色bug
  * 元件
