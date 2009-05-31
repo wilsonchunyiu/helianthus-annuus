@@ -3,8 +3,8 @@
 === To-do ===
 
  * 急切
-  * IE8 縮放圖片功能極慢問題
-  * IE8, ~~Opera~~ flash問題
+  * ~~IE8 縮放圖片功能極慢問題~~
+  * IE8~~, Opera~~ flash問題
   * ~~check filter update~~
   * DOMLoad前移除廣告script (Chrome & Opera)
   * IE8(MX2?)開新頁bug
