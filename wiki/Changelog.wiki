@@ -1,5 +1,9 @@
 #summary 更新日誌
 
+[HowToInstall 穩定版下載點]
+
+[NotesOnNightly 測試版下載點]
+
 {{{
 
 ------------
