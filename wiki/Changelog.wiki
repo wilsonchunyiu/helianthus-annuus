@@ -11,6 +11,10 @@ x 臭蟲修正
 
 ?/?/2009
 
+MX2 Filter:
+
+* AN現在可對filter進行檢查更新
+
 Kernel:
 
 x 修正Opera無法使用Flash儲存方式的問題
@@ -23,7 +27,7 @@ Main:
 
 Component Redesigner:
 
-* 修正"改變快速回覆的風格"的一個顯示bug
+x 修正"改變快速回覆的風格"的一個顯示bug
 
 Layout Changer:
 
