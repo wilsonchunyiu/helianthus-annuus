@@ -1,6 +1,0 @@
-[Adblock]
-http://www.google-analytics.com/ga.js
-http://*.googlesyndication.com/
-http://*.pixelinteractivemedia.com/
-http://*.imrworldwide.com/
-*/200609design/*
