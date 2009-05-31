@@ -8,7 +8,6 @@
   * Color picker for settings / 寫個webpage去幫助自訂化
   * 加入/修改另類引文方式
   * 拉闊頁面可set %
-  * 可制定profile
   * 回覆失敗訊息
   * 改進帖子開新頁
   * ~~顯示盜鏈, domain被禁圖片~~
@@ -58,3 +57,4 @@
  * 可即時啟動某功能
  * settings選項強化, 如組合checkbox+radio
  * 重寫核心, 將功能與UI完全分開
+ * 可制定profile
