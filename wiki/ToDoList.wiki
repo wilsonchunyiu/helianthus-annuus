@@ -2,14 +2,11 @@
 
 === To-do ===
 
- * 急切
-  * ~~IE8 縮放圖片功能極慢問題~~
-  * IE8~~, Opera~~ flash問題
-  * ~~check filter update~~
-  * DOMLoad前移除廣告script (Chrome & Opera)
+ * 已知問題
+  * IE8 flash問題
   * IE8(MX2?)開新頁bug
-  * ~~開新頁功能改進 (eg.所有連結)~~
-  * 研究IE8動態更新已訪問連結顏色bug
+  * IE8動態更新已訪問連結顏色bug
+  * Chrome & Opera於"限制回覆格高度"的scrollbar bug
  * 元件
   * 按扭元件
   * 快速回覆元件
@@ -24,6 +21,7 @@
   * 重製bookmark bar
   * 一鍵留名
   * jetpack, chrome extension
+  * DOMLoad前移除廣告script (Chrome & Opera)
 
  * 次要
   * 整合westkit功能(eg. public banlist)
