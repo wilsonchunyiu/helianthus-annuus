@@ -31,6 +31,7 @@ Main:
 + 優化"限制回覆格高度" (未能解決Opera與Chrome的scrollbar問題)
 + 優化"優化圖片縮放", 直接使用CSS, 效率極高
 - 去除"優化圖片縮放"中的"最大長闊比例"及"指標停留在圖片上時提示大小", 若有用戶希望保留請在論壇提出
+- 更改"修改引用半透明"為"去除引用半透明"
 
 Component Redesigner:
 
@@ -43,5 +44,6 @@ Layout Changer:
 User Interface:
 
 - 更改評測視窗闊度
+x 修正儲存設定的一個bug
 
 }}}
