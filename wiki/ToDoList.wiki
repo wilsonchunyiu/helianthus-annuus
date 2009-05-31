@@ -2,11 +2,6 @@
 
 === To-do ===
 
- * 已知問題
-  * IE8 flash問題
-  * IE8(MX2?)開新頁bug
-  * IE8動態更新已訪問連結顏色bug
-  * Chrome & Opera於"限制回覆格高度"的scrollbar bug
  * 元件
   * 按扭元件
   * 快速回覆元件
@@ -51,6 +46,14 @@
  * 待接受
   * 顯示引文作者
   * 與其他script兼容
+
+=== Known Issues ===
+
+ * 已知問題
+  * IE8 flash問題
+  * IE8(MX2?)開新頁bug
+  * IE8動態更新已訪問連結顏色bug
+  * Chrome & Opera於"限制回覆格高度"的scrollbar bug
 
 === v4 改進 ===
 
