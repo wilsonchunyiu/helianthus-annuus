@@ -2,10 +2,9 @@
 
 === To-do ===
 
- * 元件
+ * 主要
   * 按扭元件
   * 快速回覆元件
- * 主要
   * Color picker for settings / 寫個webpage去幫助自訂化
   * 加入/修改另類引文方式
   * 拉闊頁面可set %
