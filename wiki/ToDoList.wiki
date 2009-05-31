@@ -54,7 +54,7 @@
  * IE8動態更新已訪問連結顏色bug
  * Chrome & Opera於"限制回覆格高度"的scrollbar bug
 
-=== v4 改進 ===
+=== v4 Improvements ===
 
  * 可即時啟動某功能
  * settings選項強化, 如組合checkbox+radio
