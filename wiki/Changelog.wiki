@@ -14,6 +14,7 @@ x 臭蟲修正
 MX2 Filter:
 
 * AN現在可對filter進行檢查更新
++ 對bookmark bar清除得更乾淨
 
 Kernel:
 
