@@ -36,6 +36,7 @@ Main:
 Component Redesigner:
 
 x 修正"改變快速回覆的風格"的一個顯示bug
++ "改變快速回覆的風格"加入"透明度"選項
 
 Layout Changer:
 
