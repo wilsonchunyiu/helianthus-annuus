@@ -14,6 +14,7 @@
   * ~~一鍵留名~~
   * jetpack, chrome extension
   * DOMLoad前移除廣告script (Chrome & Opera)
+  * 強制檢查更新
 
  * 次要
   * 整合westkit功能(eg. public banlist)
