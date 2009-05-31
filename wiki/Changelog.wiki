@@ -14,10 +14,19 @@ x 臭蟲修正
 Kernel:
 
 x 修正Opera無法使用Flash儲存方式的問題
++ 幾個內部功能優化
 
 Main:
 
 * 加入"顯示防盜鏈/域名被禁圖片"
 * 加入"快速3擊左鍵關閉頁面"
+
+Component Redesigner:
+
+* 修正"改變快速回覆的風格"的一個顯示bug
+
+Layout Changer:
+
++ 改變"Opera: 修正發表按扭位置"為Opera限定使用
 
 }}}
