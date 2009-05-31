@@ -15,7 +15,7 @@
   * jetpack, chrome extension
   * DOMLoad前移除廣告script (Chrome & Opera)
   * 強制檢查更新
-  * 標題訂閱, 自動檢查是否有新回覆
+  * 帖子訂閱, 自動檢查是否有新回覆
 
  * 次要
   * 整合westkit功能(eg. public banlist)
