@@ -13,7 +13,7 @@ x 臭蟲修正
 
 === 2009.6.1 ===
 
-Main:
+Main 1.0.7:
 
 * 加入"Opera: 修正無法使用Enter搜尋的錯誤"
 x 修正"連結開新頁"造成搜尋按扭出錯的問題
@@ -21,18 +21,18 @@ x 修正"連結開新頁"造成搜尋按扭出錯的問題
 
 === 2009.6.1 ===
 
-MX2 Filter:
+MX2 Filter 3.1.2:
 
 * AN現在可對filter進行檢查更新
 + 對bookmark bar清除得更乾淨
 
-Kernel:
+Kernel 1.1.4:
 
 x 修正Opera無法使用Flash儲存方式的問題
 + 幾個內部功能優化
 - 更改"自動檢查更新"的跳轉地址為本頁
 
-Main:
+Main 1.0.6:
 
 * 加入"顯示防盜鏈/域名被禁圖片"
 * 加入"快速3擊左鍵關閉頁面"
@@ -42,16 +42,16 @@ Main:
 - 更改"修改引用半透明"為"去除引用半透明"
 * 加入"加入一鍵留名按扭"
 
-Component Redesigner:
+Component Redesigner 1.0.4:
 
 x 修正"改變快速回覆的風格"的一個顯示bug
 + "改變快速回覆的風格"加入"透明度"選項
 
-Layout Changer:
+Layout Changer 1.0.4:
 
 + 改變"Opera: 修正發表按扭位置"為Opera限定使用
 
-User Interface:
+User Interface 1.1.3:
 
 - 更改評測視窗闊度
 x 修正儲存設定的一個bug
