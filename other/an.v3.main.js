@@ -10,10 +10,10 @@
 		{
 			"MX2 Filter": "3.1.2",
 			"AJAX Integrator": "1.0.3",
-			"Kernel": "1.1.4",
+			"Kernel": "1.1.5",
 			"Layout Designer": "1.0.4",
 			"Libraries": "1.0.1",
-			"Main Script": "1.0.7",
+			"Main Script": "1.0.8",
 			"Component Redesigner": "1.0.4",
 			"Style Editor": "1.0.3",
 			"User Interface": "1.1.3"
