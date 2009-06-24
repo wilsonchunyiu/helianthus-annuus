@@ -13,10 +13,10 @@
 			"Kernel": "1.1.5",
 			"Layout Designer": "1.0.4",
 			"Libraries": "1.0.1",
-			"Main Script": "1.0.8",
-			"Component Redesigner": "1.0.4",
+			"Main Script": "1.0.9",
+			"Component Redesigner": "1.0.5",
 			"Style Editor": "1.0.3",
-			"User Interface": "1.1.3"
+			"User Interface": "1.1.4"
 		}
 	}
 };
