@@ -80,7 +80,7 @@ AN.temp.push(function()
 	options:
 	{
 		// variable name
-		// note: use a unique name as it is in the Kernel scope (not in module scope), this behavior will probably be changed in future release
+		// note: use a unique name as it is in the Kernel scope (not in module scope)
 		sampleOption:
 		{
 			// @com required 
@@ -170,17 +170,12 @@ AN.temp.push(function()
 	desc: 'Alternate Row Background Color (alternative method)',
 	page: { 4: false },
 	type: 'sample',
-	options: // although you can actually use the options defined at the above function, this is not encouraged since as mentioned above this behavior will probably be changed
+	options:
 	{
-		sample_alt_rowColor: // as unique as possible
-		{
-			desc: 'Row color',
-			defaultValue: '#CCC',
-			type: 'text' // a color type will be added so that users can use a colorpicker instead
-		},
+		sample_alt_rowColor: { desc: 'Row color', defaultValue: '#CCC', type: 'text' },
 		sample_alt_rowColor2: { desc: 'Row color 2', defaultValue: '#AAA', type: 'text' }
 	},
-	once: function()
+	once: function() // once is enough!
 	{
 		// $.spritf() is a jQuery plugin included in lib.js
 		// AN.util.addStyle let you write css as usual
