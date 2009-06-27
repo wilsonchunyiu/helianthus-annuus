@@ -43,7 +43,7 @@ AN.temp.push(function()
 	// you can optionally add a new function type
 	// @param arg1 type id
 	// @param arg2 type description
-	AN.util.addFnType('sample', 'Sample Module');
+	AN.util.addFnType('sample', 'Sample');
 
 	// module name
 	AN.mod['Sample Module'] =
@@ -70,7 +70,8 @@ AN.temp.push(function()
 	page: { 20: true, 8: false },
 	// @com required
 	// for type no. pls refer to kernel.js or the API doc page
-	type: 2,
+	// you can also use custom type
+	type: 'sample',
 	// @com optional
 	// defer the function execution(s), value can be 1-5, the larger the latter
 	defer: 1,
@@ -79,7 +80,7 @@ AN.temp.push(function()
 	options:
 	{
 		// variable name
-		// note: use a unique name as it is in the Kernel scope (not in module scope)
+		// note: use a unique name as it is in the Kernel scope (not in module scope), this behavior will probably be changed in future release
 		sampleOption:
 		{
 			// @com required 
@@ -89,11 +90,14 @@ AN.temp.push(function()
 			// default value
 			// for checkbox use true/false
 			// for text use any string
-			// for select use array
-			defaultValue: [1,2,3,4,5],
+			// for select a value in the choices array
+			defaultValue: 1,
 			// @com required 
 			// you can use checkbox for boolean, text for string, select for fixed choices
-			type: 'select'
+			type: 'select',
+			// @com required when type is select
+			// use an array for choices in the drop-down menu
+			choices: [1,2,3,4,5]
 		},
 		// you can add as many options as you can
 		sampleOption2: { desc: 'Sample Option 2', defaultValue: true, type: 'checkbox' }
@@ -153,23 +157,39 @@ AN.temp.push(function()
 			
 			var cells = row.getElementsByTagName('td'); // we cant set background-color on tr so we have to set it on each cell
 			for(var j=0; j<cells.length; j++)
-			{
+			{
 				cells[j].style.backgroundColor = color;
 			}
 		}
-		
-		/* // actually there is a more efficient method, find out more at style.js
-		
+	}
+},
+
+// Here is a more efficient method to archieve the same effect, find out more at style.js
+'6a9cc419-c228-4d58-8899-f14acc86900a': // you can also use GUID
+{
+	desc: 'Alternate Row Background Color (alternative method)',
+	page: { 4: false },
+	type: 'sample',
+	options: // although you can actually use the options defined at the above function, this is not encouraged since as mentioned above this behavior will probably be changed
+	{
+		sample_alt_rowColor: // as unique as possible
+		{
+			desc: 'Row color',
+			defaultValue: '#CCC',
+			type: 'text' // a color type will be added so that users can use a colorpicker instead
+		},
+		sample_alt_rowColor2: { desc: 'Row color 2', defaultValue: '#AAA', type: 'text' }
+	},
+	once: function()
+	{
 		// $.spritf() is a jQuery plugin included in lib.js
 		// AN.util.addStyle let you write css as usual
 		AN.util.addStyle($.sprintf('\
-		td[style*="background-color: #FFFFFF"],td[style*="background-color: #ffffff"],td[style*="background-color: rgb(255, 255, 255)"] { background-color: %(sample_rowColor)s !important; } \
-		td[style*="background-color: #F8F8F8"],td[style*="background-color: #f8f8f8"],td[style*="background-color: rgb(248, 248, 248)"] { background-color: %(sample_rowColor2)s !important; } \
+		td[style*="background-color: #FFFFFF"], td[style*="background-color: #ffffff"], td[style*="background-color: rgb(255, 255, 255)"] { background-color: %(sample_alt_rowColor)s !important; } \
+		td[style*="background-color: #F8F8F8"], td[style*="background-color: #f8f8f8"], td[style*="background-color: rgb(248, 248, 248)"] { background-color: %(sample_alt_rowColor2)s !important; } \
 		',
 		AN.util.getOptions() // get an object of all options, ie. AN.util.getOptions().sample_rowColor == AN.util.getOptions('sample_rowColor')
 		));
-		
-		*/
 	}
 }
 
