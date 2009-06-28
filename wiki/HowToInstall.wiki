@@ -21,7 +21,7 @@
 || Maxthon 2 (w/ IE8) || 內建 || O || X ||
 || Firefox 3 || [https://addons.mozilla.org/en-US/firefox/addon/748/ Greasemonkey] || O || X ||
 || Google Chrome(Win) 1+ || [http://greasemetal.31tools.com/ Greasemetal] || O || X ||
-|| Google Chrome 2 || 內建 || O || X ||
+|| Google Chrome 2+ || 內建 || O || X ||
 || Opera 9 || 內建 || O || X ||
 || Internet Explorer 8 || [http://www.ie7pro.com/ IE7Pro] || X || O ||
 || Safari(Mac) 3+ || [http://8-p.info/greasekit/ GreaseKit] || O || X ||
