@@ -85,7 +85,7 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
 
 ----
 
-= Google Chrome 2 =
+= Google Chrome 2+ =
 
  * [http://dev.chromium.org/developers/design-documents/user-scripts]
  * 於以下位置建立文件夾 - User Scripts:
