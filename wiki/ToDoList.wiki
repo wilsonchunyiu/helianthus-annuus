@@ -7,7 +7,7 @@
   * 快速回覆元件
   * Color picker for settings / 寫個webpage去幫助自訂化
   * 加入/修改另類引文方式
-  * 拉闊頁面可set %
+  * ~~拉闊頁面可set %~~
   * 回覆失敗訊息
   * ~~顯示盜鏈, domain被禁圖片~~
   * 重製bookmark bar
@@ -17,6 +17,7 @@
   * 強制檢查更新
   * 帖子訂閱, 自動檢查是否有新回覆
   * 顯示帖子頁中其他帖子頁連結的標題
+  * bookmark bar rounded corner for Webkit & Opera
 
  * 次要
   * 整合westkit功能(eg. public banlist)
@@ -38,7 +39,7 @@
   * 到頁底自動讀取新回覆
   * 有新回覆可自動跳至
   * ~~快速回覆可選擇透明度~~
-  * 移除用戶級別圖片
+  * ~~移除用戶級別圖片~~
   * UI加入跳頁按扭
   * 同步登入所有forum
   * 半隱藏UI
