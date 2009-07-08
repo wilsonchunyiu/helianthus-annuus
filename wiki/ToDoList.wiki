@@ -13,11 +13,11 @@
   * 重製bookmark bar
   * ~~一鍵留名~~
   * jetpack, chrome extension
-  * DOMLoad前移除廣告script (Chrome & Opera)
+  * ~~DOMLoad前移除廣告script (Chrome & Opera)~~
   * 強制檢查更新
   * 帖子訂閱, 自動檢查是否有新回覆
   * 顯示帖子頁中其他帖子頁連結的標題
-  * bookmark bar rounded corner for Webkit & Opera
+  * ~~bookmark bar rounded corner for Webkit & Opera~~
 
  * 次要
   * 整合westkit功能(eg. public banlist)
@@ -50,10 +50,10 @@
 
 === Known Issues ===
 
- * IE8 flash問題
+ * ~~IE8 flash問題~~
  * ~~IE8(MX2?)開新頁bug~~(已於MX2 2.5.2.6608-beta4修正)
  * IE8動態更新已訪問連結顏色bug
- * Chrome & Opera於"限制回覆格高度"的scrollbar bug
+ * ~~Chrome & Opera於"限制回覆格高度"的scrollbar bug~~
 
 === v4 Improvements ===
 
