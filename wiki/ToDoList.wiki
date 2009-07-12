@@ -43,7 +43,7 @@
   * UI加入跳頁按扭
   * ~~同步登入所有forum~~
   * ~~半隱藏UI~~
-  * table bg transparent
+  * table bg transparent(difficult)
 
  * 待接受
   * 顯示引文作者
