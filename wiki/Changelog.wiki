@@ -13,6 +13,16 @@ x 臭蟲修正
 
 === 2009.7.12 ===
 
+MX2 Filter 3.2.0:
++ 更新"FixTopicLayout"以配合論壇改動
+* 加入"FixBookmarkBar", 現能正常使用Bookmark Bar
+- 更變"Rubbish Remover"中的"Bookmark Bar"為預設停用
+* 加入"ForceStrictMode"以強制令頁面以strict mode剖析
+
+*:
+- 加入元件作者名稱
+x 修正無法用於新版Chrome/Chromium的問題
+
 Library 1.0.2:
 - 啟用jQuery的noConflict, 並將AN.$及AN.jQuery指向jQuery
 
