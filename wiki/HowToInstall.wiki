@@ -2,28 +2,28 @@
 #labels Featured,Phase-Deploy
 
 || *官方元件* || *是否必要* || *最新版本* |||| *下載地址* ||
-|| Libraries || T || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.lib.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.lib.ieuser.js ieuser] ||
-|| Kernel || T || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.kernel.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.kernel.ieuser.js ieuser] ||
-|| User Interface || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.ui.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.ui.ieuser.js ieuser] ||
-|| Main Script || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.main.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.main.ieuser.js ieuser] ||
-|| Layout Designer || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.layout.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.layout.ieuser.js ieuser] ||
-|| Style Editor || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.style.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.style.ieuser.js ieuser] ||
-|| Comonents Redesigner || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.redesign.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.redesign.ieuser.js ieuser] ||
-|| AJAX Integrator || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.ajax.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.ajax.ieuser.js ieuser] ||
-|| 打包下載 || N/A || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.all.user.zip user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/ieuser/an.all.ieuser.zip ieuser] ||
+|| Libraries || T || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.lib.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/opera/an.lib.opera.js opera] ||
+|| Kernel || T || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.kernel.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/opera/an.kernel.opera.js opera] ||
+|| User Interface || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.ui.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/opera/an.ui.opera.js opera] ||
+|| Main Script || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.main.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/opera/an.main.opera.js opera] ||
+|| Layout Designer || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.layout.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/opera/an.layout.opera.js opera] ||
+|| Style Editor || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.style.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/opera/an.style.opera.js opera] ||
+|| Comonents Redesigner || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.redesign.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/opera/an.redesign.opera.js opera] ||
+|| AJAX Integrator || F || 1.0.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.ajax.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/opera/an.ajax.opera.js opera] ||
+|| 打包下載 || N/A || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.all.user.zip user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/opera/an.all.opera.zip opera] ||
 
-注1: user與ieuser內容完全相同, 唯一的分別是檔案名稱不同<br />
+注1: user與opera內容完全相同, 唯一的分別是檔案名稱不同<br />
 注2: 以上所有檔案皆屬於最新穩定版, 若想使用beta/nightly版本請參考[NotesOnNightly 此處]
 
 ----
 
-|| *瀏覽器* || *所需插件* || *user* || *ieuser* ||
+|| *瀏覽器* || *所需插件* || *user* || *opera* ||
 || Maxthon 2 (w/ IE8) || 內建 || O || X ||
 || Firefox 3 || [https://addons.mozilla.org/en-US/firefox/addon/748/ Greasemonkey] || O || X ||
 || Google Chrome(Win) 1+ || [http://greasemetal.31tools.com/ Greasemetal] || O || X ||
 || Google Chrome 2+ || 內建 || O || X ||
-|| Opera 9 || 內建 || O || X ||
-|| Internet Explorer 8 || [http://www.ie7pro.com/ IE7Pro] || X || O ||
+|| Opera 9 || 內建 || X || O ||
+|| ~~Internet Explorer 8~~ || ~~[http://www.ie7pro.com/ IE7Pro]~~ || X || X ||
 || Safari(Mac) 3+ || [http://8-p.info/greasekit/ GreaseKit] || O || X ||
 || 任何與以上內核相同或更新之瀏覽器 || 任何可動態修改HTML之軟件(eg. Proxomitron, Privoxy)? || O || O ||
 
