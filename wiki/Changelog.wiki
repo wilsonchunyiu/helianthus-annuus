@@ -13,6 +13,8 @@ x 臭蟲修正
 
 === 2009.7.13 ===
 
+現開始改變版本號命名方式
+
 移除.ieuser.js系列
 加入.opera.js系列
 加入Opera獨享的Rubbish Remover元件
