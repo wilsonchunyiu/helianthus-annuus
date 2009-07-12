@@ -12,6 +12,8 @@ nightly版本通常帶有新功能, 但可能完全未經測試, 含有bug的機
 || Style Editor || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.style.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/opera/an.style.opera.js opera] ||
 || Comonents Redesigner || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.redesign.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/opera/an.redesign.opera.js opera] ||
 || AJAX Integrator || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.ajax.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/opera/an.ajax.opera.js opera] ||
+|| Rubbish Remover || || [http://helianthus-annuus.googlecode.com/svn/trunk/opera/an.rubbish.opera.js opera] ||
+|| 打包下載 || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.ajax.zip user] || [http://helianthus-annuus.googlecode.com/svn/trunk/opera/an.opera.zip opera] ||
 
 
 || *瀏覽器* || *額外元件* ||
