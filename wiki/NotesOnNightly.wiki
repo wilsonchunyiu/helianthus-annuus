@@ -4,15 +4,15 @@
 nightly版本通常帶有新功能, 但可能完全未經測試, 含有bug的機會極大, 因此使用nightly版本前請記得備份選項資料<br />
 
 || *官方元件* |||| *下載地址* ||
-|| Libraries || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.lib.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/an.lib.ieuser.js ieuser] ||
-|| Kernel || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.kernel.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/an.kernel.ieuser.js ieuser] ||
-|| User Interface || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.ui.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/an.ui.ieuser.js ieuser] ||
-|| Main Script || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.main.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/an.main.ieuser.js ieuser] ||
-|| Layout Designer || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.layout.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/an.layout.ieuser.js ieuser] ||
-|| Style Editor || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.style.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/an.style.ieuser.js ieuser] ||
-|| Comonents Redesigner || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.redesign.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/an.redesign.ieuser.js ieuser] ||
-|| AJAX Integrator || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.ajax.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/an.ajax.ieuser.js ieuser] ||
-|| 打包下載 || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.all.user.zip user] || [http://helianthus-annuus.googlecode.com/svn/trunk/ieuser/an.all.ieuser.zip ieuser] ||
+|| Libraries || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.lib.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/opera/an.lib.opera.js ieuser] ||
+|| Kernel || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.kernel.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/opera/an.kernel.opera.js ieuser] ||
+|| User Interface || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.ui.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/opera/an.ui.opera.js ieuser] ||
+|| Main Script || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.main.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/opera/an.main.opera.js ieuser] ||
+|| Layout Designer || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.layout.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/opera/an.layout.opera.js ieuser] ||
+|| Style Editor || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.style.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/opera/an.style.opera.js ieuser] ||
+|| Comonents Redesigner || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.redesign.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/opera/an.redesign.opera.js ieuser] ||
+|| AJAX Integrator || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.ajax.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/opera/an.ajax.opera.js ieuser] ||
+|| 打包下載 || [http://helianthus-annuus.googlecode.com/svn/trunk/user/an.all.user.zip user] || [http://helianthus-annuus.googlecode.com/svn/trunk/opera/an.all.opera.zip ieuser] ||
 
 
 || *瀏覽器* || *額外元件* ||
