@@ -36,7 +36,7 @@ x 修正無法用於新版Chrome/Chromium的問題
 Library 1.0.2:
 - 啟用jQuery的noConflict, 並將AN.$及AN.jQuery指向jQuery
 
-Kernel 1.2.0:
+Kernel 1.3.0:
 + 載入面頁時自動修改document.domain
 + 改進對Opera的處理, 使運行速度更快
 + 加入/修改多個API功能
@@ -44,7 +44,7 @@ Kernel 1.2.0:
 - 暫時停用DOM Storage
 x 修正IE8無法使用Flash Storage的問題
 
-Main Script 1.1.0:
+Main Script 1.5.0:
 + 更新"移除廣告"以配合論壇改動
 + 更新部份功能以配合Kernel的內部功能變動
 x 修正"加入一鍵留名按扭"在部份瀏覽器失效的bug
@@ -55,25 +55,25 @@ x 修正"加入一鍵留名按扭"在部份瀏覽器失效的bug
 + 改進"限制回覆格高度", 並修正部份瀏覽器的scrollbar bug
 - 暫時停用"強制鎖定用戶名於一行"
 
-User Interface 1.1.5:
+User Interface 1.2.0:
 + 改進"加入資訊元件 [左下]", 現會因應Bookmark Bar而改位置
 + 更新"加入關於元件", 現顯示元件作者
 * 加入"鼠標遠離UI元件時半透明"
 
-Layout Designer 1.2.0:
+Layout Designer 1.3.0:
 + 改進"隱藏左側連結欄項目"
 * 加入"隱藏頁底空白"
 * 加入"Bookmark Bar圓角"
 * 加入"隱藏引用"
 
-Style Editor 1.0.4:
+Style Editor 1.1.0:
 + 更新"改變論壇樣式", 現能改變Bookmark Bar的樣式, 並修正因論壇改動而造成的錯誤
 
-Component Redesigner 1.1.0:
+Component Redesigner 1.2.0:
 + 重寫"改變引用風格", 現可設定外層引用的顯示數目
 + 重寫"改變快速回覆的風格", 加入"隱藏於右下角"選項
 
-AJAX Integrator 1.1.0:
+AJAX Integrator 1.2.0:
 + 重寫"AJAX化頁面讀取", 加入多項新功能, 包括HKGolden#式的"延展帖子回覆"選項
 + 改進"AJAX式列表更新"的更新方式
 
