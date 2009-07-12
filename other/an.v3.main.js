@@ -9,8 +9,8 @@
 		"beta":
 		{
 			"MX2 Filter": "3.2.0",
-			"AJAX Integrator": "3.2.0",
-			"Kernel": "3.3.0",
+			"AJAX Integrator": "3.2.1",
+			"Kernel": "3.3.1",
 			"Layout Designer": "3.3.0",
 			"Libraries": "3.0.2",
 			"Main Script": "3.5.0",
