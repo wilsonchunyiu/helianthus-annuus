@@ -40,8 +40,9 @@ Kernel 1.2.0:
 + 載入面頁時自動修改document.domain
 + 改進對Opera的處理, 使運行速度更快
 + 加入/修改多個API功能
-+ 更新"除錯模式", 加入Firebug Lite按扭
++ 更新"除錯模式", 加入Firebug Lite按扭 (IE8暫時無效)
 - 暫時停用DOM Storage
+x 修正IE8無法使用Flash Storage的問題
 
 Main Script 1.1.0:
 + 更新"移除廣告"以配合論壇改動
