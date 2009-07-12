@@ -45,7 +45,7 @@ Library 3.0.2:
 - 啟用jQuery的noConflict, 並將AN.$及AN.jQuery指向jQuery
 
 Kernel 3.3.0:
-+ 載入面頁時自動修改document.domain
++ 載入頁面時自動修改document.domain
 + 改進對Opera的處理, 使運行速度更快
 + 加入/修改多個API功能
 + 更新"除錯模式", 加入Firebug Lite按扭 (IE8暫時無效)
