@@ -13,6 +13,13 @@ x 臭蟲修正
 
 === 2009.7.13 ===
 
+移除.ieuser.js系列
+加入.opera.js系列
+加入Opera獨享的Rubbish Remover元件
+
+Rubbish Remover 1.0.0:
+* 移除垃圾, 加快頁面運行速度
+
 MX2 Filter 3.2.0:
 + 更新"FixTopicLayout"以配合論壇改動
 * 加入"FixBookmarkBar", 現能正常使用Bookmark Bar
