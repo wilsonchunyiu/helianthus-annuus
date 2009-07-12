@@ -14,6 +14,14 @@ x 臭蟲修正
 
 === 2009.7.13 ===
 
+Kernel 3.3.1:
+x 修正Google Chrome多次運行user script所帶來的問題
+
+AJAX Integrator 3.2.1:
+x 修正Google Chrome在"AJAX化頁面讀取"的跳頁bug
+
+=== 2009.7.13 ===
+
 ! 現開始改變版本號命名方式
 
 ! 移除.ieuser.js系列
