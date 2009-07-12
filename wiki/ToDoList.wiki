@@ -10,7 +10,7 @@
   * ~~拉闊頁面可set %~~
   * 回覆失敗訊息
   * ~~顯示盜鏈, domain被禁圖片~~
-  * 重製bookmark bar
+  * ~~重製bookmark bar~~(修正)
   * ~~一鍵留名~~
   * jetpack, chrome extension
   * ~~DOMLoad前移除廣告script (Chrome & Opera)~~
