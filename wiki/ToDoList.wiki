@@ -63,3 +63,4 @@
  * settings選項強化, 如組合checkbox+radio
  * 重寫核心, 將功能與UI完全分開
  * 可制定profile
+ * 顧及cross-browser的設定儲存
