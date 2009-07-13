@@ -19,7 +19,7 @@
   * 顯示帖子頁中其他帖子頁連結的標題
   * ~~bookmark bar rounded corner for Webkit & Opera~~
   * add throbber
-  * 不轉換引用中的視頻
+  * 不轉換引用中的視頻連結
 
  * 次要
   * 整合westkit功能(eg. public banlist)
