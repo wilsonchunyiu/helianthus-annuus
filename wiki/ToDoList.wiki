@@ -18,6 +18,7 @@
   * 帖子訂閱, 自動檢查是否有新回覆
   * 顯示帖子頁中其他帖子頁連結的標題
   * ~~bookmark bar rounded corner for Webkit & Opera~~
+  * add throbber
 
  * 次要
   * 整合westkit功能(eg. public banlist)
