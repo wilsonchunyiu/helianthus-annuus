@@ -20,6 +20,7 @@
   * ~~bookmark bar rounded corner for Webkit & Opera~~
   * add throbber
   * 不轉換引用中的視頻連結
+  * lightbox
 
  * 次要
   * 整合westkit功能(eg. public banlist)
