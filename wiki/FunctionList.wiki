@@ -1,5 +1,7 @@
 #summary 功能列表
 
+{{{
+
 Kernel:
 
  * 初始化
@@ -109,3 +111,5 @@ Component Redesigner:
 
  * 改變引用風格
  * 改變快速回覆的風格
+
+}}}
