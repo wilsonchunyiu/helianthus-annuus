@@ -2,15 +2,15 @@
 #labels Featured,Phase-Deploy
 
 || *官方元件* || *是否必要* || *最新版本* |||| *下載地址* ||
-|| Libraries || T || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.lib.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/opera/an.lib.opera.js opera] ||
-|| Kernel || T || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.kernel.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/opera/an.kernel.opera.js opera] ||
-|| User Interface || F || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.ui.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/opera/an.ui.opera.js opera] ||
-|| Main Script || F || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.main.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/opera/an.main.opera.js opera] ||
-|| Layout Designer || F || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.layout.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/opera/an.layout.opera.js opera] ||
-|| Style Editor || F || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.style.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/opera/an.style.opera.js opera] ||
-|| Comonents Redesigner || F || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.redesign.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/opera/an.redesign.opera.js opera] ||
-|| AJAX Integrator || F || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.ajax.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/opera/an.ajax.opera.js opera] ||
-|| 打包下載 || N/A || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/user/an.all.user.zip user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/opera/an.all.opera.zip opera] ||
+|| Libraries || T || 3.0.3 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.lib.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.lib.opera.js opera] ||
+|| Kernel || T || 3.4.2 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.kernel.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.kernel.opera.js opera] ||
+|| User Interface || F || 3.2.5 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.ui.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.ui.opera.js opera] ||
+|| Main Script || F || 3.6.6 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.main.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.main.opera.js opera] ||
+|| Layout Designer || F || 3.3.1 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.layout.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.layout.opera.js opera] ||
+|| Style Editor || F || 3.1.2 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.style.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.style.opera.js opera] ||
+|| Comonents Redesigner || 3.2.3 || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.redesign.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.redesign.opera.js opera] ||
+|| AJAX Integrator || F || 3.4.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.ajax.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.ajax.opera.js opera] ||
+|| 打包下載 || N/A || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.all.user.zip user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.all.opera.zip opera] ||
 
 注1: user與opera內容完全相同, 唯一的分別是檔案名稱不同<br />
 注2: 以上所有檔案皆屬於最新穩定版, 若想使用beta/nightly版本請參考[NotesOnNightly 此處]
@@ -28,7 +28,7 @@
 || 任何與以上內核相同或更新之瀏覽器 || 任何可動態修改HTML之軟件(eg. Proxomitron, Privoxy)? || O || O ||
 
 || *瀏覽器* || *額外元件* || *是否必要* || *最新版本* ||
-|| Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/all/an.m2filter.m2f Helianthus.Annuus: M2 Filter] || T || 3.0.0 ||
+|| Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/an.m2filter.m2f Helianthus.Annuus: M2 Filter] || T || 3.0.0 ||
 || Firefox 3 || [http://helianthus-annuus.googlecode.com/svn/other/an.adblockplus.txt Helianthus.Annuus: Adblock Plus Filter List] || F || N/A ||
 
 ----
