@@ -3,7 +3,7 @@
 
 nightly版本通常帶有新功能, 但可能完全未經測試, 含有bug的機會極大, 因此使用nightly版本前請記得備份選項資料<br />
 
-== V3 ==
+== v3 ==
 
 || *官方元件* |||| *下載地址* ||
 || Libraries || [http://helianthus-annuus.googlecode.com/svn/trunk/v3/user/an.lib.user.js user] || [http://helianthus-annuus.googlecode.com/svn/trunk/v3/opera/an.lib.opera.js opera] ||
