@@ -1,4 +1,5 @@
 #summary 常見問題
+#labels Featured
 
 = 常見問題 =
 
