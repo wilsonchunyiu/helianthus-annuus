@@ -16,8 +16,8 @@
 
 		"beta":
 		{
-			"AJAX Integrator": "3.4.0",
-			"Kernel": "3.4.2",
+			"AJAX Integrator": "3.4.1",
+			"Kernel": "3.4.3",
 			"Layout Designer": "3.3.1",
 			"Libraries": "3.0.3",
 			"Main Script": "3.6.6",
