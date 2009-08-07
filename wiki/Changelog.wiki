@@ -12,6 +12,24 @@ x 臭蟲修正
 - 其他資訊
 ------------
 
+=== 2009.8.7 ===
+
+! 加入Privoxy Filters
+
+Kernel 3.4.5:
+- 重新支持DOM Storage
++ 改進Flash Storage以支援Safari
+
+User Interface 3.2.6:
+x 再再再次修正"加入資訊元件"位置調整出錯的bug
+- 更新"關於元件"以回復對DOM Storage的支持
+
+Layout Designer 3.3.2:
+- 由於論壇改動, 移除"Bookmark Bar圓角"功能
+
+Style Editor 3.1.3:
+- 更新"改變論壇樣式"以配合論壇改動
+
 === 2009.8.2 ===
 
 Kernel 3.4.4:
