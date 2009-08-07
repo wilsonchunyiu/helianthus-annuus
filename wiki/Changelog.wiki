@@ -14,8 +14,6 @@ x 臭蟲修正
 
 === 2009.8.7 ===
 
-! 加入Privoxy Filters
-
 Kernel 3.4.5:
 - 重新支持DOM Storage
 + 改進Flash Storage以支援Safari
