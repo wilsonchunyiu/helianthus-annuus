@@ -3,13 +3,13 @@
 
 || *官方元件* || *是否必要* || *最新版本* |||| *下載地址* ||
 || Libraries || T || 3.0.3 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.lib.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.lib.opera.js opera] ||
-|| Kernel || T || 3.4.2 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.kernel.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.kernel.opera.js opera] ||
-|| User Interface || F || 3.2.5 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.ui.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.ui.opera.js opera] ||
+|| Kernel || T || 3.4.5 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.kernel.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.kernel.opera.js opera] ||
+|| User Interface || F || 3.2.6 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.ui.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.ui.opera.js opera] ||
 || Main Script || F || 3.6.6 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.main.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.main.opera.js opera] ||
-|| Layout Designer || F || 3.3.1 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.layout.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.layout.opera.js opera] ||
-|| Style Editor || F || 3.1.2 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.style.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.style.opera.js opera] ||
+|| Layout Designer || F || 3.3.2 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.layout.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.layout.opera.js opera] ||
+|| Style Editor || F || 3.1.3 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.style.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.style.opera.js opera] ||
 || Comonents Redesigner || F || 3.2.3 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.redesign.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.redesign.opera.js opera] ||
-|| AJAX Integrator || F || 3.4.0 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.ajax.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.ajax.opera.js opera] ||
+|| AJAX Integrator || F || 3.4.1 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.ajax.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.ajax.opera.js opera] ||
 || Rubbish Remover || F || 3.0.0 || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.rubbish.opera.js opera] ||
 || 打包下載 || N/A || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.all.user.zip user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.all.opera.zip opera] ||
 
