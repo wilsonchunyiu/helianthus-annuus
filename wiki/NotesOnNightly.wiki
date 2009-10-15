@@ -20,3 +20,4 @@ nightly版本通常帶有新功能, 但可能完全未經測試, 含有bug的機
 
 || *瀏覽器* || *額外元件* ||
 || Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/trunk/v3/an.m2filter.m2f Helianthus.Annuus: M2 Filter] ||
+|| Privoxy || [http://helianthus-annuus.googlecode.com/svn/trunk/v3/privoxy/an.privoxy.zip Helianthus.Annuus: Privoxy Filters] ||
