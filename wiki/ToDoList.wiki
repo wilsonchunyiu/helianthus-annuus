@@ -7,62 +7,28 @@
   * 快速回覆元件
   * Color picker for settings / 寫個webpage去幫助自訂化
   * 加入/修改另類引文方式
-  * ~~拉闊頁面可set %~~
   * 回覆失敗訊息
-  * ~~顯示盜鏈, domain被禁圖片~~
-  * ~~重製bookmark bar~~(修正)
-  * ~~一鍵留名~~
   * jetpack, chrome extension
-  * ~~DOMLoad前移除廣告script (Chrome & Opera)~~
-  * 強制檢查更新
   * 帖子訂閱, 自動檢查是否有新回覆
   * 顯示帖子頁中其他帖子頁連結的標題
-  * ~~bookmark bar rounded corner for Webkit & Opera~~
   * add throbber
   * 不轉換引用中的視頻連結
   * lightbox
-
- * 次要
   * 整合westkit功能(eg. public banlist)
-
- * 有需求才做
   * check pm
-  * ajax loading icon
-  * 移除留名post
   * ajax化標題頁轉頁
+  * 可即時啟動某功能
+  * settings選項強化, 如組合checkbox+radio
+  * 可制定profile
+  * audio, 如新回覆提示
 
-=== Feature Request ===
+=== Feature Requested ===
 
  * 已接受
-  * ~~加入另一種快速回覆隱藏方式~~
-  * ~~改進引用風格顯示~~
-  * ~~引用風格可預設顯示多於一層~~
   * 標題頁顯示多於一頁的標題
-  * ~~類似HKGolden#的Stream Replies~~
-  * ~~到頁底自動讀取新回覆~~
-  * 有新回覆可自動跳至(still needed?)
-  * ~~快速回覆可選擇透明度~~
-  * ~~移除用戶級別圖片~~
   * UI加入跳頁按扭
-  * ~~同步登入所有forum~~
-  * ~~半隱藏UI~~
   * table bg transparent(difficult)
-
- * 待接受
-  * 顯示引文作者
-  * 與其他script兼容
 
 === Known Issues ===
 
- * ~~IE8 flash問題~~
- * ~~IE8(MX2?)開新頁bug~~(已於MX2 2.5.2.6608-beta4修正)
  * IE8動態更新已訪問連結顏色bug
- * ~~Chrome & Opera於"限制回覆格高度"的scrollbar bug~~
-
-=== v4 Improvements ===
-
- * 可即時啟動某功能
- * settings選項強化, 如組合checkbox+radio
- * 重寫核心, 將功能與UI完全分開
- * 可制定profile
- * 顧及cross-browser的設定儲存
