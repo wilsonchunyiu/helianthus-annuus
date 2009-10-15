@@ -23,10 +23,10 @@
 || Firefox 3 || [https://addons.mozilla.org/en-US/firefox/addon/748/ Greasemonkey] || O || X ||
 || Google Chrome(Win) 1+ || [http://greasemetal.31tools.com/ Greasemetal] || O || X ||
 || Google Chrome 2+ || 內建 || O || X ||
-|| Opera 9 || 內建 || X || O ||
+|| Opera 9+ || 內建 || X || O ||
 || ~~Internet Explorer 8~~ || ~~[http://www.ie7pro.com/ IE7Pro]~~ || X || X ||
 || Safari(Mac) 3+ || [http://8-p.info/greasekit/ GreaseKit] || O || X ||
-|| 任何與以上內核相同或更新之瀏覽器 || Privoxy || O || O ||
+|| 任何與以上內核相同或更新之瀏覽器 || [http://www.privoxy.org/ Privoxy] || O || O ||
 || 任何與以上內核相同或更新之瀏覽器 || 任何可動態修改HTML之軟件(eg. Proxomitron) || O || O ||
 
 || *瀏覽器/軟件* || *額外元件* || *是否必要* || *最新版本* ||
@@ -104,7 +104,7 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
 
 ----
 
-= Opera 9 =
+= Opera 9+ =
 
  * 請先於任何一處開設一個文件夾用作儲存user scripts (例如C:\userjs).
  * 下載js元件至該文件夾
