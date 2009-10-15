@@ -11,7 +11,7 @@
 
 所有用戶:
  * 請確認瀏覽器已安裝flash player
- * 如有使用任何會阻擋flash的插件/工具/軟件, 請將[http://helianthus-annuus.googlecode.com/svn]加至白名單
+ * 如有使用任何會阻擋flash的插件/工具/軟件, 請將[http://helianthus-annuus.googlecode.com/svn/ http://helianthus-annuus.googlecode.com/svn/]加至白名單
 
 Firefox用戶:
  * 如有使用Adblock, 建議改為使用Adblock Plus
