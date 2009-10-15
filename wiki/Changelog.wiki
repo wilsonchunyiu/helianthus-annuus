@@ -14,7 +14,7 @@ x 錯誤修正
 
 === 2009.10.16 ===
 
-! 加入Privoxy Filters
+! 新增Privoxy Filters
 
 Privoxy Filters 3.0.0:
 - 最初版本
