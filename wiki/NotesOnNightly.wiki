@@ -18,6 +18,6 @@ nightly版本通常帶有新功能, 但可能完全未經測試, 含有bug的機
 || 打包下載 || [http://helianthus-annuus.googlecode.com/svn/trunk/v3/user/an.all.user.zip user] || [http://helianthus-annuus.googlecode.com/svn/trunk/v3/opera/an.all.opera.zip opera] ||
 
 
-|| *瀏覽器* || *額外元件* ||
+|| *瀏覽器/軟件* || *額外元件* ||
 || Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/trunk/v3/an.m2filter.m2f Helianthus.Annuus: M2 Filter] ||
 || Privoxy || [http://helianthus-annuus.googlecode.com/svn/trunk/v3/privoxy/an.privoxy.zip Helianthus.Annuus: Privoxy Filters] ||
