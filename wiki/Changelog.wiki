@@ -8,9 +8,38 @@
 ! 重要通告
 * 新功能
 + 功能改進
-x 臭蟲修正
+x 錯誤修正
 - 其他資訊
 ------------
+
+=== 2009.10.16 ===
+
+MX2 Filter 3.2.1:
++ 改進加入元件的方式
+- 加入論壇新增的圖片
+
+Scripts Injecter 3.1.0:
+* 加入版本號, 使其支持"自動檢查更新"功能
++ 改進加入元件的方式
+
+Libraries 3.0.4:
++ 改進針對Opera的偵測
+- 改回使用jQuery 1.3.2 stable
+
+Kernel 3.4.6:
++ 改進對Opera的偵測
+x 修正因論壇改動導致樓主資料讀取錯誤的問題
+- 因應Scripts Injecter更新初始化的方式
+
+User Interface 3.2.7:
+- 由於部份版本的Chrome(Chromium)於回復滾動條後無法使用滑鼠滑輪進行滾動, 暫去除隱藏滾動條的效果
+x 再再再再次修正"加入資訊元件"位置調整出錯的bug (...)
+
+Main Script 3.6.7:
+x 修正因論壇改動導致"隱藏廣告"部份失效的問題
+
+AJAX Integrator 3.4.2:
+x 修正"AJAX式列表更新"可能造成列表消失的bug
 
 === 2009.8.7 ===
 
@@ -182,7 +211,7 @@ Rubbish Remover 3.0.0:
 MX2 Filter 3.2.0:
 + 更新"FixTopicLayout"以配合論壇改動
 * 加入"FixBookmarkBar", 現能正常使用Bookmark Bar
-- 更變"Rubbish Remover"中的"Bookmark Bar"為預設停用
+- 更改"Rubbish Remover"中的"Bookmark Bar"為預設停用
 * 加入"ForceStrictMode"以強制令頁面以strict mode剖析
 
 *:

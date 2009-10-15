@@ -2,14 +2,14 @@
 #labels Featured,Phase-Deploy
 
 || *官方元件* || *是否必要* || *最新版本* |||| *下載地址* ||
-|| Libraries || T || 3.0.3 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.lib.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.lib.opera.js opera] ||
-|| Kernel || T || 3.4.5 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.kernel.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.kernel.opera.js opera] ||
-|| User Interface || F || 3.2.6 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.ui.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.ui.opera.js opera] ||
-|| Main Script || F || 3.6.6 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.main.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.main.opera.js opera] ||
+|| Libraries || T || 3.0.4 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.lib.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.lib.opera.js opera] ||
+|| Kernel || T || 3.4.6 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.kernel.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.kernel.opera.js opera] ||
+|| User Interface || F || 3.2.7 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.ui.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.ui.opera.js opera] ||
+|| Main Script || F || 3.6.7 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.main.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.main.opera.js opera] ||
 || Layout Designer || F || 3.3.2 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.layout.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.layout.opera.js opera] ||
 || Style Editor || F || 3.1.3 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.style.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.style.opera.js opera] ||
 || Comonents Redesigner || F || 3.2.3 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.redesign.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.redesign.opera.js opera] ||
-|| AJAX Integrator || F || 3.4.1 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.ajax.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.ajax.opera.js opera] ||
+|| AJAX Integrator || F || 3.4.2 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.ajax.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.ajax.opera.js opera] ||
 || Rubbish Remover || F || 3.0.0 || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.rubbish.opera.js opera] ||
 || 打包下載 || N/A || N/A || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.all.user.zip user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.all.opera.zip opera] ||
 
@@ -29,8 +29,9 @@
 || 任何與以上內核相同或更新之瀏覽器 || 任何可動態修改HTML之軟件(eg. Proxomitron, Privoxy)? || O || O ||
 
 || *瀏覽器* || *額外元件* || *是否必要* || *最新版本* ||
-|| Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/an.m2filter.m2f Helianthus.Annuus: M2 Filter] || T || 3.2.0 ||
+|| Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/an.m2filter.m2f Helianthus.Annuus: M2 Filter] || T || 3.2.1 ||
 || Firefox 3 || [http://helianthus-annuus.googlecode.com/svn/other/an.adblockplus.txt Helianthus.Annuus: Adblock Plus Filter List] || F || N/A ||
+|| Chrome 3+ || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/an.inject.user.js Helianthus.Annuus: Scripts Injecter] || T || 3.1.0 ||
 
 ----
 <h1>安裝方法</h1>
@@ -87,6 +88,8 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
 ----
 
 = Google Chrome 2+ =
+
+== *** 注意: 自Google Chrome 3開始, 請直接使用Scripts Injecter, 不要使用其他元件 *** ==
 
  * [http://dev.chromium.org/developers/design-documents/user-scripts]
  * 於以下位置建立文件夾 - User Scripts:
