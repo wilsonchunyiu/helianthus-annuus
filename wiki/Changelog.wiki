@@ -14,6 +14,11 @@ x 錯誤修正
 
 === 2009.10.16 ===
 
+! 加入Privoxy Filters
+
+Privoxy Filters 3.0.0:
+- 最初版本
+
 MX2 Filter 3.2.1:
 + 改進加入元件的方式
 - 加入論壇新增的圖片
