@@ -4,26 +4,30 @@
 	{
 		"stable":
 		{
-			"AJAX Integrator": "3.4.1",
-			"Kernel": "3.4.5",
+			"MX2 Filter" : "3.2.1",
+			"Scripts Injector": "3.1.0",
+			"Libraries": "3.0.4",
+			"Kernel": "3.4.6",
+			"User Interface": "3.2.7",
+			"Main Script": "3.6.7",
 			"Layout Designer": "3.3.2",
-			"Libraries": "3.0.3",
-			"Main Script": "3.6.6",
-			"Component Redesigner": "3.2.3",
 			"Style Editor": "3.1.3",
-			"User Interface": "3.2.6"
+			"Component Redesigner": "3.2.3",
+			"AJAX Integrator": "3.4.2"
 		},
 
 		"beta":
 		{
-			"AJAX Integrator": "3.4.1",
-			"Kernel": "3.4.5",
+			"MX2 Filter" : "3.2.1",
+			"Scripts Injector": "3.1.0",
+			"Libraries": "3.0.4",
+			"Kernel": "3.4.6",
+			"User Interface": "3.2.7",
+			"Main Script": "3.6.7",
 			"Layout Designer": "3.3.2",
-			"Libraries": "3.0.3",
-			"Main Script": "3.6.6",
-			"Component Redesigner": "3.2.3",
 			"Style Editor": "3.1.3",
-			"User Interface": "3.2.6"
+			"Component Redesigner": "3.2.3",
+			"AJAX Integrator": "3.4.2"
 		}
 	}
 };
