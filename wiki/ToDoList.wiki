@@ -22,7 +22,7 @@
   * 可制定profile
   * audio, 如新回覆提示
 
-=== Feature Requested ===
+=== Features Requested ===
 
  * 已接受
   * UI加入跳頁按扭
