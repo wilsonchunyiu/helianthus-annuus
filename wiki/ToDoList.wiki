@@ -25,7 +25,6 @@
 === Feature Requested ===
 
  * 已接受
-  * 標題頁顯示多於一頁的標題
   * UI加入跳頁按扭
   * table bg transparent(difficult)
 
