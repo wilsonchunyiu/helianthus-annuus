@@ -31,7 +31,7 @@
 || *瀏覽器* || *額外元件* || *是否必要* || *最新版本* ||
 || Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/an.m2filter.m2f Helianthus.Annuus: M2 Filter] || T || 3.2.1 ||
 || Firefox 3 || [http://helianthus-annuus.googlecode.com/svn/other/an.adblockplus.txt Helianthus.Annuus: Adblock Plus Filter List] || F || N/A ||
-|| Chrome 3+ || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/an.inject.user.js Helianthus.Annuus: Scripts Injecter] || T || 3.1.0 ||
+|| Chrome 3+ || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/an.inject.user.js Helianthus.Annuus: Scripts Injector] || T || 3.1.0 ||
 
 ----
 <h1>安裝方法</h1>
@@ -89,7 +89,7 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
 
 = Google Chrome 2+ =
 
-== *** 注意: 自Google Chrome 3開始, 請直接使用Scripts Injecter, 不要使用其他元件 *** ==
+== `*** 注意: 自Google Chrome 3開始, 請直接使用Scripts Injector, 不要使用其他元件 ***` ==
 
  * [http://dev.chromium.org/developers/design-documents/user-scripts]
  * 於以下位置建立文件夾 - User Scripts:
