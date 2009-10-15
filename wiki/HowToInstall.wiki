@@ -18,7 +18,7 @@
 
 ----
 
-|| *瀏覽器* || *所需插件* || *user* || *opera* ||
+|| *瀏覽器* || *所需插件/軟件* || *user* || *opera* ||
 || Maxthon 2 (w/ IE8) || 內建 || O || X ||
 || Firefox 3 || [https://addons.mozilla.org/en-US/firefox/addon/748/ Greasemonkey] || O || X ||
 || Google Chrome(Win) 1+ || [http://greasemetal.31tools.com/ Greasemetal] || O || X ||
@@ -26,12 +26,14 @@
 || Opera 9 || 內建 || X || O ||
 || ~~Internet Explorer 8~~ || ~~[http://www.ie7pro.com/ IE7Pro]~~ || X || X ||
 || Safari(Mac) 3+ || [http://8-p.info/greasekit/ GreaseKit] || O || X ||
-|| 任何與以上內核相同或更新之瀏覽器 || 任何可動態修改HTML之軟件(eg. Proxomitron, Privoxy)? || O || O ||
+|| 任何與以上內核相同或更新之瀏覽器 || Privoxy || O || O ||
+|| 任何與以上內核相同或更新之瀏覽器 || 任何可動態修改HTML之軟件(eg. Proxomitron) || O || O ||
 
-|| *瀏覽器* || *額外元件* || *是否必要* || *最新版本* ||
+|| *瀏覽器/軟件* || *額外元件* || *是否必要* || *最新版本* ||
 || Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/an.m2filter.m2f Helianthus.Annuus: M2 Filter] || T || 3.2.1 ||
 || Firefox 3 || [http://helianthus-annuus.googlecode.com/svn/other/an.adblockplus.txt Helianthus.Annuus: Adblock Plus Filter List] || F || N/A ||
 || Chrome 3+ || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/an.inject.user.js Helianthus.Annuus: Scripts Injector] || T || 3.1.0 ||
+|| Privoxy || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/privoxy/an.privoxy.zip Helianthus.Annuus: Privoxy Filters] || T || 3.1.0 ||
 
 ----
 <h1>安裝方法</h1>
@@ -129,7 +131,12 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
 
 ----
 
-= 其他瀏覽器 =
+= 任何瀏覽器 w/ Privoxy =
 
- * 用戶可參考此做法(如成功實行煩請通知作者, 謝謝): [http://blog.endflow.net/?p=63&lang=en]
- * 若你知道如何在其他瀏覽器使用Helianthus.Annuus, 請告知[AboutAuthor 作者]
+ * (本教學已假設閣下對Privoxy有基本認識)
+ * 下載Helianthus.Annuus: Privoxy Filters並解壓到Privoxy主目錄
+ * 於config.txt加入以下兩行:
+  * actionsfile an.privoxy.action
+  * filterfile an.privoxy.filter
+
+----
