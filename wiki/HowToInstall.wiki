@@ -30,7 +30,7 @@
 || 任何與以上內核相同或更新之瀏覽器 || 任何可動態修改HTML之軟件(eg. Proxomitron) || O || O ||
 
 || *瀏覽器/軟件* || *額外元件* || *是否必要* || *最新版本* ||
-|| Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/an.m2filter.m2f Helianthus.Annuus: M2 Filter] || T || 3.2.1 ||
+|| Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/m2filter/an.m2filter.m2f Helianthus.Annuus: M2 Filter] || T || 3.2.1 ||
 || Firefox 3 || [http://helianthus-annuus.googlecode.com/svn/other/an.adblockplus.txt Helianthus.Annuus: Adblock Plus Filter List] || F || N/A ||
 || Chrome 3+ || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/an.inject.user.js Helianthus.Annuus: Scripts Injector] || T || 3.1.0 ||
 || Privoxy || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/privoxy/an.privoxy.zip Helianthus.Annuus: Privoxy Filters] || T || 3.1.0 ||
