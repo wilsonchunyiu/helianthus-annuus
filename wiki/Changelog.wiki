@@ -14,6 +14,9 @@ x 錯誤修正
 
 === 2009.10.17 ===
 
+MX2 Filter 3.2.2:
+- 更新"FixTopicLayout"為"FixInnerForm"以修正因論壇改動而造成的顯示錯誤
+
 User Interface 3.2.8:
 x 修正"加入關於元件"連結錯誤的bug
 
