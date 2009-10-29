@@ -16,7 +16,7 @@
 Firefox用戶:
  * 如有使用Adblock, 建議改為使用Adblock Plus
  * 如有使用!NoScript, 則請將googlecode.com加入白名單
- * 如有使用FireQuery, 請將其停用或將Firebug關閉(Off), 因現版本似乎與jQuery nightly build發生衝突
+ * 如有使用FireQuery, 請將其停用或將Firebug關閉(Off), 因現版本會導致出現錯誤
 
 Maxthon 2用戶:
  * 據知Internet Download Manager會使Maxthon 2 filter功能失效, 如有安裝, 請嘗試將其解安裝再作嘗試
@@ -24,7 +24,7 @@ Maxthon 2用戶:
 == 部份功能失效/部份介面顯示出錯? ==
 
 IE/Maxthon 2用戶:
- * 請確認已安裝IE8, 使用IE7或以下版本可能會出現問題
+ * 請確認已安裝IE8, 使用IE7或以下版本會出現問題
 
 IE8 w/ IE7Pro用戶:
  * 由於IE7Pro無法如Maxthon 2般對HTML直接進行修改, 因此會被強制以兼容性檢視模式載入網頁, 用戶可考慮使用其他瀏覽器或使用Privoxy等工具
