@@ -20,6 +20,8 @@
 || annuus.privoxy.zip || Privoxy || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.privoxy.zip stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.privoxy.zip beta] ||
 || annuus bookmarklet || ALL || <a href="javascript:(function(){var s=document.createElement('script');s.src='http://helianthus-annuus.googlecode.com/svn/dist/v3/stabke/annuus.js';document.getElementsByTagName('head')[0].appendChild(s);})();">stable</a> || <a href="javascript:(function(){var s=document.createElement('script');s.src='http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.js';document.getElementsByTagName('head')[0].appendChild(s);})();">beta</a> ||
 
+<a href="javascript:(function(){var s=document.createElement('script');s.src='http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.js';document.getElementsByTagName('head')[0].appendChild(s);})();">beta</a>
+
 ----
 <h1>安裝方法</h1>
 <wiki:toc depth="1" />
