@@ -13,8 +13,8 @@
 
 || *檔案* || *相關瀏覽器/插件/軟件* |||| 下載點 ||
 || annuus.js || / || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.js beta] ||
-|| annuus.user.js || Greasemonkey, Safari(Mac) 3+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/user/annuus.user.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.user.js beta] ||
-|| annuus.opera.js || Opera 9+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/opera/annuus.opera.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.opera.js beta] ||
+|| annuus.user.js || Greasemonkey, Safari(Mac) 3+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.user.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.user.js beta] ||
+|| annuus.opera.js || Opera 9+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.opera.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.opera.js beta] ||
 || annuus.crx || Google Chrome 3+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.crx stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.crx beta] ||
 || annuus.m2f || Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.m2f stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.m2f beta] ||
 || annuus.privoxy.zip || Privoxy || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.privoxy.zip stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.privoxy.zip beta] ||
