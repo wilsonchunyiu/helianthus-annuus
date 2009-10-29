@@ -14,12 +14,12 @@
  * 如有使用任何會阻擋flash的插件/工具/軟件, 請將[http://helianthus-annuus.googlecode.com/svn/]加至白名單
 
 Firefox用戶:
- * 如有使用Adblock, 建議改為使用Adblock Plus
- * 如有使用!NoScript, 則請將googlecode.com加入白名單
- * 如有使用FireQuery, 請將其停用或將Firebug關閉(Off), 因現版本會導致出現錯誤
+ * 如有使用Adblock擴展, 建議改為使用Adblock Plus
+ * 如有使用!NoScript擴展, 則請將googlecode.com加入白名單
+ * 如有使用!FireQuery擴展, 請將其停用或將Firebug關閉(Off), 因現版本會導致出現錯誤
 
 Maxthon 2用戶:
- * 據知Internet Download Manager會使Maxthon 2 filter功能失效, 如有安裝, 請嘗試將其解安裝再作嘗試
+ * 據知Internet Download Manager會使Maxthon 2 filter功能失效, 如有安裝, 請參考[http://bbs.maxthon.cn/viewthread.php?tid=69353&page=1#pid531460 此處](#21)
 
 == 部份功能失效/部份介面顯示出錯? ==
 
