@@ -29,7 +29,7 @@
 
  * 下載並開啟annuus.m2f
  * 正常來說Maxthon 2會自動詢問是否安裝, 如沒有請下載該過濾包並將其拖放至Maxthon 2視窗
- * 跟據下圖指示啟用Helianthus.Annuus: Filter
+ * 跟據下圖指示啟用filter
  http://helianthus-annuus.googlecode.com/svn/site/howtoinstall_m2_1.png
 
  http://helianthus-annuus.googlecode.com/svn/site/howtoinstall_m2_2.png
