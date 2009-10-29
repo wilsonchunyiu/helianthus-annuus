@@ -1,4 +1,5 @@
 ﻿#summary 如何安裝Helianthus.Annuus v3
+#labels Deprecated
 
 || *官方元件* || *是否必要* || *最新版本* |||| *下載地址* ||
 || Libraries || T || 3.0.4 || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/user/an.lib.user.js user] || [http://helianthus-annuus.googlecode.com/svn/tags/v3/LASTEST/opera/an.lib.opera.js opera] ||
