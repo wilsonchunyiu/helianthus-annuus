@@ -19,8 +19,8 @@
 // @name Helianthus.annuus
 // @namespace http://code.google.com/p/helianthus-annuus/
 // @description by 向日
-// @version 3.5.0.109
-// @build-time 2009-10-30 06:01:41
+// @version 3.5.1.134
+// @build-time 2009-10-30 18:35:00
 // @include http://forum*.hkgolden.com/*
 // @run-at document-start
 // ==/UserScript==
@@ -33,7 +33,7 @@ var document = window.document;
 var navigator = window.navigator;
 var JSON = window.JSON || {};
 var jQuery;
-var AN = window.AN = { mod: {}, version: '3.5.0.109' };
+var AN = window.AN = { mod: {}, version: '3.5.1.134' };
 
 if(document.body && document.body.firstChild.className == 'webkit-line-gutter-backdrop') return;
 
@@ -809,19 +809,6 @@ AN.mod['Layout Designer'] = { ver: 'N/A', author: '向日', fn: {
 		$().pageName() == 'search' && AN.util.stackStyle('#ctl00_ContentPlaceHolder1_topics_form > div + table table:first-child { display: none; }');
 	}
 },
-
-/*
-'c73317d9-f2c4-465a-bc56-f0f817f7eaf6':
-{
-	desc: 'Opera: 修正發表按扭位置',
-	page: { 16: $.browser.opera || 'disabled' },
-	type: 3,
-	once: function()
-	{
-		$('#searchstring').up('td').prev().attr('valign', 'top');
-	}
-},
-*/
 
 '4bf6619f-2cd8-4aa2-a54a-e7d7255e8603':
 {
@@ -1884,22 +1871,6 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 	}
 },
 
-'b2be12c7-8c97-4293-b283-51232cf91746':
-{
-	desc: '強制鎖定用戶名於一行',
-	page: { 28: 'disabled' },
-	type: 6,
-	infinite: function(jDoc)
-	{
-		/*
-		jDoc.topics().jNameLinks.each(function()
-		{
-			this.parent().css('white-space', 'nowrap');
-		});
-		*/
-	}
-},
-
 'e19a8d96-151f-4f86-acfc-0af12b53b99b':
 {
 	desc: '快速3擊左鍵關閉頁面 [FF: 只能配合連結開新頁使用]',
@@ -2104,12 +2075,14 @@ AN.mod['Component Redesigner'] = { ver: 'N/A', author: '向日', fn: {
 			toggleQR(false);
 		});
 
-		window.OnQuoteSucceeded = function(result)
+		window._OnQuoteSucceeded = function(result)
 		{
 			toggleQR(true);
 			$('#ctl00_ContentPlaceHolder1_messagetext').val(unescape(result) + '\n').scrollTop(99999);
 			window.moveEnd();
 		};
+		
+		window.OnQuoteSucceeded = new window.Function('result', 'window._OnQuoteSucceeded(result);');
 	}
 }
 
