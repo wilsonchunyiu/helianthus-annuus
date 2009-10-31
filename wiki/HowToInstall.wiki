@@ -6,10 +6,8 @@
 || Firefox 3+ || [https://addons.mozilla.org/en-US/firefox/addon/748/ Greasemonkey] ||
 || Google Chrome 3+ || --- ||
 || Opera 9+ || --- ||
-|| Internet Explorer 8 || [http://www.privoxy.org/ Privoxy] ||
-|| Safari(Win) 3+ || [http://www.privoxy.org/ Privoxy] ||
 || Safari(Mac) 3+ || [http://8-p.info/greasekit/ GreaseKit] ||
-|| 任何與以上內核相同或更新之瀏覽器 || [http://www.privoxy.org/ Privoxy] ||
+|| 其他瀏覽器(IE8+, Safari 3+, Maxthon 3, etc) || [http://www.privoxy.org/ Privoxy] ||
 
 || *檔案* || *相關瀏覽器/插件/軟件* |||| 下載點 ||
 || annuus.js || --- || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.js beta] ||
