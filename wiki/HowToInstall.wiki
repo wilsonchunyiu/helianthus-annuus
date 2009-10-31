@@ -63,7 +63,7 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
 
 = Google Chrome 3 =
 
- * [http://dev.chromium.org/developers/design-documents/user-scripts]
+ * http://dev.chromium.org/developers/design-documents/user-scripts
  * 於以下位置建立文件夾 - User Scripts:
   * XP: `C:\Documents and Settings\<username>\Local Settings\Application Data\Google\Chrome\User Data\Default`
   * `Vista/Win7: C:\Users\<username>\AppData\Local\Google\Chrome\User Data\Default`
