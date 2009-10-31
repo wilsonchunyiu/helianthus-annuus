@@ -19,8 +19,8 @@
 // @name Helianthus.annuus
 // @namespace http://code.google.com/p/helianthus-annuus/
 // @description by 向日
-// @version 3.5.1.148
-// @build-time 2009-10-31 12:43:36
+// @version 3.5.1.150
+// @build-time 2009-10-31 21:15:12
 // @include http://forum*.hkgolden.com/*
 // @run-at document-start
 // ==/UserScript==
@@ -33,7 +33,7 @@ var document = window.document;
 var navigator = window.navigator;
 var JSON = window.JSON || {};
 var jQuery;
-var AN = window.AN = { mod: {}, version: '3.5.1.148' };
+var AN = window.AN = { mod: {}, version: '3.5.1.150' };
 
 if(document.body && document.body.firstChild.className == 'webkit-line-gutter-backdrop') return;
 
@@ -1041,7 +1041,7 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 'b7ef89eb-1190-4466-899a-c19b3621d6b1':
 {
 	desc: 'Opera: 修正無法使用Enter搜尋的錯誤',
-	page: { 24: $.browser.opera || 'disabled' },
+	page: { 28: $.browser.opera || 'disabled' },
 	type: 4,
 	once: function()
 	{
