@@ -19,8 +19,8 @@
 // @name Helianthus.annuus
 // @namespace http://code.google.com/p/helianthus-annuus/
 // @description by 向日
-// @version 3.5.1.150
-// @build-time 2009-10-31 21:15:12
+// @version 3.5.1.183
+// @build-time 2009-11-03 20:03:46
 // @include http://forum*.hkgolden.com/*
 // @run-at document-start
 // ==/UserScript==
@@ -33,7 +33,7 @@ var document = window.document;
 var navigator = window.navigator;
 var JSON = window.JSON || {};
 var jQuery;
-var AN = window.AN = { mod: {}, version: '3.5.1.150' };
+var AN = window.AN = { mod: {}, version: '3.5.1.183' };
 
 if(document.body && document.body.firstChild.className == 'webkit-line-gutter-backdrop') return;
 
@@ -823,6 +823,17 @@ AN.mod['Layout Designer'] = { ver: 'N/A', author: '向日', fn: {
 	}
 },
 
+'a5d7f8f0-99fc-4aaf-8c65-373b17cfcf69':
+{
+	desc: '隱藏投票站連結(如有)',
+	page: { 60: false },
+	type: 3,
+	once: function()
+	{
+		AN.util.stackStyle('#ctl00_ContentPlaceHolder1_MiddleAdSpace1 { display: none; }');
+	}
+},
+
 'f41e288e-cd1d-4649-a396-83d92d99ded8':
 {
 	desc: '隱藏紅人榜',
@@ -975,25 +986,28 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 			// default
 			2: '\
 			#MainPageAd2, #MainPageAd2 ~ br, /* text ads */\
+			#ctl00_ContentPlaceHolder1_MiddleAdSpace1, /* text ad */\
 			.ContentPanel > div > div:first-child, /* flash ad */\
 			#ctl00_ContentPlaceHolder1_lb_NewPM + br /* blank line */\
 				{ display: none; } \
 			',
 			// topics
 			4: '\
-			.ContentPanel > table > tbody > tr > td + td, /* flash ad */\
-			/* inline ads */\
+			.ContentPanel > table > tbody > tr > td + td /* flash ad */\
+				{ display: none; } \
+			/* inline ads, non-IE only */\
 			#HotTopics tr:nth-child(11n+2) \
 				{ display: none; } \
 			.ContentPanel > table > tbody > tr > td:first-child, /* fix forumInfo width, IE only */\
 			.ContentPanel > table /* fix forumInfo width */\
 				{ width: 100% !important; } \
 			',
-			// search
+			// search, tags
 			24: '\
 			#ctl00_ContentPlaceHolder1_lb_NewPM + br ~ br, /* forumInfo blanks */\
-			#ctl00_ContentPlaceHolder1_topics_form > script:first-child + table td + td, /* flash ad */\
-			/* inline ads */\
+			#ctl00_ContentPlaceHolder1_topics_form > script:first-child + table td + td /* flash ad */\
+				{ display: none; } \
+			/* inline ads, non-IE only */\
 			#ctl00_ContentPlaceHolder1_topics_form > div + table + table tr:nth-child(11n+2), \
 			#ctl00_ContentPlaceHolder1_topics_form > div + table + table table tr:last-child \
 				{ display: none; } \
@@ -1011,12 +1025,14 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 			32: '\
 			#ctl00_ContentPlaceHolder1_view_form > script:first-child + table tr:first-child + tr ~ tr, /* 高登活動資訊 */\
 			#ctl00_ContentPlaceHolder1_view_form > div[style*="99%"] table[width] > tbody > tr + tr + tr, /* top & bottom ads */\
-			#ctl00_ContentPlaceHolder1_view_form > div > table[width="100%"] > tbody > tr + tr /* inline ads */\
+			#ctl00_ContentPlaceHolder1_view_form > div[style*="99%"] > table[width="100%"] > tbody > tr + tr /* inline ads */\
 				{ display: none; } \
 			',
-			// default, topics, search, tags, view
-			62: '\
-			#ctl00_ContentPlaceHolder1_MiddleAdSpace1 { display: none; } /* text ad */\
+			// topics, search, tags, view
+			60: '\
+			#ctl00_ContentPlaceHolder1_MiddleAdSpace1 { margin-top: 5px !important; } \
+			#ctl00_ContentPlaceHolder1_MiddleAdSpace1 > div { padding: 0 !important; } \
+			#ctl00_ContentPlaceHolder1_MiddleAdSpace1 div[style*="right"] { display: none; } /* text ad */\
 			',
 			// profilepage
 			64: '\
@@ -1026,7 +1042,7 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 		},
 		function(nPageCode){ $().pageCode() & nPageCode && AN.util.stackStyle(this); });
 
-		if($.browser.msie && $().pageCode() & 12)
+		if($.browser.msie && $().pageCode() & 28)
 		{
 			AN.util.stackStyle($().pageName() == 'topics'
 			?
@@ -1067,7 +1083,7 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 'b7ef89eb-1190-4466-899a-c19b3621d6b1':
 {
 	desc: 'Opera: 修正無法使用Enter搜尋的錯誤',
-	page: { 28: $.browser.opera || 'disabled' },
+	page: { 30: $.browser.opera || 'disabled' },
 	type: 4,
 	once: function()
 	{
@@ -2128,7 +2144,7 @@ AN.mod['Style Editor'] = { ver: 'N/A', author: '向日', fn: {
 			: '}';
 
 		AN.util.stackStyle($.sprintf('\
-		body > form a { color: %(sMainLinkFontColor)s; ' + sTextCSS + ' \
+		body > form a, #ctl00_ContentPlaceHolder1_MiddleAdSpace1 a { color: %(sMainLinkFontColor)s; ' + sTextCSS + ' \
 		body > form a[href*="view.aspx"]:visited { color: %(sMainVisitedColor)s; } \
 		body > form a[href]:hover { color: %(sMainHoverColor)s; } \
 		',
@@ -3663,7 +3679,8 @@ $.extend(AN,
 			256: { action: 'post', desc: '發佈/回覆頁' },
 			512: { action: 'login', desc: '登入頁' },
 			1024: { action: 'giftpage', desc: '人氣頁' },
-			2048: { action: 'blog', desc: '網誌頁' }
+			2048: { action: 'blog', desc: '網誌頁' },
+			4096: { action: 'message', desc: '系統信息頁' }
 		}
 	},
 
