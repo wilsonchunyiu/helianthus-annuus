@@ -4,7 +4,7 @@
 || *瀏覽器* || *所需插件/軟件* ||
 || Maxthon 2 (w/ IE8) || --- ||
 || Firefox 3+ || [https://addons.mozilla.org/en-US/firefox/addon/748/ Greasemonkey] ||
-|| Google Chrome 3+ || --- ||
+|| Google Chrome || --- ||
 || Opera 9+ || --- ||
 || Safari(Mac) 3+ || [http://8-p.info/greasekit/ GreaseKit] ||
 || 其他瀏覽器(IE8+, Safari 3+, Maxthon 3, etc) || [http://www.privoxy.org/ Privoxy] ||
@@ -13,8 +13,8 @@
 || annuus.js || --- || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.js beta] ||
 || annuus.user.js || Greasemonkey, Safari(Mac) 3+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.user.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.user.js beta] ||
 || annuus.opera.js || Opera 9+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.opera.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.opera.js beta] ||
-|| annuus.chrome.user.js || Google Chrome 3 || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.chrome.user.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.chrome.user.js beta] ||
-|| annuus.crx || Google Chrome 4+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.crx stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.crx beta] ||
+|| annuus.chrome.user.js || Google Chrome stable/beta || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.chrome.user.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.chrome.user.js beta] ||
+|| annuus.crx || Google Chrome dev || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.crx stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.crx beta] ||
 || annuus.m2f || Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.m2f stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.m2f beta] ||
 || annuus.privoxy.zip || Privoxy || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.privoxy.zip stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.privoxy.zip beta] ||
 
@@ -59,7 +59,7 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
 
 ----
 
-= Google Chrome 3 =
+= Google Chrome stable/beta =
 
  * http://dev.chromium.org/developers/design-documents/user-scripts
  * 於以下位置建立文件夾 - User Scripts:
@@ -72,7 +72,7 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
 
 ----
 
-= Google Chrome 4+ =
+= Google Chrome dev =
 
  * 左鍵點擊annuus.crx以進行下載及安裝
 
