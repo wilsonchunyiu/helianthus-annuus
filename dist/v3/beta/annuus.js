@@ -19,8 +19,8 @@
 // @name Helianthus.annuus
 // @namespace http://code.google.com/p/helianthus-annuus/
 // @description by 向日
-// @version 3.5.1.183
-// @build-time 2009-11-03 20:03:46
+// @version 3.5.1.215
+// @build-time 2009-11-06 00:42:05
 // @include http://forum*.hkgolden.com/*
 // @run-at document-start
 // ==/UserScript==
@@ -33,7 +33,7 @@ var document = window.document;
 var navigator = window.navigator;
 var JSON = window.JSON || {};
 var jQuery;
-var AN = window.AN = { mod: {}, version: '3.5.1.183' };
+var AN = window.AN = { mod: {}, version: '3.5.1.215' };
 
 if(document.body && document.body.firstChild.className == 'webkit-line-gutter-backdrop') return;
 
@@ -627,7 +627,7 @@ AN.mod['Layout Designer'] = { ver: 'N/A', author: '向日', fn: {
 	type: 3,
 	once: function()
 	{
-		AN.util.stackStyle('.Topic_FunctionPanel { overflow: hidden; }');
+		AN.util.stackStyle('.Topic_FunctionPanel > .ClearLeft { clear: both; } /*-> IE bug fix? ->*/ .Topic_FunctionPanel { overflow: hidden; }');
 	}
 },
 
@@ -762,8 +762,15 @@ AN.mod['Layout Designer'] = { ver: 'N/A', author: '向日', fn: {
 	type: 3,
 	once: function()
 	{
+		AN.util.stackStyle('\
+		#ctl00_ContentPlaceHolder1_MiddleAdSpace1 > div { padding: 0 !important; } \
+		');
+		
 		if($().pageName() == 'topics')
-			AN.util.stackStyle('.Topic_FunctionPanel { margin-top: 3px; }');
+			AN.util.stackStyle('\
+			.Topic_FunctionPanel { margin-top: 3px; } \
+			#ctl00_ContentPlaceHolder1_MiddleAdSpace1 { margin-top: 5px !important; } \
+			');
 		else
 			AN.util.stackStyle('\
 			td[valign="bottom"] > br:first-child { display: none; } \
@@ -998,14 +1005,12 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 			// view
 			32: '\
 			#ctl00_ContentPlaceHolder1_view_form > script:first-child + table tr:first-child + tr ~ tr, /* 高登活動資訊 */\
-			#ctl00_ContentPlaceHolder1_view_form > div[style*="99%"] table[width] > tbody > tr + tr + tr, /* top & bottom ads */\
-			#ctl00_ContentPlaceHolder1_view_form > div[style*="99%"] > table[width="100%"] > tbody > tr + tr /* inline ads */\
+			#ctl00_ContentPlaceHolder1_view_form > div[style*="99%"] table[cellspacing="1"][cellpadding="2"] > tbody > tr + tr + tr, /* top & bottom ads */\
+			#ctl00_ContentPlaceHolder1_view_form > div > table[width="100%"] > tbody > tr + tr /* inline ads */\
 				{ display: none; } \
 			',
 			// topics, search, tags, view
 			60: '\
-			#ctl00_ContentPlaceHolder1_MiddleAdSpace1 { margin-top: 5px !important; } \
-			#ctl00_ContentPlaceHolder1_MiddleAdSpace1 > div { padding: 0 !important; } \
 			#ctl00_ContentPlaceHolder1_MiddleAdSpace1 div[style*="right"] { display: none; } /* text ad */\
 			',
 			// profilepage
@@ -1210,17 +1215,6 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 	infinite: function(jDoc)
 	{
 		jDoc.replies().jContents.find('a').attr('target', '_blank');
-	}
-},
-
-'6e978310-e87b-4043-9def-076a13377c19':
-{
-	desc: '更換favicon(小丑icon) [部份瀏覽器無效]',
-	page: { 65534: false },
-	type: 4,
-	once: function()
-	{
-		$('head').append('<link rel="shortcut icon" href="http://helianthus-annuus.googlecode.com/svn/other/hkg.ico" />');
 	}
 },
 
