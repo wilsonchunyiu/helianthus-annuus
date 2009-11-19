@@ -49,7 +49,7 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
  * 重新啟動Firefox
  * 左鍵點擊annuus.user.js以進行安裝
 
-另外, 用戶可使用Adblock plus 配合 Helianthus.Annuus: Adblock Plus filter list使運行更快(如已使用!NoScript擴展則可忽視):
+另外, 用戶可使用Adblock plus 配合 Helianthus.Annuus: Adblock Plus filter list使運行更快(如已使用!NoScript擴展則可忽略):
  * 跟據下圖指示加入filter list
  http://helianthus-annuus.googlecode.com/svn/site/rubbishremover_01.png
 
