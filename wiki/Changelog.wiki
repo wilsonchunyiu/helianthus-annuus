@@ -1,6 +1,7 @@
 #summary 更新日誌
 
  [HowToInstall 下載]
+<a href="javascript:alert('test')">test</a>
 
 {{{
 
