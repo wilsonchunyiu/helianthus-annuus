@@ -6,6 +6,7 @@
 || Firefox 3+ || [https://addons.mozilla.org/en-US/firefox/addon/748/ Greasemonkey] ||
 || Google Chrome || --- ||
 || Opera 9+ || --- ||
+|| Opera Unite || [http://unite.opera.com/application/401/ UJS Manager] (Optional) ||
 || Safari(Mac) 3+ || [http://8-p.info/greasekit/ GreaseKit] ||
 || 其他瀏覽器(IE8+, Safari 3+, Maxthon 3, etc) || [http://www.privoxy.org/ Privoxy] ||
 
@@ -87,6 +88,13 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
   * 中文: `工具 -> 功能設定 -> 進階 -> 內容 -> JavaScript 選項 -> 使用者 JavaScript 檔案`
 
 另外, 用戶可參考[http://userjs.org/help/resources/toggle-user-javascript 此處]了解如何加入user scripts開關按扭
+
+----
+
+Opera Unite w/ UJS Manager
+
+ * 安裝UJS Manager
+ * 左鍵點擊annuus.opera.js以進行安裝
 
 ----
 
