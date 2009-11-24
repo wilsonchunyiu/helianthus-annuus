@@ -17,6 +17,11 @@ x 錯誤修正
 
 === 2009.11.22 ===
 
+3.5.2.551 stable:
+x 修正"AJAX式頁面讀取"倒數顯示可能出現錯誤的bug
+
+=== 2009.11.22 ===
+
 3.5.2.544 beta:
 x 修正"自動檢查更新"於Chrome stable/beta channel下載extension的bug
 + 改進"加入同步登出所有server的按扭", 加入確認視窗
