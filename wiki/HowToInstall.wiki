@@ -91,7 +91,7 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
 
 ----
 
-Opera Unite w/ UJS Manager
+= Opera Unite w/ UJS Manager =
 
  * 安裝UJS Manager
  * 左鍵點擊annuus.opera.js以進行安裝
