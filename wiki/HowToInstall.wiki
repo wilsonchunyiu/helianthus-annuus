@@ -98,6 +98,7 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
   * 英文: `Tools -> Preferences -> Advanced -> Content -> JavaScript Options -> My JavaScript files`
   * 中文: `工具 -> 功能設定 -> 進階 -> 內容 -> JavaScript 選項 -> 使用者 JavaScript 檔案`
  * 安裝UJS Manager
+ * 安裝時選擇之前建立的文件夾
  * 左鍵點擊annuus.opera.js以進行安裝
 
 ----
