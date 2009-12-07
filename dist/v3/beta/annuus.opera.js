@@ -20,7 +20,7 @@
 // @namespace http://code.google.com/p/helianthus-annuus/
 // @description by 向日
 // @version 3.5.4.843
-// @build-time 2009-12-05 10:05:30
+// @build-time 2009-12-07 11:58:18
 // @include http://forum*.hkgolden.com/*
 // @run-at document-start
 // ==/UserScript==
