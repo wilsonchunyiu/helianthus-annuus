@@ -19,13 +19,13 @@
 // @name Helianthus.annuus
 // @namespace http://code.google.com/p/helianthus-annuus/
 // @description by 向日
-// @version 3.5.6.908
-// @build-time 2009-12-09 16:18:42
+// @version 3.5.7.908
+// @build-time 2009-12-11 01:35:03
 // @include http://forum*.hkgolden.com/*
 // @run-at document-start
 // ==/UserScript==
 
-(function(){var window,self,content=self=window=typeof unsafeWindow!="undefined"?unsafeWindow:this;var parent=window.parent;var top=window.top;var document=window.document;var navigator=window.navigator;var console=window.console;var JSON=window.JSON||{};var jQuery,$;var AN=window.AN={mod:{},version:"3.5.6.908"};if(document.body&&document.body.firstChild.className=="webkit-line-gutter-backdrop"){return}document.domain="hkgolden.com";if(window.opera&&window.opera.version&&window.opera.version()<10&&arguments.length==0){return(function(callee){window.opera.addEventListener("AfterScript",function(){window.opera.removeEventListener("AfterScript",arguments.callee,false);callee.call(window,null)},false)})(arguments.callee)}if(window.opera&&window.opera.addEventListener){var blockScripts=function(event){if(event.element.src?/pagead|imrworldwide/.test(event.element.src):/pixelinteractivemedia|imrworldwide|google-analytics|_getTracker|\(ads|InlineAd|PageAd|GoogleAd|google_ad/.test(event.element.text)){event.preventDefault()}};window.opera.addEventListener("BeforeScript",blockScripts,false);window.addEventListener("DOMContentLoaded",function(){window.opera.removeEventListener("BeforeScript",blockScripts,false)},false);
+(function(){var window,self,content=self=window=typeof unsafeWindow!="undefined"?unsafeWindow:this;var parent=window.parent;var top=window.top;var document=window.document;var navigator=window.navigator;var console=window.console;var JSON=window.JSON||{};var jQuery,$;var AN=window.AN={mod:{},version:"3.5.7.908"};if(document.body&&document.body.firstChild.className=="webkit-line-gutter-backdrop"){return}document.domain="hkgolden.com";if(window.opera&&window.opera.version&&window.opera.version()<10&&arguments.length==0){return(function(callee){window.opera.addEventListener("AfterScript",function(){window.opera.removeEventListener("AfterScript",arguments.callee,false);callee.call(window,null)},false)})(arguments.callee)}if(window.opera&&window.opera.addEventListener){var blockScripts=function(event){if(event.element.src?/pagead|imrworldwide/.test(event.element.src):/pixelinteractivemedia|imrworldwide|google-analytics|_getTracker|\(ads|InlineAd|PageAd|GoogleAd|google_ad/.test(event.element.text)){event.preventDefault()}};window.opera.addEventListener("BeforeScript",blockScripts,false);window.addEventListener("DOMContentLoaded",function(){window.opera.removeEventListener("BeforeScript",blockScripts,false)},false);
 /*
  * jQuery JavaScript Library v1.4a1
  * http://jquery.com/
