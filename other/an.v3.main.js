@@ -10,7 +10,7 @@ AN.box.external.main =
 
 		"beta":
 		{
-			"annuus": "3.5.8.1130",
+			"annuus": "3.5.8.1160",
 			"Kernel": "3.5.0"
 		}
 	}
