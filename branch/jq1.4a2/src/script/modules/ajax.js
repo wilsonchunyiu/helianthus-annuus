@@ -141,7 +141,7 @@ AN.mod['Ajax Integrator'] = { ver: 'N/A', author: '向日', fn: {
 					AN.shared('log', '轉頁完成');
 					AN.modFn.execMods(jNewDiv);
 
-					toggleTimer(true, true);
+					toggleTimer(true, false);
 					bDone = true;
 				});
 			}
