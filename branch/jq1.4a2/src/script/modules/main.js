@@ -1324,17 +1324,6 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 	}
 },
 
-'74cd7f38-b0ad-4fca-ab39-673b0e2ee4c7':
-{
-	desc: '修正跳頁控件位置',
-	page: { 32: true },
-	type: 3,
-	once: function()
-	{
-		AN.util.stackStyle($.sprintf('div[style^="%s: center"] { margin: 0 100px; }', $.browser.msie ? 'TEXT-ALIGN' : 'text-align'));
-	}
-},
-
 '7f9780a6-395d-4b24-a0a8-dc58c4539408':
 {
 	desc: '改進字型大小/顏色插入控件',

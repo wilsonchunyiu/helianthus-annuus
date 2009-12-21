@@ -155,7 +155,7 @@ AN.mod['Kernel'] = { ver: 'N/A', author: '向日', fn: {
 						var sPrefix = 'http://helianthus-annuus.googlecode.com/svn/dist/v3/' + sType;
 						
 						if(navigator.userAgent.indexOf('MAXTHON 2.0') != -1) window.open(sPrefix + 'annuus.m2f', '_self');
-						else if($.browser.mozilla && typeof unsafeWindow != 'undefined') window.open(sPrefix + 'annuus.user.js', '_self');
+						//else if($.browser.mozilla && typeof unsafeWindow != 'undefined') window.open(sPrefix + 'annuus.user.js', '_self');
 						//else if(navigator.userAgent.indexOf('Chrome') == -1) window.open(sPrefix + 'annuus.crx', '_self');
 						
 						window.open('http://code.google.com/p/helianthus-annuus/wiki/Changelog', '_blank');

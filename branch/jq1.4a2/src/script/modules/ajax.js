@@ -21,8 +21,8 @@ AN.mod['Ajax Integrator'] = { ver: 'N/A', author: '向日', fn: {
 		{
 			window.changePage = $.blank;
 		});
-
-		var jPageTools;
+		
+		AN.util.stackStyle('.repliers { border: 0; }');
 
 		var handlePage = function(jScope)
 		{
@@ -31,7 +31,7 @@ AN.mod['Ajax Integrator'] = { ver: 'N/A', author: '向日', fn: {
 			(oPages[nCurPageNo] =
 			{
 				jDiv: jTable.parent(),
-				jEndTable: jTable.next().next(),
+				jEndTable: jTable.next(),
 				jPageBoxes: $('select[name=page]', jScope).up('div', 3)
 			})
 			.jPageBoxes
@@ -79,12 +79,6 @@ AN.mod['Ajax Integrator'] = { ver: 'N/A', author: '向日', fn: {
 				else
 				{
 					nTargetPageNo = jThis.val() * 1;
-
-					// this is to workaround a Google Chrome problem
-					var jTemp = $('<span></span>');
-					jThis.after(jTemp).insertAfter(jTemp);
-					jTemp.remove();
-
 					jThis.val(jThis.data('an-pageNo'));
 				}
 			}
@@ -181,10 +175,7 @@ AN.mod['Ajax Integrator'] = { ver: 'N/A', author: '向日', fn: {
 					{
 						oPages[nCurPageNo].jDiv.find('strong:first').text(jNewDoc.find('strong:first').text());
 
-						jNewReplies.each(function()
-						{
-							oPages[nCurPageNo].jEndTable.before($(this).add($(this).next()));
-						});
+						oPages[nCurPageNo].jEndTable.before(jNewReplies);
 						AN.shared('log', $.sprintf('加入%s個新回覆', nNew));
 					}
 
@@ -276,7 +267,7 @@ AN.mod['Ajax Integrator'] = { ver: 'N/A', author: '向日', fn: {
 		if(AN.util.getOptions('bShowPageNo')) AN.shared('addInfo', $.sprintf('本頁頁數: <a id="an-info-curpage" href="%s">第%s頁</a>', location.href, nCurPageNo));
 		if(AN.util.getOptions('bAjaxifyReplying'))
 		{
-			$('#aspnetForm')[0].onsubmit = function() // jQuery submit function just wont work when triggering the click event of the submit btn
+			$('#aspnetForm').submit(function() // jQuery submit function just wont work when triggering the click event of the submit btn
 			{
 				toggleTimer(false);
 				AN.shared('log', '正在發送回覆...');
@@ -291,7 +282,7 @@ AN.mod['Ajax Integrator'] = { ver: 'N/A', author: '向日', fn: {
 				});
 
 				return false;
-			};
+			});
 		}
 	}
 },
