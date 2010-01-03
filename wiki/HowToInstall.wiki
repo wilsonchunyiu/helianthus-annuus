@@ -15,7 +15,7 @@
 || annuus.user.js || Safari(Mac) 3+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.user.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.user.js beta] ||
 || annuus.opera.js || Opera 9+, Opera Unite || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.opera.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.opera.js beta] ||
 || annuus.chrome.user.js || Google Chrome stable || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.chrome.user.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.chrome.user.js beta] ||
-|| annuus.xpi || Firefox 3.5+ || stable || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.xpi beta] ||
+|| annuus.xpi || Firefox 3.5+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.xpi stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.xpi beta] ||
 || annuus.crx || Google Chrome beta/dev || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.crx stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.crx beta] ||
 || annuus.m2f || Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.m2f stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.m2f beta] ||
 || annuus.privoxy.zip || Privoxy || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.privoxy.zip stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.privoxy.zip beta] ||
