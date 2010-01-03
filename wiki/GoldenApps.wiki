@@ -1,12 +1,10 @@
 #summary 高登App列表
 
- * Web App
-  * [http://hkg.anyanother.com/ HKGolden Tools]
+ * Web Proxy
   * [http://hkg.westkit.net/ HKGolden+]
-  * [http://hkg.westkit.net/rss.php HKGolden RSS]
   * [http://lalaf.com/ihkg/ iHKG(Web)]
-  * [http://hkg.badleo.com/ HKG4iP]
   * [http://hkgoldenexpress.appspot.com/ HKGolden Express]
+  * [http://hkg.badleo.com/ HKG4iP]
 
  * Browser Extension/Script
   * [http://addons.mozilla.org/en-US/firefox/addon/51793/ Better HKGolden]
@@ -15,3 +13,7 @@
  * SmartPhone App
   * [http://lalaf.com/ihkg/app/ iHKG]
   * [http://sites.google.com/site/maizehkg/projects/maize-hkg Maize HKG]
+
+ * Other
+  * [http://hkg.anyanother.com/ HKGolden Tools]
+  * [http://hkg.westkit.net/rss.php HKGolden RSS]
