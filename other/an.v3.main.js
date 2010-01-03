@@ -4,13 +4,13 @@ AN.box.external.main =
 	{
 		"stable":
 		{
-			"annuus": "3.5.7.908",
+			"annuus": "3.6.0.1561",
 			"Kernel": "3.5.0"
 		},
 
 		"beta":
 		{
-			"annuus": "3.6.0.1559",
+			"annuus": "3.6.0.1561",
 			"Kernel": "3.5.0"
 		}
 	}
