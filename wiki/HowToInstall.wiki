@@ -1,4 +1,4 @@
-﻿#summary 如何安裝Helianthus.Annuus v3.5+
+﻿#summary 如何安裝Helianthus.annuus v3.5+
 #labels Featured,Phase-Deploy
 
 || *瀏覽器* || *所需插件/軟件* ||
