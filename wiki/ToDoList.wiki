@@ -1,5 +1,7 @@
 #summary To-do 列表
 
+wait for v4..
+<wiki:comment>
 === To-do ===
 
  * 主要
@@ -31,3 +33,4 @@
 === Known Issues ===
 
  * IE8動態更新已訪問連結顏色bug
+</wiki:comment>
