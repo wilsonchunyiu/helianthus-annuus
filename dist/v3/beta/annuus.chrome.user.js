@@ -27,7 +27,7 @@ if(/forum\d+\.hkgolden\.com/.test(location.href) && !document.getElementById('he
 {
 	var script = document.createElement('script');
 	script.id = 'helianthus-annuus';
-	script.src = 'http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.js';
+	script.src = 'http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.js';
 
 	var head = document.getElementsByTagName('head');
 	
