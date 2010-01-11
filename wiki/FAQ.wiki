@@ -16,6 +16,7 @@
 Firefox用戶:
  * 如有使用Adblock擴展, 建議改為使用Adblock Plus
  * 如有使用!NoScript擴展, 請將googlecode.com加入白名單
+ * 如有使用!FlashBlock擴展, 請將hkgolden.com加入白名單
  * 如有使用!FireQuery擴展, 請將其停用或將Firebug關閉(Off), 因現版本會導致出現錯誤
 
 Maxthon 2用戶:
