@@ -58,7 +58,7 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
  * 於以下位置建立文件夾 - User Scripts:
   * XP: `C:\Documents and Settings\<username>\Local Settings\Application Data\Google\Chrome\User Data\Default`
   * Vista/Win7: `C:\Users\<username>\AppData\Local\Google\Chrome\User Data\Default`
- * 下載js元件至User Scripts文件夾
+ * 下載annuus.chrome.js至User Scripts文件夾
  * 以--enable-user-scripts命令行參數啟動Google Chrome
  * 以下為較常見之方法:
  http://helianthus-annuus.googlecode.com/svn/site/howtoinstall_chrome2_1.png
