@@ -52,13 +52,6 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
 
 ----
 
-= Google Chrome w/o extension feature =
-
- * 下載annuus.chrome.user.js至User Scripts文件夾
- * 以--enable-user-scripts命令行參數啟動Google Chrome
-
-----
-
 = Google Chrome =
 
  * 左鍵點擊annuus.crx以進行安裝
@@ -104,5 +97,12 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
  * 於config.txt加入以下兩行:
   * actionsfile annuus.action
   * filterfile annuus.filter
+
+----
+
+= Google Chrome w/o extension feature =
+
+ * 下載annuus.chrome.user.js至User Scripts文件夾
+ * 以--enable-user-scripts命令行參數啟動Google Chrome
 
 ----
