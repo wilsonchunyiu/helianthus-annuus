@@ -5,8 +5,8 @@
 || Firefox 3.5+ || --- ||
 || Chrome/Chromium || --- ||
 || Opera Unite || [http://unite.opera.com/application/401/ UJS Manager] (Optional) ||
-|| Maxthon 2 (w/ IE8) || --- ||
 || Opera 9+ || --- ||
+|| Maxthon 2 (w/ IE8) || --- ||
 || Safari(Mac) 3+ || [http://8-p.info/greasekit/ GreaseKit] ||
 || 其他瀏覽器(IE8+, Safari 3+, Maxthon 3, etc) || [http://www.privoxy.org/ Privoxy] ||
 
@@ -23,25 +23,6 @@
 ----
 <h1>安裝方法</h1>
 <wiki:toc depth="1" />
-
-----
-
-= Maxthon 2 (w/ IE8) =
-
- * 下載並開啟annuus.m2f
- * 正常來說Maxthon 2會自動詢問是否安裝, 如沒有請下載該過濾包並將其拖放至Maxthon 2視窗
- * 跟據下圖指示啟用filter
- http://helianthus-annuus.googlecode.com/svn/site/howtoinstall_m2_1.png
-
- http://helianthus-annuus.googlecode.com/svn/site/howtoinstall_m2_2.png
-
-Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否啟用:
-
-|| *功能* || *預設啟用* ||
-|| 啟用IE8標準模式及修正部份顯示錯誤 || T ||
-|| 移除垃圾 || T ||
-|| 移除Bookmark Bar (可加快網頁載入) || F ||
-|| 快取圖片 || T ||
 
 ----
 
@@ -79,6 +60,25 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
  * 安裝UJS Manager
  * 安裝時選擇之前建立的文件夾
  * 左鍵點擊annuus.opera.js以進行安裝
+
+----
+
+= Maxthon 2 (w/ IE8) =
+
+ * 下載並開啟annuus.m2f
+ * 正常來說Maxthon 2會自動詢問是否安裝, 如沒有請下載該過濾包並將其拖放至Maxthon 2視窗
+ * 跟據下圖指示啟用filter
+ http://helianthus-annuus.googlecode.com/svn/site/howtoinstall_m2_1.png
+
+ http://helianthus-annuus.googlecode.com/svn/site/howtoinstall_m2_2.png
+
+Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否啟用:
+
+|| *功能* || *預設啟用* ||
+|| 啟用IE8標準模式及修正部份顯示錯誤 || T ||
+|| 移除垃圾 || T ||
+|| 移除Bookmark Bar (可加快網頁載入) || F ||
+|| 快取圖片 || T ||
 
 ----
 
