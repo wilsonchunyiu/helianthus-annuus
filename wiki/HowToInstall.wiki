@@ -4,8 +4,8 @@
 || *瀏覽器* || *所需插件/軟件* ||
 || Firefox 3.5+ || --- ||
 || Chrome/Chromium || --- ||
-|| Opera Unite || [http://unite.opera.com/application/401/ UJS Manager] (Optional) ||
 || Opera 9+ || --- ||
+|| Opera Unite || [http://unite.opera.com/application/401/ UJS Manager] (Optional) ||
 || Maxthon 2 (w/ IE8) || --- ||
 || Safari(Mac) 3+ || [http://8-p.info/greasekit/ GreaseKit] ||
 || 其他瀏覽器(IE8+, Safari 3+, Maxthon 3, etc) || [http://www.privoxy.org/ Privoxy] ||
