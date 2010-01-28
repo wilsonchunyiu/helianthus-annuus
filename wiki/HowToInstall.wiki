@@ -11,10 +11,9 @@
 || 其他瀏覽器(IE8+, Safari 3+, Maxthon 3, etc) || [http://www.privoxy.org/ Privoxy] ||
 
 || *檔案* || *相關瀏覽器/插件/軟件* |||| 下載點 ||
-|| annuus.js || --- || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.js beta] ||
+|| annuus.js || Opera 9+, Opera Unite || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.js beta] ||
 || annuus.xpi || Firefox 3.5+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.xpi stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.xpi beta] ||
 || annuus.crx || Chrome/Chromium || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.crx stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.crx beta] ||
-|| annuus.opera.js || Opera 9+, Opera Unite || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.opera.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.opera.js beta] ||
 || annuus.m2f || Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.m2f stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.m2f beta] ||
 || annuus.user.js || Safari(Mac) 3+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.user.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.user.js beta] ||
 || annuus.privoxy.zip || Privoxy || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.privoxy.zip stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.privoxy.zip beta] ||
@@ -42,7 +41,7 @@
 = Opera 9+ =
 
  * 請先於任何一處開設一個文件夾用作儲存user scripts (例如C:\userjs).
- * 下載annuus.opera.js至該文件夾
+ * 下載annuus.js至該文件夾
  * 於以下選項選擇該文件夾:
   * 英文: `Tools -> Preferences -> Advanced -> Content -> JavaScript Options -> My JavaScript files`
   * 中文: `工具 -> 功能設定 -> 進階 -> 內容 -> JavaScript 選項 -> 使用者 JavaScript 檔案`
@@ -59,7 +58,7 @@
   * 中文: `工具 -> 功能設定 -> 進階 -> 內容 -> JavaScript 選項 -> 使用者 JavaScript 檔案`
  * 安裝UJS Manager
  * 安裝時選擇之前建立的文件夾
- * 左鍵點擊annuus.opera.js以進行安裝
+ * 左鍵點擊annuus.js以進行安裝
 
 ----
 
