@@ -17,6 +17,12 @@ x 錯誤修正
 
 === 2010.01.29 ===
 
+3.7.3.3940 stable:
+
+x 修正Chrome腳本重複插入的bug
+
+=== 2010.01.29 ===
+
 3.7.2.3937 stable:
 
 ! 改用Closure Compiler作minification
