@@ -3,7 +3,7 @@ $.extend(an.plugins, {
 'b17a0463-e46c-4420-a8f5-f169fac20aec':
 {
 	desc: 'Ajax化頁面讀取',
-	page: { 32: true },
+	page: { 32: on },
 	type: 7,
 	options:
 	{
@@ -289,7 +289,7 @@ $.extend(an.plugins, {
 				}
 
 				var interval = job.options('nCheckInterval');
-				if(!interval || interval < 30) interval = 30;
+				if(!interval || interval < 10) interval = 10;
 
 				$d.bind('workstart workend', function(event)
 				{

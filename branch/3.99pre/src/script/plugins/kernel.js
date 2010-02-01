@@ -25,7 +25,7 @@ $.extend(an.plugins, {
 '11f1c5ca-9455-4f8e-baa7-054b42d9a2c4':
 {
 	desc: '自動轉向正確頁面',
-	page: { 65534: true },
+	page: { 65534: on },
 	type: 4,
 	queue: [{
 		priority: 1,
@@ -48,7 +48,7 @@ $.extend(an.plugins, {
 'a599dafa-b550-4b28-921a-019c72f481e5':
 {
 	desc: '除錯模式',
-	page: { 65535: false },
+	page: { 65535: off },
 	type: 1,
 	queue: [{
 		fn: function()
@@ -105,7 +105,7 @@ $.extend(an.plugins, {
 '78af3c29-9bf2-47ee-80bf-a3575b711c73':
 {
 	desc: '自動檢查更新',
-	page: { 4: true },
+	page: { 4: on },
 	type: 1,
 	options: {
 		alsoCheckBeta: { desc: '同時檢查Beta版本', defaultValue: false, type: 'checkbox' },
@@ -159,7 +159,7 @@ $.extend(an.plugins, {
 'c217bf55-6d44-42d1-8fc2-2cd1662d604a':
 {
 	desc: '轉頁後再次運行功能',
-	page: { 64: true },
+	page: { 64: on },
 	type: 1,
 	queue: [{
 		fn: function()

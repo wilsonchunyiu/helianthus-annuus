@@ -40,7 +40,7 @@ $.extend(an.plugins, {
 '145fdc83-e1de-452d-90b3-cee0cc5e8336':
 {
 	desc: '修正站務台的顯示錯誤',
-	page: { 4: true },
+	page: { 4: on },
 	type: 4,
 	queue: [{
 		type: 2,
@@ -56,7 +56,7 @@ $.extend(an.plugins, {
 '7f9780a6-395d-4b24-a0a8-dc58c4539408':
 {
 	desc: '修正字型大小/顏色插入控件',
-	page: { 416: true },
+	page: { 416: on },
 	type: 4,
 	queue: [{
 		fn: function()

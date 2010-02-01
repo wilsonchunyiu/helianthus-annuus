@@ -7,13 +7,13 @@
 		storage = {
 			'Flash': {
 				get: function() {
-					return an.__lso.get('an', 'an');
+					return an.lso.get('an', 'an');
 				},
 				set: function(val) {
-					an.__lso.set('an', 'an', val.replace(/\\/g, '\\\\'));
+					an.lso.set('an', 'an', val.replace(/\\/g, '\\\\'));
 				},
 				remove: function() {
-					an.__lso.remove('an', 'an');
+					an.lso.remove('an', 'an');
 				}
 			},
 
@@ -29,6 +29,9 @@
 				}
 			}
 		}[an.storageMode];
+
+		// *** REMOVE ME *** //
+		storage.remove();
 	},
 	constructDefaultData = function()
 	{
@@ -61,9 +64,6 @@
 						 $.make(dataSet.access === 'protected' ? defaultData.privateData[pluginId] : defaultData.publicData, type)[dataId] = dataSet.defaultValue;
 						}
 					});
-
-					if(!$.isEmptyObject(privateData)) {
-					}
 				}
 			});
 		});
@@ -80,7 +80,7 @@
 			storage.set(JSON.stringify(val));
 		}
 		else {
-			var data = (val !== false && data = storage.get()) ? JSON.parse(data) : {
+			var data = val !== false && (data = storage.get()) ? JSON.parse(data) : {
 				curProfile: 'default',
 				profiles: {
 					'default': {

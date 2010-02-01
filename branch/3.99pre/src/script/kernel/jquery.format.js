@@ -49,7 +49,7 @@
 			if(format) replacement = formatters[format[0]](replacement, format.substr(1));
 
 			if(!$.isWord(replacement)) {
-				!$.browser.msie && $.debug(an.__curJob.plugin.desc, target, args);
+				!$.browser.msie && $.debug(an.curJob.plugin.desc, target, args);
 				$.error('jQuery.format: replacement is not a word');
 			}
 

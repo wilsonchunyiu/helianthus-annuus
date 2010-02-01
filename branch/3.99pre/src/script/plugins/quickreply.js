@@ -3,7 +3,7 @@ $.extend(an.plugins, {
 'cb1917f9-4053-40b1-870d-e0e2c6a90b39':
 {
 	desc: '改變快速回覆的風格',
-	page: { 32: true },
+	page: { 32: on },
 	type: 8,
 	options:
 	{

@@ -304,16 +304,14 @@ $.extend(an.plugins, {
 									(option.global ? $.make(data, 'publicData') : $.make(data, 'privateData', pluginId, pageCode, 'options'))[optionId] = val;
 								}
 							});
-
-							$.
 						},
 						'取消': $.gray,
 						'套用': function()
 						{
 						}
-					}, function(sDesc, fControl)
+					}, function(desc, handler)
 					{
-						$($.format('<li><a href="javascript:">{0}</a></li>', sDesc)).click(fControl).appendTo('#an-settings-main-control-1');
+						$($.format('<li><a href="javascript:">{0}</a></li>', desc)).click(handler).appendTo('#an-settings-main-control-1');
 					});
 
 					/*
@@ -552,10 +550,10 @@ $.extend(an.plugins, {
 						bFillAll = !$(this).is(':checked');
 					}))
 					.appendTo('#an-settings-main-control-2');
+				*/
 				}
 
-				fillOptions(true, false);
-				*/
+				//fillOptions(true, false);
 
 				$('#an-settings-tabs a:first').click(); // FF3 throws error
 				//tabClick.call($('#an-settings-tabs a:first')[0]);
@@ -568,7 +566,7 @@ $.extend(an.plugins, {
 '71c9bd88-dc3b-4a97-b04c-20052dcfcdcb':
 {
 	desc: '加入評測元件',
-	page: { 65534: true },
+	page: { 65534: on },
 	type: 1,
 	queue: [{
 		priority: 1,
@@ -642,7 +640,7 @@ $.extend(an.plugins, {
 '0868eb64-9631-42dd-8b5c-02f11a8c9a48':
 {
 	desc: '加入記錄元件 [右下]',
-	page: { 65534: true },
+	page: { 65534: on },
 	type: 1,
 	options:
 	{
@@ -715,7 +713,7 @@ $.extend(an.plugins, {
 'e9051bb8-2613-4f10-82ec-69290831c6a5':
 {
 	desc: '加入按扭元件 [左上]',
-	page: { 65534: true },
+	page: { 65534: on },
 	type: 1,
 	options:
 	{
@@ -761,7 +759,7 @@ $.extend(an.plugins, {
 '437dc7da-fdfa-429a-aec5-329c80222327':
 {
 	desc: '加入連結元件 [左中]',
-	page: { 65534: true },
+	page: { 65534: on },
 	type: 1,
 	options:
 	{
@@ -821,7 +819,7 @@ $.extend(an.plugins, {
 '1c6e8869-8148-4e58-b440-31e1bee4aef1':
 {
 	desc: '加入資訊元件 [左下]',
-	page: { 65534: true },
+	page: { 65534: on },
 	type: 1,
 	options:
 	{
@@ -940,7 +938,7 @@ $.extend(an.plugins, {
 '629944a0-a4f2-493c-8c8d-e1261a9264f9':
 {
 	desc: '鼠標遠離UI元件時半透明',
-	page: { 65534: false },
+	page: { 65534: off },
 	type: 1,
 	options: { nUIOpacity: { desc: '透明度 (10 = 移除半透明)', type: 'select', defaultValue: 3, choices: [10,9,8,7,6,5,4,3,2,1,0] } },
 	queue: [{

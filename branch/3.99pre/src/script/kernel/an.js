@@ -11,24 +11,26 @@
 	{
 		Job.prototype[type] = function(name, val)
 		{
-			if(name && !this.plugin[type][name]) $.error($.format('{0} does not have {1} {2}!', this.plugin.desc, type, name));
-
 			var
-			storage = $.storage(val === undefined),
+			storage = $.storage(val === undefined ? true : undefined),
 			profile = storage.profiles[storage.curProfile],
-			access = this.plugin[type][name].access,
+			paths = {
+				'public': [profile, 'publicData', type],
+				'protected': [profile, 'privateData', this.plugin.id, type],
+				'private': [profile, 'privateData', this.plugin.id, this.pageCode, type]
+			},
 			data;
 
 			if(val === undefined) {
-				data = $.extend({}, profile.publicData[type], profile.privateData[this.plugin.id][this.pageCode][type]);
+				data = {};
+				$.each(paths, function(modifier, path)
+				{
+					$.extend(data, $.dig.apply(null, path));
+				});
 				return name === undefined ? data : data[name];
 			}
 
-			data = access === 'public'
-			? $.make(profile, 'publicData', type)
-			: access === 'protected'
-				? $.make(profile, 'privateData', this.plugin.id, type);
-				: $.make(profile, 'privateData', this.plugin.id, this.pageCode, type);
+			data = $.make.apply(null, paths[(data = $.dig(this.plugin, type, name)) ? data.access || 'private' : 'public']);
 
 			if(val === null) {
 				delete data[name];
@@ -77,12 +79,17 @@
 
 	$.prioritize = function(priority, type, fn)
 	{
-		jobGroups[priority].push(new Job($.extend({}, an.__curJob, { fnSet: { type: type, fn: fn } })));
+		if(!fn) {
+			fn = type;
+			type = priority;
+			priority = an.curPriority;
+		}
+		jobGroups[priority].push(new Job($.extend({}, an.curJob, { fnSet: { type: type, fn: fn } })));
 	};
 
 	$(window).load(function()
 	{
-		an.__isWindowLoaded = true;
+		an.isWindowLoaded = true;
 		$d.trigger('winload');
 	});
 
@@ -92,36 +99,43 @@
 
 		if(!jobGroups) constructJobGroups();
 
-		function runEach(i, job)
+		an.curPriority = 1;
+
+		function runUntil(until)
 		{
-			an.__curJob = job
-			job.fnSet.fn.call(job, job);
+			for(; an.curPriority <= until; an.curPriority++) {
+				$.each(jobGroups[an.curPriority], function(i, job)
+				{
+					an.curJob = job;
+
+					try {
+						job.fnSet.fn.call(job, job);
+					}
+					catch(e) {
+						$.debug($.format('發生錯誤: {0}', job.plugin.desc), job, $j);
+					}
+				});
+			}
 		}
 
-		for(var i=1; i<=3; ++i) {
-			$.each(jobGroups[i], runEach);
-		}
+		runUntil(3);
 
 		$d.trigger('p3end');
 
 		$(function()
 		{
-			for(var i=4; i<=6; ++i) {
-				$.each(jobGroups[i], runEach);
-			}
+			runUntil(6);
 
 			$d.trigger('p6end');
 		});
 
 		$d.one('winload', function()
 		{
-			for(var i=7; i<=9; ++i) {
-				$.each(jobGroups[i], runEach);
-			}
+			runUntil(9);
 
 			$d.trigger('p9end');
 
-			an.__isFirstRan = true;
+			an.isFirstRan = true;
 
 			for(var i=1; i<=9; ++i) {
 				jobGroups[i] = $.grep(jobGroups[i], function(job)
@@ -131,7 +145,7 @@
 			}
 		});
 
-		if(an.__isWindowLoaded) $d.trigger('winload');
+		if(an.isWindowLoaded) $d.trigger('winload');
 
 		return $j;
 	};

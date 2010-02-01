@@ -1,8 +1,8 @@
 $.extend({
 	benchmark: function(name)
 	{
-		if(!an.__benchmark) an.__benchmark = [];
-		return name ? an.__benchmark.push({ desc: name, time: $.time() }) : an.__benchmark;
+		if(!an.benchmark) an.benchmark = [];
+		return name ? an.benchmark.push({ desc: name, time: $.time() }) : an.benchmark;
 	},
 
 	doc: function(html)
@@ -36,7 +36,7 @@ $.extend({
 
 	openerInfo: function(callback)
 	{
-		var info = an.__openerInfo || (an.__openerInfo = { readyState: 'uninitialized', callbacks: [] });
+		var info = an.openerInfo || (an.openerInfo = { readyState: 'uninitialized', callbacks: [] });
 
 		if(info.readyState === 'complete') return info;
 

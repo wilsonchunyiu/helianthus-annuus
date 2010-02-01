@@ -3,10 +3,10 @@ $.extend(an.plugins, {
 'b6b232c8-1f26-449e-bb0d-2b7826bf95ef':
 {
 	desc: '去除論壇原有的圖片縮小功能',
-	page: { 32: true, 192: true },
+	page: { 32: on, 192: on },
 	type: 4,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			window.DrawImage = $.noop;
 
@@ -22,13 +22,13 @@ $.extend(an.plugins, {
 'd7adafa8-cc14-45f9-b3e9-bc36eab05d4f':
 {
 	desc: '縮小引用中的圖片',
-	page: { 32: false },
+	page: { 32: off },
 	type: 4,
 	options: { nQuoteImgMaxHeight: { desc: '圖片最大高度(px)', defaultValue: 100, type: 'text' } },
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
-			$.ss('.repliers_right blockquote img[onload] { width: auto; height: auto; max-height: {0}px; }', $.options('nQuoteImgMaxHeight'));
+			$.ss('.repliers_right blockquote img[onload] { width: auto; height: auto; max-height: {0}px; }', job.options('nQuoteImgMaxHeight'));
 		}
 	}]
 },
@@ -36,10 +36,10 @@ $.extend(an.plugins, {
 '52ebe3d3-bf98-44d2-a101-180ec69ce290':
 {
 	desc: '移除帖子連結高亮部份',
-	page: { 64: false },
+	page: { 64: off },
 	type: 4,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			var regex = /&highlight_id=\d+/;
 			$d.mouseover(function(event)
@@ -56,10 +56,10 @@ $.extend(an.plugins, {
 '87a6307e-f5c2-405c-8614-af60c85b101e':
 {
 	desc: '搜尋開新頁',
-	page: { 4: false, 24: false },
+	page: { 4: off, 24: off },
 	type: 4,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			window.Search = function()
 			{
@@ -78,15 +78,15 @@ $.extend(an.plugins, {
 'a93f1149-d11b-4b72-98dd-c461fd9ee754':
 {
 	desc: '連結開新頁',
-	page: { 4: false, 24: false, 64: false },
+	page: { 4: off, 24: off, 64: off },
 	type: 4,
 	options: { bTopicLinksOnly: { desc: '只限帖子連結', defaultValue: false, type: 'checkbox' } },
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			$.live('a', 'click', function(event)
 			{
-				if(!event.isDefaultPrevented() && $(this).attrFilter('href',  $.options('bTopicLinksOnly') && /view\.aspx/, /^#|^javascript|topics\.aspx/).length) {
+				if(!event.isDefaultPrevented() && $(this).attrFilter('href',  job.options('bTopicLinksOnly') && /view\.aspx/, /^#|^javascript|topics\.aspx/).length) {
 					event.preventDefault();
 					window.open(this.href, '_blank');
 				}
@@ -98,10 +98,10 @@ $.extend(an.plugins, {
 '2ab2f404-0d35-466f-98a5-c88fdbdaa031':
 {
 	desc: '外鏈連結開新頁',
-	page: { 32: true },
+	page: { 32: on },
 	type: 4,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			$.live('a', 'click', function(event)
 			{
@@ -117,10 +117,10 @@ $.extend(an.plugins, {
 'b73d2968-8301-4c5e-8700-a89541d274fc':
 {
 	desc: '回復傳統用戶連結',
-	page: { 32: false },
+	page: { 32: off },
 	type: 4,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			$.live('a', 'mouseover', function()
 			{
@@ -135,10 +135,10 @@ $.extend(an.plugins, {
 '6e978310-e87b-4043-9def-076a13377c19':
 {
 	desc: '更換favicon(小丑icon) [部份瀏覽器無效]',
-	page: { 65534: false },
+	page: { 65534: off },
 	type: 4,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			$('<link>', { rel: 'shortcut icon', href: 'http://helianthus-annuus.googlecode.com/svn/other/hkg.ico' }).appendTo('head');
 		}
@@ -148,7 +148,7 @@ $.extend(an.plugins, {
 'e54d5c5f-47ae-4839-b4e8-6fc3733edfef':
 {
 	desc: '改進公司模式',
-	page: { 65534: true },
+	page: { 65534: on },
 	type: 4,
 	options:
 	{
@@ -156,11 +156,11 @@ $.extend(an.plugins, {
 		sCModeTitle: { desc: '標題名稱', defaultValue: 'Google', type: 'text' }
 	},
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			if($.cookie('companymode') == 'Y') {
-				$('<link>', { rel: 'shortcut icon', href: $.options('sCModeFavicon') }).appendTo('head');
-				document.title = $.options('sCModeTitle');
+				$('<link>', { rel: 'shortcut icon', href: job.options('sCModeFavicon') }).appendTo('head');
+				document.title = job.options('sCModeTitle');
 			}
 		}
 	}]
@@ -170,10 +170,10 @@ $.extend(an.plugins, {
 '231825ad-aada-4f5f-8adc-5c2762c1b0e5':
 {
 	desc: '顯示資料: 樓主名稱',
-	page: { 32: false },
+	page: { 32: off },
 	type: 5,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			$.openerInfo(function(info)
 			{
@@ -186,13 +186,13 @@ $.extend(an.plugins, {
 '9e181e79-153b-44d5-a482-5ccc6496a172':
 {
 	desc: '顯示資料: 累計在線時間',
-	page: { 65534: false },
+	page: { 65534: off },
 	type: 5,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
-			var nLastOnTime = $.db('nLastOnTime');
-			var nCumulatedTime = $.db('nCumulatedTime') || 0;
+			var nLastOnTime = job.db('nLastOnTime');
+			var nCumulatedTime = job.db('nCumulatedTime') || 0;
 
 			if(nLastOnTime)
 			{
@@ -216,8 +216,8 @@ $.extend(an.plugins, {
 
 			$.run('addInfo', '在線時間: ' + sCumulated);
 
-			$.db('nLastOnTime', $.time());
-			$.db('nCumulatedTime', nCumulatedTime);
+			job.db('nLastOnTime', $.time());
+			job.db('nCumulatedTime', nCumulatedTime);
 		}
 	}]
 },
@@ -225,10 +225,10 @@ $.extend(an.plugins, {
 'f47e77c8-6f1a-43b2-8493-f43de222b3b4':
 {
 	desc: '加入伺服器狀態顯示按扭',
-	page: { 65534: true },
+	page: { 65534: on },
 	type: 5,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			$.run('addButton', '伺服器狀態', $.serverTable);
 		}
@@ -238,17 +238,17 @@ $.extend(an.plugins, {
 '7de28ca9-9c44-4949-ad4a-31f38a984715':
 {
 	desc: '加入一鍵留名按扭',
-	page: { 32: false },
+	page: { 32: off },
 	type: 5,
 	options: { sLeaveNameMsg: { desc: '回覆內容', defaultValue: '留名', type: 'text' } },
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			if(!$.isLoggedIn()) return;
 
 			$.run('addButton', '一鍵留名', function()
 			{
-				$('#ctl00_ContentPlaceHolder1_messagetext').val($.options('sLeaveNameMsg'));
+				$('#ctl00_ContentPlaceHolder1_messagetext').val(job.options('sLeaveNameMsg'));
 				$('#aspnetForm').submit();
 			});
 		}
@@ -258,10 +258,10 @@ $.extend(an.plugins, {
 '69260bc4-4f43-4dda-ba0f-87ba804a866c':
 {
 	desc: '加入同步登入所有server的按扭',
-	page: { 65534: false },
+	page: { 65534: off },
 	type: 5,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			$.run('addButton', '登入所有server', function()
 			{
@@ -340,10 +340,10 @@ $.extend(an.plugins, {
 '13c276a5-f84e-4f53-9ada-45545ccc6b2e':
 {
 	desc: '加入同步登出所有server的按扭',
-	page: { 65534: false },
+	page: { 65534: off },
 	type: 5,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			$.run('addButton', '登出所有server', function()
 			{
@@ -394,10 +394,10 @@ $.extend(an.plugins, {
 'aad1f3ac-e70c-4878-a1ef-678539ca7ee4':
 {
 	desc: '加入前往吹水台的快速連結',
-	page: { 65534: true },
+	page: { 65534: on },
 	type: 5,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			$.run('addLink', '吹水台', '/topics.aspx?type=BW', 1);
 		}
@@ -407,10 +407,10 @@ $.extend(an.plugins, {
 'd0d76204-4033-4bd6-a9a8-3afbb807495f':
 {
 	desc: '加入前往最頂/底的按扭',
-	page: { 32: true },
+	page: { 32: on },
 	type: 5,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			$.run('addLink', '最頂', function(){ document.body.scrollIntoView(); }, 0);
 			$.run('addLink', '最底', function(){ document.body.scrollIntoView(false); }, 2);
@@ -421,11 +421,11 @@ $.extend(an.plugins, {
 'b78810a2-9022-43fb-9a9b-f776100dc1df':
 {
 	desc: '加入樓層編號',
-	page: { 32: true },
+	page: { 32: on },
 	type: 5,
 	queue: [{
 		type: 2,
-		fn: function()
+		fn: function(job)
 		{
 			var nCurPageNo = $j.ajaxPageNo();
 			var nFloor = ((nCurPageNo == 1) ? 0 : 25 * (nCurPageNo - 1) + 1) + $j.pageRoot().find('.an-content-floor').length;
@@ -440,10 +440,10 @@ $.extend(an.plugins, {
 '3f693a9e-e79d-4d14-b639-a57bee36079a':
 {
 	desc: '自動顯示伺服器狀態檢查視窗',
-	page: { 1: true },
+	page: { 1: on },
 	type: 6,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			$.run('serverTable');
 		}
@@ -453,10 +453,10 @@ $.extend(an.plugins, {
 '4cdce143-74a5-4bdb-abca-0351638816fa':
 {
 	desc: '發表新帖子的主旨過長時進行提示',
-	page: { 256: true },
+	page: { 256: on },
 	type: 6,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			if(location.search.indexOf('mt=N') != -1)
 			{
@@ -481,13 +481,13 @@ $.extend(an.plugins, {
 '86d24fc8-476a-4de3-95e1-5e0eb02b3353':
 {
 	desc: '轉換表情碼為圖片',
-	page: { 92: true },
+	page: { 92: on },
 	type: 6,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			var codes = [];
-			$p.smileys = {};
+			job.plugin.smileys = {};
 
 			$.each(an.smileys, function(i, typeSet)
 			{
@@ -497,26 +497,26 @@ $.extend(an.plugins, {
 					{
 						$.each(cell, function(l, smileySet)
 						{
-							$p.smileys[smileySet[0]] = typeSet.path + smileySet[1];
+							job.plugin.smileys[smileySet[0]] = typeSet.path + smileySet[1];
 							codes.push(smileySet[0].replace(/[[\]()?]/g, '\\$&'));
 						});
 					});
 				});
 			});
 
-			$p.rCodes = new RegExp(codes.join('|'), "g");
+			job.plugin.rCodes = new RegExp(codes.join('|'), "g");
 		}
 	},
 	{
 		type: 2,
-		fn: function()
+		fn: function(job)
 		{
 			$j.topics().each(function()
 			{
 				var
 				jTitle = $(this).find('a:first'),
 				oldTitle = jTitle.text(),
-				newTitle = oldTitle.replace($p.rCodes, function($0){ return '<img src="'+$p.smileys[$0]+'.gif" alt="'+$0+'" />'; });
+				newTitle = oldTitle.replace(job.plugin.rCodes, function($0){ return '<img src="'+job.plugin.smileys[$0]+'.gif" alt="'+$0+'" />'; });
 
 				if(oldTitle !== newTitle) jTitle.html(newTitle);
 			});
@@ -527,7 +527,7 @@ $.extend(an.plugins, {
 'b69c5067-2726-43f8-b3de-dfb907355b71':
 {
 	desc: '標題過濾功能',
-	page: { 4: true },
+	page: { 4: on },
 	type: 6,
 	options:
 	{
@@ -535,9 +535,9 @@ $.extend(an.plugins, {
 		bAddFilterButton: { desc: '加入新增過濾器按扭', defauleValue: false, type: 'checkbox' }
 	},
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
-			var aFilter = $.db('aTopicFilter') || [],
+			var aFilter = job.db('aTopicFilter') || [],
 			jHiddenImg,
 			jButton = $('<img />', { src: an.resources['cross-shield'], css: { 'margin-left': '-1.5px' } }).hoverize('#HotTopics tr:not(:first-child)', { autoPosition: false })
 			.bind({
@@ -562,7 +562,7 @@ $.extend(an.plugins, {
 				if(!sFilter) return;
 
 				aFilter.push(sFilter);
-				$.db('aTopicFilter', aFilter);
+				job.db('aTopicFilter', aFilter);
 				filterTopics();
 			};
 
@@ -571,7 +571,7 @@ $.extend(an.plugins, {
 				if(!aFilter.length) return;
 
 				var nCount = 0;
-				(jScope || $(document)).topics().each(function()
+				(jScope || $d).topics().each(function()
 				{
 					var jThis = $(this);
 					var sTitle = jThis.find('a:first').html().replace(/<img[^>]+?alt="?([^" ]+)[^>]*>/ig, '$1');
@@ -588,16 +588,16 @@ $.extend(an.plugins, {
 				if(nCount) $.run('log', $.format('{0}個標題已被過濾', nCount));
 			};
 
-			if($.options('bAddFilterButton')) $.run('addButton', '新增過濾器', addFilter);
+			if(job.options('bAddFilterButton')) $.run('addButton', '新增過濾器', addFilter);
 
-			if($.options('bFilterListButton')) $.run('addButton', '標題過濾列表', function() {
+			if(job.options('bFilterListButton')) $.run('addButton', '標題過濾列表', function() {
 				if(!$('#an-filterlist').length) {
 					$.ss('\
 					#an-filterlist > ul { margin: 5px; } \
 					#an-filterlist > ul > li { padding: 2px 0; } \
 					#an-filterlist > ul > li > span:first-child { margin-right: 5px; border: 1px solid black; padding: 0 5px; background-color: {0.sMainHeaderBgColor}; color: {0.sMainHeaderFontColor}; cursor: pointer; } \
 					',
-					$.options()
+					job.options()
 					);
 
 					$.box('an-filterlist', '標題過濾列表', 500);
@@ -612,7 +612,7 @@ $.extend(an.plugins, {
 						var nIndex = $.inArray(sFilter, aFilter);
 						if(nIndex != -1) aFilter.splice(nIndex, 1);
 
-						$.db('aTopicFilter', aFilter);
+						job.db('aTopicFilter', aFilter);
 						jTarget.parent().remove();
 					});
 				}
@@ -632,13 +632,11 @@ $.extend(an.plugins, {
 
 				$.gray(true, 'an-filterlist');
 			});
-		}
-	},
-	{
-		type: 2,
-		fn: function()
-		{
-			this.filterTopics($j);
+
+			$.prioritize(2, function()
+			{
+				filterTopics($j);
+			});
 		}
 	}]
 },
@@ -646,10 +644,10 @@ $.extend(an.plugins, {
 'db770fdc-9bf5-46b9-b3fa-78807f242c3c':
 {
 	desc: '用戶封鎖功能',
-	page: { 32: true },
+	page: { 32: on },
 	type: 6,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			$.ss('\
 			.an-bammed-msg { color: #999; font-size: 10px; text-align: center; } \
@@ -658,7 +656,7 @@ $.extend(an.plugins, {
 			.an-bammed > .repliers_left > div > a:first-child ~ *, .an-bammed > td > .repliers_right { display: none; } \
 			');
 
-			var bamList = this.bamList = $.db('aBamList') || [],
+			var bamList = job.db('aBamList') || [],
 
 			jButton = $.userButton().bind({
 				click: function()
@@ -667,7 +665,7 @@ $.extend(an.plugins, {
 					var index = $.inArray(userid, bamList);
 					index === -1 ? bamList.push(userid) : bamList.splice(index, 1);
 
-					$.db('aBamList', bamList);
+					job.db('aBamList', bamList);
 					toggleReplies(null);
 				},
 				buttonshow: function()
@@ -710,7 +708,7 @@ $.extend(an.plugins, {
 				}
 			});
 
-			var toggleReplies = this.toggleReplies = function(jScope)
+			var toggleReplies = function(jScope)
 			{
 				(jScope || $(document)).replies().jInfos.each(function()
 				{
@@ -718,13 +716,11 @@ $.extend(an.plugins, {
 					jThis.toggleClass('an-bammed', $.inArray(jThis.attr('userid'), bamList) != -1);
 				});
 			};
-		}
-	},
-	{
-		type: 2,
-		fn: function()
-		{
-			if(this.bamList.length) this.toggleReplies($j);
+
+			$.prioritize(2, function()
+			{
+				if(bamList.length) filterTopics($j);
+			});
 		}
 	}]
 },
@@ -732,12 +728,12 @@ $.extend(an.plugins, {
 '7906be8e-1809-40c1-8e27-96df3aa229d8':
 {
 	desc: '用戶高亮功能',
-	page: { 32: true },
+	page: { 32: on },
 	type: 6,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
-			var highlightList = this.highlightList = $.bbq.getState('highlight_id') || window.highlight_id && [window.highlight_id + ''] || [],
+			var highlightList = $.bbq.getState('highlight_id') || window.highlight_id && [window.highlight_id + ''] || [],
 
 			jButton = $.userButton().bind({
 				click: function()
@@ -760,9 +756,9 @@ $.extend(an.plugins, {
 			tr[userid] > td { background-color: {0.sSecBgColor} !important; } \
 			tr.an-highlighted > td { background-color: {0.sHighlightBgColor} !important; } \
 			',
-			$.options());
+			job.options());
 
-			var toggleReplies = this.toggleReplies = function(jScope)
+			var toggleReplies = function(jScope)
 			{
 				(jScope || $(document)).replies().jInfos.each(function()
 				{
@@ -770,13 +766,11 @@ $.extend(an.plugins, {
 					jThis.toggleClass('an-highlighted', $.inArray(jThis.attr('userid'), highlightList) != -1);
 				});
 			};
-		}
-	},
-	{
-		type: 2,
-		fn: function()
-		{
-			if(this.highlightList.length) this.toggleReplies($j);
+
+			$.prioritize(2, function()
+			{
+				if(highlightList.length) toggleReplies($j);
+			});
 		}
 	}]
 },
@@ -784,39 +778,37 @@ $.extend(an.plugins, {
 'e82aa0ba-aa34-4277-99ea-41219dcdacf2':
 {
 	desc: '用戶單獨顯示功能',
-	page: { 32: true },
+	page: { 32: on },
 	type: 6,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
-			var oFn = this,
+			var
+			targetId,
 			jButton = $.userButton().bind({
 				click: function()
 				{
-					oFn.targetId = oFn.targetId ? null : jButton.data('userButton').jTarget.attr('userid');
+					targetId = targetId ? null : jButton.data('userButton').jTarget.attr('userid');
 					toggleReplies(null);
 				},
 				buttonshow: function()
 				{
-					jButton.attr('src', an.resources[oFn.targetId ? 'magnifier-zoom-out' : 'magnifier-zoom-in']);
+					jButton.attr('src', an.resources[targetId ? 'magnifier-zoom-out' : 'magnifier-zoom-in']);
 				}
-			});
-
-			var toggleReplies = this.toggleReplies = function(jScope)
+			}),
+			toggleReplies = function(jScope)
 			{
 				(jScope || $(document)).replies().jInfos.each(function()
 				{
 					var jThis = $(this);
-					jThis.closest('div > table').toggle(!oFn.targetId || jThis.attr('userid') === oFn.targetId);
+					jThis.closest('div > table').toggle(!targetId || jThis.attr('userid') === targetId);
 				});
 			};
-		}
-	},
-	{
-		type: 2,
-		fn: function()
-		{
-			if(this.targetId) this.toggleReplies($j);
+
+			$.prioritize(2, function()
+			{
+				if(targetId) toggleReplies($j);
+			});
 		}
 	}]
 },
@@ -824,17 +816,17 @@ $.extend(an.plugins, {
 'fc07ccda-4e76-4703-8388-81dac9427d7c':
 {
 	desc: '強制顯示空白用戶名連結',
-	page: { 32: true },
+	page: { 32: on },
 	type: 6,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			$.ss('.an-nameforcedshown:before { content: "<空白名稱>"; font-style: italic; }');
 		}
 	},
 	{
 		type: 2,
-		fn: function()
+		fn: function(job)
 		{
 			$j.replies().jNameLinks.filter(function(){ return $(this).width() === 0; }).addClass('an-nameforcedshown');
 		}
@@ -844,15 +836,15 @@ $.extend(an.plugins, {
 '63333a86-1916-45c1-96e0-f34a5add67c1':
 {
 	desc: '限制回覆高度',
-	page: { 32: false },
+	page: { 32: off },
 	type: 6,
 	options: {
 		replyMaxHeight: { desc: '最大高度(px)', type: 'text', defaultValue: 2000 }
 	},
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
-			var maxHeight = $.options('replyMaxHeight');
+			var maxHeight = job.options('replyMaxHeight');
 
 			$.ss('\
 			.repliers_right, .repliers_right > tbody, .repliers_right > tbody > tr, .repliers_right > tbody > tr > td { display: block; } \
@@ -891,10 +883,10 @@ $.extend(an.plugins, {
 '7b36188f-c566-46eb-b48d-5680a4331c1f':
 {
 	desc: '轉換論壇連結的伺服器位置',
-	page: { 32: true },
+	page: { 32: on },
 	type: 6,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			var rForum = /forum\d*.hkgolden\.com/i;
 			$d.mousedown(function(event)
@@ -911,17 +903,17 @@ $.extend(an.plugins, {
 'e33bf00c-9fc5-46ab-866a-03c4c7ca5056':
 {
 	desc: '轉換文字連結成連結',
-	page: { 32: true },
+	page: { 32: on },
 	type: 6,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			$.ss('.an-linkified { padding: 0 2px; }');
 		}
 	},
 	{
 		type: 2,
-		fn: function()
+		fn: function(job)
 		{
 			var
 			rLink = /(?:https?|ftp):\/\/(?:[\w-]+\.)+[a-z]{2,3}(?![a-z])(?:\/[\w.\/?:;~!@#$%^&*()+=-]*)?/i,
@@ -957,10 +949,10 @@ $.extend(an.plugins, {
 '422fe323-e61e-47d9-a348-d40011f5da28':
 {
 	desc: '連結封鎖功能',
-	page: { 32: false },
+	page: { 32: off },
 	type: 6,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			$.ss('\
 			.repliers_right a[target] { display: inline-block; } \
@@ -971,7 +963,7 @@ $.extend(an.plugins, {
 			');
 
 			var
-			blockList = this.blockList = $.db('linkBlockList') || [],
+			blockList = job.db('linkBlockList') || [],
 			rInternal = /^http:\/\/(?:[^.]+.)hkgolden\.com/,
 
 			jButton = $('<img />', { id: 'an-linkblocktoggler' })
@@ -1002,18 +994,16 @@ $.extend(an.plugins, {
 						blockList.push(realHref);
 					}
 
-					$.db('linkBlockList', blockList);
+					job.db('linkBlockList', blockList);
 				}
 			});
-		}
-	},
-	{
-		type: 2,
-		fn: function()
-		{
-			$j.replies().jContents.find('a').filter(function(){ return $.inArray(this.href, fn.blockList) !== -1; }).toggleClass('an-linkblocked').each(function()
+
+			$.prioritize(2, function()
 			{
-				$(this).attr({ href: 'javascript:', rel: this.href });
+				$j.replies().jContents.find('a').filter(function(){ return $.inArray(this.href, blockList) !== -1; }).toggleClass('an-linkblocked').each(function()
+				{
+					$(this).attr({ href: 'javascript:', rel: this.href });
+				});
 			});
 		}
 	}]
@@ -1022,13 +1012,13 @@ $.extend(an.plugins, {
 'd761d6f7-8ef7-4d5b-84e9-db16a274f616':
 {
 	desc: '轉換圖片連結成圖片',
-	page: { 32: false },
+	page: { 32: off },
 	type: 6,
 	options: {
 		imageConvertMode: { desc: '轉換模式', type: 'select', choices: ['自動轉換', '自動轉換(引用中的連結除外)', '手動轉換'], defaultValue: '自動轉換(引用中的連結除外)' }
 	},
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			$.ss('\
 			.an-imagified { padding: 0 2px; } \
@@ -1052,14 +1042,12 @@ $.extend(an.plugins, {
 					an.resources['image-export'], event.target.href));
 				}
 			});
-		}
-	},
-	{
-		type: 2,
-		fn: function()
-		{
-			var convertMode = $.inArray($.options('imageConvertMode'), this.options.imageConvertMode.choices);
-			if(convertMode !== 2) $j.replies().jContents.find(convertMode === 0 ? 'a' : 'a:not(blockquote a)').trigger('imageconvert');
+
+			var convertMode = $.inArray(job.options('imageConvertMode'), job.plugin.options.imageConvertMode.choices);
+			if(convertMode !== 2) $.prioritize(2, function()
+			{
+				$j.replies().jContents.find(convertMode === 0 ? 'a' : 'a:not(blockquote a)').trigger('imageconvert');
+			});
 		}
 	}]
 },
@@ -1067,15 +1055,15 @@ $.extend(an.plugins, {
 '8e1783cd-25d5-4b95-934c-48a650c5c042':
 {
 	desc: '圖片屏蔽功能',
-	page: { 32: false },
+	page: { 32: off },
 	type: 6,
 	options: {
 		imageMaskMode: { desc: '屏蔽模式', type: 'select', choices: ['自動屏蔽', '自動屏蔽(只限引用中的圖片)', '手動屏蔽'], defaultValue: '自動屏蔽(只限引用中的圖片)' }
 	},
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
-			var maskMode = $.inArray($.options('imageMaskMode'), this.options.imageMaskMode.choices);
+			var maskMode = $.inArray(job.options('imageMaskMode'), job.plugin.options.imageMaskMode.choices);
 			var selector = {
 				0: '.repliers_right img[onload],',
 				1: '.repliers_right blockquote img[onload],',
@@ -1110,19 +1098,19 @@ $.extend(an.plugins, {
 '039d820f-d3c7-4539-8647-dde974ceec0b':
 {
 	desc: '轉換視頻網站連結成影片',
-	page: { 32: true },
+	page: { 32: on },
 	type: 6,
 	options: {
 		videoConvertMode: { desc: '轉換模式', type: 'select', choices: ['自動轉換', '自動轉換(引用中的連結除外)', '手動轉換'], defaultValue: '自動轉換(引用中的連結除外)' }
 	},
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			var nWidth, nHeight, sUrl;
 			var aSites =
 			[{
 				regex: 'youtube\\.com/watch\\?v=',
-				fn: function()
+				fn: function(job)
 				{
 					if(nWidth > 640) nWidth = 640;
 					nHeight = nWidth / 16 * 9 + 25;
@@ -1131,7 +1119,7 @@ $.extend(an.plugins, {
 			},
 			{
 				regex: 'vimeo\\.com/\\d',
-				fn: function()
+				fn: function(job)
 				{
 					if(nWidth > 504) nWidth = 504;
 					nHeight = nWidth / 1.5;
@@ -1140,7 +1128,7 @@ $.extend(an.plugins, {
 			},
 			{
 				regex: 'youku\\.com/v_show/',
-				fn: function()
+				fn: function(job)
 				{
 					if(nWidth > 480) nWidth = 480;
 					nHeight = nWidth / 4 * 3 + 40;
@@ -1149,7 +1137,7 @@ $.extend(an.plugins, {
 			},
 			{
 				regex: 'tudou\\.com/programs/',
-				fn: function()
+				fn: function(job)
 				{
 					if(nWidth > 420) nWidth = 420;
 					nHeight = nWidth / 4 * 3 + 48;
@@ -1194,14 +1182,12 @@ $.extend(an.plugins, {
 					.before('<img title="已轉換連結為影片" class="an-videoified" src="'+an.resources['film--arrow']+'" />');
 				}
 			});
-		}
-	},
-	{
-		type: 2,
-		fn: function()
-		{
-			var convertMode = $.inArray($.options('videoConvertMode'), this.options.videoConvertMode.choices);
-			if(convertMode !== 2) $j.replies().jContents.find(convertMode === 0 ? 'a' : 'a:not(blockquote a)').trigger('videoconvert');
+
+			var convertMode =  $.inArray(job.options('videoConvertMode'), job.plugin.options.videoConvertMode.choices);
+			if(convertMode !== 2) $.prioritize(2, function()
+			{
+				$j.replies().jContents.find(convertMode === 0 ? 'a' : 'a:not(blockquote a)').trigger('videoconvert');
+			});
 		}
 	}]
 },
@@ -1209,10 +1195,10 @@ $.extend(an.plugins, {
 'a7484cf2-9cbd-47aa-ac28-472f55a1b8f4':
 {
 	desc: '需要時自動加入代碼插入按扭',
-	page: { 288: true },
+	page: { 288: on },
 	type: 6,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			var rUrl, jUrlBtn, rImg, jImgBtn, text, match;
 			var jTextarea = $('#ctl00_ContentPlaceHolder1_messagetext').bind('keyup mouseup change', function()
@@ -1248,11 +1234,11 @@ $.extend(an.plugins, {
 '1fb17624-7c6f-43aa-af11-9331f1f948cb':
 {
 	desc: '強化表情圖示列',
-	page: { 288: true },
+	page: { 288: on },
 	type: 6,
 	options: { sSmileySelectMethod: { desc: '圖示選擇方式', defaultValue: '列表', type: 'select', choices: ['列表', '連結'] } },
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			// jQuery('#TABLE_ID').outerhtml().replace(/>\s+</g, '><').replace(/&nbsp;\s+/g, '&nbsp;').replace(/'/g,'\\\'');
 			if(!$('#ctl00_ContentPlaceHolder1_messagetext').length) return;
@@ -1310,7 +1296,7 @@ $.extend(an.plugins, {
 					return html;
 				});
 
-				var isSelectMode = $.options('sSmileySelectMethod') === '列表';
+				var isSelectMode = job.options('sSmileySelectMethod') === '列表';
 
 				if(!isSelectMode) $.ss('#an-smileyselector { list-style: none; margin: 0; padding: 0; font-size: 80%; }');
 
@@ -1340,14 +1326,14 @@ $.extend(an.plugins, {
 'e336d377-bec0-4d88-b6f8-52e122f4d1c9':
 {
 	desc: '加入自訂文字插入控件',
-	page: { 288: true },
+	page: { 288: on },
 	type: 5,
 	queue: [{
-		fn: function()
+		fn: function(job)
 		{
 			if(!$('#ctl00_ContentPlaceHolder1_messagetext').length) return;
 
-			var snippets = $.db('snippets') || [
+			var snippets = job.db('snippets') || [
 				['家姐潮文', '講起我就扯火啦\n我家姐一路都在太古廣場一間名店做sales\n間店有好多有錢人同名人幫襯\n做了很多年，已經是senior\n咁多年黎都好俾心機做，經理亦好 like佢\n因為收入不錯又隱定，家姐原本諗住同拍拖多年既bf結婚\n咁多年黎我家姐好少俾人投訴\n而且同好多大客既關係都唔錯\n前排關心研去過我家姐間店幫襯\n不過serve佢既不是我家姐，但佢一買就買左好多野\n過左個幾星期，佢又再去間店行\n上次serve果個Day-off, 咁我家姐就頂上serve佢\n開頭已經好有禮貌介紹d新貨俾佢, 仲話俾折頭佢\n佢就無乜反應，望一望另一堆客\n果堆客係大陸人，三至四個，講野好大聲\n關小姐就同我家姐講話可唔可以關左間鋪一陣\n等佢揀衫\n 我家姐同我講，佢公司一向唔俾佢地咁做\n驚做壞個頭，除非真係有乜大人物，好多記者好混亂先可以咁做\n但佢見到關小姐黑口黑面，都識做話打電話去問一問老闆\n老闆梗係話唔得啦，至多俾多d折頭她\n咁關小姐就發老脾，鬧到我家姐一面屁\nd說話勁難聽，又話自己買野既錢多過我家姐搵幾年既錢\n我家姐都唔敢得罪佢，一味道歉\n跟住關小姐就走左人，家姐就同老闆備案\n老闆瞭解左情況就無再追問\n過左兩日佢接到老闆電話話收到complaint \n話有人投訴佢態度唔好，唔理顧客感受\n公司policy一向唔話俾佢地知係邊次事件\n我家姐估黎估去都淨係得失過關小姐一人\n總之俾老闆話左兩句\n又過幾日，關小姐又黎\n這次和件西裝友一齊，但好在成店都無其他客\n我家姐怕又惹事，叫左個junior過去serve佢\n點知條老西友係要點番我家姐serve.\n根住關小姐就玩野，試衫，但話d衫俾其他人試過污糟\n要開新衫試，我家姐雖然知公司唔俾咁做，\n但怕左佢，唯有照做\n點知試左兩三件，件件佢都要咁試又無話要\n我家姐終於話唔好意思，其實唔可以咁做\n(根本明知她玩野啦.....)\n又係至多俾多d折頭佢\n跟住佢件西裝友就鬧我家姐話"係咪話我地無錢買你地d野?"\n我家姐話唔係，但佢照鬧\n鬧左十幾分鐘\nd同事見咁幫手，又照鬧\n最終打俾老闆備案\n之後連收兩封warning letter\n早兩日接埋大信封\n年尾俾人炒左']
 			];
 			var jSelect = $('<select></select>');
@@ -1379,7 +1365,7 @@ $.extend(an.plugins, {
 						#an-snippets > div { float: right; margin-left: 10px; padding-left: 10px; text-align: center; border-left: 1px solid gray; } \
 						#an-snippets > div > textarea { display: block; width: 400px; height: 300px; } \
 						',
-						$.options()
+						job.options()
 						);
 
 						var index, editing, jDesc, jContent;
@@ -1412,7 +1398,7 @@ $.extend(an.plugins, {
 								else if(type == 'X' && confirm('確定移除?')) {
 									snippets.splice(jTarget.parent().index(), 1);
 								}
-								$.db('snippets', snippets);
+								job.db('snippets', snippets);
 								writeSnippets();
 								writeSelect();
 							}

@@ -3,7 +3,7 @@ $.extend(an.plugins, {
 '8be1ac06-030a-42d4-a8f4-f2b7f4881300':
 {
 	desc: '改變引用風格',
-	page: { 32: true },
+	page: { 32: on },
 	type: 8,
 	options: {
 		quoteStyle: { desc: '引用風格', type: 'select', choices: ['預設', '復古', '現代'], defaultValue: '預設' },

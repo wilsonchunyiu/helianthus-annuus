@@ -7,15 +7,15 @@ $.extend(an.plugins, {
 	page: { 65535: 'comp' },
 	type: 2,
 	options: {
-		sUIFontColor: { desc: 'UI主顏色', defaultValue: '#808080', type: 'text', global: true },
-		sUIHoverColor: { desc: 'UI連結懸浮顏色', defaultValue: '#9ACD32', type: 'text', global: true },
-		sMainFontColor: { desc: '論壇主要字體顏色', defaultValue: '#000000', type: 'text', global: true },
-		sMainBorderColor: { desc: '論壇主要邊框顏色', defaultValue: '#000000', type: 'text', global: true },
-		sSecBorderColor: { desc: '論壇次要邊框顏色', defaultValue: '#CCCCCC', type: 'text', global: true },
-		sMainBgColor: { desc: '論壇主要背景顏色', defaultValue: '#FFFFFF', type: 'text', global: true },
-		sSecBgColor: { desc: '論壇次要背景顏色', defaultValue: '#F8F8F8', type: 'text', global: true },
-		sMainHeaderFontColor: { desc: '論壇標題字體顏色', defaultValue: '#FFFFFF', type: 'text', global: true },
-		sMainHeaderBgColor: { desc: '論壇標題背景顏色', defaultValue: '#336699', type: 'text', global: true }
+		sUIFontColor: { desc: 'UI主顏色', defaultValue: '#808080', type: 'text', access: 'public' },
+		sUIHoverColor: { desc: 'UI連結懸浮顏色', defaultValue: '#9ACD32', type: 'text', access: 'public' },
+		sMainFontColor: { desc: '論壇主要字體顏色', defaultValue: '#000000', type: 'text', access: 'public' },
+		sMainBorderColor: { desc: '論壇主要邊框顏色', defaultValue: '#000000', type: 'text', access: 'public' },
+		sSecBorderColor: { desc: '論壇次要邊框顏色', defaultValue: '#CCCCCC', type: 'text', access: 'public' },
+		sMainBgColor: { desc: '論壇主要背景顏色', defaultValue: '#FFFFFF', type: 'text', access: 'public' },
+		sSecBgColor: { desc: '論壇次要背景顏色', defaultValue: '#F8F8F8', type: 'text', access: 'public' },
+		sMainHeaderFontColor: { desc: '論壇標題字體顏色', defaultValue: '#FFFFFF', type: 'text', access: 'public' },
+		sMainHeaderBgColor: { desc: '論壇標題背景顏色', defaultValue: '#336699', type: 'text', access: 'public' }
 	},
 	queue: [{
 		priority: 1,
@@ -95,7 +95,7 @@ $.extend(an.plugins, {
 '89615a78-21b7-46bd-aeb1-12e7f031e896':
 {
 	desc: '強制更改全局字體',
-	page: { 65534: false },
+	page: { 65534: off },
 	type: 2,
 	options: { sMainFontFamily: { desc: '字體名稱', defaultValue: 'SimSun', type: 'text' } },
 	queue: [{
@@ -110,7 +110,7 @@ $.extend(an.plugins, {
 'cad6d058-f999-460d-ac29-4074f33f46fb':
 {
 	desc: '設定連結樣式',
-	page: { 65534: false },
+	page: { 65534: off },
 	type: 2,
 	options:
 	{
@@ -141,7 +141,7 @@ $.extend(an.plugins, {
 '7574582b-2fea-4079-8dfb-7ac4e5587ecb':
 {
 	desc: '改變論壇樣式',
-	page: { 65534: false },
+	page: { 65534: off },
 	type: 2,
 	options:
 	{
@@ -157,7 +157,7 @@ $.extend(an.plugins, {
 		sBlueBarBgColor: { desc: '藍色橫條背景顏色', defaultValue: '#6EA0C4', type: 'text' },
 		sBlueBarBgImage: { desc: '藍色橫條背景圖片', defaultValue: '/images/left_menu/p.png', type: 'text' },
 		sBlueSecBgColor: { desc: '高登公告內部橫條背景顏色', defaultValue: '#CCDDEA', type: 'text' },
-		sHighlightBgColor: { desc: '高亮背景顏色', defaultValue: '#E9EC6C', type: 'text', global: true },
+		sHighlightBgColor: { desc: '高亮背景顏色', defaultValue: '#E9EC6C', type: 'text', access: 'public' },
 		sTimeFontColor: { desc: '時間字體顏色', defaultValue: '#800000', type: 'text' },
 		sMaleFontColor: { desc: '男用戶連結顏色', defaultValue: '#0066FF', type: 'text' },
 		sFemaleFontColor: { desc: '女用戶連結字體顏色', defaultValue: '#FF0066', type: 'text' },
