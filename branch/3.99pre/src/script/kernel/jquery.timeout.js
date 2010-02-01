@@ -2,38 +2,45 @@
 {
 	var cache = {};
 
-	function proxy(fn, args)
+	function proxy(id, fn, args)
 	{
 		return function()
 		{
+			cache[id].destory = true;
 			fn.apply(null, args);
+			if(cache[id] && cache[id].destory) delete cache[id];
 		};
 	}
 
-	$.timeout = function(id, delay, fn)
+	$.timeout = function(id, delay, callback)
 	{
 		if(cache[id]) {
 			clearTimeout(cache[id].timer);
 		}
 
-		if(delay === undefined) {
-			return cache[id].fn;
-		}
-		else if(delay === null) {
+		if(delay === null) {
 			delete cache[id];
 		}
 		else {
-			if($.isFunction(delay)) {
-				fn = delay;
+			var args = callback === undefined ? null : $.slice(arguments, $.isFunction(callback) ? 3 : 2);
+
+			if(delay === undefined) {
+				delay = cache[id].delay;
+			}
+			else if($.isFunction(delay)) {
+				callback = delay;
 				delay = 0;
 			}
 
-			var isFn = fn && $.isFunction(fn);
-			if(!isFn) fn = cache[id].fn;
+			if(!$.isFunction(callback)) {
+				callback = cache[id].callback;
+			}
 
 			cache[id] = {
-				fn: fn,
-				timer: setTimeout(proxy(fn, $.slice(arguments, isFn ? 3 : 2)), delay)
+				destory: false,
+				delay: delay,
+				callback: callback,
+				timer: setTimeout(proxy(id, callback, args), delay)
 			};
 		}
 	};

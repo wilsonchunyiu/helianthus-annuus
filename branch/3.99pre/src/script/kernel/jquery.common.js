@@ -129,9 +129,9 @@ $.extend({
 		return target === null || target === undefined || target === NaN;
 	},
 
-	live: function(selector, type, data, fn)
+	live: function(selector, context, type, data, fn)
 	{
-		return $.fn.live.call({ selector: selector, context: document }, type, data, fn);
+		return $.fn.live.apply({ selector: selector, context: typeof type === 'string' ? $(context)[0] : document }, $.slice(arguments, typeof type === 'string' ? 2 : 1));
 	},
 
 	make: function(obj)

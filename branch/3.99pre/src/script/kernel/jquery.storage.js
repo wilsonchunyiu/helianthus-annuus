@@ -1,38 +1,31 @@
 (function($)
 {
 	var
-	storage, defaultData, storageData,
+	storage, defaultData,
 	constructStorage = function()
 	{
 		storage = {
 			'Flash': {
-				get: function()
-				{
-					var data = an.__lso.get('an', 'an');
-					return data && JSON.parse(data);
+				get: function() {
+					return an.__lso.get('an', 'an');
 				},
-				set: function(val)
-				{
-					an.__lso.set('an', 'an', JSON.stringify(val).replace(/\\/g, '\\\\'));
+				set: function(val) {
+					an.__lso.set('an', 'an', val.replace(/\\/g, '\\\\'));
 				},
-				remove: function()
-				{
+				remove: function() {
 					an.__lso.remove('an', 'an');
 				}
 			},
 
 			'DOM': {
-				get: function()
-				{
-					return window.localStorage.an && JSON.parse(localStorage.an);
+				get: function() {
+					return localStorage.an;
 				},
-				set: function(val)
-				{
-					window.localStorage['an'] = JSON.stringify(val);
+				set: function(val) {
+					localStorage['an'] = val;
 				},
-				remove: function()
-				{
-					window.localStorage.removeItem('an');
+				remove: function() {
+					localStorage.removeItem('an');
 				}
 			}
 		}[an.storageMode];
@@ -53,93 +46,58 @@
 				defaultData.privateData[pluginId][pageCode] = { status: isDefaultOn ? 1 : 0 };
 			});
 
-			if(plugin.options) {
-				var options = {};
+			$.each(['options', 'db'], function(i, type)
+			{
+				if(plugin[type]) {
+					$.each(plugin[type], function(dataId, dataSet)
+					{
+						if(!dataSet.access || dataSet.access === 'private') {
+							$.each(defaultData.privateData[pluginId], function(pageCode, pageSet)
+							{
+								$.make(pageSet, type)[dataId] = dataSet.defaultValue;
+							});
+						}
+						else {
+						 $.make(dataSet.access === 'protected' ? defaultData.privateData[pluginId] : defaultData.publicData, type)[dataId] = dataSet.defaultValue;
+						}
+					});
 
-				$.each(plugin.options, function(optionId, optionSet)
-				{
-					(optionSet.global ? $.make(defaultData.publicData, 'options') : options)[optionId] = optionSet.defaultValue;
-				});
-
-				$.each(defaultData.privateData[pluginId], function(pageCode, dataSet)
-				{
-					dataSet.options = $.extend({}, options);
-				});
-			}
-		});
-	},
-	constructStorageData = function()
-	{
-		storageData = storage.get() || {
-			curProfile: 'default',
-			profiles: {
-				'default': {
-					name: '預設'
+					if(!$.isEmptyObject(privateData)) {
+					}
 				}
-			}
-		};
+			});
+		});
+	};
 
-		if(!defaultData) constructDefaultData();
-
-		for(var profileId in storageData.profiles) {
-			storageData.profiles[profileId] = $.extend(true, {}, defaultData, storageData.profiles[profileId]);
-		}
-	}
-
-	$.__storage = function(option)
+	$.storage = function(val)
 	{
 		if(!storage) constructStorage();
 
-		if(option === null) { // remove storage
-			storageData = null;
+		if(val === null) {
 			return storage.remove();
 		}
-
-		if(!storageData) constructStorageData();
-
-		if(option === undefined) { // get storage
-			return storageData;
+		else if(typeof val === 'object') {
+			storage.set(JSON.stringify(val));
 		}
-		if(option === true) { // update storage
-			storage.set(storageData);
-		}
-		else { // get profile
-			return storageData.profiles[option === false ? storageData.curProfile : option];
+		else {
+			var data = (val !== false && data = storage.get()) ? JSON.parse(data) : {
+				curProfile: 'default',
+				profiles: {
+					'default': {
+						name: '預設'
+					}
+				}
+			};
+
+			if(typeof val === 'boolean') {
+				if(!defaultData) constructDefaultData();
+
+				for(var profileId in data.profiles) {
+					data.profiles[profileId] = $.extend(true, {}, defaultData, data.profiles[profileId]);
+				}
+			}
+
+			return data;
 		}
 	};
-
-	$.each(['options', 'db'], function(i, type)
-	{
-		$[type] = function(publicOnly, name, val)
-		{
-			var
-			profile = $.__storage(false),
-			publicData = profile.publicData,
-			privateData = profile.privateData[$p.id][an.__$pFnSet.pageCode],
-			isSpecific = typeof publicOnly === 'boolean';
-
-			if(!isSpecific) {
-				val = name;
-				name = publicOnly;
-				publicOnly = false;
-			}
-
-			var data = publicOnly ? publicData : privateData;
-
-			if(name === undefined || val === undefined) { // get all || get target
-				data = isSpecific ? data[type] : $.extend({}, publicData[type], privateData[type]);
-				return (name === undefined) ? data : data[name];
-			}
-
-			if(val === null) { // remove target
-				if($.dig(data, type, name) === undefined) return;
-				delete data[type][name];
-			}
-			else { // update target
-				$.make(data, type)[name] = val;
-			}
-
-			$.__storage(true);
-		};
-	});
 })(jQuery);

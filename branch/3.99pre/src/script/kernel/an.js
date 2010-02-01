@@ -1,33 +1,75 @@
 (function($)
 {
-	var
-	fnGroups,
-	constructFnGroups = function()
+	function Job(data)
 	{
-		fnGroups = {};
+		for(var prop in data) {
+			this[prop] = data[prop];
+		}
+	}
+
+	$.each(['options', 'db'], function(i, type)
+	{
+		Job.prototype[type] = function(name, val)
+		{
+			if(name && !this.plugin[type][name]) $.error($.format('{0} does not have {1} {2}!', this.plugin.desc, type, name));
+
+			var
+			storage = $.storage(val === undefined),
+			profile = storage.profiles[storage.curProfile],
+			access = this.plugin[type][name].access,
+			data;
+
+			if(val === undefined) {
+				data = $.extend({}, profile.publicData[type], profile.privateData[this.plugin.id][this.pageCode][type]);
+				return name === undefined ? data : data[name];
+			}
+
+			data = access === 'public'
+			? $.make(profile, 'publicData', type)
+			: access === 'protected'
+				? $.make(profile, 'privateData', this.plugin.id, type);
+				: $.make(profile, 'privateData', this.plugin.id, this.pageCode, type);
+
+			if(val === null) {
+				delete data[name];
+			}
+			else {
+				data[name] = val;
+			}
+
+			$.storage(storage);
+		};
+	});
+
+	var
+	jobGroups,
+	constructJobGroups = function()
+	{
+		jobGroups = {};
 
 		for(var i=1; i<=9; ++i) {
-			fnGroups[i] = [];
+			jobGroups[i] = [];
 		}
 
 		var
 		pageCode = $.pageCode(),
-		settings = $.__storage(false).privateData;
+		storage = $.storage(true),
+		settings = storage.profiles[storage.curProfile].privateData;
 
 		$.each(an.plugins, function(pluginId, plugin)
 		{
-			var code = $.bitmasks(pageCode, plugin.page);
-			if(!code) return;
+			var pluginPageCode = $.bitmasks(pageCode, plugin.page);
+			if(!pluginPageCode) return;
 
-			var status = settings[pluginId][code].status;
+			var status = settings[pluginId][pluginPageCode].status;
 			if(status === 0) return;
 
 			plugin.id = pluginId;
 
-			$.each(plugin.queue, function(i, fnClass)
+			$.each(plugin.queue, function(i, fnSet)
 			{
-				if(!fnClass.page || fnClass.page & pageCode) {
-					fnGroups[fnClass.priority || 4].push({ plugin: plugin, fnClass: fnClass, pageCode: code });
+				if(!fnSet.page || fnSet.page & pageCode) {
+					jobGroups[fnSet.priority || 4].push(new Job({ plugin: plugin, fnSet: fnSet, pageCode: pluginPageCode }));
 				}
 			});
 		});
@@ -35,7 +77,7 @@
 
 	$.prioritize = function(priority, type, fn)
 	{
-		fnGroups[priority].push($.extend({}, an.__$pFnSet, { fnClass: { type: type, fn: fn } }));
+		jobGroups[priority].push(new Job($.extend({}, an.__curJob, { fnSet: { type: type, fn: fn } })));
 	};
 
 	$(window).load(function()
@@ -48,17 +90,16 @@
 	{
 		$j = this;
 
-		if(!fnGroups) constructFnGroups();
+		if(!jobGroups) constructJobGroups();
 
-		function runEach(i, fnSet)
+		function runEach(i, job)
 		{
-			$p = fnSet.plugin;
-			an.__$pFnSet = fnSet;
-			fnSet.fnClass.fn.call(fnSet.plugin);
+			an.__curJob = job
+			job.fnSet.fn.call(job, job);
 		}
 
 		for(var i=1; i<=3; ++i) {
-			$.each(fnGroups[i], runEach);
+			$.each(jobGroups[i], runEach);
 		}
 
 		$d.trigger('p3end');
@@ -66,7 +107,7 @@
 		$(function()
 		{
 			for(var i=4; i<=6; ++i) {
-				$.each(fnGroups[i], runEach);
+				$.each(jobGroups[i], runEach);
 			}
 
 			$d.trigger('p6end');
@@ -75,18 +116,18 @@
 		$d.one('winload', function()
 		{
 			for(var i=7; i<=9; ++i) {
-				$.each(fnGroups[i], runEach);
+				$.each(jobGroups[i], runEach);
 			}
 
-			if(!an.__isFirstRan) {
-				an.__isFirstRan = true;
+			$d.trigger('p9end');
 
-				for(var i=1; i<=9; ++i) {
-					fnGroups[i] = $.grep(fnGroups[i], function(fnSet)
-					{
-						return fnSet.fnClass.type > 1;
-					});
-				}
+			an.__isFirstRan = true;
+
+			for(var i=1; i<=9; ++i) {
+				jobGroups[i] = $.grep(jobGroups[i], function(job)
+				{
+					return job.fnSet.type > 1;
+				});
 			}
 		});
 

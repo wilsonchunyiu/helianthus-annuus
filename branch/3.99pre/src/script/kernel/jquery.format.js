@@ -49,8 +49,8 @@
 			if(format) replacement = formatters[format[0]](replacement, format.substr(1));
 
 			if(!$.isWord(replacement)) {
-				!$.browser.msie && $.debug($p.desc, target, args);
-				throw new Error('jQuery.format: replacement is not a word');
+				!$.browser.msie && $.debug(an.__curJob.plugin.desc, target, args);
+				$.error('jQuery.format: replacement is not a word');
 			}
 
 			return replacement;
