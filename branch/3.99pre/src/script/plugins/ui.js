@@ -215,7 +215,7 @@ $.extend(an.plugins, {
 								{
 									html += '<dd>';
 
-									optionId = $.format.('an-settings-option{0}{1}{0}{2}{0}{3}', sep, pluginId, pageCode, optionId);
+									optionId = $.format('an-settings-option{0}{1}{0}{2}{0}{3}', sep, pluginId, pageCode, optionId);
 
 									if(option.type == 'checkbox') {
 										html += $.format('<input type="checkbox" id="{0}" {2} /><label for="{0}">{1}</label>', optionId, option.desc, disabled);
