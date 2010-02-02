@@ -31,6 +31,14 @@ an.credits = [
 	licenseUrl: 'http://www.opensource.org/licenses/mit-license.php'
 },
 {
+	name: 'Apache Ant',
+	url: 'http://ant.apache.org/',
+	author: 'see link',
+	authorUrl: 'http://ant.apache.org/contributors.html',
+	license: 'Apache License 2.0',
+	licenseUrl: 'http://ant.apache.org/license.html'
+},
+{
 	name: 'Closure Compiler',
 	url: 'http://code.google.com/closure/compiler/',
 	author: 'Google',
@@ -54,11 +62,12 @@ an.credits = [
 	licenseUrl: 'http://www.opensource.org/licenses/mit-license.php'
 },
 {
-	name: 'Daily Items Icons',
-	url: 'http://www.iconarchive.com/category/vintage/daily-items-icons-by-mozco.html',
-	author: 'Igarashi Susumu',
-	license: 'eMailware',
-	licenseUrl: 'http://www.iconarchive.com/icons/mozco/daily-items/ReadMe.html'
+	name: 'Red Flower Icon',
+	url: 'http://www.iconarchive.com/show/nature-icons-by-fasticon/Red-Flower-icon.html',
+	author: '[Icons by: FastIcon.com]',
+	authorUrl: 'http://www.fasticon.com',
+	license: 'Fast Icon Commercial License',
+	licenseUrl: 'http://www.fasticon.com/commercial_license.html'
 },
 {
 	name: 'Fugue Icons',

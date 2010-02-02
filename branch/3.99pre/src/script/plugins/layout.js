@@ -9,16 +9,28 @@ $.extend(an.plugins, {
 		priority: 1,
 		fn: function()
 		{
-			var css = 'body { word-wrap: break-word; }';
-
-			if($(document).pageName() === 'view') {
-				css += '\
-				.repliers, .repliers_right { table-layout: fixed; } \
-				.repliers_right > tbody > tr:first-child > td { overflow-x: hidden; } \
-				';
+			$.ss('body { word-wrap: break-word; }');
+		}
+	},
+	{
+		page: 32,
+		type: 1,
+		fn: function()
+		{
+			$.ss('\
+			.repliers, .repliers_right { table-layout: fixed; } \
+			.repliers_right > tbody > tr:first-child > td { overflow-x: hidden; } \
+			');
+		}
+	},
+	{
+		page: 32,
+		type: 2,
+		fn: function()
+		{
+			if($.pageNo() === 1) {
+				$j.replies().eq(0).find('td[colspan="100%"]').attr('colspan', 2);
 			}
-
-			$.ss(css);
 		}
 	}]
 },

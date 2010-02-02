@@ -26,7 +26,8 @@ $.extend(an.plugins, {
 			nRight = 50 - nWidth;
 
 			$.ss('\
-			#newmessage { {0}; background-color: transparent; z-index: 3; position: fixed; width: {1}px; bottom: 0px; right: {2}px; } \
+			#hkg_bottombar { z-index: 3; } \
+			#newmessage { {0}; background-color: transparent; z-index: 2; position: fixed; width: {1}px; bottom: 0px; right: {2}px; } \
 			#an-qr-header { cursor: pointer; text-align: center; } \
 			#previewArea { display: block; overflow: auto; width: {3}px; } \
 			#previewArea img[onload] { max-width: 300px; } \
@@ -45,6 +46,7 @@ $.extend(an.plugins, {
 
 				function toggle()
 				{
+					jQR.css('z-index', toShow ? 4 : 2);
 					jPreview.empty();
 					jToggle.toggle(toShow);
 					if(toShow) {
