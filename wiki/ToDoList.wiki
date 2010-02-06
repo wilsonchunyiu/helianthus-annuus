@@ -33,7 +33,7 @@
   * ~~firefox extension ehhancement~~
   * logo! (Greensleeves!!)
   * additional quoting methods, eg. @name, remove quotes
-  * reply reply notifier, eg. sound effect, web notification
+  * new reply notifier, eg. sound effect, web notification
   * westkit integration eg. public banlist
   * lightbox
   * reuse HKG blocklist
