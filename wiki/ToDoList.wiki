@@ -1,7 +1,18 @@
 #summary To-do 列表
 
-=== v4 to-do ===
+=== v3 ===
 
+ * IE ajax跳頁無效
+ * update cache breaker
+
+=== v4 ===
+
+ * internal
+  * rewrite plugin structure
+  * rewrite storage structure
+  * faster init time
+  * enums
+  * profiles
  * app化
   * more ajax, tabbed pages
   * 取締bookmark bar功能, 如bookmark, new reply checker
@@ -10,12 +21,24 @@
   * throbber, blockUI
   * UI rewrite, minimalism
   * buttons - primary & secondary (configuarable?)
+  * user buttons panel?
  * 選項
+  * complete rewrite for new structure
   * colorpicker
   * hotkey
   * option dependency
  * 其他
+  * website for AN, probably use GAE
+  * chrome extension enhancement
+  * firefox extension ehhancement
+  * logo! (Greensleeves!!)
   * 另類引文方式, 如@name, remove quotes
   * 新回覆提示, 如sound effect, web notification
   * 整合westkit功能(eg. public banlist)
   * lightbox
+  * reuse HKG blocklist
+  * modify user button functions to use css solely
+ * other requested features
+  * convert all images into thumbnails with one click
+  * load all pages with one click
+  * customized title
