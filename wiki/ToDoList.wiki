@@ -10,7 +10,7 @@
  * internal
   * ~~rewrite plugin structure~~
   * ~~rewrite storage structure~~
-  * ~~earlier init time~~
+  * ~~earlier init~~
   * ~~enums~~
  * applicationize
   * more ajax, tabbed pages
@@ -29,8 +29,8 @@
   * option dependency
  * others
   * website for AN, probably use GAE
-  * chrome extension enhancement
-  * firefox extension ehhancement
+  * ~~chrome extension enhancement~~
+  * ~~firefox extension ehhancement~~
   * logo! (Greensleeves!!)
   * additional quoting methods, eg. @name, remove quotes
   * reply reply notifier, eg. sound effect, web notification
