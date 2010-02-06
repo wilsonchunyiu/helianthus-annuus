@@ -1,36 +1,21 @@
 #summary To-do 列表
 
-wait for v4..
-<wiki:comment>
-=== To-do ===
+=== v4 to-do ===
 
- * 主要
-  * 按扭元件
-  * 快速回覆元件
-  * Color picker for settings / 寫個webpage去幫助自訂化
-  * 加入/修改另類引文方式
-  * 回覆失敗訊息
-  * jetpack, chrome extension
-  * 帖子訂閱, 自動檢查是否有新回覆
-  * 顯示帖子頁中其他帖子頁連結的標題
-  * add throbber
-  * 不轉換引用中的視頻連結
-  * lightbox
-  * 整合westkit功能(eg. public banlist)
+ * app化
+  * more ajax, tabbed pages
+  * 取締bookmark bar功能, 如bookmark, new reply checker
   * check pm
-  * ajax化標題頁轉頁
-  * 可即時啟動某功能
-  * settings選項強化, 如組合checkbox+radio
-  * 可制定profile
-  * audio, 如新回覆提示
-
-=== Features Requested ===
-
- * 已接受
-  * UI加入跳頁按扭
-  * table bg transparent(difficult)
-
-=== Known Issues ===
-
- * IE8動態更新已訪問連結顏色bug
-</wiki:comment>
+ * UI
+  * throbber, blockUI
+  * UI rewrite, minimalism
+  * buttons - primary & secondary (configuarable?)
+ * 選項
+  * colorpicker
+  * hotkey
+  * option dependency
+ * 其他
+  * 另類引文方式, 如@name, remove quotes
+  * 新回覆提示, 如sound effect, web notification
+  * 整合westkit功能(eg. public banlist)
+  * lightbox
