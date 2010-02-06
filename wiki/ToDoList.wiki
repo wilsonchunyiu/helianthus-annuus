@@ -3,7 +3,7 @@
 === v3 ===
 
  * IE ajax跳頁無效
- * update cache breaker
+ * updater cache breaker
 
 === v4 ===
 
