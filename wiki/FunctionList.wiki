@@ -102,7 +102,6 @@ Style Editor:
  * 強制更改全局字體
  * 設定連結樣式
  * 改變論壇樣式
- * 滙入自定CSS(進階用戶專用)
 
 User Interface:
 
