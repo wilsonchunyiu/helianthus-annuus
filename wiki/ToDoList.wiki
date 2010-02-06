@@ -8,11 +8,10 @@
 === v4 ===
 
  * internal
-  * rewrite plugin structure
-  * rewrite storage structure
-  * faster init time
-  * enums
-  * profiles
+  * ~~rewrite plugin structure~~
+  * ~~rewrite storage structure~~
+  * ~~earlier init time~~
+  * ~~enums~~
  * app化
   * more ajax, tabbed pages
   * 取締bookmark bar功能, 如bookmark, new reply checker
@@ -24,6 +23,7 @@
   * user buttons panel?
  * 選項
   * complete rewrite for new structure
+  * profiles
   * colorpicker
   * hotkey
   * option dependency
