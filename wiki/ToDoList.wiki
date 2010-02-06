@@ -12,29 +12,29 @@
   * ~~rewrite storage structure~~
   * ~~earlier init time~~
   * ~~enums~~
- * app化
+ * applicationize
   * more ajax, tabbed pages
-  * 取締bookmark bar功能, 如bookmark, new reply checker
+  * replace bookmark bar fns, eg. bookmark, new reply checker
   * check pm
  * UI
   * throbber, blockUI
   * UI rewrite, minimalism
   * buttons - primary & secondary (configuarable?)
   * user buttons panel?
- * 選項
+ * settings UI
   * complete rewrite for new structure
   * profiles
   * colorpicker
   * hotkey
   * option dependency
- * 其他
+ * others
   * website for AN, probably use GAE
   * chrome extension enhancement
   * firefox extension ehhancement
   * logo! (Greensleeves!!)
-  * 另類引文方式, 如@name, remove quotes
-  * 新回覆提示, 如sound effect, web notification
-  * 整合westkit功能(eg. public banlist)
+  * additional quoting methods, eg. @name, remove quotes
+  * reply reply notifier, eg. sound effect, web notification
+  * westkit integration eg. public banlist
   * lightbox
   * reuse HKG blocklist
   * modify user button functions to use css solely
