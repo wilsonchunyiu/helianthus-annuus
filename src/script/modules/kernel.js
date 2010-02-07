@@ -16,7 +16,7 @@ AN.mod['Kernel'] = { ver: 'N/A', author: '向日', fn: {
 		});
 
 		var AN_VER = '3.5b';
-
+		
 		if(AN.util.data('AN-version') != AN_VER)
 		{
 			if(AN.util.data('AN-version'))
@@ -26,27 +26,13 @@ AN.mod['Kernel'] = { ver: 'N/A', author: '向日', fn: {
 				alert('由於內核改動, 所有設定已被重設.\n不便之處, 敬請原諒.');
 				return location.reload();
 			}
-
+			
 			AN.util.data('AN-version', AN_VER);
 		}
 
-		if($d.pageName() == 'view') $('select[name=page]').val(AN.util.getPageNo(location.search)); // for FF3 where select box does not reset
-
+		if($d.pageName() == 'view') $('select[name=page]').val(AN.util.getPageNo(location.href)); // for FF3 where select box does not reset
+		
 		$('script').empty();
-	}
-},
-
-'11f1c5ca-9455-4f8e-baa7-054b42d9a2c4':
-{
-	desc: '自動轉向正確頁面',
-	page: { 65534: true },
-	type: 4,
-	once: function()
-	{
-		if(location.pathname !== '/login.aspx' && document.referrer.indexOf('/login.aspx') > 0) location.replace('/topics.aspx?type=BW');
-
-		if(location.hash.indexOf('#page=') != -1 && AN.util.getPageNo(location.search) != AN.util.getPageNo(location.hash))
-			return location.replace( AN.util.getURL({ page: location.hash.replace(/#page=/, '') }).replace(/&highlight_id=0\b/, '') );
 	}
 },
 
@@ -110,7 +96,6 @@ AN.mod['Kernel'] = { ver: 'N/A', author: '向日', fn: {
 		\
 		.an-forum, .an-forum textarea { background-color: %(sSecBgColor)s; } \
 		.an-forum input[type="text"], .an-forum select { background-color: %(sMainBgColor)s; border: 1px solid %(sMainBorderColor)s; } \
-		.an-forum input[type="text"]:disabled, .an-forum select:disabled { color: graytext; } \
 		.an-forum, .an-forum h4, .an-forum div, .an-forum td, .an-forum dl, .an-forum dt, .an-forum dd, .an-forum ul, .an-forum li, .an-forum a, .an-forum fieldset, .an-forum hr { border: 0 solid %(sMainBorderColor)s; } \
 		.an-forum * { color: %(sMainFontColor)s; } \
 		.an-forum a { text-decoration: none; } \
@@ -148,16 +133,16 @@ AN.mod['Kernel'] = { ver: 'N/A', author: '向日', fn: {
 		var nInterval = AN.util.getOptions('nCheckUpdateInterval');
 		if(isNaN(nInterval) || nInterval < 1) nInterval = 1;
 		var nLastChecked = AN.util.data('nLastChecked') || 0;
-		if($.time() - nLastChecked < 3600000 * nInterval) return;
+		if($.time() - AN.util.data('nLastChecked') < 3600000 * nInterval) return;
 
 		AN.util.getData('main', function(oMain)
 		{
  			AN.util.data('nLastChecked', $.time());
 
 			var sType = AN.util.getOptions('bAlsoCheckBeta') ? 'beta' : 'stable';
-
+			
 			if(oMain.ver[sType]['annuus'] === undefined) return;
-
+			
 			var aLastest = oMain.ver[sType]['annuus'].split('.');
 			var aCurrent = AN.version.split('.');
 
@@ -167,15 +152,15 @@ AN.mod['Kernel'] = { ver: 'N/A', author: '向日', fn: {
 				{
 					if(aCurrent[i] < aLastest[i] && confirm('發現新版本!\n按確定進行更新'))
 					{
-						var sPrefix = 'http://helianthus-annuus.googlecode.com/svn/dist/v3/' + sType + '/';
-
-						if(navigator.userAgent.indexOf('MAXTHON 2.0') !== -1) window.open(sPrefix + 'annuus.m2f', '_self');
-						else if ($.browser.mozilla) window.open(sPrefix + 'annuus.xpi', '_self');
-						else if(navigator.userAgent.indexOf('Chrome/4') !== -1) window.open(sPrefix + 'annuus.crx', '_self');
-
+						var sPrefix = 'http://helianthus-annuus.googlecode.com/svn/dist/v3/' + sType;
+						
+						if(navigator.userAgent.indexOf('MAXTHON 2.0') != -1) window.open(sPrefix + 'annuus.m2f', '_self');
+						//else if($.browser.mozilla && typeof unsafeWindow != 'undefined') window.open(sPrefix + 'annuus.user.js', '_self');
+						//else if(navigator.userAgent.indexOf('Chrome') == -1) window.open(sPrefix + 'annuus.crx', '_self');
+						
 						window.open('http://code.google.com/p/helianthus-annuus/wiki/Changelog', '_blank');
 					}
-
+					
 					break;
 				}
 			}
@@ -197,26 +182,14 @@ AN.mod['Kernel'] = { ver: 'N/A', author: '向日', fn: {
 '722b69f8-b80d-4b0e-b608-87946e00cfdc':
 {
 	desc: '強制鎖定闊度',
-	page: { 65534: 'comp' },
+	page: { 65534: true },
 	type: 3,
-	once: function()
+	infinite: function()
 	{
-		var css = 'body { word-wrap: break-word; }';
-
-		if($(document).pageName() === 'view') {
-			css += '\
-			.repliers, .repliers_right { table-layout: fixed; } \
-			.repliers_right > tbody > tr:first-child > td { overflow-x: hidden; } \
-			';
-		}
-
-		AN.util.stackStyle(css);
-	},
-	infinite: function(jDoc)
-	{
-		if(jDoc.pageNo() === 1) {
-			jDoc.replies().eq(0).find('td[colspan="100%"]').attr('colspan', 2);
-		}
+		AN.util.stackStyle(' \
+		body { word-wrap: break-word; } \
+		.ListPMText table, .repliers table { overflow-x: hidden; table-layout: fixed; } \
+		');
 	}
 },
 

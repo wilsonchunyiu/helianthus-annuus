@@ -8,8 +8,7 @@ AN.mod['Ajax Integrator'] = { ver: 'N/A', author: '向日', fn: {
 	options:
 	{
 		viewAjaxDisplayMode: { desc: '顯示模式', type: 'select', choices: ['單頁模式', '延展模式', '延展模式(隱藏轉頁格)'], defaultValue: '延展模式' },
-		nCheckInterval: { desc: '自動更新間隔(秒)', defaultValue: 30, type: 'text' },
-		addViewAjaxPageLinks: { desc: '加入轉頁連結至連結元件', defaultValue: true, type: 'checkbox' }
+		nCheckInterval: { desc: '自動更新間隔(秒)', defaultValue: 30, type: 'text' }
 		//bCheckOnBottom: { desc: '到頁底自動更新帖子', defaultValue: true, type: 'checkbox' },
 		//bAddCheckBtn: { desc: '加入更新帖子按扭', defaultValue: true, type: 'checkbox' },
 		//bAppendReplies: { desc: '延展帖子回覆', defaultValue: false, type: 'checkbox' },
@@ -20,22 +19,22 @@ AN.mod['Ajax Integrator'] = { ver: 'N/A', author: '向日', fn: {
 	{
 		jDoc.defer(1, '移除原有轉頁功能', function()
 		{
-			window.changePage = $.noop;
+			window.changePage = $.blank;
 		});
-
-		window.ToggleUserDetail = $.noop;
-
+		
+		window.ToggleUserDetail = $.blank;
+		
 		AN.util.stackStyle('.hkg_bottombar_link > img { border: 0; }');
 		$d.bind('mousedown.userlinkbox', function(event)
 		{
 			var jTarget = $(event.target);
 			if(!jTarget.is('a[href^="javascript: ToggleUserDetail"]')) return;
-
+			
 			event.preventDefault();
-
+			
 			var jContainer = jTarget.nextAll('div:first');
 			var jUserDetails = jContainer.children('.repliers_left_user_details');
-
+			
 			if(!jUserDetails.length) {
 				jContainer.append($.sprintf('\
 				<div class="repliers_left_user_details"> \
@@ -47,119 +46,107 @@ AN.mod['Ajax Integrator'] = { ver: 'N/A', author: '向日', fn: {
 				));
 			}
 			else {
-				jUserDetails.toggle();
+				jUserDetails.toggle();	
 			}
 		});
-
+		
+		AN.util.stackStyle('.repliers { border: 0; }'); // this is for FF
+		
 		var pages = {};
 		var curPageNo = jDoc.pageNo();
 		var lastPageNo = $('select[name="page"]:first').children().length;
 		var displayMode = $.inArray(AN.util.getOptions('viewAjaxDisplayMode'), this.options.viewAjaxDisplayMode.choices);
-
+		
 		function updateElements(jScope)
-		{
+		{			
 			$('table[width="99%"] > tbody > tr > td > strong').text(jScope.find('table[width="99%"] > tbody > tr > td > strong:first').text());
 		}
-
-		function handleNewPage(jScope, newPageNo)
-		{
+		
+		function handleNewPage(jScope, sNewPageNo)
+		{			
 			var jDiv = $('.repliers:first', jScope).up('div');
 			jDiv
 			.prepend(jDiv.prev())
 			.children('div:eq(1)').nextAll()[jScope ? 'remove' : 'insertAfter'](jScope ? undefined : jDiv);
-
+			
 			if(displayMode != 2) {
 				var jSelect = jDiv.find('select[name="page"]');
 				jSelect.data('an-pageno', jSelect.val());
 			}
-
+			
 			updateElements(jDiv);
-
+			
 			if(jScope) {
+				AN.modFn.execMods(jDiv);
+				
 				for(var pageNo = 1; pageNo <= pages.last; pageNo++) {
-					if(pages[pageNo] && newPageNo < pageNo) {
+					if(pages[pageNo] && sNewPageNo < pageNo) {
 						jDiv.insertBefore(pages[pageNo]);
 						break;
 					}
 				}
 				if(pageNo > pages.last) jDiv.insertAfter(pages[pages.last]);
-
-				AN.modFn.execMods(jDiv);
 			}
-
-			if(!pages.last || newPageNo && newPageNo > pages.last) pages.last = newPageNo || curPageNo;
-
-			pages[newPageNo || curPageNo] = jDiv;
-
+			
+			if(!pages.last || sNewPageNo && sNewPageNo > pages.last) pages.last = sNewPageNo || curPageNo;
+			
+			pages[sNewPageNo || curPageNo] = jDiv;
+			
 			return jDiv;
 		}
-
-		function changePage(targetPageNo, isAuto)
+		
+		function changePage(sTargetPageNo, isAuto)
 		{
-			if(isWorking) return;
-
-			if(targetPageNo < 1) return document.body.scrollIntoView();
-			if(targetPageNo > lastPageNo) return document.body.scrollIntoView(false);
-
-			var previouslyCached = !!pages[targetPageNo];
-
 			function handlePageChange(jDiv) {
 				if(displayMode === 0) pages[curPageNo].hide();
-				location.hash = 'page=' + targetPageNo;
-				if(!isAuto) jDiv[0].scrollIntoView();//targetPageNo > curPageNo);
-				curPageNo = targetPageNo;
+				location.hash = 'page=' + sTargetPageNo;
+				if(!isAuto) jDiv[0].scrollIntoView();//sTargetPageNo > curPageNo);
+				curPageNo = sTargetPageNo;
 				AN.shared('log', '轉頁完成');
-				$d.trigger({ type: 'workend', isPageChangeEnd: true, previouslyCached: previouslyCached });
+				$d.trigger({ type: 'workend', isPageChangeEnd: true });
 			}
-
+			
 			$d.trigger('workstart');
-
-			AN.shared('log', $.sprintf('正在轉至第%s頁...', targetPageNo));
-
-			if(previouslyCached) {
-				handlePageChange(pages[targetPageNo].show());
+			
+			AN.shared('log', $.sprintf('正在轉至第%s頁...', sTargetPageNo));
+			
+			if(pages[sTargetPageNo]) {
+				handlePageChange(pages[sTargetPageNo].show());
 			}
 			else {
-				$.getDoc(AN.util.getURL({ page: targetPageNo }), function(jNewDoc)
+				$.getDoc(AN.util.getURL({ page: sTargetPageNo }), function(jNewDoc)
 				{
-					handlePageChange(handleNewPage(jNewDoc, targetPageNo));
+					handlePageChange(handleNewPage(jNewDoc, sTargetPageNo));
 				});
 			}
 		}
-
+		
 		function getReplies(isAuto)
 		{
-			if(isWorking) return;
-
 			if(pages.last == 41) {
 				AN.shared('log', '1001!');
 				return;
 			}
-
-			if(displayMode === 0 && curPageNo != lastPageNo) {
-				if(!isAuto) changePage(curPageNo + 1, isAuto);
+			
+			if(displayMode === 0 ? curPageNo != lastPageNo && !isAuto : pages.last != lastPageNo) {
+				changePage((displayMode === 0 ? curPageNo : pages.last) + 1, isAuto);
 				return;
 			}
-
-			if(displayMode !== 0 && pages.last != lastPageNo) {
-				changePage(pages.last + 1, isAuto);
-				return;
-			}
-
+			
 			$d.trigger('workstart');
-
+			
 			AN.shared('log', '正在讀取最新回覆...');
-
+			
 			$.getDoc(AN.util.getURL({ page: pages.last }), function(jNewDoc)
 			{
 				updateElements(jNewDoc);
-
+			
 				var jNewReplies = jNewDoc.find('.repliers').closest('div > table');
 				var jNewSelect = jNewDoc.find('select[name="page"]:first');
-
+				
 				var oldReplyNum = pages[pages.last].find('.repliers').length;
 				var newLastPageNo = jNewSelect.children().length;
-
+				
 				var difference = jNewReplies.length - oldReplyNum;
 				var hasNextPage = newLastPageNo > lastPageNo;
 
@@ -168,7 +155,7 @@ AN.mod['Ajax Integrator'] = { ver: 'N/A', author: '向日', fn: {
 				}
 				else {
 					var jNewElements = $();
-
+					
 					if(difference > 0) {
 						jNewElements = jNewElements.add(jNewReplies.slice(oldReplyNum).insertAfter(pages[pages.last].children('table:last')));
 						AN.shared('log', $.sprintf('加入%s個新回覆', difference));
@@ -176,7 +163,7 @@ AN.mod['Ajax Integrator'] = { ver: 'N/A', author: '向日', fn: {
 
 					if(hasNextPage) {
 						lastPageNo = newLastPageNo;
-
+				
 						if(displayMode != 2) {
 							$('select[name="page"]').each(function()
 							{
@@ -186,151 +173,119 @@ AN.mod['Ajax Integrator'] = { ver: 'N/A', author: '向日', fn: {
 									jThis.append($.sprintf('<option value="%(pageNo)s">%(pageNo)s</option>', { pageNo: ++max }));
 								}
 							});
-
+							
 							jNewElements = jNewElements.add(jNewSelect.up('div', 3).replaceAll(pages[pages.last].find('select[name="page"]').up('div', 3)));
 						}
-
+						
 						if(displayMode === 0) {
 							AN.shared('log', '發現下一頁, 連結建立');
 						}
 						else {
-							$d.one('workend', function()
-							{
-								changePage(pages.last + 1, isAuto);
-							});
+							changePage(pages.last + 1, isAuto);
 						}
 					}
-
+					
 					AN.modFn.execMods(jNewElements);
 				}
-
+				
 				$d.trigger('workend');
 			});
 		}
-
+		
 		$('#aspnetForm').submit(function(event)
 		{
-			event.preventDefault();
-
-			if(isWorking) {
-				AN.shared('log', '正在工作中, 完成將自動重試');
-				$d.one('workend', function()
-				{
-					$('#aspnetForm').submit();
-				});
-				return;
-			}
-
 			$d.trigger('workstart');
-
+			
+			event.preventDefault();
 			AN.shared('log', '正在發送回覆...');
 			$.post(location.pathname + location.search, $('#aspnetForm').serialize() + '&ctl00%24ContentPlaceHolder1%24btn_Submit.x=0&ctl00%24ContentPlaceHolder1%24btn_Submit.y=0', function(sHTML)
 			{
-				if($.doc(sHTML).pageName() !== 'view') {
-					AN.shared('log', '回覆發送失敗!');
-					$d.trigger('workend');
-					return;
-				}
+				if($.doc(sHTML).pageName() != 'view') return AN.shared('log', '回覆發送失敗!');
 
 				$('#ctl00_ContentPlaceHolder1_messagetext').val('');
 				$('#previewArea').empty();
 				AN.shared('log', '回覆發送完成');
-
-				$d.trigger('workend');
-
+				
 				getReplies(true);
 			});
 		});
-
+		
 		var isWorking = false;
-
+		
 		$d.bind('workstart workend', function(event){ isWorking = (event.type == 'workstart'); });
-
+		
 		$d.bind('click', function(event)
 		{
+			if(!(!isWorking && event.button === 0)) return;
+			
 			var jTarget = $(event.target);
 			if(jTarget.parent('a').length) jTarget = jTarget.parent();
-			if(!(jTarget.is('a') && jTarget.parent('div').siblings('div').children('select[name="page"]').length)) return;
-
+			if(!(jTarget.is('a') && $('select[name="page"]').parent().parent().has(jTarget[0]).length)) return;
+			
 			event.preventDefault();
 			changePage(AN.util.getPageNo(jTarget.attr('href')));
 		});
-
+		
 		if(displayMode == 2) {
 			AN.util.stackStyle($.sprintf('%(pageDiv)s > div, %(pageDiv)s > br, %(pageDiv)s + br { display: none; }', { pageDiv: '#ctl00_ContentPlaceHolder1_view_form > div[style*="100%"]' }));
 		}
 		else {
 			$d.bind('change', function(event)
 			{
+				if(isWorking) return;
+				
 				var jTarget = $(event.target);
 				if(!jTarget.is('select[name="page"]')) return;
-
+				
 				var target = jTarget.val();
 				jTarget.val(jTarget.data('an-pageno'));
-				changePage(target * 1);
+				changePage(target);
 			});
 		}
-
+		
 		handleNewPage();
-
+		
 		(function()
-		{
+		{			
 			var jTimer = $('<span>N/A</span>').appendTo(AN.shared('addInfo', '距離更新: '));
 			var tCheck;
-
+			
 			function countdown(param)
 			{
 				if(param.time >= 0 || isWorking) {
 					if(param.time >= 0) jTimer.text(param.time-- + '秒');
 					return true;
 				}
-
+				
 				$.doTimeout('checkbottom', 500, checkBottom);
 			}
-
+			
 			function checkBottom()
 			{
 				if(pages[pages.last].offset().top + pages[pages.last].height() - $d.scrollTop() - $w.height() > 500) {
 					return true;
 				}
-
+				
 				getReplies(true);
 			}
-
+			
 			var interval = AN.util.getOptions('nCheckInterval');
-			if(!interval || interval < 10) interval = 10;
-
+			if(!interval || interval < 30) interval = 30;
+			
 			$d.bind('workstart workend', function(event)
 			{
 				$.doTimeout('checkbottom');
 				jTimer.text('N/A');
-
+				
 				if(event.type == 'workend' && (displayMode !== 0 || curPageNo == lastPageNo)) {
-					$.doTimeout('checkbottom', 1000, countdown, { time: event.isPageChangeEnd && (event.previouslyCached || pages.last != lastPageNo) ? 1 : interval });
+					$.doTimeout('checkbottom', 1000, countdown, { time: event.isPageChangeEnd && pages.last != lastPageNo ? 3 : interval });
 				}
 			});
+			
+			$d.trigger({ type: 'workend', isPageChangeEnd: true });
 		})();
-
-		(function()
-		{
-			var jCurPageLink = $('<a />').appendTo(AN.shared('addInfo', '本頁頁數: '));
-			$d.bind('workend', function(event)
-			{
-				if(event.isPageChangeEnd) jCurPageLink.attr('href', AN.util.getURL({ page: curPageNo })).text('第' + curPageNo + '頁');
-			});
-		})();
-
-		$d.trigger({ type: 'workend', isPageChangeEnd: true });
-
-		jDoc.defer(2, '加入讀取按扭', function(){ AN.shared('addButton', '更新帖子', function(){ getReplies(false); }); });
-
-		if(AN.util.getOptions('addViewAjaxPageLinks')) {
-			//jDoc.defer(1, '加入轉頁連結', function()
-			//{
-				AN.shared('addLink', '上一頁', function(){ changePage(curPageNo - 1); }, 0);
-				AN.shared('addLink', '下一頁', function(){ changePage(curPageNo + 1); }, 2);
-			//});
-		}
+		
+		jDoc.defer(2, '加入讀取按扭', function(){ AN.shared('addButton', '更新帖子', function(){ if(!isWorking) getReplies(); }); });
 	}
 },
 
