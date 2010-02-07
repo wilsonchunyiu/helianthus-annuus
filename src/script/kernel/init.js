@@ -2,6 +2,8 @@
 
 $.extend(
 {
+	blank: function(){},
+
 	time: function(nStart)
 	{
 		return nStart ? $.time() - nStart : +new Date;
@@ -36,7 +38,7 @@ $.extend(
 
 	getDoc: function(sURL, success)
 	{
-		var s =
+		var s = 
 		{
 			url: sURL,
 			dataType: 'text',
@@ -52,7 +54,7 @@ $.extend(
 				setTimeout(function(){ $.getDoc(sURL, success); }, 5000);
 			}
 		};
-
+		
 		$.ajax(s);
 	},
 
@@ -195,30 +197,10 @@ $.fn.extend(
 			}
 		});
 	},
-
+	
 	own: function(target)
 	{
 		return this.is(target) || !!this.has(target).length;
-	},
-
-	top: function()
-	{
-		return this.offset().top;
-	},
-
-	right: function()
-	{
-		return this.offset().left + this.innerWidth();
-	},
-
-	bottom: function()
-	{
-		return this.offset().top + this.innerHeight();
-	},
-
-	left: function()
-	{
-		return this.offset().left;
 	},
 
 	//--------[AN Related]--------//
@@ -378,7 +360,7 @@ $.extend(AN,
 			5: '加入物件',
 			6: '其他功能',
 
-			7: 'Ajax化',
+			7: 'AJAX化',
 			8: '元件重造',
 			9: '組合按扭'
 		},
@@ -394,7 +376,7 @@ $.extend(AN,
 			32: { action: 'view', desc: '帖子頁' },
 			64: { action: 'profilepage', desc: '用戶資料頁' },
 			128: { action: 'sendpm', desc: '私人訊息發送頁' },
-			256: { action: 'post', desc: '發表/回覆頁' },
+			256: { action: 'post', desc: '發佈/回覆頁' },
 			512: { action: 'login', desc: '登入頁' },
 			1024: { action: 'giftpage', desc: '人氣頁' },
 			2048: { action: 'blog', desc: '網誌頁' },
@@ -443,13 +425,20 @@ $.extend(AN,
 		{
 			if(sValue === undefined) // GET
 			{
-				var match = document.cookie.match(new RegExp("(?:^|;\\s*)" + sName + "=([^;]*)"));
-        return match && match[1];
+				var nStart = document.cookie.indexOf(sName + '=');
+				if(nStart == -1) return null;
+
+				nStart += sName.length + 1;
+
+				var nEnd = document.cookie.indexOf(';', nStart);
+				if(nEnd == -1) nEnd = document.cookie.length;
+
+				return document.cookie.substring(nStart,nEnd);
 			}
 			else
 			{
 				var dExpire = new Date;
-				dExpire.setFullYear(sValue ? 2999 : 1999); // SET : DEL
+				dExpire.setFullYear(sValue ? dExpire.getFullYear() + 1 : dExpire.setFullYear(1999)); // SET : DEL
 				document.cookie = $.sprintf('%s=%s; domain=%s; expires=%s; path=/', sName, sValue || '', location.hostname, dExpire.toUTCString());
 
 				return true;
@@ -777,6 +766,7 @@ $.extend(AN,
 					}
 				}
 				jDoc.aDefer = null;
+				//jDoc.splice(0, jDoc.length);
 
 				AN.box.aBenchmark.push({ type: 'end', name: '延期執行項目' });
 
@@ -807,16 +797,11 @@ $.event.special.click = {
 	{
 		return function(event)
 		{
-			if(event.type === 'click' && !(event.data && event.data.disableCheck) && event.button > 0) return;
+			if(event.type === 'click' && event.button !== 0) return;
 			handler.apply(this, arguments);
 		};
 	}
 };
-
-$d.bind('click', { disableCheck: true }, function(event)
-{
-	if($(event.target).closest('a').filter(function(){ return /^(?:#|javascript:)$/.test(this.getAttribute('href')); }).length) event.preventDefault();
-});
 
 $.support.localStorage = !!(window.localStorage || window.globalStorage || false);
 
