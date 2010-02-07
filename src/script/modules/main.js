@@ -38,10 +38,10 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 			32: $.sprintf('\
 			#ctl00_ContentPlaceHolder1_view_form > script:first-child + div { width: 100% !important; } \
 			#ctl00_ContentPlaceHolder1_view_form > script:first-child + div + div { display: none; } \
-			#ctl00_ContentPlaceHolder1_view_form div > div[style*="%s"] { border-bottom: 0 !important; } \
-			#ctl00_ContentPlaceHolder1_view_form div > div[style*="58px"], /* top & bottom ads */\
+			div[style*="58px"], /* top & bottom ads */\
 			#ctl00_ContentPlaceHolder1_view_form > div > table[width="100%"] > tbody > tr + tr /* inline ads */\
 				{ display: none; } \
+			div[style*="%s"] { border-bottom: 0 !important; } \
 			',
 			$.browser.msie ? 'PADDING-BOTTOM: 18px' : 'padding: 18px'
 			)
@@ -205,12 +205,11 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 	type: 4,
 	once: function()
 	{
-		window.DrawImage = $.noop;
+		window.DrawImage = $.blank;
 
 		AN.util.stackStyle('\
-		.repliers_right a[target] { display: inline-block; max-width: 100% } \
-		.repliers_right img[onload] { width: auto; height: auto; max-width: 100% } \
-		.repliers_right > tbody > tr:first-child a[target]:focus { outline: 0; } \
+		img[onload] { width: auto; height: auto; max-width: 100% } \
+		.repliers_right tr:first-child a[target]:focus { outline: 0; } \
 		');
 	}
 },
@@ -223,7 +222,7 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 	options: { nQuoteImgMaxHeight: { desc: '圖片最大高度(px)', defaultValue: 100, type: 'text' } },
 	once: function()
 	{
-		AN.util.stackStyle($.sprintf('.repliers_right blockquote img[onload] { width: auto; height: auto; max-height: %spx; }', AN.util.getOptions('nQuoteImgMaxHeight')));
+		AN.util.stackStyle($.sprintf('.repliers_right blockquote img { width: auto; height: auto; max-height: %spx; }', AN.util.getOptions('nQuoteImgMaxHeight')));
 	}
 },
 
@@ -274,12 +273,14 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 	{
 		$d.click(function(event)
 		{
+			if(event.button !== 0) return;
+
 			var jTarget = $(event.target);
 			if(jTarget.parent('a').length) jTarget = jTarget.parent();
-			if(!jTarget.is('a') || !(AN.util.getOptions('bTopicLinksOnly') ? /view\.aspx/i : /^(?!javascript|#)/).test(jTarget.attr('href'))) return;
+			if(!jTarget.is('a') || !(AN.util.getOptions('bTopicLinksOnly') ? /view\.aspx/i : /^(?!javascript|#)/i).test(jTarget.attr('href'))) return;
 
 			event.preventDefault();
-			window.open(jTarget.attr('href'));
+			window.open(jTarget.attr('href'), '_blank');
 		});
 	}
 },
@@ -294,14 +295,16 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 	{
 		$d.click(function(event)
 		{
+			if(event.button !== 0) return;
+
 			var jTarget = $(event.target);
 			if(jTarget.parent('a').length) jTarget = jTarget.parent();
-			if(!jTarget.is('.repliers_right > tbody > tr:first-child a') || /^(?:javascript|#)/.test(jTarget.attr('href'))) return;
+			if(!jTarget.is('.repliers_right > tbody > tr:first-child a')) return;
 
 			if(event.isDefaultPrevented()) return;
 
 			event.preventDefault();
-			window.open(jTarget.attr('href'));
+			window.open(jTarget.attr('href'), '_blank');
 		});
 	}
 },
@@ -329,11 +332,11 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 '7f9780a6-395d-4b24-a0a8-dc58c4539408':
 {
 	desc: '修正字型大小/顏色插入控件',
-	page: { 416: true },
+	page: { 384: true },
 	type: 4,
 	once: function()
 	{
-		$('#ctl00_ContentPlaceHolder1_messagetext').siblings('select[onchange]').change(function()
+		$('#ctl00_ContentPlaceHolder1_QuickReplyTable select[onchange]').change(function()
 		{
 			this.selectedIndex = 0;
 		});
@@ -481,7 +484,10 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 
 			var login = function(nForum)
 			{
-				if(!this.contentWindow.document.getElementById('aspnetForm')) // error page
+				var doc = this.contentWindow.document;
+				var jThis = $(this);
+
+				if(!doc.getElementById('aspnetForm')) // error page
 				{
 					AN.shared('log', $.sprintf('伺服器%s登入失敗!', nForum));
 					complete();
@@ -703,17 +709,348 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 			var jThis = $(this);
 			var sOri = sText = jThis.html();
 
-			sText = sText.replace(rSmiley, '<img style="border-width:0px" src="/faces/$1.gif" alt="$&" />');
+			sText = sText.replace(rSmiley, '<img style="border-width:0px;vertical-align:middle" src="/faces/$1.gif" alt="$&" />');
 
 			$.each(aConvertMap, function()
 			{
-				sText = sText.replace(this.regex, '<img style="border-width:0px" src="/faces/' + this.result + '.gif" alt="$&" />');
+				sText = sText.replace(this.regex, '<img style="border-width:0px;vertical-align:middle" src="/faces/' + this.result + '.gif" alt="$&" />');
 			});
 
 			if(sText != sOri) jThis.html(sText);
 		});
 	}
 },
+
+'7b36188f-c566-46eb-b48d-5680a4331c1f':
+{
+	desc: '轉換論壇連結的伺服器位置',
+	page: { 32: true },
+	type: 6,
+	once: function()
+	{
+		var rForum = /forum\d*.hkgolden\.com/i;
+		$d.mousedown(function(event)
+		{
+			var jTarget = $(event.target);
+			if(!( jTarget.is('.repliers_right tr:first-child a') && rForum.test(jTarget.attr('href')) )) return;
+
+			jTarget.attr('href', jTarget.attr('href').replace(rForum, location.hostname));
+		});
+	}
+},
+
+'e33bf00c-9fc5-46ab-866a-03c4c7ca5056':
+{
+	desc: '轉換文字連結成連結',
+	page: { 32: true },
+	type: 6,
+	once: function()
+	{
+		AN.util.stackStyle($.sprintf('.an-linkified { padding-left: 18px; background: url("%s") no-repeat left center; }', $r['chain--arrow']));
+	},
+	infinite: function(jDoc)
+	{
+		var rLink = /(?:https?|ftp):\/\/(?:[\w-]+\.)+[a-z]{2,3}(?![a-z])(?:\/[\w.\/?:;~!@#$%^&*()+=-]*)?/i;
+		jDoc.replies().jContents.each(function()
+		{
+			if(rLink.test($(this).text())) {
+				var node, match, next = this.firstChild;
+				while(node = next) {
+					if(node.nodeType === 3 && (match = rLink.exec(node.data))) {
+						node.splitText(match.index + match[0].length);
+						$(node.splitText(match.index)).wrap($.sprintf('<a href="%s"></a>', match[0])).parent().before('<span title="已轉換文字為連結" class="an-linkified"></span>');
+						
+						node = node.nextSibling.nextSibling.nextSibling;
+						continue;
+					}
+				
+					next = !/^(?:a|button|script|style)$/i.test(node.nodeName) && node.firstChild || node.nextSibling;
+					while(!next && (node = node.parentNode)) next = node.nextSibling;
+				}
+			}
+		});
+	}
+},
+
+'d761d6f7-8ef7-4d5b-84e9-db16a274f616':
+{
+	desc: '轉換圖片連結成圖片',
+	page: { 32: false },
+	type: 6,
+	options: {
+		imageConvertMode: { desc: '轉換模式', type: 'select', choices: ['自動轉換', '自動轉換(引用中的連結除外)', '手動轉換'], defaultValue: '自動轉換(引用中的連結除外)' }
+	},
+	once: function()
+	{
+		AN.util.stackStyle($.sprintf('\
+		.an-imagified { padding-left: 18px; background: url("%s") no-repeat right center; } \
+		.an-imageifed + a { display: block; } \
+		.an-imagified + a > img { border: 0; } \
+		', $r['image-export']));
+		
+		$d.bind('click imageconvert', function(event)
+		{
+			if(event.button !== 0) return;
+			
+			var jTarget = $(event.target);
+			if(jTarget.next('.an-imagified').length) {
+				event.preventDefault();
+				jTarget.next().next().toggle();
+			}
+			else if(jTarget.children().length === 0 && jTarget.is('.repliers_right tr:first-child a') && /\.(?:jpe?g|gif|png|bmp)\b/i.test(event.target.href)) {
+				event.preventDefault();
+				
+				$('<span title="已轉換連結為圖片" class="an-imagified"></span>')
+				.after( jTarget.clone().html($.sprintf('<img onload="DrawImage(this)" src="%s" alt="%s" />', event.target.href, event.target.href)) )
+				.insertAfter(jTarget);
+			}
+		});
+	},
+	infinite: function(jDoc)
+	{
+		var convertMode = $.inArray(AN.util.getOptions('imageConvertMode'), this.options.imageConvertMode.choices);
+		if(convertMode !== 2) jDoc.replies().jContents.find(convertMode === 0 ? 'a' : 'a:not(blockquote a)').trigger({ type: 'imageconvert', button: 0 });
+	}
+},
+
+'039d820f-d3c7-4539-8647-dde974ceec0b':
+{
+	desc: '轉換視頻網站連結成影片',
+	page: { 32: true },
+	type: 6,
+	defer: 2, // after layout is fixed
+	options: {
+		videoConvertMode: { desc: '轉換模式', type: 'select', choices: ['自動轉換', '自動轉換(引用中的連結除外)', '手動轉換'], defaultValue: '自動轉換(引用中的連結除外)' }
+	},
+	once: function()
+	{
+		var nWidth, nHeight, sUrl;
+		var aSites =
+		[{
+			regex: 'youtube\\.com/watch\\?',
+			fn: function()
+			{
+				if(nWidth > 640) nWidth = 640;
+				nHeight = nWidth / 16 * 9 + 25;
+				sUrl = $.sprintf('http://www.youtube.com/v/%s&fs=1&rel=0&ap=%%2526fmt%%3D22', sUrl.replace(/.+?v=([^&]+).*/i, '$1'));
+			}
+		},
+		{
+			regex: 'vimeo\\.com/\\d',
+			fn: function()
+			{
+				if(nWidth > 504) nWidth = 504;
+				nHeight = nWidth / 1.5;
+				sUrl = $.sprintf('http://vimeo.com/moogaloop.swf?clip_id=%s&show_title=1&fullscreen=1', sUrl.replace(/.+vimeo\.com\/(\d+).*/i, '$1'));
+			}
+		},
+		{
+			regex: 'youku\\.com/v_show/',
+			fn: function()
+			{
+				if(nWidth > 480) nWidth = 480;
+				nHeight = nWidth / 4 * 3 + 40;
+				sUrl = $.sprintf('http://player.youku.com/player.php/sid/%s/v.swf', sUrl.replace(/.+?id_([^\/]+).*/i, '$1'));
+			}
+		},
+		{
+			regex: 'tudou\\.com/programs/',
+			fn: function()
+			{
+				if(nWidth > 420) nWidth = 420;
+				nHeight = nWidth / 4 * 3 + 48;
+				sUrl = $.sprintf('http://www.tudou.com/v/%s', sUrl.replace(/.+?view\/([^\/]+).*/i, '$1'));
+			}
+		}];
+		var rLink = (function()
+		{
+			var aReg = [];
+			$.each(aSites, function(){ aReg.push(this.regex); });
+			return new RegExp(aReg.join('|'), 'i');
+		})();
+		
+		AN.util.stackStyle($.sprintf('\
+		.an-videoified { padding-left: 18px; background: url("%s") no-repeat right center; } \
+		.an-videoified + object { display: block; } \
+		', $r['film--arrow']));
+
+		$d.bind('click videoconvert', function(event)
+		{
+			if(event.button !== 0) return;
+
+			var jTarget = $(event.target);
+			if(jTarget.next('.an-videoified').length) {
+				event.preventDefault();
+				jTarget.next().next().toggle();
+			}
+			else if(jTarget.is('.repliers_right tr:first-child a') && rLink.test(event.target.href)) {
+				event.preventDefault();
+				
+				sUrl = event.target.href;
+				nWidth = jTarget.up('td,div').width();
+				$.each(aSites, function()
+				{
+					if(RegExp(this.regex, 'i').test(sUrl)) {
+						this.fn();
+						return false;
+					}
+				});
+				
+				$('<div></div>')
+				.insertAfter( $('<span title="已轉換連結為影片" class="an-videoified"></span>').insertAfter(jTarget) )
+				.toFlash(sUrl, { width: nWidth, height: nHeight.toFixed(0) }, { wmode: 'opaque', allowfullscreen: 'true' });
+				
+				/*
+				if(!$.browser.firefox || sUrl.indexOf('youku.com') === -1) {
+					$($.sprintf('<iframe style="display: none" src="%s" />', event.target.href)).appendTo('body').doTimeout(1000, function(){ $(this).remove(); });
+				}
+				*/
+			}
+		});
+	},
+	infinite: function(jDoc, oFn)
+	{
+		var convertMode = $.inArray(AN.util.getOptions('videoConvertMode'), this.options.videoConvertMode.choices);
+		if(convertMode !== 2) jDoc.replies().jContents.find(convertMode === 0 ? 'a' : 'a:not(blockquote a)').trigger({ type: 'videoconvert', button: 0 });
+	}
+},
+
+'8e1783cd-25d5-4b95-934c-48a650c5c042':
+{
+	desc: '屏蔽圖片',
+	page: { 32: false },
+	type: 6,
+	options: {
+		imageMaskMode: { desc: '屏蔽模式', type: 'select', choices: ['自動屏蔽', '自動屏蔽(只限引用中的圖片)', '手動屏蔽'], defaultValue: '自動屏蔽(只限引用中的圖片)' }
+	},
+	once: function()
+	{
+		AN.util.stackStyle('\
+		.an-maskedLink { display: inline-block; width: 48px; height: 52px; background: url("' + $r['gnome-mime-image-bmp'] + '") no-repeat; } \
+		.an-maskedLink > img { display: none; } \
+		');
+
+		function clickHandler(event)
+		{
+			if(event.button !== 0) return;
+			
+			if(event.target === jButton[0]) {
+				event.stopPropagation();
+				jCurTarget.parent().addClass('an-maskedLink');
+				jButton.hide();
+			}
+			else if(event.type === 'imagemask' || $(event.target).is('.an-maskedLink')) {
+				event.preventDefault();
+				$(event.target).toggleClass('an-maskedLink');
+			}
+		}
+		
+		var jCurTarget;
+		var jButton = $($.sprintf('<img style="display: none; position: absolute; cursor: pointer;" src="%s" />', $r['picture--minus']))
+			.appendTo('#an')
+			.click(clickHandler);
+			
+		$d.bind('click imagemask', clickHandler);
+			
+		$d.mouseover(function(event)
+		{
+			if(event.target === jButton[0]) return;
+
+			jCurTarget = $(event.target);
+			if(jCurTarget.is('img[onload]') && jCurTarget.parent('.an-maskedLink').length === 0) {
+				jButton.css(jCurTarget.offset()).show();
+			}
+			else {
+				jButton.hide();
+			}
+		});
+	},
+	infinite: function(jDoc)
+	{
+		var maskMode = $.inArray(AN.util.getOptions('imageMaskMode'), this.options.imageMaskMode.choices);
+		if(maskMode !== 2) jDoc.replies().jContents.find(maskMode === 0 ? 'a[target]' : 'a[target]:not(blockquote a)').trigger({ type: 'imagemask', button: 0 });
+	}
+},
+
+/*
+'ea19d7f6-9c2c-42de-b4f9-8cab40ccf544':
+{
+	desc: '限制回覆格高度',
+	page: { 32: false },
+	type: 6,
+	defer: 2, // after layout is fixed
+	options:
+	{
+		bAltScrollBarStyle: { desc: '將滾動條置於外層 [buggy w/ ajax fn@IE,FF,Chrome]', defaultValue: false, type: 'checkbox' },
+		nMaxReplyHeight: { desc: '最大回覆高度(px)', defaultValue: 2000, type: 'text' }
+	},
+	once: function(jDoc)
+	{
+		if(AN.util.getOptions('bAltScrollBarStyle'))
+		{
+			var nWidth = jDoc.replies().jContents.eq(0).width();
+
+			AN.util.stackStyle($.sprintf('\
+			.repliers_right { overflow-x: visible; } \
+			.an-replywrapper { overflow-y: auto; position: relative; z-index: 2; max-height: %spx; width: %spx; } \
+			.an-replywrapper > div { padding-right: 1px; width: %spx; } \
+			',
+			AN.util.getOptions('nMaxReplyHeight'), nWidth + 30, nWidth));
+		}
+		else
+		{
+			AN.util.stackStyle($.sprintf('.an-replywrapper { overflow-y: auto; max-height: %spx; }', AN.util.getOptions('nMaxReplyHeight')));
+		}
+	},
+	infinite: function(jDoc)
+	{
+		jDoc.replies().jContents.wrapInner('<div class="an-replywrapper"><div></div></div>');
+	}
+},
+*/
+
+'fc07ccda-4e76-4703-8388-81dac9427d7c':
+{
+	desc: '強制顯示空白用戶名連結',
+	page: { 32: true },
+	type: 6,
+	infinite: function(jDoc)
+	{
+		jDoc.replies().each(function()
+		{
+			if(/^\s*$/.test($(this).data('sUserName')))
+			{
+				$(this).data('jNameLink').html('<span style="color: black">&lt;空白名稱&gt;</span>');
+			}
+		});
+	}
+},
+
+/*
+'e19a8d96-151f-4f86-acfc-0af12b53b99b':
+{
+	desc: '快速3擊左鍵關閉頁面 [FF: 只能配合連結開新頁使用]',
+	page: { 32: false },
+	type: 6,
+	once: function()
+	{
+		var down = 0;
+		var reset = function(){ down = 0; };
+
+		$d.mousedown(function(event)
+		{
+			if(down === 0) setTimeout(reset, 500);
+
+			if(++down == 3)
+			{
+				window.opener = window;
+				window.open('', '_parent');
+				window.close();
+			}
+		});
+	}
+},
+*/
 
 'b69c5067-2726-43f8-b3de-dfb907355b71':
 {
@@ -727,22 +1064,33 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 	},
 	once: function()
 	{
-		var aFilter = AN.util.data('aTopicFilter') || [],
-		jHiddenImg,
-		jButton = $('<img />', { src: $r['cross-shield'], css: { 'margin-left': '-1.5px' } }).hoverize('#HotTopics tr:not(:first-child)', { autoPosition: false })
-		.bind({
-			entertarget: function()
+		var aFilter = AN.util.data('aTopicFilter') || [];
+		var jCurTarget;
+		var jHiddenImg = $();
+		var jButton = $($.sprintf('<img style="display: none; position: absolute; margin-left: -2px; cursor: pointer;" src="%s" />', $r['cross-shield']))
+			.appendTo('#an')
+			.click(function(event)
 			{
-				jHiddenImg = jButton.data('hoverize').jTarget.find('img:first').css('visibility', 'hidden');
-				jButton.css(jHiddenImg.offset());
-			},
-			leavetarget: function()
-			{
+				event.stopPropagation();
+				addFilter(jCurTarget.find('a:first').html().replace(/<img[^>]+?alt="([^"]+)[^>]*>/ig, '$1'));
+			});
+
+		$d.mouseover(function(event)
+		{
+			if(event.target === jButton[0]) return;
+			
+			jCurTarget = $(event.target).closest('#HotTopics tr:not(:first-child)');
+			if(jCurTarget.length) {
 				jHiddenImg.css('visibility', 'visible');
-			},
-			click: function()
-			{
-				addFilter(jButton.data('hoverize').jTarget.find('a:first').html().replace(/<img[^>]+?alt="([^"]+)[^>]*>/ig, '$1'));
+				jHiddenImg = jCurTarget.find('img:first').css('visibility', 'hidden');
+				
+				jButton.css(jHiddenImg.offset()).show();
+			}
+			else {
+				jHiddenImg.css('visibility', 'visible');
+				jHiddenImg = $();
+				
+				jButton.hide();
 			}
 		});
 
@@ -831,67 +1179,74 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 
 'db770fdc-9bf5-46b9-b3fa-78807f242c3c':
 {
-	desc: '用戶封鎖功能',
+	desc: '用戶屏蔽功能',
 	page: { 32: true },
 	type: 6,
 	once: function()
 	{
 		AN.util.stackStyle('\
+		.an-togglebambutton, .an-bammed-msg { display: none; position: absolute; } \
+		.an-togglebambutton { padding: 7px; cursor: pointer; } \
 		.an-bammed-msg { color: #999; font-size: 10px; text-align: center; } \
 		.an-bammed-msg > span { cursor: pointer; } \
 		.an-bammed > td { opacity: 0.5; } \
 		.an-bammed > .repliers_left > div > a:first-child ~ *, .an-bammed > td > .repliers_right { display: none; } \
 		');
+		
+		var
+		bamList = AN.util.data('aBamList') || [],
+		jCurTarget,
+		jButton = $('<img class="an-togglebambutton" />').appendTo('#an').click(function(event)
+		{
+			event.stopPropagation();
+			var sUserId = jCurTarget.parent().attr('userid');
 
-		var bamList = this.bamList = AN.util.data('aBamList') || [],
+			var nIndex = $.inArray(sUserId, bamList);
+			nIndex === -1 ? bamList.push(sUserId) : bamList.splice(nIndex, 1);
 
-		jButton = $.userButton().bind({
-			click: function()
-			{
-				var userid = jButton.data('userButton').jTarget.attr('userid');
-				var index = $.inArray(userid, bamList);
-				index === -1 ? bamList.push(userid) : bamList.splice(index, 1);
-
-				AN.util.data('aBamList', bamList);
-				toggleReplies(null);
-			},
-			buttonshow: function()
-			{
-				var isBammed = $.inArray(jButton.data('userButton').jTarget.attr('userid'), bamList) !== -1;
-				jButton.attr('src', $r[isBammed ? 'tick-shield' : 'cross-shield']).siblings().toggle(!isBammed);
-			}
+			AN.util.data('aBamList', bamList);
+			toggleReplies(null);
+			
+			jButton.hide();
 		}),
+		tempShown = false,
+		jMsg = $('<div class="an-bammed-msg">( <span></span> )</div>').appendTo('#an').children().click(function(event)
+		{
+			event.stopPropagation();
+			tempShown = true;
+			jMsg.hide();
+			jCurTarget.parent().toggleClass('an-bammed');
+		}).end();
 
-		tempShown,
-		jMsg = $('<div class="an-bammed-msg">( <span></span> )</div>').hoverize('.repliers_left + td', { autoToggle: false, autoPosition: false })
-		.bind({
-			entertarget: function()
-			{
-				var jTarget = jMsg.data('hoverize').jTarget;
-				if(!jTarget.parent().hasClass('an-bammed')) return;
+		$d.mouseover(function(event)
+		{
+			if(event.target === jButton[0] || event.target === jMsg[0] || event.target === jMsg.children()[0]) return;
 
-				var height = jTarget.innerHeight();
-
-				jMsg
-				.children().text('Show Blocked User - ' + jTarget.parent().attr('username')).end()
-				.css($.extend(jTarget.offset(), { width: jTarget.innerWidth(), height: height, lineHeight: height + 'px' }))
-				.show();
-			},
-			leavetarget: function()
-			{
+			if(tempShown) {
+				if(jCurTarget.has(event.target).length) return;
+				tempShown = false;
+				jCurTarget.parent().addClass('an-bammed');
+			}
+			
+			var jTarget = $(event.target);
+			if((jCurTarget = jTarget.closest('.repliers_left')).length) {
 				jMsg.hide();
-
-				if(tempShown) {
-					tempShown = false;
-					jMsg.data('hoverize').jTarget.parent().addClass('an-bammed');
+				jButton.attr('src', $r[$.inArray(jCurTarget.parent().attr('userid'), bamList) === -1 ? 'cross-shield' : 'tick-shield']).css(jCurTarget.offset()).show();
+			}
+			else {
+				jButton.hide();
+				
+				if((jCurTarget = jTarget.filter('.repliers_left + td')).length && jCurTarget.parent().hasClass('an-bammed')) {
+					var height = jCurTarget.outerHeight();
+					
+					jMsg
+					.children().text($.sprintf('Show Blocked User - %s', jCurTarget.parent().attr('username'))).end()
+					.css($.extend(jCurTarget.offset(), { width: jCurTarget.outerWidth(), height: height, lineHeight: height + 'px' }))
+					.show();
 				}
-			},
-			click: function(event)
-			{
-				if(event.target === this) return;
-
-				tempShown = true;
-				jMsg.hide().data('hoverize').jTarget.parent().removeClass('an-bammed');
+				else {
+					jMsg.hide();
+				}
 			}
 		});
 
@@ -906,7 +1261,7 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 	},
 	infinite: function(jDoc)
 	{
-		if(this.bamList.length) this.toggleReplies(jDoc);
+		this.toggleReplies(jDoc);
 	}
 },
 
@@ -917,20 +1272,33 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 	type: 6,
 	once: function()
 	{
-		var highlightList = this.highlightList = [],
-
-		jButton = $.userButton().bind({
-			click: function()
+		var highlightList = [];
+		var jCurTarget;
+		var jButton = $('<img style="display: none; position: absolute; margin-top: 23px; padding: 7px; cursor: pointer;" />')
+			.appendTo('#an')
+			.click(function(event)
 			{
-				var userid = jButton.data('userButton').jTarget.attr('userid');
-				var index = $.inArray(userid, highlightList);
-				index === -1 ? highlightList.push(userid) : highlightList.splice(index, 1);
+				event.stopPropagation();
+				var sUserId = jCurTarget.attr('userid');
+
+				var nIndex = $.inArray(sUserId, highlightList);
+				nIndex === -1 ? highlightList.push(sUserId) : highlightList.splice(nIndex, 1);
 
 				toggleReplies(null);
-			},
-			buttonshow: function()
-			{
-				jButton.attr('src', $r[jButton.data('userButton').jTarget.hasClass('an-highlighted') ? 'highlighter--minus': 'highlighter--plus']);
+				
+				jButton.hide();
+			});
+
+		$d.mouseover(function(event)
+		{
+			if(event.target === jButton[0]) return;
+
+			jCurTarget = $(event.target).closest('.repliers_left').parent();
+			if(jCurTarget.length && !jCurTarget.hasClass('an-bammed')) {
+				jButton.attr('src', $r[jCurTarget.hasClass('an-highlighted') ? 'highlighter--minus': 'highlighter--plus']).css(jCurTarget.offset()).show();
+			}
+			else {
+				jButton.hide();
 			}
 		});
 
@@ -947,394 +1315,7 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 	},
 	infinite: function(jDoc)
 	{
-		if(this.highlightList.length) this.toggleReplies(jDoc);
-	}
-},
-
-'e82aa0ba-aa34-4277-99ea-41219dcdacf2':
-{
-	desc: '用戶單獨顯示功能',
-	defer: 1,
-	page: { 32: true },
-	type: 6,
-	once: function()
-	{
-		var oFn = this,
-		jButton = $.userButton().bind({
-			click: function()
-			{
-				oFn.targetId = oFn.targetId ? null : jButton.data('userButton').jTarget.attr('userid');
-				toggleReplies(null);
-			},
-			buttonshow: function()
-			{
-				jButton.attr('src', $r[oFn.targetId ? 'magnifier-zoom-out' : 'magnifier-zoom-in']);
-			}
-		});
-
-		var toggleReplies = this.toggleReplies = function(jScope)
-		{
-			(jScope || $(document)).replies().each(function()
-			{
-				var jThis = $(this);
-				jThis.closest('div > table').toggle(!oFn.targetId || jThis.data('sUserid') === oFn.targetId);
-			});
-		};
-	},
-	infinite: function(jDoc)
-	{
-		if(this.targetId) this.toggleReplies(jDoc);
-	}
-},
-
-'fc07ccda-4e76-4703-8388-81dac9427d7c':
-{
-	desc: '強制顯示空白用戶名連結',
-	page: { 32: true },
-	type: 6,
-	once: function()
-	{
-		AN.util.stackStyle('.an-nameforcedshown:before { content: "<空白名稱>"; font-style: italic; }');
-	},
-	infinite: function(jDoc)
-	{
-		jDoc.replies().jNameLinks.filter(function(){ return $(this).width() === 0; }).addClass('an-nameforcedshown');
-	}
-},
-
-'63333a86-1916-45c1-96e0-f34a5add67c1':
-{
-	desc: '限制回覆高度',
-	page: { 32: false },
-	type: 6,
-	options: {
-		replyMaxHeight: { desc: '最大高度(px)', type: 'text', defaultValue: 2000 }
-	},
-	once: function()
-	{
-		var maxHeight = AN.util.getOptions('replyMaxHeight');
-
-		AN.util.stackStyle('\
-		.repliers_right, .repliers_right > tbody, .repliers_right > tbody > tr, .repliers_right > tbody > tr > td { display: block; } \
-		.repliers_right > tbody > tr:first-child { max-height: '+maxHeight+'px; overflow-y: hidden; } \
-		.an-maxheightremoved > .repliers_right > tbody > tr:first-child { max-height: none; } \
-		#an-heighttoggler { margin: -14px 0 0 3.5px; } \
-		#an-heighttoggler > img { padding: 7px 3.5px; cursor: pointer; } \
-		');
-
-		var jButton = $('<div id="an-heighttoggler"><img src="'+$r['control-eject']+'" /><img src="'+$r['control-stop-270']+'" /><img src="'+$r['control-270']+'" /></div>')
-		.hoverize('.repliers_left + td', {
-			filter: function(){ return $(this).hasClass('an-maxheightremoved') || $(this).find('td:first').innerHeight() > maxHeight; },
-			autoPosition: false
-		})
-		.bind({
-			entertarget: function()
-			{
-				var jTarget = jButton.data('hoverize').jTarget,
-				showFirst = jTarget.hasClass('an-maxheightremoved'),
-				offset = jTarget.offset();
-
-				jButton.css({ top: offset.top + jTarget.height(), left: offset.left }).children(':first').toggle(showFirst).nextAll().toggle(!showFirst);
-			},
-			click: function(event)
-			{
-				var data = jButton.data('hoverize');
-				data.fixScroll = $(event.target).index() === 2 ? 'top' : 'bottom';
-				data.fixScroll_difference = data.jTarget[data.fixScroll]() - $d.scrollTop();
-				data.jTarget.toggleClass('an-maxheightremoved');
-			}
-		});
-	}
-},
-
-'7b36188f-c566-46eb-b48d-5680a4331c1f':
-{
-	desc: '轉換論壇連結的伺服器位置',
-	page: { 32: true },
-	type: 6,
-	once: function()
-	{
-		var rForum = /forum\d*.hkgolden\.com/i;
-		$d.mousedown(function(event)
-		{
-			var jTarget = $(event.target);
-			if(!( jTarget.is('.repliers_right > tbody > tr:first-child a') && rForum.test(jTarget.attr('href')) )) return;
-
-			jTarget.attr('href', jTarget.attr('href').replace(rForum, location.hostname));
-		});
-	}
-},
-
-'e33bf00c-9fc5-46ab-866a-03c4c7ca5056':
-{
-	desc: '轉換文字連結成連結',
-	page: { 32: true },
-	type: 6,
-	once: function()
-	{
-		AN.util.stackStyle('.an-linkified { padding-right: 2px; }');
-	},
-	infinite: function(jDoc)
-	{
-		var rLink = /(?:https?|ftp):\/\/(?:[\w-]+\.)+[a-z]{2,3}(?![a-z])(?:\/[\w.\/?:;~!@#$%^&*()+=-]*)?/i;
-		jDoc.replies().jContents.each(function()
-		{
-			if(rLink.test($(this).text())) {
-				var node, match, next = this.firstChild;
-				while(node = next) {
-					if(node.nodeType === 3 && (match = rLink.exec(node.data))) {
-						node.splitText(match.index + match[0].length);
-
-						$(node.splitText(match.index))
-						.before('<img title="已轉換文字為連結" class="an-linkified" src="'+$r['chain--arrow']+'" />')
-						.wrap($.sprintf('<a href="%s"></a>', match[0]));
-
-						node = node.nextSibling.nextSibling.nextSibling;
-						continue;
-					}
-
-					next = !/^(?:a|button|script|style)$/i.test(node.nodeName) && node.firstChild || node.nextSibling;
-					while(!next && (node = node.parentNode)) next = node.nextSibling;
-				}
-			}
-		});
-	}
-},
-
-'422fe323-e61e-47d9-a348-d40011f5da28':
-{
-	desc: '連結封鎖功能',
-	page: { 32: false },
-	type: 6,
-	once: function()
-	{
-		AN.util.stackStyle('\
-		.repliers_right a[target] { display: inline-block; } \
-		a[href].an-linkblocked { text-decoration: line-through; font-style: italic; cursor: default; } \
-		a[target].an-linkblocked:before { content: attr(rel); } \
-		a[target].an-linkblocked > img { display: none; } \
-		#an-linkblocktoggler { margin: -16px 0 0 -34px; padding: 16px; padding-right: 2px; } \
-		');
-
-		var
-		blockList = this.blockList = AN.util.data('linkBlockList') || [],
-		rInternal = /^http:\/\/(?:[^.]+.)hkgolden\.com/,
-
-		jButton = $('<img />', { id: 'an-linkblocktoggler' })
-		.hoverize('.repliers_right > tbody > tr:first-child a', {
-			filter: function(){ return $(this).hasClass('an-linkblocked') || !rInternal.test(this.href); },
-			fixScroll: 'top'
-		})
-		.bind({
-			entertarget: function()
-			{
-				jButton.attr('src', $r[jButton.data('hoverize').jTarget.hasClass('an-linkblocked') ? 'tick-shield' : 'cross-shield']);
-			},
-			click: function()
-			{
-				var
-				jTarget = jButton.data('hoverize').jTarget,
-				isBlocked = jTarget.hasClass('an-linkblocked'),
-				hrefAttr = isBlocked ? 'rel' : 'href',
-				realHref = jTarget.attr(hrefAttr),
-				jLinks = $(document).replies().jContents.find('a').filter(function(){ return this[hrefAttr] === realHref; }).toggleClass('an-linkblocked');
-
-				if(isBlocked) {
-					jLinks.attr({ href: realHref });
-					blockList.splice($.inArray(realHref, blockList), 1);
-				}
-				else {
-					jLinks.attr({ href: 'javascript:', rel: realHref });
-					blockList.push(realHref);
-				}
-
-				AN.util.data('linkBlockList', blockList);
-			}
-		});
-	},
-	infinite: function(jDoc, fn)
-	{
-		jDoc.replies().jContents.find('a').filter(function(){ return $.inArray(this.href, fn.blockList) !== -1; }).toggleClass('an-linkblocked').each(function()
-		{
-			$(this).attr({ href: 'javascript:', rel: this.href });
-		});
-	}
-},
-
-'d761d6f7-8ef7-4d5b-84e9-db16a274f616':
-{
-	desc: '轉換圖片連結成圖片',
-	page: { 32: false },
-	type: 6,
-	options: {
-		imageConvertMode: { desc: '轉換模式', type: 'select', choices: ['自動轉換', '自動轉換(引用中的連結除外)', '手動轉換'], defaultValue: '自動轉換(引用中的連結除外)' }
-	},
-	once: function()
-	{
-		AN.util.stackStyle('\
-		.an-imagified { padding-left: 2px; } \
-		.an-imagified + a { display: block; } \
-		.an-imagified + a > img { border: 0; } \
-		');
-
-		var rImg = /\.(?:jpe?g|gif|png|bmp)\b/i;
-
-		$d.bind('click imageconvert', function(event)
-		{
-			var jTarget = $(event.target);
-			if(jTarget.next('.an-imagified').length) {
-				event.preventDefault();
-				jTarget.next().next().toggle();
-			}
-			else if(jTarget.children().length === 0 && (event.type === 'imageconvert' || jTarget.is('.repliers_right > tbody > tr:first-child a')) && rImg.test(event.target.href)) {
-				event.preventDefault();
-
-				$('<img title="已轉換連結為圖片" class="an-imagified" src="'+$r['image-export']+'" />')
-				.after($.sprintf('<a href="%(url)s" target="_blank"><img onload="DrawImage(this)" src="%(url)s" alt="%(url)s" /></a>', { url: event.target.href }))
-				.insertAfter(jTarget);
-			}
-		});
-	},
-	infinite: function(jDoc)
-	{
-		var convertMode = $.inArray(AN.util.getOptions('imageConvertMode'), this.options.imageConvertMode.choices);
-		if(convertMode !== 2) jDoc.replies().jContents.find(convertMode === 0 ? 'a' : 'a:not(blockquote a)').trigger('imageconvert');
-	}
-},
-
-'8e1783cd-25d5-4b95-934c-48a650c5c042':
-{
-	desc: '圖片屏蔽功能',
-	page: { 32: false },
-	type: 6,
-	options: {
-		imageMaskMode: { desc: '屏蔽模式', type: 'select', choices: ['自動屏蔽', '自動屏蔽(只限引用中的圖片)', '手動屏蔽'], defaultValue: '自動屏蔽(只限引用中的圖片)' }
-	},
-	once: function()
-	{
-		var maskMode = $.inArray(AN.util.getOptions('imageMaskMode'), this.options.imageMaskMode.choices);
-		var selector = {
-			0: '.repliers_right img[src][onload],',
-			1: '.repliers_right blockquote img[onload],',
-			2: ''
-		}[maskMode];
-
-		AN.util.stackStyle(selector + 'img[onload].an-maskedImage { padding: 52px 48px 0 0; width: 0; height: 0; background: url('+$r['gnome-mime-image-bmp']+') no-repeat; }');
-
-		if(maskMode !== 2) {
-			AN.util.stackStyle('img[src][onload].an-unmaskedImage { padding: 0; width: auto; height: auto; background: none; }');
-		}
-
-		var jButton = $('<img />', { src: $r['picture--minus'], css: { 'margin-top': '-2px' } })
-		.hoverize('.repliers_right img[onload]', { filter: function(){ return $(this).width(); } })
-		.click(function()
-		{
-			jButton.data('hoverize').jTarget.addClass('an-maskedImage').removeClass('an-unmaskedImage');
-		});
-
-		$d.bind('click', function(event)
-		{
-			var jTarget = $(event.target);
-			if(jTarget.is('img[onload]') && jTarget.width() === 0) {
-				event.preventDefault();
-				jTarget.addClass('an-unmaskedImage').removeClass('an-maskedImage').mouseover();
-			}
-		});
-	}
-},
-
-'039d820f-d3c7-4539-8647-dde974ceec0b':
-{
-	desc: '轉換視頻網站連結成影片',
-	page: { 32: true },
-	type: 6,
-	defer: 2, // after layout is fixed
-	options: {
-		videoConvertMode: { desc: '轉換模式', type: 'select', choices: ['自動轉換', '自動轉換(引用中的連結除外)', '手動轉換'], defaultValue: '自動轉換(引用中的連結除外)' }
-	},
-	once: function()
-	{
-		var nWidth, nHeight, sUrl;
-		var aSites =
-		[{
-			regex: 'youtube\\.com/watch\\?',
-			fn: function()
-			{
-				if(nWidth > 640) nWidth = 640;
-				nHeight = nWidth / 16 * 9 + 25;
-				sUrl = $.sprintf('http://www.youtube.com/v/%s&fs=1&rel=0&ap=%%2526fmt%%3D22', sUrl.replace(/.+?v=([^&]+).*/i, '$1'));
-			}
-		},
-		{
-			regex: 'vimeo\\.com/\\d',
-			fn: function()
-			{
-				if(nWidth > 504) nWidth = 504;
-				nHeight = nWidth / 1.5;
-				sUrl = $.sprintf('http://vimeo.com/moogaloop.swf?clip_id=%s&show_title=1&fullscreen=1', sUrl.replace(/.+vimeo\.com\/(\d+).*/i, '$1'));
-			}
-		},
-		{
-			regex: 'youku\\.com/v_show/',
-			fn: function()
-			{
-				if(nWidth > 480) nWidth = 480;
-				nHeight = nWidth / 4 * 3 + 40;
-				sUrl = $.sprintf('http://player.youku.com/player.php/sid/%s/v.swf', sUrl.replace(/.+?id_([^\/]+).*/i, '$1'));
-			}
-		},
-		{
-			regex: 'tudou\\.com/programs/',
-			fn: function()
-			{
-				if(nWidth > 420) nWidth = 420;
-				nHeight = nWidth / 4 * 3 + 48;
-				sUrl = $.sprintf('http://www.tudou.com/v/%s', sUrl.replace(/.+?view\/([^\/]+).*/i, '$1'));
-			}
-		}];
-		var rLink = (function()
-		{
-			var aReg = [];
-			$.each(aSites, function(){ aReg.push(this.regex); });
-			return new RegExp(aReg.join('|'), 'i');
-		})();
-
-		AN.util.stackStyle('\
-		.an-videoified { padding-left: 2px; } \
-		.an-videoified + object { display: block; outline: 0; } \
-		');
-
-		$d.bind('click videoconvert', function(event)
-		{
-			var jTarget = $(event.target);
-			if(jTarget.next('.an-videoified').length) {
-				event.preventDefault();
-				jTarget.next().next().toggle();
-			}
-			else if((event.type === 'videoconvert' || jTarget.is('.repliers_right > tbody > tr:first-child a')) && rLink.test(event.target.href)) {
-				event.preventDefault();
-
-				sUrl = event.target.href;
-				nWidth = jTarget.up('td,div').width();
-				$.each(aSites, function()
-				{
-					if(RegExp(this.regex, 'i').test(sUrl)) {
-						this.fn();
-						return false;
-					}
-				});
-
-				$('<div></div>')
-				.insertAfter(jTarget)
-				.toFlash(sUrl, { width: nWidth, height: nHeight.toFixed(0) }, { wmode: 'opaque', allowfullscreen: 'true' })
-				.before('<img title="已轉換連結為影片" class="an-videoified" src="'+$r['film--arrow']+'" />');
-			}
-		});
-	},
-	infinite: function(jDoc, oFn)
-	{
-		var convertMode = $.inArray(AN.util.getOptions('videoConvertMode'), this.options.videoConvertMode.choices);
-		if(convertMode !== 2) jDoc.replies().jContents.find(convertMode === 0 ? 'a' : 'a:not(blockquote a)').trigger('videoconvert');
+		this.toggleReplies(jDoc);
 	}
 },
 
@@ -1351,7 +1332,7 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 			if(!rUrl)
 			{
 				var parts = {
-					host: 'http://(?:[\\w-]+\\.)+[a-z]{2,4}(?![a-z])',
+					host: '(?:https?|ftp)://(?:[\\w-]+\\.)+[a-z]{2,3}(?![a-z])',
 					codes: '\\[/?(?:img|url|quote|\\*|left|center|right|b|i|u|s|size|red|green|blue|purple|violet|brown|black|pink|orange|gold|maroon|teal|navy|limegreen)'
 				};
 
@@ -1383,102 +1364,228 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 	options: { sSmileySelectMethod: { desc: '圖示選擇方式', defaultValue: '列表', type: 'select', choices: ['列表', '連結'] } },
 	once: function()
 	{
-		// jQuery('#TABLE_ID').outer().replace(/>\s+</g, '><').replace(/&nbsp;\s+/g, '&nbsp;').replace(/'/g,'\\\'');
 		if(!$('#ctl00_ContentPlaceHolder1_messagetext').length) return;
 
-		var selector = '#ctl00_ContentPlaceHolder1_QuickReplyTable table table > tbody > tr:first-child + tr + tr + tr';
-		if($('#ctl00_ContentPlaceHolder1_Forum_Type_Row').length) selector += '+ tr + tr';
-		selector += '> td:first-child';
+		var jSmileyTr = $('#ctl00_ContentPlaceHolder1_messagetext').up('tr').next();
+		//if(jSmileyTr.nextAll().length > 1) jSmileyTr.nextAll(':not(:last)').hide();
 
-		AN.util.stackStyle('\
-		'+selector+' { cursor: pointer; } \
-		'+selector+':before { content: url('+$r['smiley-twist']+'); margin-right: 2px; vertical-align: middle; } \
-		');
+		// jQuery('#TABLE_ID').outer().replace(/>\s+</g, '><').replace(/&nbsp;\s+/g, '&nbsp;').replace(/'/g,'\\\'');
 
-		$d.bind('click.smileyadder', function(event)
-		{
-			var jSmileyTr = $('#ctl00_ContentPlaceHolder1_messagetext').up('tr').next();
-
-			if(jSmileyTr.length && jSmileyTr.children(':first')[0] !== event.target) return;
-
-			$d.unbind('click.smileyadder');
-
-			AN.util.addStyle('\
-			'+selector+' { cursor: default; } \
-			'+selector+':before { content: ""; display: none; } \
-			');
-
-			jSmileyTr.children(':last').append(function()
+		var smileys = [
 			{
-				var tableHTML = '';
-				$.each($s, function()
+				desc: '聖誕表情圖示',
+				html: '<table style="display: none;" cellpadding="0" cellspacing="0"><tbody><tr><td colspan="2"><a href="javascript:InsertText(\'[O:-)x]\',false)"><img style="border-width: 0px;" src="faces/xmas/angel.gif" alt="[O:-)x]"></a>&nbsp;<a href="javascript:InsertText(\'[xx(x]\',false)"><img style="border-width: 0px;" src="faces/xmas/dead.gif" alt="[xx(x]"></a>&nbsp;<a href="javascript:InsertText(\'[:)x]\',false)"><img style="border-width: 0px;" src="faces/xmas/smile.gif" alt="[:)x]"></a>&nbsp;<a href="javascript:InsertText(\'[:o)x]\',false)"><img style="border-width: 0px;" src="faces/xmas/clown.gif" alt="[:o)x]"></a>&nbsp;<a href="javascript:InsertText(\'[:o)jx]\',false)"><img style="border-width: 0px;" src="faces/xmas/clown_jesus.gif" alt="[:o)jx]"></a>&nbsp;<a href="javascript:InsertText(\'[:-(x]\',false)"><img style="border-width: 0px;" src="faces/xmas/frown.gif" alt="[:-(x]"></a>&nbsp;<a href="javascript:InsertText(\'[:~(x]\',false)"><img style="border-width: 0px;" src="faces/xmas/cry.gif" alt="[:~(x]"></a>&nbsp;<a href="javascript:InsertText(\'[;-)x]\',false)"><img style="border-width: 0px;" src="faces/xmas/wink.gif" alt="[;-)x]"></a>&nbsp;<a href="javascript:InsertText(\'[:-[x]\',false)"><img style="border-width: 0px;" src="faces/xmas/angry.gif" alt="[:-[x]"></a>&nbsp;<a href="javascript:InsertText(\'[:-]x]\',false)"><img style="border-width: 0px;" src="faces/xmas/devil.gif" alt="[:-]x]"></a>&nbsp;<a href="javascript:InsertText(\'[:Dx]\',false)"><img style="border-width: 0px;" src="faces/xmas/biggrin.gif" alt="[:Dx]"></a>&nbsp;<a href="javascript:InsertText(\'[:Ox]\',false)"><img style="border-width: 0px;" src="faces/xmas/oh.gif" alt="[:Ox]"></a>&nbsp;<a href="javascript:InsertText(\'[:Px]\',false)"><img style="border-width: 0px;" src="faces/xmas/tongue.gif" alt="[:Px]"></a>&nbsp;<a href="javascript:InsertText(\'[^3^x]\',false)"><img style="border-width: 0px;" src="faces/xmas/kiss.gif" alt="[^3^x]"></a>&nbsp;<a href="javascript:InsertText(\'[?_?x]\',false)"><img style="border-width: 0px;" src="faces/xmas/wonder.gif" alt="[?_?x]"></a>&nbsp;<a href="javascript:InsertText(\'#yupx#\',false)"><img style="border-width: 0px;" src="faces/xmas/agree.gif" alt="#yupx#"></a>&nbsp;<a href="javascript:InsertText(\'#ngx#\',false)"><img style="border-width: 0px;" src="faces/xmas/donno.gif" alt="#ngx#"></a>&nbsp;<a href="javascript:InsertText(\'#hehex#\',false)"><img style="border-width: 0px;" src="faces/xmas/hehe.gif" alt="#hehex#"></a>&nbsp;<a href="javascript:InsertText(\'#lovex#\',false)"><img style="border-width: 0px;" src="faces/xmas/love.gif" alt="#lovex#"></a>&nbsp;<a href="javascript:InsertText(\'#ohx#\',false)"><img style="border-width: 0px;" src="faces/xmas/surprise.gif" alt="#ohx#"></a>&nbsp;</td></tr><tr><td><a href="javascript:InsertText(\'#assx#\',false)"><img style="border-width: 0px;" src="faces/xmas/ass.gif" alt="#assx#"></a>&nbsp;<a href="javascript:InsertText(\'[sosadx]\',false)"><img style="border-width: 0px;" src="faces/xmas/sosad.gif" alt="[sosadx]"></a>&nbsp;<a href="javascript:InsertText(\'#goodx#\',false)"><img style="border-width: 0px;" src="faces/xmas/good.gif" alt="#goodx#"></a>&nbsp;<a href="javascript:InsertText(\'#hohox#\',false)"><img style="border-width: 0px;" src="faces/xmas/hoho.gif" alt="#hohox#"></a>&nbsp;<a href="javascript:InsertText(\'#killx#\',false)"><img style="border-width: 0px;" src="faces/xmas/kill.gif" alt="#killx#"></a>&nbsp;<a href="javascript:InsertText(\'#byex#\',false)"><img style="border-width: 0px;" src="faces/xmas/bye.gif" alt="#byex#"></a>&nbsp;<a href="javascript:InsertText(\'[Z_Zx]\',false)"><img style="border-width: 0px;" src="faces/xmas/z.gif" alt="[Z_Zx]"></a>&nbsp;<a href="javascript:InsertText(\'[@_@x]\',false)"><img style="border-width: 0px;" src="faces/xmas/@.gif" alt="[@_@x]"></a>&nbsp;<a href="javascript:InsertText(\'#adorex#\',false)"><img style="border-width: 0px;" src="faces/xmas/adore.gif" alt="#adorex#"></a>&nbsp;<a href="javascript:InsertText(\'#adore2x#\',false)"><img style="border-width: 0px;" src="faces/xmas/adore2.gif" alt="#adore2x#"></a>&nbsp;<a href="javascript:InsertText(\'[???x]\',false)"><img style="border-width: 0px;" src="faces/xmas/wonder2.gif" alt="[???x]"></a>&nbsp;<a href="javascript:InsertText(\'[bangheadx]\',false)"><img style="border-width: 0px;" src="faces/xmas/banghead.gif" alt="[bangheadx]"></a>&nbsp;<a href="javascript:InsertText(\'[bouncerx]\',false)"><img style="border-width: 0px;" src="faces/xmas/bouncer.gif" alt="[bouncerx]"></a>&nbsp;</td><td rowspan="2" valign="bottom"><a href="javascript:InsertText(\'[offtopicx]\',false)"><img style="border-width: 0px;" src="faces/xmas/offtopic.gif" alt="[offtopicx]"></a>&nbsp;</td></tr><tr><td><a href="javascript:InsertText(\'[censoredx]\',false)"><img style="border-width: 0px;" src="faces/xmas/censored.gif" alt="[censoredx]"></a>&nbsp;<a href="javascript:InsertText(\'[flowerfacex]\',false)"><img style="border-width: 0px;" src="faces/xmas/flowerface.gif" alt="[flowerfacex]"></a>&nbsp;<a href="javascript:InsertText(\'[shockingx]\',false)"><img style="border-width: 0px;" src="faces/xmas/shocking.gif" alt="[shockingx]"></a>&nbsp;<a href="javascript:InsertText(\'[photox]\',false)"><img style="border-width: 0px;" src="faces/xmas/photo.gif" alt="[photox]"></a>&nbsp;<a href="javascript:InsertText(\'[yipesx]\',false)"><img style="border-width: 0px;" src="faces/xmas/yipes.gif" alt="[yipesx]"></a>&nbsp;<a href="javascript:InsertText(\'[yipes2x]\',false)"><img style="border-width: 0px;" src="faces/xmas/yipes2.gif" alt="[yipes2x]"></a>&nbsp;<a href="javascript:InsertText(\'[yipes3x]\',false)"><img style="border-width: 0px;" src="faces/xmas/yipes3.gif" alt="[yipes3x]"></a>&nbsp;<a href="javascript:InsertText(\'[yipes4x]\',false)"><img style="border-width: 0px;" src="faces/xmas/yipes4.gif" alt="[yipes4x]"></a>&nbsp;<a href="javascript:InsertText(\'[369x]\',false)"><img style="border-width: 0px;" src="faces/xmas/369.gif" alt="[369x]"></a>&nbsp;<a href="javascript:InsertText(\'[bombx]\',false)"><img style="border-width: 0px;" src="faces/xmas/bomb.gif" alt="[bombx]"></a>&nbsp;<a href="javascript:InsertText(\'[slickx]\',false)"><img style="border-width: 0px;" src="faces/xmas/slick.gif" alt="[slickx]"></a>&nbsp;<a href="javascript:InsertText(\'[fuckx]\',false)"><img style="border-width: 0px;" src="faces/xmas/diu.gif" alt="[fuckx]"></a>&nbsp;<a href="javascript:InsertText(\'#nox#\',false)"><img style="border-width: 0px;" src="faces/xmas/no.gif" alt="#nox#"></a>&nbsp;<a href="javascript:InsertText(\'#kill2x#\',false)"><img style="border-width: 0px;" src="faces/xmas/kill2.gif" alt="#kill2x#"></a>&nbsp;</td></tr><tr><td><a href="javascript:InsertText(\'#kill3x#\',false)"><img style="border-width: 0px;" src="faces/xmas/kill3.gif" alt="#kill3x#"></a>&nbsp;<a href="javascript:InsertText(\'#cnx#\',false)"><img style="border-width: 0px;" src="faces/xmas/chicken.gif" alt="#cnx#"></a>&nbsp;<a href="javascript:InsertText(\'#cn2x#\',false)"><img style="border-width: 0px;" src="faces/xmas/chicken2.gif" alt="#cn2x#"></a>&nbsp;<a href="javascript:InsertText(\'[bouncyx]\',false)"><img style="border-width: 0px;" src="faces/xmas/bouncy.gif" alt="[bouncyx]"></a>&nbsp;<a href="javascript:InsertText(\'[bouncy2x]\',false)"><img style="border-width: 0px;" src="faces/xmas/bouncy2.gif" alt="[bouncy2x]"></a>&nbsp;<a href="javascript:InsertText(\'#firex#\',false)"><img style="border-width: 0px;" src="faces/xmas/fire.gif" alt="#firex#"></a>&nbsp;</td></tr></tbody></table>'
+			},
+			{
+				desc: '綠帽表情圖示',
+				html: {
+					path: 'faces/xmas/green',
+					table: [
+						[
+							['[:)gx]', 'smile'],
+							['[:o)gx]', 'clown'],
+							['[:-(gx]', 'frown'],
+							['[:~(gx]', 'cry'],
+							['#yupgx#', 'agree']
+						],
+						[
+							['[sosadgx]', 'sosad'],
+							['#goodgx#', 'good'],
+							['#byegx#', 'bye']
+						],
+						[
+							['[369gx]', '369'],
+							['[fuckgx]', 'diu']
+						]
+					]
+				}
+			},
+			{
+				desc: '新年表情圖示',
+				html: {
+					path: 'faces/newyear',
+					table: [
+						[
+							['[:o)n]', 'clown'],
+							['[:o)2n]', 'clown2'],
+							['[:o)3n]', 'clown3']
+						],
+						[
+							['[sosadn]', 'sosad'],
+							['[sosad2n]', 'sosad2'],
+							['[sosad3n]', 'sosad3'],
+							['[bangheadn]', 'banghead'],
+							['[banghead2n]', 'banghead2'],
+							['[bouncern]', 'bouncer']
+						],
+						[
+							['[yipesn]', 'yipes'],
+							['[369n]', '369'],
+							['[3692n]', '3692'],
+							['[fuckn]', 'diu']
+						]
+					],
+					span: [
+							['#assn#', 'ass'],
+						['[offtopicn]', 'offtopic'],
+						['[offtopic2n]', 'offtopic2']
+					]
+				}
+			},
+			{
+				desc: '腦魔表情圖示',
+				html: {
+					path: 'faces/lomore',
+					table: [
+						[
+							['[:-[lm]', 'angry'],
+							['[:Dlm]', 'biggrin'],
+							['[:Olm]', 'oh'],
+							['[:Plm]', 'tongue'],
+							['#lovelm#', 'love'],
+							['#goodlm#', 'good'],
+							['#hoholm#', 'hoho'],
+							['#killlm#', 'kill'],
+							['[???lm]', 'wonder2'],
+							['[flowerfacelm]', 'flowerface'],
+							['[shockinglm]', 'shocking'],
+							['[yipeslm]', 'yipes'],
+							['[offtopiclm]', 'offtopic']
+						],
+						[
+							['[369lm]', '369'],
+							['[@_@lm]', '@'],
+							['#hehelm#', 'hehe'],
+							['[fucklm]', 'diu'],
+							['[bouncerlm]', 'bouncer'],
+							['[sosadlm]', 'sosad']
+						]
+					]
+				}
+			},
+			{
+				desc: 'SARS表情圖示',
+				html: {
+					path: 'faces/sick',
+					table: [
+						[
+							['[O:-)sk]', 'angel'],
+							['[:o)sk]', 'clown'],
+							['[:-[sk]', 'angry'],
+							['[:-]sk]', 'devil'],
+							['#yupsk#', 'agree'],
+							['#ngsk#', 'donno'],
+							['#cnsk#', 'chicken']
+						],
+						[
+							['#asssk#', 'ass'],
+							['[sosadsk]', 'sosad'],
+							['#hohosk#', 'hoho'],
+							['#hoho2sk#', 'hoho2'],
+							['#killsk#', 'kill'],
+							['#byesk#', 'bye'],
+							['[@_@sk]', '@'],
+							['#adoresk# ', 'adore'],
+							['[bangheadsk]', 'banghead']
+						],
+						[
+							['[flowerfacesk]', 'flowerface'],
+							['[shockingsk]', 'shocking'],
+							['[photosk]', 'photo'],
+							['#firesk#', 'fire'],
+							['[369sk]', '369'],
+							['[fucksk]', 'diu']
+						]
+					]
+				}
+			},
+			{
+				desc: '特殊圖示',
+				html: {
+					path: 'faces',
+					table: [
+						[
+							['#good2#', 'ThumbUp'],
+							['#bad#', 'ThumbDown'],
+							['[img]/faces/surprise2.gif[/img]', 'surprise2'],
+							['[img]/faces/beer.gif[/img]', 'beer']
+						]
+					]
+				}
+			}
+		];
+
+		function buildTable(data)
+		{
+			function writeLink(smileyNo, smiley)
+			{
+				tableHTML += $.sprintf(
+					'<a href="javascript:InsertText(\'%(code)s\',false)"><img style="border: 0" src="%(path)s/%(filename)s.gif" alt="%(code)s" /></a>&nbsp;',
+					{ code: smiley[0], path: data.path, filename: smiley[1] }
+				);
+			}
+
+			var tableHTML = '<table style="display: none" cellpadding="0" cellspacing="0"><tbody>';
+
+			$.each(data.table, function(rowNo, row)
+			{
+				tableHTML += '<tr>';
+
+				tableHTML += rowNo == 0 ? '<td colspan="2">' : '<td>';
+				$.each(row, writeLink);
+				tableHTML += '</td>';
+
+				if(rowNo == 1 && data.span)
 				{
-					var html = this.html;
+					tableHTML += '<td valign="bottom" rowspan="2">';
+					$.each(data.span, writeLink);
+					tableHTML += '</td>';
+				}
 
-					tableHTML += '<table style="display: none" cellpadding="0" cellspacing="0"><tbody>';
-
-					$.each(html.table, function(rowNo, row)
-					{
-						function writeLink(smileyNo, smiley)
-						{
-							tableHTML += $.sprintf(
-								'<a href="javascript:InsertText(\'%(code)s\',false)"><img style="border: 0" src="%(path)s/%(filename)s.gif" alt="%(code)s" /></a>&nbsp;',
-								{ code: smiley[0], path: html.path, filename: smiley[1] }
-							);
-						}
-
-						tableHTML += '<tr>';
-
-						tableHTML += rowNo == 0 ? '<td colspan="2">' : '<td>';
-						$.each(row, writeLink);
-						tableHTML += '</td>';
-
-						if(rowNo == 1 && html.span) {
-							tableHTML += '<td valign="bottom" rowspan="2">';
-							$.each(html.span, writeLink);
-							tableHTML += '</td>';
-						}
-
-						tableHTML += '</tr>';
-					});
-
-					tableHTML += '</tbody></table>';
-				});
-				return tableHTML;
+				tableHTML += '</tr>';
 			});
 
-			if(AN.util.getOptions('sSmileySelectMethod') === '列表') {
-				var selectHTML = '<select><option>經典表情圖示</option>';
-				$.each($s, function()
-				{
-					selectHTML += '<option>' + this.desc + '</option>';
-				});
-				selectHTML += '</select>';
+			tableHTML += '</tbody></table>';
 
-				$(selectHTML).change(function()
-				{
-					jSmileyTr.children(':last').children().hide().eq(this.selectedIndex).show();
-				}).appendTo(jSmileyTr.children(':first').empty()).after(':');
-			}
-			else {
-				AN.util.addStyle('#an-smileyselector { list-style: none; margin: 0; padding: 0; font-size: 80%; }');
+			return tableHTML;
+		}
 
-				var listHTML = '<ul id="an-smileyselector"><li><a href="javascript:">經典表情圖示</a></li>';
-				$.each($s, function()
-				{
-					listHTML += '<li><a href="javascript:">' + this.desc + '</a></li>';
-				});
-				listHTML += '</ul>';
+		if(AN.util.getOptions('sSmileySelectMethod') == this.options.sSmileySelectMethod.choices[0])
+		{
+			var selectHTML = '<select><option>經典表情圖示</option>';
+			$.each(smileys, function()
+			{
+				selectHTML += '<option>' + this.desc + '</option>';
+				jSmileyTr.children(':last').append(typeof this.html == 'string' ? this.html : buildTable(this.html));
+			});
+			selectHTML += '</select>';
 
-				$(listHTML).click(function(event)
-				{
-					var jTarget = $(event.target);
-					if(!jTarget.is('a')) return;
+			$(selectHTML).change(function()
+			{
+				jSmileyTr.children(':last').children().hide().eq(this.selectedIndex).show();
+			}).appendTo(jSmileyTr.children(':first').empty()).after(':');
+		}
+		else
+		{
+			AN.util.stackStyle('\
+			#an-smileyselector { list-style: none; margin: 0; padding: 0; font-size: 80%; } \
+			');
+			var listHTML = '<ul id="an-smileyselector"><li><a href="javascript:">經典表情圖示</a></li>';
+			$.each(smileys, function()
+			{
+				listHTML += '<li><a href="javascript:">' + this.desc + '</a></li>';
+				jSmileyTr.children(':last').append(typeof this.html == 'string' ? this.html : buildTable(this.html));
+			});
+			listHTML += '</ul>';
 
-					jSmileyTr.children(':last').children().hide().eq(jTarget.parent().index()).show();
-				}).appendTo(jSmileyTr.children(':first').empty());
-			}
-		});
+			$(listHTML).click(function(event)
+			{
+				var jTarget = $(event.target);
+				if(!jTarget.is('a')) return;
+
+				jSmileyTr.children(':last').children().hide().eq(jTarget.parent().index()).show();
+			}).appendTo(jSmileyTr.children(':first').empty());
+		}
 	}
 },
 
@@ -1526,7 +1633,7 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 					AN.util.getOptions()
 					));
 
-					var index, editing, jDesc, jContent;
+					var index, jDesc, jContent;
 					jSnippets = AN.shared.box('an-snippets', '自訂文字', 700)
 					.append('<ul></ul><div><input /><textarea></textarea><button type="button">ok</button><button type="button">cancel</button></div>')
 					.click(function(event)
@@ -1539,22 +1646,15 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 							jSnippets.children('div').css('opacity', '0.5').children().attr('disabled', true);
 						}
 						else if(type == 'E' || type == '+') {
-							editing = (type === 'E');
 							index = jTarget.parent().index();
 							jDesc.val(type == 'E' ? snippets[index][0] : '').next().val(type == 'E' ? snippets[index][1] : '').parent().css('opacity', '1').children().attr('disabled', false);
 						}
 						else {
 							if(type == 'ok') {
-								if(editing) {
-									snippets[index] = [jDesc.val(), jContent.val()];
-									editing = false;
-								}
-								else {
-									snippets.push([jDesc.val(), jContent.val()]);
-								}
+								snippets.push([jDesc.val(), jContent.val()]);
 							}
 							else if(type == 'X' && confirm('確定移除?')) {
-								snippets.splice(jTarget.parent().index(), 1);
+								snippets.splice(index, 1);
 							}
 							AN.util.data('snippets', snippets);
 							writeSnippets();
