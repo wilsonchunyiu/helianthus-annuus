@@ -38,10 +38,10 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 			32: $.sprintf('\
 			#ctl00_ContentPlaceHolder1_view_form > script:first-child + div { width: 100% !important; } \
 			#ctl00_ContentPlaceHolder1_view_form > script:first-child + div + div { display: none; } \
-			#ctl00_ContentPlaceHolder1_view_form div > div[style*="%s"] { border-bottom: 0 !important; } \
-			#ctl00_ContentPlaceHolder1_view_form div > div[style*="58px"], /* top & bottom ads */\
+			div[style*="58px"], /* top & bottom ads */\
 			#ctl00_ContentPlaceHolder1_view_form > div > table[width="100%"] > tbody > tr + tr /* inline ads */\
 				{ display: none; } \
+			div[style*="%s"] { border-bottom: 0 !important; } \
 			',
 			$.browser.msie ? 'PADDING-BOTTOM: 18px' : 'padding: 18px'
 			)
@@ -1214,7 +1214,7 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 	{
 		var maskMode = $.inArray(AN.util.getOptions('imageMaskMode'), this.options.imageMaskMode.choices);
 		var selector = {
-			0: '.repliers_right img[src][onload],',
+			0: '.repliers_right img[onload],',
 			1: '.repliers_right blockquote img[onload],',
 			2: ''
 		}[maskMode];
@@ -1240,6 +1240,12 @@ AN.mod['Main Script'] = { ver: 'N/A', author: '向日', fn: {
 				jTarget.addClass('an-unmaskedImage').removeClass('an-maskedImage').mouseover();
 			}
 		});
+	},
+	infinite: function(jDoc)
+	{
+		return;
+		var maskMode = $.inArray(AN.util.getOptions('imageMaskMode'), this.options.imageMaskMode.choices);
+		if(maskMode !== 2) jDoc.replies().jContents.find(maskMode === 0 ? 'img[onload]' : 'blockquote img[onload]').addClass('an-maskedImage');
 	}
 },
 
