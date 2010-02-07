@@ -5,95 +5,103 @@ AN.mod['Component Redesigner'] = { ver: 'N/A', author: '向日', fn: {
 	desc: '改變引用風格',
 	page: { 32: true },
 	type: 8,
-	options: {
-		quoteStyle: { desc: '引用風格', type: 'select', choices: ['預設', '復古', '現代'], defaultValue: '預設' },
-		quoteMaskLevel: { desc: '引用屏蔽層級', type: 'text', defaultValue: 2 }
-	},
-	once: function()
+	defer: 1, // after linkify to improve effieciency, note: this is a part of layout changing
+	options:
 	{
-		AN.util.stackStyle('.repliers_right blockquote + br { display: none; }');
+		bOuterOnly: { desc: '隱蔵內層引用', type: 'checkbox', defaultValue: true },
+		nOuterNum: { desc: '外層引用的顯示數目', type: 'text', defaultValue: 1 }
+	},
+	once: function(jDoc, oFn)
+	{
+		this.bGlobalOuterOnly = AN.util.getOptions('bOuterOnly');
 
-		var
-		styleNo = this.styleNo = $.inArray(AN.util.getOptions('quoteStyle'), this.options.quoteStyle.choices),
-		jButton;
-
-		switch(styleNo) {
-			case 0:
-				AN.util.stackStyle('\
-				.repliers_right blockquote { margin: 0 0 8px 1px; padding: 0 0 7px 40px; } \
-				blockquote.an-hiddenquote { padding-left: 0; } \
-				.an-hiddenquote:before { content: url('+ $r['balloon--plus'] +'); } \
-				.an-hiddenquote > div { display: none; } \
-				');
-
-				jButton = $('<img />').hoverize('.repliers_right blockquote').bind({
-					'mouseover mouseout': function(event)
-					{
-						var jTarget = jButton.data('hoverize').jTarget;
-						jTarget.css('outline', event.type === 'mouseout' || jTarget.hasClass('an-hiddenquote') ? '0' : '1px dashed gray');
-					},
-					entertarget: function()
-					{
-						jButton.attr('src', $r[jButton.data('hoverize').jTarget.hasClass('an-hiddenquote') ? 'balloon--plus' : 'balloon--minus']);
-					}
-				});
-			break;
-			case 1:
-				AN.util.stackStyle('\
-				.an-quotetogglebutton { margin: -18px 0 0 -4px; } \
-				.an-quotetogglebutton, blockquote:before { color: #999; } \
-				.repliers_right blockquote:before { content: ""; position: absolute; width: 20px; height: 20px; top 0; left: -4px; margin-top: -18px; } \
-				.repliers_right td > blockquote { margin: 15px 0 10px 3px; } \
-				.repliers_right blockquote { position: relative; margin: 0 0 10px 0; } \
-				.repliers_right blockquote > div { border-left: 2px solid #999; padding-left: 5px; } \
-				blockquote.an-hiddenquote:before { content: "+"; } \
-				.an-hiddenquote > div > blockquote { display: none; } \
-				');
-
-				jButton = $('<span class="an-quotetogglebutton"></span>').hoverize('blockquote', { filter: ':has(blockquote)' })
-				.bind('entertarget', function()
-				{
-					jButton.text(jButton.data('hoverize').jTarget.hasClass('an-hiddenquote') ? '+' : '--');
-				});
-			break;
-			case 2:
-				AN.util.stackStyle($.sprintf('\
-				.an-quotetogglebutton { margin: 2px 0 0 -15px; font-weight: bold; } \
-				.an-quotetogglebutton, blockquote:before, .an-hiddenquote:after { font-size: 12px; color: %(sMainHeaderFontColor)s; } \
-				.repliers_right blockquote:before { content: "引用:"; display: block; margin-bottom: 2px; padding-left: 3px; line-height: 1.3; background-color: %(sMainHeaderBgColor)s; } \
-				.repliers_right td > blockquote { border-right-width: 1px; } \
-				.repliers_right blockquote { margin: 0 0 5px 0; border: 1px solid %(sMainBorderColor)s; border-right-width: 0; } \
-				.repliers_right blockquote > div { padding: 0 0 5px 2px; } \
-				.an-hiddenquote { position: relative; } \
-				.an-hiddenquote:after { content: "＋"; position: absolute; top: 1px; right: 3px; font-weight: bold; } \
-				.an-hiddenquote > div > blockquote { display: none; } \
-				', AN.util.getOptions()));
-
-				jButton = $('<span class="an-quotetogglebutton"></span>').hoverize('blockquote', { filter: ':has(blockquote)', autoPosition: false })
-				.bind('entertarget', function()
-				{
-					var jTarget = jButton.data('hoverize').jTarget,
-					offset = jTarget.offset();
-
-					jButton.text(jTarget.hasClass('an-hiddenquote') ? '＋' : '－').css({ top: offset.top, left: offset.left + jTarget.width() });
-				});
-			break;
-		}
-
-		jButton.click(function()
+		this.toggleAll = (function()
 		{
-			jButton.data('hoverize').jTarget.toggleClass('an-hiddenquote');
+			var sSelector = '.an-quote-outermostheader';
+			var n = AN.util.getOptions('nOuterNum');
+			while(--n)
+			{
+				sSelector += ' + div > blockquote > div:first-child';
+			}
+
+			return function()
+			{
+				oFn.toggleQuote($(sSelector), oFn.bGlobalOuterOnly);
+			};
+		})();
+
+		this.toggleQuote = function(jTarget, bOuterOnly)
+		{
+			if(bOuterOnly === undefined) // jTarget now is actually the event object
+			{
+				jTarget = $(this.parentNode);
+				bOuterOnly = !jTarget.hasClass('an-quote-header-hideinner');
+			}
+
+			jTarget.toggleClass('an-quote-header-hideinner', bOuterOnly).children('b').html(bOuterOnly ? '＋' : '－');
+		};
+
+		AN.shared('addButton', '切換最外層引用', function()
+		{
+			oFn.bGlobalOuterOnly = !oFn.bGlobalOuterOnly;
+			oFn.toggleAll();
 		});
+
+		AN.util.stackStyle($.sprintf(' \
+		.repliers_right blockquote { margin: 5px 0; border: 1px solid %s; } \
+		.repliers_right blockquote blockquote { margin-top: 0; border-right: 0; } \
+		.repliers_right blockquote > div { padding: 0 0 5px 2px; } \
+		.an-quote-header { margin-bottom: 2px; padding: 0 3px !important; font-size: 12px; line-height: 15px; overflow: hidden; } \
+		.an-quote-header > b { float: right; cursor: pointer; font-weight: 900; } \
+		.an-quote-innermostheader > b { display: none; } \
+		.an-quote-header-hideinner { margin-bottom: 5px; } \
+		.an-quote-header-hideinner + div > blockquote { display: none; } \
+		',
+		AN.util.getOptions('sMainBorderColor')
+		));
 	},
 	infinite: function(jDoc)
 	{
-		var level = AN.util.getOptions('quoteMaskLevel') - (this.styleNo === 0 ? 1 : 2);
-		if(level < 0) return;
+		jDoc.find('blockquote').each(function()
+		{
+			var jQuote = $(this);
 
-		jDoc.replies().jContents
-		.find(this.styleNo === 0 ? 'blockquote' : 'blockquote:has(blockquote)')
-		.filter(function(){ return $(this).parentsUntil('td', 'blockquote').length === level; })
-		.addClass('an-hiddenquote');
+			while(true)
+			{
+				var eNext = this.nextSibling;
+
+				if(eNext)
+				{
+					if($(eNext).is('br') || eNext.nodeType == 3 && /^\s+$/.test(eNext.nodeValue))
+					{
+						$(eNext).remove();
+						continue;
+					}
+				}
+				else if(jQuote.parent().parent('blockquote').length)
+				{
+					jQuote.parent().parent().replaceWith(jQuote); // is an empty quote && not outermost
+					continue;
+				}
+
+				break;
+			}
+
+			var jHeader = $('<div class="an-forum-header an-quote-header">引用:<b>－</b></div>').prependTo(jQuote);
+
+			if(!jQuote.find('blockquote').length) // innermost or single-layer
+			{
+				jHeader.addClass('an-quote-innermostheader');
+			}
+			if(!jQuote.parent().parent('blockquote').length) // outermost or single-layer
+			{
+				jHeader.addClass('an-quote-outermostheader');
+			}
+		});
+
+		$('.an-quote-header > b').click(this.toggleQuote);
+
+		if(this.bGlobalOuterOnly) jDoc.defer(3, '隱藏最外層以外的引用', this.toggleAll);
 	}
 },
 
@@ -104,90 +112,79 @@ AN.mod['Component Redesigner'] = { ver: 'N/A', author: '向日', fn: {
 	type: 8,
 	options:
 	{
-		sQRHideMethod: { desc: '隱藏方式', type: 'select', choices: ['完全隱藏', '隱藏於中下方, 懸浮切換顯示', '隱藏於中下方, 點擊切換顯示', '隱藏於右下角'], defaultValue: '隱藏於中下方, 點擊切換顯示' },
-		nQROpacity: { desc: '透明度 (10 = 移除半透明)', type: 'select', defaultValue: 10, choices: [10,9,8,7,6,5,4,3,2,1,0] }
+		bAlternativeHide: { desc: '隱藏於右下角 [必須點擊]', type: 'checkbox', defaultValue: true },
+		bToggleOnClick: { desc: '心須點擊才顯示/隱藏', type: 'checkbox', defaultValue: true },
+		nQROpacity: { desc: '透明度 (10 = 移除半透明)', type: 'select', defaultValue: 7, choices: [10,9,8,7,6,5,4,3,2,1,0] }
 	},
 	once: function()
 	{
 		if(!AN.util.isLoggedIn()) return;
 
-		var
-		hideMode = $.inArray(AN.util.getOptions('sQRHideMethod'), this.options.sQRHideMethod.choices),
-		jQR = $('#newmessage'),
-		jQRHeader = jQR.find('td:eq(1)').attr('id', 'an-qr-header').html('快速回覆'),
-		jToggle = (hideMode === 0 ? jQR : jQR.find('tr:eq(2)')).hide(),
-		jPreview = $('#previewArea'),
-		jTextarea = $('#ctl00_ContentPlaceHolder1_messagetext'),
-		nWidth = 938, //jQR.width() + 1,
-		nRight = 50 - nWidth;
+		var nRightPx = -750;
 
 		AN.util.stackStyle($.sprintf('\
-		#hkg_bottombar { z-index: 3; } \
-		#newmessage { %s; z-index: 2; position: fixed; width: %spx; bottom: 0px; right: %spx; } \
+		#newmessage { %s; z-index: 3; position: fixed; width: 806px; bottom: -2px; %s; } \
 		#an-qr-header { cursor: pointer; text-align: center; } \
-		#previewArea { display: block; overflow: auto; width: %spx; } \
-		#previewArea img[onload] { max-width: 300px; } \
 		',
 		AN.util.getOpacityStr(AN.util.getOptions('nQROpacity')),
-		nWidth,
-		hideMode === 3 ? nRight : Math.ceil(($.winWidth() - nWidth) / 2),
-		nWidth - 149
+		AN.util.getOptions('bAlternativeHide') ? $.sprintf('right: %spx', (($.winWidth() - 806) / 2)) : 'left: 50%; margin-left: -403px'
 		));
 
-		function toggleQR(toShow, callback)
+		var jQR = $('#newmessage');
+		var jQRContent = jQR.find('tr:eq(2)').hide();
+		var jQRHeader = jQR.find('td:eq(1)').attr('id', 'an-qr-header').html('快速回覆');
+
+		var isNotNeeded = function(bToShow)
 		{
-			var isVisible = jToggle.is(':visible');
-			if(toShow === undefined) toShow = !isVisible;
-			else if(isVisible === toShow) return;
-
-			function toggle()
-			{
-				jQR.css('z-index', toShow ? 4 : 2);
-				jPreview.empty();
-				jToggle.toggle(toShow);
-				if(toShow) {
-					window.moveEnd();
-					jTextarea.scrollTop(99999);
-				}
-			}
-
-			if(hideMode === 3) {
-				if(toShow) {
-					jQR.animate({ right: Math.ceil(($.winWidth() - nWidth) / 2) }, 'slow', toggle);
-				}
-				else {
-					toggle();
-					jQR.animate({ right: nRight }, 'slow');
-				}
-			}
-			else {
-				toggle();
-			}
+			return typeof bToShow == 'boolean' && bToShow == (jQRContent.css('display') != 'none');
 		};
 
-		hideMode === 1
-		? jQR.bind('mouseenter mouseleave', function(event){ toggleQR(event.type === 'mouseenter'); })
-		: jQRHeader.click(function(){ toggleQR(); });
+		var isToShow = function(bToShow)
+		{
+			return typeof bToShow == 'boolean' ? bToShow : jQRContent.css('display') == 'none';
+		};
+
+		var toggleQR = function(bToShow, fCallback)
+		{
+			if(isNotNeeded(bToShow)) return;
+
+			jQRContent.toggle(isToShow(bToShow));
+			$('#previewArea').empty();
+			if(fCallback) fCallback();
+		};
+
+		if(AN.util.getOptions('bAlternativeHide'))
+		{
+			jQR.css('right', nRightPx);
+			toggleQR = (function(toggleDisplay)
+			{
+				return function(bToShow)
+				{
+					if(isNotNeeded(bToShow)) return;
+
+					isToShow(bToShow) ? jQR.animate({ right: ($.winWidth() - 806) / 2 }, 'slow', toggleDisplay) : toggleDisplay(false, function(){ jQR.animate({ right: nRightPx }, 'slow'); });
+				}
+			})(toggleQR);
+			jQRHeader.click(toggleQR);
+		}
+		else
+		{
+			AN.util.getOptions('bToggleOnClick') ? jQRHeader.click(toggleQR) : jQR.hover(toggleQR, toggleQR);
+		}
 
 		$('#aspnetForm').submit(function()
 		{
 			toggleQR(false);
 		});
 
-		window.OnQuoteSucceeded = function(result)
+		window._OnQuoteSucceeded = function(result)
 		{
-			jTextarea.val(unescape(result) + '\n');
 			toggleQR(true);
+			$('#ctl00_ContentPlaceHolder1_messagetext').val(unescape(result) + '\n').scrollTop(99999);
+			window.moveEnd();
 		};
-
-		window.doPreview = (function(_doPreview)
-		{
-			return function()
-			{
-				_doPreview();
-				jPreview.css('max-height', $.winHeight() - jQR.height() - jPreview.height());
-			};
-		})(window.doPreview);
+		
+		window.OnQuoteSucceeded = new window.Function('result', 'window._OnQuoteSucceeded(result);');
 	}
 }
 

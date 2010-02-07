@@ -7,7 +7,7 @@ AN.mod['Layout Designer'] = { ver: 'N/A', author: '向日', fn: {
 	type: 3,
 	once: function()
 	{
-		AN.util.stackStyle('.Topic_FunctionPanel > .ClearLeft { clear: both; } /*-> IE bug fix? ->*/ .Topic_FunctionPanel { overflow: hidden; }');
+		AN.util.stackStyle('.Topic_FunctionPanel { overflow: hidden; }');
 	}
 },
 
@@ -24,7 +24,7 @@ AN.mod['Layout Designer'] = { ver: 'N/A', author: '向日', fn: {
 
 '7af1060d-d38c-40b9-b16b-df1bb799cb74':
 {
-	desc: '隱藏Logo列',
+	desc: '隱藏上方Logo列',
 	page: { 65534: false },
 	type: 3,
 	once: function()
@@ -46,7 +46,7 @@ AN.mod['Layout Designer'] = { ver: 'N/A', author: '向日', fn: {
 
 'd0164ba6-a5a2-4850-ab67-658b840fd3ef':
 {
-	desc: '隱藏繁簡轉換/addThis列',
+	desc: '隱藏繁簡轉換及分享這頁',
 	page: { 65534: false },
 	type: 3,
 	once: function()
@@ -54,20 +54,6 @@ AN.mod['Layout Designer'] = { ver: 'N/A', author: '向日', fn: {
 		AN.util.stackStyle('\
 		.PageMiddleFunctions { height: 5px; } \
 		.PageMiddleFunctions > div { display: none; } \
-		');
-	}
-},
-
-'a7dc713c-2d23-4254-be8b-16cf6e9bbe8f':
-{
-	desc: '優化addThis組件',
-	page: { 65534: false },
-	type: 3,
-	once: function()
-	{
-		AN.util.stackStyle('\
-		.addthis_toolbox { padding-top: 3px; } \
-		.addthis_toolbox > a, .addthis_toolbox > span { font-family: arial !important; color: black; } \
 		');
 	}
 },
@@ -134,79 +120,58 @@ AN.mod['Layout Designer'] = { ver: 'N/A', author: '向日', fn: {
 	}
 },
 
-'1c63cc45-21f7-40ab-905a-730dabffc2ab':
+'8d53fef9-818f-46d1-99b8-5e199453b360':
 {
-	desc: '隱藏高登公告',
-	page: { 60: false },
+	desc: '隱藏討論區資訊',
+	page: { 12: false, 32:false },
 	type: 3,
 	once: function()
 	{
-		AN.util.stackStyle('\
-		#ctl00_ContentPlaceHolder1_view_form > script:first-child + table + table tr:first-child, \
-		#ctl00_ContentPlaceHolder1_topics_form > script:first-child + table + table tr:first-child, \
-		.DivResizableBoxContainer \
-			{ display: none; } \
-		');
+		AN.util.stackStyle({
+			topics: '.ContentPanel',
+			search: '#ctl00_ContentPlaceHolder1_topics_form',
+			view: '#ctl00_ContentPlaceHolder1_view_form'
+		}[$().pageName()] + ' > script:first-child + table { display: none; }');
 	}
 },
 
 'b44ee3a6-950e-4b2a-b99a-399b6384bcce':
 {
 	desc: '隱藏搜尋列上下空白',
-	page: { 28: false },
+	page: { 12: false },
 	type: 3,
 	once: function()
 	{
-		AN.util.stackStyle('\
-		#ctl00_ContentPlaceHolder1_MiddleAdSpace1 > div { padding: 0 !important; } \
-		');
+		$().pageName() == 'topics' && AN.util.stackStyle('.Topic_FunctionPanel { margin-top: 3px; }');
 		
-		if($d.pageName() == 'topics')
-			AN.util.stackStyle('\
-			.Topic_FunctionPanel { margin-top: 3px; } \
-			#ctl00_ContentPlaceHolder1_MiddleAdSpace1 { margin-top: 5px !important; } \
-			');
-		else
-			AN.util.stackStyle('\
-			td[valign="bottom"] > br:first-child { display: none; } \
-			td[valign="bottom"] > p { margin: 0; } \
-			');
+		$().pageName() == 'search' && AN.util.stackStyle('\
+		td[valign="bottom"] > br:first-child { display: none; } \
+		td[valign="bottom"] > p { margin: 0; } \
+		');
 	}
 },
 
 '1ada74ac-9bae-47b2-914b-f1556dbab1a2':
 {
 	desc: '隱藏討論區選單',
-	page: { 28: false },
+	page: { 12: false },
 	type: 3,
 	once: function()
 	{
-		if($d.pageName() == 'topics')
-			AN.util.stackStyle('#forum_list, #forum_list + br { display: none; }');
-		else
-			AN.util.stackStyle('#ctl00_ContentPlaceHolder1_topics_form > div + table table:first-child { display: none; }');
+		$().pageName() == 'topics' && AN.util.stackStyle('#forum_list, #forum_list + br { display: none; }');
+
+		$().pageName() == 'search' && AN.util.stackStyle('#ctl00_ContentPlaceHolder1_topics_form > div + table table:first-child { display: none; }');
 	}
 },
 
 '4bf6619f-2cd8-4aa2-a54a-e7d7255e8603':
 {
 	desc: '隱藏熱門關鍵字',
-	page: { 30: false },
+	page: { 14: false },
 	type: 3,
 	once: function()
 	{
 		AN.util.stackStyle('#ctl00_ContentPlaceHolder1_lb_HitSearchs { display: none; }');
-	}
-},
-
-'a5d7f8f0-99fc-4aaf-8c65-373b17cfcf69':
-{
-	desc: '隱藏投票站連結(如有)',
-	page: { 60: false },
-	type: 3,
-	once: function()
-	{
-		AN.util.stackStyle('#ctl00_ContentPlaceHolder1_MiddleAdSpace1 { display: none; }');
 	}
 },
 
@@ -221,47 +186,14 @@ AN.mod['Layout Designer'] = { ver: 'N/A', author: '向日', fn: {
 	}
 },
 
-'74cd7f38-b0ad-4fca-ab39-673b0e2ee4c7':
+'964d6cf5-9e46-43f6-ba1a-b11adf1292b1':
 {
-	desc: '修正跳頁控件位置',
-	page: { 32: true },
-	type: 3,
-	once: function()
-	{
-		AN.util.stackStyle($.sprintf('div[style] > div[style^="%s: center"] { margin: 0 100px; }', $.browser.msie ? 'TEXT-ALIGN' : 'text-align'));
-	}
-},
-
-'0941e559-3875-445a-9c56-799987fbdf87':
-{
-	desc: '隱藏名稱欄物件',
+	desc: '隱藏高級會員頭像',
 	page: { 32: false },
 	type: 3,
-	options: {
-		bHideNameSpace: { desc: '隱藏多餘空白', defaultValue: true, type: 'checkbox' },
-		bHideAvatar: { desc: '隱藏高級會員頭像', defaultValue: false, type: 'checkbox' },
-		bHideMemberLevel: { desc: '隱藏會員級別圖片', defaultValue: false, type: 'checkbox' },
-		bHideAward: { desc: '隱藏(善)圖像', defaultValue: false, type: 'checkbox' }
-	},
 	once: function()
 	{
-		var css = [];
-		$.each({
-			bHideAvatar: 'div[id^="ThreadUser"] > a',
-			bHideMemberLevel: 'div[id^="ThreadUser"] > img',
-			bHideAward: 'div[id^="ThreadUser"] ~ *'
-		}, function(name, selector)
-		{
-			if(AN.util.getOptions(name)) css.push(selector);
-		});
-		
-		if(AN.util.getOptions('bHideNameSpace')) css.push(
-			AN.util.getOptions('bHideAvatar')
-			? 'div[id^="ThreadUser"] > br'
-			: 'div[id^="ThreadUser"] > br:first-child, div[id^="ThreadUser"] > br:first-child + br'
-		);
-		
-		AN.util.stackStyle(css.join(',') + ' { display: none; }');
+		AN.util.stackStyle('img[alt="Logo"] { display: none; }');
 	}
 },
 
@@ -284,17 +216,6 @@ AN.mod['Layout Designer'] = { ver: 'N/A', author: '向日', fn: {
 	once: function()
 	{
 		AN.util.stackStyle('.repliers_right blockquote { display: none; }');
-	}
-},
-
-'d0ac656c-e602-4852-843b-f776d8a976f4':
-{
-	desc: '隱藏評分格',
-	page: { 32: false },
-	type: 3,
-	once: function()
-	{
-		AN.util.stackStyle('#DivMarkThread { display: none; }');
 	}
 },
 
@@ -334,12 +255,12 @@ AN.mod['Layout Designer'] = { ver: 'N/A', author: '向日', fn: {
 	{
 		if(!AN.util.isLoggedIn()) return;
 
-		var jRows = $('#ctl00_ContentPlaceHolder1_QuickReplyTable tbody:eq(2)').children();
-		if(AN.util.getOptions('bRemNameRow')) jRows.eq(0).hide();
-		if(AN.util.getOptions('bRemTopicRow')) jRows.eq(1).hide();
-		if(AN.util.getOptions('bRemClassicRow')) jRows.eq(3).hide();
-		if(AN.util.getOptions('bRemTempRow') && jRows.length > 5) jRows.eq(3).nextAll(':not(:last)').hide();
-		if(AN.util.getOptions('bRemPreviewRow')) jRows.last().hide();
+		var jTbody = $('#ctl00_ContentPlaceHolder1_QuickReplyTable tbody:eq(2)');
+		if(AN.util.getOptions('bRemNameRow')) jTbody.children('tr:eq(0)').hide();
+		if(AN.util.getOptions('bRemTopicRow')) jTbody.children('tr:eq(1)').hide();
+		if(AN.util.getOptions('bRemClassicRow')) jTbody.children('tr:eq(3)').hide();
+		if(AN.util.getOptions('bRemTempRow') && jTbody.children().length > 5) jTbody.children('tr:eq(4)').next().andSelf().hide();
+		if(AN.util.getOptions('bRemPreviewRow')) jTbody.children('tr:last').hide();
 	}
 },
 

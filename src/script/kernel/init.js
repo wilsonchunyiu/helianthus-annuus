@@ -2,6 +2,8 @@
 
 $.extend(
 {
+	blank: function(){},
+
 	time: function(nStart)
 	{
 		return nStart ? $.time() - nStart : +new Date;
@@ -36,7 +38,7 @@ $.extend(
 
 	getDoc: function(sURL, success)
 	{
-		var s =
+		$.ajax(
 		{
 			url: sURL,
 			dataType: 'text',
@@ -44,23 +46,21 @@ $.extend(
 			success: function(sHTML)
 			{
 				var jNewDoc = $.doc(sHTML);
-				jNewDoc.pageCode() & 65534 ? success.call(s, jNewDoc) : s.error();
+				jNewDoc.pageCode() & 32769 ? this.error() : success(jNewDoc);
 			},
 			error: function()
 			{
 				AN.shared('log', '頁面讀取失敗, 5秒後重新讀取...');
 				setTimeout(function(){ $.getDoc(sURL, success); }, 5000);
 			}
-		};
-
-		$.ajax(s);
+		});
 	},
 
 	getLength: function(uTarget)
 	{
 		if('length' in uTarget) return uTarget.length;
 
-		for(var nCount in uTarget){}
+		for(var nCount in uTarget){};
 		return nCount;
 	},
 
@@ -91,12 +91,12 @@ $.extend(
 
 	winWidth: function(nMutiply)
 	{
-		return Math.round($w.width() * (nMutiply || 1));
+		return Math.round((window.innerWidth || $(window).width()) * (nMutiply || 1));
 	},
 
 	winHeight: function(nMutiply)
 	{
-		return Math.round($w.height() * (nMutiply || 1));
+		return Math.round((window.innerHeight || $(window).height()) * (nMutiply || 1));
 	}
 });
 
@@ -196,29 +196,9 @@ $.fn.extend(
 		});
 	},
 
-	own: function(target)
+	contains: function(jNode)
 	{
-		return this.is(target) || !!this.has(target).length;
-	},
-
-	top: function()
-	{
-		return this.offset().top;
-	},
-
-	right: function()
-	{
-		return this.offset().left + this.innerWidth();
-	},
-
-	bottom: function()
-	{
-		return this.offset().top + this.innerHeight();
-	},
-
-	left: function()
-	{
-		return this.offset().left;
+		return this[0].contains ? this[0].contains(jNode[0]) : !!(this[0].compareDocumentPosition(jNode[0]) & 16);
 	},
 
 	//--------[AN Related]--------//
@@ -229,7 +209,7 @@ $.fn.extend(
 
 		return this.sPageName =
 			$('#ctl00_ContentPlaceHolder1_SystemMessageBoard', this).length && 'message' ||
-			$('#aspnetForm', this).length && $('#aspnetForm', this).attr('action').match(/[a-z]+(?=\.aspx)/i)[0].toLowerCase() ||
+			$('#aspnetForm', this).length && $('#aspnetForm', this).attr('action').match(/[^.]+/)[0].toLowerCase() ||
 			$('body > :first', this).is('b') && 'terms' ||
 			'error';
 	},
@@ -273,19 +253,19 @@ $.fn.extend(
 
 		jReplies.extend(
 		{
-			jContents: $(),
-			jNameLinks: $()
+			jContents: $([]),
+			jNameLinks: $([])
 		});
 
 		jReplies.each(function()
 		{
-			var jThis = $(this), jTr = jThis.find('.repliers_left').parent();
+			var jThis = $(this), jNameLink = jThis.find('.repliers_left a:first');
 
 			jThis
-			.data('jContent', jTr.find('.repliers_right td:first'))
-			.data('jNameLink', jTr.find('a:first'))
-			.data('sUserid', jTr.attr('userid'))
-			.data('sUserName', jTr.attr('username'));
+			.data('jContent', jThis.find('.repliers_right td:first'))
+			.data('jNameLink', jNameLink)
+			.data('sUserid', jNameLink.attr('href').replace(/.+?userid=(\d+).*/, '$1'))
+			.data('sUserName', jNameLink.html());
 
 			jReplies.jContents.push(jThis.data('jContent')[0]);
 			jReplies.jNameLinks.push(jThis.data('jNameLink')[0]);
@@ -296,7 +276,7 @@ $.fn.extend(
 
 	treeTop: function()
 	{
-		return (this[0] === document || $(document.documentElement).own(this)) ? $d : this;
+		return (this[0] === document || $(document.documentElement).contains(this)) ? $() : this;
 	},
 
 	topicTable: function()
@@ -363,7 +343,7 @@ $.extend(AN,
 {
 	shared: function(sFnName)
 	{
-		if(AN.shared[sFnName]) return AN.shared[sFnName].apply(null, Array.prototype.slice.call(arguments, 1));
+		if(AN.shared[sFnName]) AN.shared[sFnName].apply(null, Array.prototype.slice.call(arguments, 1));
 	},
 
 	box:
@@ -378,7 +358,7 @@ $.extend(AN,
 			5: '加入物件',
 			6: '其他功能',
 
-			7: 'Ajax化',
+			7: 'AJAX化',
 			8: '元件重造',
 			9: '組合按扭'
 		},
@@ -390,15 +370,14 @@ $.extend(AN,
 			2: { action: 'default', desc: '主論壇頁' },
 			4: { action: 'topics', desc: '標題頁' },
 			8: {action: 'search',  desc: '搜尋頁' },
-			16: { action: 'tags', desc: '標籤搜尋頁' },
+			16: { action: 'newmessages', desc: '最新貼文頁' },
 			32: { action: 'view', desc: '帖子頁' },
 			64: { action: 'profilepage', desc: '用戶資料頁' },
 			128: { action: 'sendpm', desc: '私人訊息發送頁' },
-			256: { action: 'post', desc: '發表/回覆頁' },
+			256: { action: 'post', desc: '發佈/回覆頁' },
 			512: { action: 'login', desc: '登入頁' },
 			1024: { action: 'giftpage', desc: '人氣頁' },
-			2048: { action: 'blog', desc: '網誌頁' },
-			4096: { action: 'message', desc: '系統信息頁' }
+			2048: { action: 'blog', desc: '網誌頁' }
 		}
 	},
 
@@ -416,7 +395,7 @@ $.extend(AN,
 			if(AN.util.stackStyle.sStyle === undefined)
 			{
 				AN.util.stackStyle.sStyle = '';
-				$d.bind('defer5', function()
+				$().bind('an.defer5', function()
 				{
 					AN.util.addStyle(AN.util.stackStyle.sStyle);
 					AN.util.stackStyle.sStyle = '';
@@ -443,13 +422,20 @@ $.extend(AN,
 		{
 			if(sValue === undefined) // GET
 			{
-				var match = document.cookie.match(new RegExp("(?:^|;\\s*)" + sName + "=([^;]*)"));
-        return match && match[1];
+				var nStart = document.cookie.indexOf(sName + '=');
+				if(nStart == -1) return null;
+
+				nStart += sName.length + 1;
+
+				var nEnd = document.cookie.indexOf(';', nStart);
+				if(nEnd == -1) nEnd = document.cookie.length;
+
+				return document.cookie.substring(nStart,nEnd);
 			}
 			else
 			{
 				var dExpire = new Date;
-				dExpire.setFullYear(sValue ? 2999 : 1999); // SET : DEL
+				dExpire.setFullYear(sValue ? dExpire.getFullYear() + 1 : dExpire.setFullYear(1999)); // SET : DEL
 				document.cookie = $.sprintf('%s=%s; domain=%s; expires=%s; path=/', sName, sValue || '', location.hostname, dExpire.toUTCString());
 
 				return true;
@@ -461,7 +447,7 @@ $.extend(AN,
 			var storage = arguments.callee.storage || (arguments.callee.storage =
 				AN.box.storageMode == 'Flash' && {
 					get: function(sProfile, sName){ return AN.box.eLSO.get(sProfile, sName); },
-					set: function(sProfile, sName, sData){ AN.box.eLSO.set(sProfile, sName, sData.replace(/\\/g, '\\\\')); }, // escape the backslash so that it will not be removed on GET
+					set: function(sProfile, sName, sData){ AN.box.eLSO.set(sProfile, sName, sData.replace(/\\\\/g, '\\')); }, // escape the backslash so that it will not be removed on GET
 					remove: function(sProfile, sName){ AN.box.eLSO.remove(sProfile, sName); }
 				}
 				||
@@ -488,7 +474,7 @@ $.extend(AN,
 				});
 				return sData;
 			}
-			else if(sName === null) // DEL ALL
+			else if(sName == null) // DEL ALL
 			{
 				$.each(['an_data', 'an_switches', 'an_options'], function()
 				{
@@ -504,7 +490,7 @@ $.extend(AN,
 			}
 			else if(uToSet) // SET
 			{
-				sData = JSON.stringify(uToSet);
+				var sData = JSON.stringify(uToSet);
 				storage.set(sProfile, sName, sData);
 			}
 			else // DEL
@@ -574,8 +560,8 @@ $.extend(AN,
 				{
 					$.get('/view.aspx?message=' + window.messageid, function(sHTML)
 					{
-						var jTr = $.doc(sHTML).find('.repliers_left:first').parent();
-						oInfo = { sId: jTr.attr('userid'), sName: jTr.attr('username') };
+						var jLink = $.doc(sHTML).find('.repliers_left:first a:first');
+						oInfo = { sId: jLink.attr('href').replace(/.+?userid=(\d+).*/, '$1'), sName: jLink.html() };
 						fToExec(oInfo);
 					});
 				}
@@ -597,7 +583,7 @@ $.extend(AN,
 				{
 					$.each(this, function(sPage, uValue)
 					{
-						if($d.pageCode() & sPage)
+						if($().pageCode() & sPage)
 						{
 							oOptions[sName] = uValue;
 							return false;
@@ -623,7 +609,7 @@ $.extend(AN,
 		getURL: function(oParam)
 		{
 			var oSearch = {};
-			var aParam = location.search.substr(1).split('&');
+			var aParam = location.search.replace(/^\?/, '').split('&');
 			$.each(aParam, function()
 			{
 				var aPair = this.split('=');
@@ -703,7 +689,7 @@ $.extend(AN,
 				{
 					$.each(AN.box.oSwitches[sMod][sId], function()
 					{
-						if(oFn.page[this] != 'disabled' && this in oFn.page && $d.pageCode() & this)
+						if(oFn.page[this] != 'disabled' && this in oFn.page && $().pageCode() & this)
 						{
 							var aHandler = [];
 							if(!AN.firstRan && oFn.once) aHandler.push(oFn.once);
@@ -770,13 +756,14 @@ $.extend(AN,
 
 				for(var i=1; i<=5; i++)
 				{
-					$d.trigger('defer' + i);
+					$().trigger('an.defer' + i);
 					if(jDoc.aDefer && jDoc.aDefer[i])
 					{
 						$.each(jDoc.aDefer[i], function(){ execFn(this); });
 					}
 				}
 				jDoc.aDefer = null;
+				jDoc.splice(0, jDoc.length);
 
 				AN.box.aBenchmark.push({ type: 'end', name: '延期執行項目' });
 
@@ -791,32 +778,6 @@ $.extend(AN,
 
 //////////////////// END OF - [AN Extension] ////////////////////
 //////////////////// START OF - [Initialization] ////////////////////
-
-if(JSON.stringify(document.createElement("input").value)!== "" ) {
-	(function(_stringify)
-	{
-		JSON.stringify = function(o, f, s)
-		{
-			return _stringify(o === '' ? '' : o , f, s);
-		};
-	})(JSON.stringify);
-}
-
-$.event.special.click = {
-	add: function(handler)
-	{
-		return function(event)
-		{
-			if(event.type === 'click' && !(event.data && event.data.disableCheck) && event.button > 0) return;
-			handler.apply(this, arguments);
-		};
-	}
-};
-
-$d.bind('click', { disableCheck: true }, function(event)
-{
-	if($(event.target).closest('a').filter(function(){ return /^(?:#|javascript:)$/.test(this.getAttribute('href')); }).length) event.preventDefault();
-});
 
 $.support.localStorage = !!(window.localStorage || window.globalStorage || false);
 

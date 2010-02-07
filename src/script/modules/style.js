@@ -31,8 +31,8 @@ AN.mod['Style Editor'] = { ver: 'N/A', author: '向日', fn: {
 			: '}';
 
 		AN.util.stackStyle($.sprintf('\
-		body > form a, #ctl00_ContentPlaceHolder1_MiddleAdSpace1 a { color: %(sMainLinkFontColor)s; ' + sTextCSS + ' \
-		body > form a[href*="view.aspx"]:visited, .repliers_right a:visited { color: %(sMainVisitedColor)s; } \
+		body > form a { color: %(sMainLinkFontColor)s; ' + sTextCSS + ' \
+		body > form a[href*="view.aspx"]:visited { color: %(sMainVisitedColor)s; } \
 		body > form a[href]:hover { color: %(sMainHoverColor)s; } \
 		',
 		AN.util.getOptions()
@@ -71,9 +71,9 @@ AN.mod['Style Editor'] = { ver: 'N/A', author: '向日', fn: {
 		AN.util.stackStyle($.sprintf(' \
 		/* Global stuff */\
 		body { background-color: %(sMainBgColor)s; } \
-		body, p, td, .addthis_toolbox > a, .addthis_toolbox > span { color: %(sMainFontColor)s; } \
+		p, td { color: %(sMainFontColor)s; } \
 		/* main border */\
-		div[style*="0, 0, 0"], div[style*="000000"], .DivMarkThread, .repliers_header, .repliers_left, .repliers, .repliers td, .Topic_ForumInfoPanel table, .Topic_ForumInfoPanel th { border-color: %(sMainBorderColor)s !important; } \
+		.repliers_header, .repliers_left, .repliers, .repliers td, .Topic_ForumInfoPanel table, .Topic_ForumInfoPanel th { border-color: %(sMainBorderColor)s !important; } \
 		#aspnetForm table[cellspacing="1"][cellpadding="2"], #ctl00_ContentPlaceHolder1_PMMsgTable, #ctl00_ContentPlaceHolder1_QuickReplyTable, #ctl00_ContentPlaceHolder1_QuickReplyLoginTable { background-color: %(sMainBorderColor)s !important; } \
 		*[style*="128, 128, 128"], *[style*="808080"] { background-color: transparent !important; } \
 		/* sec border */\
@@ -81,7 +81,7 @@ AN.mod['Style Editor'] = { ver: 'N/A', author: '向日', fn: {
 		/* nearly-white backgrounds */\
 		*[style*="rgb(23"], *[style*="rgb(24"], *[style*="#E"], *[style*="#F"], *[style*="#e"], *[style*="#f"], .Topic_ForumInfoPanel table td { background-color: %(sSecBgColor)s !important; } \
 		/* PM Box & white table cells */\
-		.DivMarkThread, .ListPMText, *[style*="255, 255, 255"], *[style*="#FFFFFF"], *[style*="background-color: white"], *[style*="BACKGROUND-COLOR: white"], *[bgcolor="#f8f8f8"] { background-color: %(sMainBgColor)s !important; } \
+		.ListPMText, *[style*="255, 255, 255"], *[style*="#FFFFFF"], *[style*="background-color: white"], *[style*="BACKGROUND-COLOR: white"], *[bgcolor="#f8f8f8"] { background-color: %(sMainBgColor)s !important; } \
 		/* headers */\
 		.repliers_header, *[style*="51, 102, 153"], *[style*="#336699"], .Topic_ForumInfoPanel table th, .Topic_ListPanel table th { color: %(sMainHeaderFontColor)s !important; background-color: %(sMainHeaderBgColor)s !important; } \
 		/* under logo links, footer text, username links, bookmarkbar */\
@@ -93,10 +93,10 @@ AN.mod['Style Editor'] = { ver: 'N/A', author: '向日', fn: {
 		#ctl00_TopBarHomeLink { display: block; background: url(%(sLogoBgImage)s) no-repeat; } \
 		#ctl00_TopBarHomeLink img { visibility: hidden; } \
 		/* thin bars icon */\
-		.ProfileBoxTitle:first-child, .DivResizableBoxTitle:first-child, .title:first-child, *[bgcolor="#6ea0c4"]:first-child, .redhottitle:first-child { background: url(%(sBlueBarBgImage)s) no-repeat; } \
+		.title:first-child, *[bgcolor="#6ea0c4"]:first-child, .redhottitle:first-child { background-image: url(%(sBlueBarBgImage)s); } \
 		*[src*="/p.jpg"], *[src*="/redhotp.jpg"] { visibility: hidden; } \
 		/* blue bars , red bars, and main forum page bars */\
-		.ProfileBoxTitle, .DivResizableBoxTitle, .title, *[bgcolor="#6ea0c4"], *[colspan="6"] { background-color: %(sBlueBarBgColor)s !important; color: %(sBlueBarFontColor)s; } \
+		.title, *[bgcolor="#6ea0c4"], *[colspan="6"] { background-color: %(sBlueBarBgColor)s !important; color: %(sBlueBarFontColor)s; } \
 		.redhottitle { background-color: %(sRedTitleBgColor)s; color: %(sRedTitleFontColor)s; } \
 		/* hot people */\
 		table[style*="255, 85, 96"], tr[style*="255, 85, 96"], table[style*="#ff5560"], tr[style*="#ff5560"] { background-color: %(sRedHeaderBgColor)s !important; } \
@@ -107,7 +107,6 @@ AN.mod['Style Editor'] = { ver: 'N/A', author: '向日', fn: {
 		.HitSearchText { color: %(sMainHeaderFontColor)s; } \
 		a.hitsearch_link { color: %(sMainFontColor)s; } \
 		/* annoucements, profilepage tabs */\
-		.DivResizableBoxDetails, .ProfileBoxDetails { border-color: %(sBlueSecBgColor)s; } \
 		*[bgcolor="#ccddea"], .ajax__tab_tab, #advarea tr:first-child + tr td { background-color: %(sBlueSecBgColor)s !important; } \
 		.p__tab_xp .ajax__tab_tab { color: %(sMainFontColor)s; } \
 		.p__tab_xp .ajax__tab_active .ajax__tab_tab, .p__tab_xp .ajax__tab_hover .ajax__tab_tab { color: %(sMainHoverColor)s; } \
@@ -130,10 +129,29 @@ AN.mod['Style Editor'] = { ver: 'N/A', author: '向日', fn: {
 		.hkg_bottombar, .hkg_bottombar *, .hkg_bbMenu, .hkg_bbMenu * { background-color: %(sSecBgColor)s; border-color: %(sMainBorderColor)s; color: %(sMainFontColor)s; } \
 		.hkg_bb_bookmark_TitleBox, .hkg_bb_bookmark_TitleBox *, .hkg_bb_bookmarkItem_Hover, .hkg_bb_bookmarkItem_Hover a div { background-color: %(sMainHeaderBgColor)s; color: %(sMainHeaderFontColor)s; } \
 		.hkg_bb_bookmarkItem a div { background-color: transparent; color: inherit; } \
-		.hkg_bbItem_MiniFunc, .hkg_bbItem_MiniFunc_Hover, .hkg_bbItem, .hkg_bbItem_Hover, .hkg_bbItem_Selected { border: 0; } \
 		',
 		AN.util.getOptions()
 		));
+	}
+},
+
+'eb703eac-bb31-4dbe-b28c-0b6d2942b6f5':
+{
+	desc: '滙入自定CSS(進階用戶專用)',
+	page: { 65534: false },
+	type: 2,
+	options:
+	{
+		sCustomCSSHref: { desc: '自定CSS檔案位置 [部份瀏覽器不支持本地檔案]', defaultValue: '', type: 'text' },
+		sCustomCSSContent: { desc: '自定CSS內容', defaultValue: '/*sample*/ * { color: black !important; }', type: 'text' }
+	},
+	once: function()
+	{
+		var sHref = AN.util.getOptions('sCustomCSS');
+		if(sHref) $('head').append($.sprintf('<link type="text/css" rel="stylesheet" href="%s" />', sHref));
+
+		var sContent = AN.util.getOptions('sCustomCSSContent');
+		if(sContent) AN.util.stackStyle(sContent);
 	}
 }
 

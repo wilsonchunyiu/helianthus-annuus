@@ -2,9 +2,8 @@ if(window.opera && window.opera.addEventListener)
 {
 	var blockScripts = function(event)
 	{
-		if(event.element.src
-		? /pagead|imrworldwide/.test(event.element.src)
-		: /pixelinteractivemedia|imrworldwide|google-analytics|_getTracker|\(ads|InlineAd|PageAd|GoogleAd|google_ad/.test(event.element.text)
+		if(/pixelinteractivemedia|imrworldwide|google-analytics|_getTracker|\(ads|InlineAd|PageAd|GoogleAd|google_ad/.test(event.element.text)
+		|| /pagead|imrworldwide/.test(event.element.src) && !/common.js$/.test(event.element.src)
 		) event.preventDefault();
 	};
 
