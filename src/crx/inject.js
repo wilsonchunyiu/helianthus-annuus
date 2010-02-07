@@ -1,15 +1,13 @@
-if(!document.getElementById('annuus') && /forum\d+\.hkgolden\.com/.test(location.href))
+if(/forum\d+\.hkgolden\.com/.test(location.href) && !document.getElementById('helianthus-annuus'))
 {
-	var
-	head = document.getElementsByTagName('head'),
-	script = document.createElement('script');
-
-	script.id = 'annuus';
-	script.charset = 'utf-8';
+	var script = document.createElement('script');
+	script.id = 'helianthus-annuus';
 	script.src = chrome.extension.getURL("annuus.js");
 
-	(function append()
+	var head = document.getElementsByTagName('head');
+
+	(function()
 	{
-		head[0] ? head[0].appendChild(script) : setTimeout(append, 50);
+		head[0] ? head[0].appendChild(script) : setTimeout(arguments.callee, 50);
 	})();
 }

@@ -2,6 +2,8 @@
 
 $.extend(
 {
+	blank: function(){},
+
 	time: function(nStart)
 	{
 		return nStart ? $.time() - nStart : +new Date;
@@ -36,7 +38,7 @@ $.extend(
 
 	getDoc: function(sURL, success)
 	{
-		var s =
+		var s = 
 		{
 			url: sURL,
 			dataType: 'text',
@@ -52,7 +54,7 @@ $.extend(
 				setTimeout(function(){ $.getDoc(sURL, success); }, 5000);
 			}
 		};
-
+		
 		$.ajax(s);
 	},
 
@@ -195,27 +197,27 @@ $.fn.extend(
 			}
 		});
 	},
-
+	
 	own: function(target)
 	{
 		return this.is(target) || !!this.has(target).length;
 	},
-
+	
 	top: function()
 	{
 		return this.offset().top;
 	},
-
+	
 	right: function()
 	{
 		return this.offset().left + this.innerWidth();
 	},
-
+	
 	bottom: function()
 	{
 		return this.offset().top + this.innerHeight();
 	},
-
+	
 	left: function()
 	{
 		return this.offset().left;
@@ -378,7 +380,7 @@ $.extend(AN,
 			5: '加入物件',
 			6: '其他功能',
 
-			7: 'Ajax化',
+			7: 'AJAX化',
 			8: '元件重造',
 			9: '組合按扭'
 		},
@@ -394,7 +396,7 @@ $.extend(AN,
 			32: { action: 'view', desc: '帖子頁' },
 			64: { action: 'profilepage', desc: '用戶資料頁' },
 			128: { action: 'sendpm', desc: '私人訊息發送頁' },
-			256: { action: 'post', desc: '發表/回覆頁' },
+			256: { action: 'post', desc: '發佈/回覆頁' },
 			512: { action: 'login', desc: '登入頁' },
 			1024: { action: 'giftpage', desc: '人氣頁' },
 			2048: { action: 'blog', desc: '網誌頁' },
@@ -443,7 +445,9 @@ $.extend(AN,
 		{
 			if(sValue === undefined) // GET
 			{
-				var match = document.cookie.match(new RegExp("(?:^|;\\s*)" + sName + "=([^;]*)"));
+				var match = document.cookie.match(
+						new RegExp("(?:^|;\\s*)" + sName + "=([^;]*?)", "g")
+        );
         return match && match[1];
 			}
 			else
@@ -767,7 +771,7 @@ $.extend(AN,
 			setTimeout(function()
 			{
 				AN.box.aBenchmark.push({ type: 'start', name: '延期執行項目' });
-
+				
 				for(var i=1; i<=5; i++)
 				{
 					$d.trigger('defer' + i);
@@ -807,16 +811,11 @@ $.event.special.click = {
 	{
 		return function(event)
 		{
-			if(event.type === 'click' && !(event.data && event.data.disableCheck) && event.button > 0) return;
+			if(event.type === 'click' && event.button !== undefined && event.button !== 0) return;
 			handler.apply(this, arguments);
 		};
 	}
 };
-
-$d.bind('click', { disableCheck: true }, function(event)
-{
-	if($(event.target).closest('a').filter(function(){ return /^(?:#|javascript:)$/.test(this.getAttribute('href')); }).length) event.preventDefault();
-});
 
 $.support.localStorage = !!(window.localStorage || window.globalStorage || false);
 
