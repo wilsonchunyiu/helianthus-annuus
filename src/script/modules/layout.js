@@ -134,16 +134,26 @@ AN.mod['Layout Designer'] = { ver: 'N/A', author: '向日', fn: {
 	}
 },
 
+'8d53fef9-818f-46d1-99b8-5e199453b360':
+{
+	desc: '隱藏討論區資訊',
+	page: { 24: false },
+	type: 3,
+	once: function()
+	{
+		AN.util.stackStyle('#ctl00_ContentPlaceHolder1_topics_form > script:first-child + table { display: none; }');
+	}
+},
+
 '1c63cc45-21f7-40ab-905a-730dabffc2ab':
 {
 	desc: '隱藏高登公告',
-	page: { 60: false },
+	page: { 36: false },
 	type: 3,
 	once: function()
 	{
 		AN.util.stackStyle('\
 		#ctl00_ContentPlaceHolder1_view_form > script:first-child + table + table tr:first-child, \
-		#ctl00_ContentPlaceHolder1_topics_form > script:first-child + table + table tr:first-child, \
 		.DivResizableBoxContainer \
 			{ display: none; } \
 		');
@@ -161,7 +171,7 @@ AN.mod['Layout Designer'] = { ver: 'N/A', author: '向日', fn: {
 		#ctl00_ContentPlaceHolder1_MiddleAdSpace1 > div { padding: 0 !important; } \
 		');
 		
-		if($d.pageName() == 'topics')
+		if($().pageName() == 'topics')
 			AN.util.stackStyle('\
 			.Topic_FunctionPanel { margin-top: 3px; } \
 			#ctl00_ContentPlaceHolder1_MiddleAdSpace1 { margin-top: 5px !important; } \
@@ -181,7 +191,7 @@ AN.mod['Layout Designer'] = { ver: 'N/A', author: '向日', fn: {
 	type: 3,
 	once: function()
 	{
-		if($d.pageName() == 'topics')
+		if($().pageName() == 'topics')
 			AN.util.stackStyle('#forum_list, #forum_list + br { display: none; }');
 		else
 			AN.util.stackStyle('#ctl00_ContentPlaceHolder1_topics_form > div + table table:first-child { display: none; }');
@@ -221,47 +231,14 @@ AN.mod['Layout Designer'] = { ver: 'N/A', author: '向日', fn: {
 	}
 },
 
-'74cd7f38-b0ad-4fca-ab39-673b0e2ee4c7':
+'964d6cf5-9e46-43f6-ba1a-b11adf1292b1':
 {
-	desc: '修正跳頁控件位置',
-	page: { 32: true },
-	type: 3,
-	once: function()
-	{
-		AN.util.stackStyle($.sprintf('div[style] > div[style^="%s: center"] { margin: 0 100px; }', $.browser.msie ? 'TEXT-ALIGN' : 'text-align'));
-	}
-},
-
-'0941e559-3875-445a-9c56-799987fbdf87':
-{
-	desc: '隱藏名稱欄物件',
+	desc: '隱藏高級會員頭像',
 	page: { 32: false },
 	type: 3,
-	options: {
-		bHideNameSpace: { desc: '隱藏多餘空白', defaultValue: true, type: 'checkbox' },
-		bHideAvatar: { desc: '隱藏高級會員頭像', defaultValue: false, type: 'checkbox' },
-		bHideMemberLevel: { desc: '隱藏會員級別圖片', defaultValue: false, type: 'checkbox' },
-		bHideAward: { desc: '隱藏(善)圖像', defaultValue: false, type: 'checkbox' }
-	},
 	once: function()
 	{
-		var css = [];
-		$.each({
-			bHideAvatar: 'div[id^="ThreadUser"] > a',
-			bHideMemberLevel: 'div[id^="ThreadUser"] > img',
-			bHideAward: 'div[id^="ThreadUser"] ~ *'
-		}, function(name, selector)
-		{
-			if(AN.util.getOptions(name)) css.push(selector);
-		});
-		
-		if(AN.util.getOptions('bHideNameSpace')) css.push(
-			AN.util.getOptions('bHideAvatar')
-			? 'div[id^="ThreadUser"] > br'
-			: 'div[id^="ThreadUser"] > br:first-child, div[id^="ThreadUser"] > br:first-child + br'
-		);
-		
-		AN.util.stackStyle(css.join(',') + ' { display: none; }');
+		AN.util.stackStyle('img[alt="Logo"] { display: none; }');
 	}
 },
 
@@ -284,17 +261,6 @@ AN.mod['Layout Designer'] = { ver: 'N/A', author: '向日', fn: {
 	once: function()
 	{
 		AN.util.stackStyle('.repliers_right blockquote { display: none; }');
-	}
-},
-
-'d0ac656c-e602-4852-843b-f776d8a976f4':
-{
-	desc: '隱藏評分格',
-	page: { 32: false },
-	type: 3,
-	once: function()
-	{
-		AN.util.stackStyle('#DivMarkThread { display: none; }');
 	}
 },
 
@@ -334,12 +300,12 @@ AN.mod['Layout Designer'] = { ver: 'N/A', author: '向日', fn: {
 	{
 		if(!AN.util.isLoggedIn()) return;
 
-		var jRows = $('#ctl00_ContentPlaceHolder1_QuickReplyTable tbody:eq(2)').children();
-		if(AN.util.getOptions('bRemNameRow')) jRows.eq(0).hide();
-		if(AN.util.getOptions('bRemTopicRow')) jRows.eq(1).hide();
-		if(AN.util.getOptions('bRemClassicRow')) jRows.eq(3).hide();
-		if(AN.util.getOptions('bRemTempRow') && jRows.length > 5) jRows.eq(3).nextAll(':not(:last)').hide();
-		if(AN.util.getOptions('bRemPreviewRow')) jRows.last().hide();
+		var jTbody = $('#ctl00_ContentPlaceHolder1_QuickReplyTable tbody:eq(2)');
+		if(AN.util.getOptions('bRemNameRow')) jTbody.children('tr:eq(0)').hide();
+		if(AN.util.getOptions('bRemTopicRow')) jTbody.children('tr:eq(1)').hide();
+		if(AN.util.getOptions('bRemClassicRow')) jTbody.children('tr:eq(3)').hide();
+		if(AN.util.getOptions('bRemTempRow') && jTbody.children().length > 5) jTbody.children('tr:eq(4)').next().andSelf().hide();
+		if(AN.util.getOptions('bRemPreviewRow')) jTbody.children('tr:last').hide();
 	}
 },
 

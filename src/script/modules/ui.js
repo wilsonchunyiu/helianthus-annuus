@@ -52,7 +52,7 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 			<div id="an-backlayer"></div> \
 			<ul id="an-mainmenu" class="an-mod an-menu"></ul> \
 		</div> \
-		').click(function(event){ event.stopPropagation(); });
+		');
 
 		AN.shared.gray = function(bClickToQuit, uExtra)
 		{
@@ -112,11 +112,37 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 	{
 		(function()
 		{
+			var testServers;
+
 			AN.shared.serverTable = function()
 			{
 				if(!$('#an-server').length)
 				{
-					AN.util.addStyle('\
+					var jTestImages = $([]);
+
+					testServers = function()
+					{
+						$('.an-server-reposonse').html('等待回應中...');
+
+						jTestImages.each(function(i)
+						{
+							var nTime = $.time();
+							$(this).data('nTime', nTime).attr('src', $.sprintf('http://forum%s.hkgolden.com/images/spacer.gif?tId=%s', i+1, nTime));
+						});
+					};
+
+					var showResult = function(eImg, sStatus)
+					{
+						var jImg = $(eImg);
+
+						$('.an-server-reposonse').eq(jImg.data('nServer') - 1).html(
+						{
+							ok: $.sprintf('~%s ms', $.time() - jImg.data('nTime')),
+							dead: '發生錯誤'
+						}[sStatus]);
+					};
+
+					AN.util.addStyle(' \
 					#an-server div { padding: 0.5em; } \
 					#an-server caption { padding-top: 0.5em; text-align: center; caption-side: bottom; } \
 					#an-server caption a { display: inline-block; border-width: 1px; padding: 0.2em; } \
@@ -125,168 +151,22 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 
 					AN.shared.box('an-server', '伺服器狀態', 300).append('<div><table><caption><a href="javascript:">進行測試</a></caption><thead><tr><td>伺服器</td><td>回應時間</td></tr></thead><tbody></tbody></table></div>');
 
+					var jImg = $(new Image).load(function(){ showResult(this, 'ok'); }).error(function(){ showResult(this, 'dead'); });
 					var sURL = (location.href.indexOf('aspxerrorpath=') > 0) ? $.sprintf('http://%s/topics.aspx?type=BW', location.hostname) : location.href;
-					var tableHTML = '', imgHTML = '';
+
+					var sHTML = '';
 					for(var nServer=1; nServer<=8; nServer++)
 					{
-						tableHTML += $.sprintf('<tr><td><a href="%s">Forum %s</a></td><td class="an-server-response"></td></tr>', sURL.replace(/forum\d/i, 'forum' + nServer), nServer);
-						imgHTML += '<img />';
+						jTestImages.push(jImg.clone(true).data('nServer', nServer)[0]);
+						sHTML += $.sprintf('<tr><td><a href="%s">Forum %s</a></td><td class="an-server-reposonse"></td></tr>', sURL.replace(/forum\d/i, 'forum' + nServer), nServer);
 					}
+					$('#an-server').find('caption').click(testServers).end().find('tbody').html(sHTML);
 
-					var jTestImages = $('<div>' + imgHTML + '</div>').children().bind('load error', function(event)
-					{
-						var jImg = $(event.target);
-						$('#an-server .an-server-response').eq(jImg.index()).html(event.type == 'load' ? $.sprintf('~%s ms', $.time() - jImg.data('nTime')) : '發生錯誤');
-					});
-
-					$('#an-server')
-					.find('caption').click(function()
-					{
-						$('#an-server .an-server-response').html('等待回應中...');
-
-						jTestImages.each(function(i)
-						{
-							var nTime = $.time();
-							$(this).data('nTime', nTime).attr('src', $.sprintf('http://forum%s.hkgolden.com/images/spacer.gif?tId=%s', i+1, nTime));
-						});
-					})
-					.end().find('tbody').html(tableHTML);
+					jImg = sURL = sHTML = null;
 				}
 
 				AN.shared.gray(true, 'an-server');
-				$('#an-server caption').trigger('click');
-			};
-		})();
-
-		(function()
-		{
-			var jHoverObjects, objectSets = [], recordOffset = function()
-			{
-				var data = $(this).data('hoverize');
-				data.fixScroll_difference = data.jTarget[data.fixScroll]() - $d.scrollTop();
-			};
-
-			$.fn.hoverize = function(selector, option)
-			{
-				if(!jHoverObjects) {
-					AN.util.addStyle('\
-					#an-hoverobjects > * { display: none; position: absolute; } \
-					#an-hoverobjects > img, #an-hoverobjects > span { cursor: pointer; } \
-					');
-
-					jHoverObjects = $('<div id="an-hoverobjects"></div>').appendTo('#an').bind({
-						click: function(event)
-						{
-							event.stopPropagation();
-
-							var jObject = $(event.target).closest('#an-hoverobjects > *'),
-							data = jObject.data('hoverize');
-
-							if(!data) return;
-
-							var jTarget = data.jTarget;
-
-							if(data.fixScroll) $d.scrollTop(jTarget[data.fixScroll]() - data.fixScroll_difference);
-
-							if(!data.autoToggle) return;
-
-							data.jTarget = null;
-							jObject.hide();
-							jTarget.mouseover();
-							jObject.mouseover();
-						},
-						'mouseover mouseout entertarget leavetarget': function(event)
-						{
-							event.stopPropagation();
-						}
-					});
-
-					$d.mouseover(function(event)
-					{
-						var jEnterTree = $(event.target).parentsUntil('#aspnetForm').andSelf();
-
-						$.each(objectSets, function(i, objectSet)
-						{
-							var jNewTarget = jEnterTree.filter(objectSet.selector).eq(-1),
-							jObject = objectSet.jObject,
-							data = jObject.data('hoverize');
-
-							if(data.filter) jNewTarget = jNewTarget.filter(data.filter);
-
-							if(data.jTarget) {
-								if(jNewTarget[0] && jNewTarget[0] === data.jTarget[0]) {
-									return;
-								}
-								else {
-									jObject.trigger('leavetarget');
-									data.jTarget = null;
-
-									if(data.autoToggle) jObject.hide();
-								}
-							}
-
-							if(jNewTarget.length) {
-								data.jTarget = jNewTarget;
-								jObject.trigger('entertarget');
-
-								if(data.autoPosition) jObject.css(jNewTarget.offset());
-								if(data.autoToggle) jObject.show();
-							}
-						});
-					});
-				}
-
-				var jObject = this;
-
-				if(selector === null) {
-					$.each(objectSets, function(i)
-					{
-						if(this.jObject[0] === jObject[0]) {
-							objectSets.splice(i, 1);
-							return false;
-						}
-					});
-				}
-				else {
-					objectSets.push({ selector: selector, jObject: jObject });
-					this.data('hoverize', $.extend({ fixScroll: false, fixScroll_autoRecord: true, autoToggle: true, autoPosition: true, filter: null }, option)).appendTo(jHoverObjects);
-
-					if(this.data('hoverize').fixScroll && this.data('hoverize').fixScroll_autoRecord) this.click(recordOffset);
-				}
-
-				return this;
-			};
-		})();
-
-		(function()
-		{
-			var jUserButtons, recordOffset = function()
-			{
-				var data = jUserButtons.data('hoverize');
-				data.fixScroll_difference = data.jTarget.top() - $d.scrollTop();
-			};
-
-			$.userButton = function(src)
-			{
-				if(!jUserButtons) {
-					AN.util.addStyle('\
-					#an-userbuttons > img:first-child { padding-top: 7px; } \
-					#an-userbuttons > img { display: block; padding: 3.5px 7px; cursor: pointer; } \
-					');
-
-					jUserButtons = $('<div id="an-userbuttons"></div>').hoverize('.repliers_left', { fixScroll: 'top', fixScroll_autoRecord: false }).bind({
-						entertarget: function()
-						{
-							jUserButtons.children().data('userButton', { jTarget: jUserButtons.data('hoverize').jTarget.parent() }).trigger('buttonshow');
-						},
-						buttonshow: function(event)
-						{
-							event.stopPropagation();
-						}
-					});
-				}
-
-				return $('<img />', { src: src, click: recordOffset }).appendTo(jUserButtons);
+				testServers();
 			};
 		})();
 	}
@@ -560,7 +440,7 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 				fillBoolean = function(bSwitchOn)
 				{
 					var jScope = (bFillAll) ? $('#an-settings-main-panels') : jFieldsets.filter(':visible');
-					jScope.find('.an-settings-switch').attr('checked', bSwitchOn);
+					jScope.find('.an-settings-switch').attr('checked', bSwitchOn)
 					jScope.find('.an-settings-option').attr('disabled', !bSwitchOn);
 				};
 
@@ -834,11 +714,11 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 			if(hour < 10) hour = '0' + hour;
 			var min = dDate.getMinutes();
 			if(min < 10) min = '0' + min;
-
+			
 			var jLogContainer = $('#an-log-content');
 
 			$($.sprintf('<li>%s:%s %s</li>', hour, min, sLog)).prependTo(jLogContainer).slideDown('slow');
-
+			
 			jLogContainer.children(':gt(50)').remove();
 		};
 
@@ -922,7 +802,7 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 			#an-links-bottom li { border-top-width: 1px; } \
 			', AN.util.getOptions('bAutoShowLinks') ? '' : 'display: none;'));
 
-			jMod = $('<div id="an-links" class="an-mod"><ul id="an-links-top" class="an-menu"></ul><ul id="an-links-middle" class="an-menu"></ul><ul id="an-links-bottom" class="an-menu"></ul></div>').appendTo('#an-ui');
+			var jMod = $('<div id="an-links" class="an-mod"><ul id="an-links-top" class="an-menu"></ul><ul id="an-links-middle" class="an-menu"></ul><ul id="an-links-bottom" class="an-menu"></ul></div>').appendTo('#an-ui');
 
 			jDoc.defer(1, '調整連結元件位置', function() // after all links are added
 			{
@@ -948,7 +828,7 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 
 			if(!sDec) return;
 
-			jLinks.children().eq(nPos)[nPos == 2 ? 'append' : 'prepend'](
+			jLinks.children().eq(nPos).append(
 				(typeof uExtra == 'string') ?
 				$.sprintf('<li><a href="%s">%s</a></li>', uExtra, sDec) :
 				$('<li><a href="javascript:">' + sDec + '</a></li>').click(uExtra)
@@ -986,11 +866,11 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 
 			return $('<div id="an-info" class="an-mod"><ul id="an-info-content" class="an-menu an-small"></ul><div class="an-small" id="an-info-footer">Info</div></div>').appendTo('#an-ui');
 		};
-
+		
 		(function()
 		{
 			function check(){ return $('#hkg_bottombar').length && AN.util.addStyle('#an-info { bottom: 30px !important; }') && true; }
-
+		
 			// jQuery onload event sometimes does not fire on chrome?
 			!check() && window.addEventListener ? window.addEventListener('load', check, false) : window.attachEvent('onload', check);
 		})();
@@ -1006,7 +886,8 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 		AN.shared.addInfo = function(sInfo)
 		{
 			getMod();
-			if(sInfo) return $('<li>' + sInfo + '</li>').appendTo('#an-info-content').fadeIn('slow');
+			if(!sInfo) return;
+			$('<li>' + sInfo + '</li>').appendTo('#an-info-content').fadeIn('slow');
 		};
 	}
 },
@@ -1037,7 +918,8 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 				var sHTML = '';
 
 				sHTML += '<dt>[程式]</dt>';
-				$.each({
+				$.each(
+				{
 					'名稱': 'Helianthus.annuus',
 					'作者': '<a target="_blank" href="ProfilePage.aspx?userid=148720">向日</a>',
 					'主頁': '<a target="_blank" href="http://code.google.com/p/helianthus-annuus/">http://code.google.com/p/helianthus-annuus/</a>',
@@ -1049,59 +931,10 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 					sHTML += $.sprintf('<dd>%s: %s</dd>', sName, sValue);
 				});
 
-				sHTML += '<dt>[Credits]</dt>';
-				$.each([
+				sHTML += '<dt>[元件]</dt>';
+				$.each(AN.mod, function(sMod)
 				{
-					name: 'jQuery',
-					author: 'John Resig',
-					url: 'http://jquery.com',
-					license: 'Dual licensed under the MIT or GPL Version 2 licenses',
-					licenseUrl: 'http://docs.jquery.com/License'
-				},
-				{
-					name: 'json2.js',
-					author: 'Douglas Crockford',
-					url: 'http://www.json.org/js.html',
-					license: 'Public Domain',
-					licenseUrl: '#'
-				},
-				{
-					name: 'jquery.sprintf',
-					author: 'Sabin Iacob',
-					url: 'http://plugins.jquery.com/project/printf',
-					license: 'GPL Version 3',
-					licenseUrl: 'http://www.gnu.org/licenses/gpl.html'
-				},
-				{
-					name: 'jQuery doTimeout',
-					author: 'Ben Alman',
-					url: 'http://benalman.com/projects/jquery-dotimeout-plugin/',
-					license: 'Dual licensed under the MIT and GPL licenses',
-					licenseUrl: 'http://benalman.com/about/license/'
-				},
-				{
-					name: 'Red Flower Icon [<a href="http://www.fasticon.com">Icons by: FastIcon.com</a>]',
-					author: 'Fast Icon',
-					url: 'http://www.iconarchive.com/show/nature-icons-by-fasticon/Red-Flower-icon.html',
-					license: 'Fast Icon Commercial License',
-					licenseUrl: 'http://www.fasticon.com/commercial_license.html'
-				},
-				{
-					name: 'Fugue Icons',
-					author: 'Yusuke Kamiyamane',
-					url: 'http://www.pinvoke.com/',
-					license: 'Creative Commons Attribution 3.0 license',
-					licenseUrl: 'http://creativecommons.org/licenses/by/3.0/'
-				},
-				{
-					name: 'Still Life',
-					author: 'Julian Turner ',
-					url: 'http://art.gnome.org/themes/icon/1111',
-					license: 'Creative Commons (Attribution-Share Alike 2.0 Generic)',
-					licenseUrl: 'http://creativecommons.org/licenses/by-sa/2.0/'
-				}], function()
-				{
-					sHTML += $.sprintf('<dt>%(name)s</dt><dd>by %(author)s</dd><dd><a href="%(url)s">%(url)s</a></dd><dd>License: <a href="%(licenseUrl)s">%(license)s</a></dd>', this);
+					sHTML += $.sprintf('<dd>%s by %s: %s</dd>', sMod, this.author, this.ver);
 				});
 
 				jAbout.find('dl').append(sHTML);
