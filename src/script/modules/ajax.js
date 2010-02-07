@@ -194,10 +194,7 @@ AN.mod['Ajax Integrator'] = { ver: 'N/A', author: '向日', fn: {
 							AN.shared('log', '發現下一頁, 連結建立');
 						}
 						else {
-							$d.one('workend', function()
-							{
-								changePage(pages.last + 1, isAuto);
-							});
+							changePage(pages.last + 1, isAuto);
 						}
 					}
 
@@ -214,7 +211,7 @@ AN.mod['Ajax Integrator'] = { ver: 'N/A', author: '向日', fn: {
 
 			if(isWorking) {
 				AN.shared('log', '正在工作中, 完成將自動重試');
-				$d.one('workend', function()
+				$d.bind('workdend', function()
 				{
 					$('#aspnetForm').submit();
 				});
@@ -226,11 +223,7 @@ AN.mod['Ajax Integrator'] = { ver: 'N/A', author: '向日', fn: {
 			AN.shared('log', '正在發送回覆...');
 			$.post(location.pathname + location.search, $('#aspnetForm').serialize() + '&ctl00%24ContentPlaceHolder1%24btn_Submit.x=0&ctl00%24ContentPlaceHolder1%24btn_Submit.y=0', function(sHTML)
 			{
-				if($.doc(sHTML).pageName() !== 'view') {
-					AN.shared('log', '回覆發送失敗!');
-					$d.trigger('workend');
-					return;
-				}
+				if($.doc(sHTML).pageName() != 'view') return AN.shared('log', '回覆發送失敗!');
 
 				$('#ctl00_ContentPlaceHolder1_messagetext').val('');
 				$('#previewArea').empty();
