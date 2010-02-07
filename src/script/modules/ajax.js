@@ -20,10 +20,10 @@ AN.mod['Ajax Integrator'] = { ver: 'N/A', author: '向日', fn: {
 	{
 		jDoc.defer(1, '移除原有轉頁功能', function()
 		{
-			window.changePage = $.noop;
+			window.changePage = $.blank;
 		});
 
-		window.ToggleUserDetail = $.noop;
+		window.ToggleUserDetail = $.blank;
 
 		AN.util.stackStyle('.hkg_bottombar_link > img { border: 0; }');
 		$d.bind('mousedown.userlinkbox', function(event)
@@ -194,10 +194,7 @@ AN.mod['Ajax Integrator'] = { ver: 'N/A', author: '向日', fn: {
 							AN.shared('log', '發現下一頁, 連結建立');
 						}
 						else {
-							$d.one('workend', function()
-							{
-								changePage(pages.last + 1, isAuto);
-							});
+							changePage(pages.last + 1, isAuto);
 						}
 					}
 
@@ -212,25 +209,14 @@ AN.mod['Ajax Integrator'] = { ver: 'N/A', author: '向日', fn: {
 		{
 			event.preventDefault();
 
-			if(isWorking) {
-				AN.shared('log', '正在工作中, 完成將自動重試');
-				$d.one('workend', function()
-				{
-					$('#aspnetForm').submit();
-				});
-				return;
-			}
+			if(isWorking) return AN.shared('log', '正在工作中, 請稍後再試');
 
 			$d.trigger('workstart');
 
 			AN.shared('log', '正在發送回覆...');
 			$.post(location.pathname + location.search, $('#aspnetForm').serialize() + '&ctl00%24ContentPlaceHolder1%24btn_Submit.x=0&ctl00%24ContentPlaceHolder1%24btn_Submit.y=0', function(sHTML)
 			{
-				if($.doc(sHTML).pageName() !== 'view') {
-					AN.shared('log', '回覆發送失敗!');
-					$d.trigger('workend');
-					return;
-				}
+				if($.doc(sHTML).pageName() != 'view') return AN.shared('log', '回覆發送失敗!');
 
 				$('#ctl00_ContentPlaceHolder1_messagetext').val('');
 				$('#previewArea').empty();
@@ -298,7 +284,7 @@ AN.mod['Ajax Integrator'] = { ver: 'N/A', author: '向日', fn: {
 			}
 
 			var interval = AN.util.getOptions('nCheckInterval');
-			if(!interval || interval < 10) interval = 10;
+			if(!interval || interval < 30) interval = 30;
 
 			$d.bind('workstart workend', function(event)
 			{

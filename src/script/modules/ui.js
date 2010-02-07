@@ -179,7 +179,7 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 						{
 							event.stopPropagation();
 
-							var jObject = $(event.target).closest('#an-hoverobjects > *'),
+							var jObject = $(event.target),
 							data = jObject.data('hoverize');
 
 							if(!data) return;
@@ -249,9 +249,9 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 				}
 				else {
 					objectSets.push({ selector: selector, jObject: jObject });
-					this.data('hoverize', $.extend({ fixScroll: false, fixScroll_autoRecord: true, autoToggle: true, autoPosition: true, filter: null }, option)).appendTo(jHoverObjects);
+					this.data('hoverize', $.extend({ fixScroll: false, autoToggle: true, autoPosition: true, filter: null }, option)).appendTo(jHoverObjects);
 
-					if(this.data('hoverize').fixScroll && this.data('hoverize').fixScroll_autoRecord) this.click(recordOffset);
+					if(this.data('hoverize').fixScroll && this.is(':not(div)')) this.click(recordOffset);
 				}
 
 				return this;
@@ -274,7 +274,7 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 					#an-userbuttons > img { display: block; padding: 3.5px 7px; cursor: pointer; } \
 					');
 
-					jUserButtons = $('<div id="an-userbuttons"></div>').hoverize('.repliers_left', { fixScroll: 'top', fixScroll_autoRecord: false }).bind({
+					jUserButtons = $('<div id="an-userbuttons"></div>').hoverize('.repliers_left', { fixScroll: 'top' }).bind({
 						entertarget: function()
 						{
 							jUserButtons.children().data('userButton', { jTarget: jUserButtons.data('hoverize').jTarget.parent() }).trigger('buttonshow');
@@ -282,6 +282,13 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 						buttonshow: function(event)
 						{
 							event.stopPropagation();
+						},
+						click: function(event)
+						{
+							if(event.target !== this) {
+								event.stopPropagation();
+								jUserButtons.click();
+							}
 						}
 					});
 				}
@@ -1075,16 +1082,16 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 				{
 					name: 'jQuery doTimeout',
 					author: 'Ben Alman',
-					url: 'http://benalman.com/projects/jquery-dotimeout-plugin/',
+					url: 'http://plugins.jquery.com/project/printf',
 					license: 'Dual licensed under the MIT and GPL licenses',
 					licenseUrl: 'http://benalman.com/about/license/'
 				},
 				{
-					name: 'Red Flower Icon [<a href="http://www.fasticon.com">Icons by: FastIcon.com</a>]',
-					author: 'Fast Icon',
-					url: 'http://www.iconarchive.com/show/nature-icons-by-fasticon/Red-Flower-icon.html',
-					license: 'Fast Icon Commercial License',
-					licenseUrl: 'http://www.fasticon.com/commercial_license.html'
+					name: 'Daily Items Icons',
+					author: 'Igarashi Susumu',
+					url: 'http://www.iconarchive.com/category/vintage/daily-items-icons-by-mozco.html',
+					license: 'eMailware',
+					licenseUrl: 'http://www.iconarchive.com/icons/mozco/daily-items/ReadMe.html'
 				},
 				{
 					name: 'Fugue Icons',
