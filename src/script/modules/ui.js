@@ -116,7 +116,7 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 			{
 				if(!$('#an-server').length)
 				{
-					AN.util.addStyle('\
+					AN.util.addStyle(' \
 					#an-server div { padding: 0.5em; } \
 					#an-server caption { padding-top: 0.5em; text-align: center; caption-side: bottom; } \
 					#an-server caption a { display: inline-block; border-width: 1px; padding: 0.2em; } \
@@ -132,13 +132,13 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 						tableHTML += $.sprintf('<tr><td><a href="%s">Forum %s</a></td><td class="an-server-response"></td></tr>', sURL.replace(/forum\d/i, 'forum' + nServer), nServer);
 						imgHTML += '<img />';
 					}
-
+					
 					var jTestImages = $('<div>' + imgHTML + '</div>').children().bind('load error', function(event)
 					{
 						var jImg = $(event.target);
 						$('#an-server .an-server-response').eq(jImg.index()).html(event.type == 'load' ? $.sprintf('~%s ms', $.time() - jImg.data('nTime')) : '發生錯誤');
 					});
-
+					
 					$('#an-server')
 					.find('caption').click(function()
 					{
@@ -154,141 +154,49 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 				}
 
 				AN.shared.gray(true, 'an-server');
-				$('#an-server caption').trigger('click');
+				$('#an-server caption').click();
 			};
 		})();
-
-		(function()
+		
+		$.userButton = function(src)
 		{
-			var jHoverObjects, objectSets = [], recordOffset = function()
-			{
-				var data = $(this).data('hoverize');
-				data.fixScroll_difference = data.jTarget[data.fixScroll]() - $d.scrollTop();
-			};
-
-			$.fn.hoverize = function(selector, option)
-			{
-				if(!jHoverObjects) {
-					AN.util.addStyle('\
-					#an-hoverobjects > * { display: none; position: absolute; } \
-					#an-hoverobjects > img, #an-hoverobjects > span { cursor: pointer; } \
-					');
-
-					jHoverObjects = $('<div id="an-hoverobjects"></div>').appendTo('#an').bind({
-						click: function(event)
-						{
-							event.stopPropagation();
-
-							var jObject = $(event.target).closest('#an-hoverobjects > *'),
-							data = jObject.data('hoverize');
-
-							if(!data) return;
-
-							var jTarget = data.jTarget;
-
-							if(data.fixScroll) $d.scrollTop(jTarget[data.fixScroll]() - data.fixScroll_difference);
-
-							if(!data.autoToggle) return;
-
-							data.jTarget = null;
-							jObject.hide();
-							jTarget.mouseover();
-							jObject.mouseover();
-						},
-						'mouseover mouseout entertarget leavetarget': function(event)
-						{
-							event.stopPropagation();
-						}
-					});
-
-					$d.mouseover(function(event)
-					{
-						var jEnterTree = $(event.target).parentsUntil('#aspnetForm').andSelf();
-
-						$.each(objectSets, function(i, objectSet)
-						{
-							var jNewTarget = jEnterTree.filter(objectSet.selector).eq(-1),
-							jObject = objectSet.jObject,
-							data = jObject.data('hoverize');
-
-							if(data.filter) jNewTarget = jNewTarget.filter(data.filter);
-
-							if(data.jTarget) {
-								if(jNewTarget[0] && jNewTarget[0] === data.jTarget[0]) {
-									return;
-								}
-								else {
-									jObject.trigger('leavetarget');
-									data.jTarget = null;
-
-									if(data.autoToggle) jObject.hide();
-								}
-							}
-
-							if(jNewTarget.length) {
-								data.jTarget = jNewTarget;
-								jObject.trigger('entertarget');
-
-								if(data.autoPosition) jObject.css(jNewTarget.offset());
-								if(data.autoToggle) jObject.show();
-							}
-						});
-					});
-				}
-
-				var jObject = this;
-
-				if(selector === null) {
-					$.each(objectSets, function(i)
-					{
-						if(this.jObject[0] === jObject[0]) {
-							objectSets.splice(i, 1);
-							return false;
-						}
-					});
-				}
-				else {
-					objectSets.push({ selector: selector, jObject: jObject });
-					this.data('hoverize', $.extend({ fixScroll: false, fixScroll_autoRecord: true, autoToggle: true, autoPosition: true, filter: null }, option)).appendTo(jHoverObjects);
-
-					if(this.data('hoverize').fixScroll && this.data('hoverize').fixScroll_autoRecord) this.click(recordOffset);
-				}
-
-				return this;
-			};
-		})();
-
-		(function()
-		{
-			var jUserButtons, recordOffset = function()
-			{
-				var data = jUserButtons.data('hoverize');
-				data.fixScroll_difference = data.jTarget.top() - $d.scrollTop();
-			};
-
-			$.userButton = function(src)
-			{
-				if(!jUserButtons) {
-					AN.util.addStyle('\
-					#an-userbuttons > img:first-child { padding-top: 7px; } \
-					#an-userbuttons > img { display: block; padding: 3.5px 7px; cursor: pointer; } \
-					');
-
-					jUserButtons = $('<div id="an-userbuttons"></div>').hoverize('.repliers_left', { fixScroll: 'top', fixScroll_autoRecord: false }).bind({
-						entertarget: function()
-						{
-							jUserButtons.children().data('userButton', { jTarget: jUserButtons.data('hoverize').jTarget.parent() }).trigger('buttonshow');
-						},
-						buttonshow: function(event)
-						{
-							event.stopPropagation();
-						}
-					});
-				}
-
-				return $('<img />', { src: src, click: recordOffset }).appendTo(jUserButtons);
-			};
-		})();
+			var jContainer = $('#an-userbuttons');
+			if(!jContainer.length) {
+				AN.util.addStyle('\
+				#an-userbuttons { display: none; position: absolute; } \
+				#an-userbuttons > img:first-child { padding-top: 7px; } \
+				#an-userbuttons > img { display: block; padding: 3.5px 7px; cursor: pointer; } \
+				');
+				
+				jContainer = $('<div id="an-userbuttons"></div>').appendTo('#an').click(function(event)
+				{
+					event.stopPropagation();
+					$d.scrollTop($.userButton.jTr.offset().top - $.userButton.difference);
+					
+					jContainer.hide();
+					$.userButton.jTr.children('.repliers_left').mouseover();
+				});
+				
+				$d.mouseover(function(event)
+				{
+					var jTarget = $(event.target).closest('.repliers_left,#an-userbuttons');
+					if(jTarget[0] === jContainer[0] || jContainer.is(':visible') && $.userButton.jTr.own(jTarget)) return;
+					
+					if(jTarget.is('.repliers_left')) {
+						$.userButton.jTr = jTarget.parent();
+						$.userButton.difference = $.userButton.jTr.offset().top - $d.scrollTop();
+						$d.trigger('userbuttonsshow');
+						
+						jContainer.css(jTarget.offset()).show();
+					}
+					else {
+						jContainer.hide();
+					}
+				});
+			}
+			
+			return $(src ? $.sprintf('<img src="%s" />', src) : '<img />').appendTo(jContainer);
+		};
 	}
 },
 
@@ -834,11 +742,11 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 			if(hour < 10) hour = '0' + hour;
 			var min = dDate.getMinutes();
 			if(min < 10) min = '0' + min;
-
+			
 			var jLogContainer = $('#an-log-content');
 
 			$($.sprintf('<li>%s:%s %s</li>', hour, min, sLog)).prependTo(jLogContainer).slideDown('slow');
-
+			
 			jLogContainer.children(':gt(50)').remove();
 		};
 
@@ -986,11 +894,11 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 
 			return $('<div id="an-info" class="an-mod"><ul id="an-info-content" class="an-menu an-small"></ul><div class="an-small" id="an-info-footer">Info</div></div>').appendTo('#an-ui');
 		};
-
+		
 		(function()
 		{
 			function check(){ return $('#hkg_bottombar').length && AN.util.addStyle('#an-info { bottom: 30px !important; }') && true; }
-
+		
 			// jQuery onload event sometimes does not fire on chrome?
 			!check() && window.addEventListener ? window.addEventListener('load', check, false) : window.attachEvent('onload', check);
 		})();
@@ -1075,16 +983,16 @@ AN.mod['User Interface'] = { ver: 'N/A', author: '向日', fn: {
 				{
 					name: 'jQuery doTimeout',
 					author: 'Ben Alman',
-					url: 'http://benalman.com/projects/jquery-dotimeout-plugin/',
+					url: 'http://plugins.jquery.com/project/printf',
 					license: 'Dual licensed under the MIT and GPL licenses',
 					licenseUrl: 'http://benalman.com/about/license/'
 				},
 				{
-					name: 'Red Flower Icon [<a href="http://www.fasticon.com">Icons by: FastIcon.com</a>]',
-					author: 'Fast Icon',
-					url: 'http://www.iconarchive.com/show/nature-icons-by-fasticon/Red-Flower-icon.html',
-					license: 'Fast Icon Commercial License',
-					licenseUrl: 'http://www.fasticon.com/commercial_license.html'
+					name: 'Daily Items Icons',
+					author: 'Igarashi Susumu',
+					url: 'http://www.iconarchive.com/category/vintage/daily-items-icons-by-mozco.html',
+					license: 'eMailware',
+					licenseUrl: 'http://www.iconarchive.com/icons/mozco/daily-items/ReadMe.html'
 				},
 				{
 					name: 'Fugue Icons',
