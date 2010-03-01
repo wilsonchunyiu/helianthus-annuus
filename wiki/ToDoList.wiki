@@ -17,6 +17,7 @@
   * replace bookmark bar fns, eg. bookmark, new reply checker
   * check pm
  * UI
+  * quick switch for non-extension
   * throbber, blockUI
   * UI rewrite, minimalism
   * buttons - primary & secondary (configuarable?)
