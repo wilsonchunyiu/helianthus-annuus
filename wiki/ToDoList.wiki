@@ -22,6 +22,7 @@
   * UI rewrite, minimalism
   * buttons - primary & secondary (configuarable?)
   * user buttons panel?
+  * themes! with customization allowed
  * settings UI
   * complete rewrite for new structure
   * profiles
