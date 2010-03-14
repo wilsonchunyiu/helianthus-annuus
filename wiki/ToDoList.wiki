@@ -41,7 +41,9 @@
   * reuse HKG blocklist
   * modify user button functions to use css solely
   * reply filter, eg. has images, reply height, smiley only reply
+  * notify on quoting album images(eg. photobucket)
  * other requested features
   * convert all images into thumbnails with one click
   * load all pages with one click
   * customized title
+  * custom smileys/images
