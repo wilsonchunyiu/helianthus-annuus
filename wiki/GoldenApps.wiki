@@ -11,7 +11,8 @@
  * Browser Extension/Script
   * [http://addons.mozilla.org/en-US/firefox/addon/51793/ Better HKGolden]
   * [http://code.google.com/p/helianthus-annuus/ Helianthus.annuus]
-  * [http://gist.github.com/323684 AeroHKG]
+  * [http://gist.github.com/323684 AeroHKG for Opera]
+  * [http://userstyles.org/styles/26050/ AeroHKG for Firefox]
 
  * SmartPhone App
   * [http://lalaf.com/ihkg/app/ iHKG]
