@@ -42,6 +42,8 @@
   * modify user button functions to use css solely
   * reply filter, eg. has images, reply height, smiley only reply
   * notify on quoting album images(eg. photobucket)
+  * auto send gift
+  * auto reply (hidden)
  * other requested features
   * convert all images into thumbnails with one click
   * load all pages with one click
