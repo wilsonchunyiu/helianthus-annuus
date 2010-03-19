@@ -41,9 +41,10 @@
   * reuse HKG blocklist
   * modify user button functions to use css solely
   * reply filter, eg. has images, reply height, smiley only reply
-  * notify on quoting album images(eg. photobucket)
+  * notify on quoting album images(eg. photobucket), auto upload (need API)
   * auto send gift
   * auto reply (hidden)
+  * image upload (need API)
  * other requested features
   * convert all images into thumbnails with one click
   * load all pages with one click
