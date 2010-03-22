@@ -45,6 +45,8 @@
   * auto send gift
   * auto reply (hidden)
   * image upload (need API)
+  * theme, smiley gallery
+  * public bamlist
  * other requested features
   * convert all images into thumbnails with one click
   * load all pages with one click
