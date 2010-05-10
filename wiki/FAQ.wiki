@@ -7,6 +7,12 @@
 
 ----
 
+=== Chrome dev 5.0.396.0 出現錯誤? ===
+
+這是由於此版本的Chrome存在頗嚴重的bug
+作者已發佈Hotfix version 3.7.8.4425 for Chrome dev 5.0.396.0以暫時解決此問題
+http://code.google.com/p/helianthus-annuus/downloads/detail?name=annuus.crx
+
 == 安裝後沒有效果? ==
 
 所有用戶:
