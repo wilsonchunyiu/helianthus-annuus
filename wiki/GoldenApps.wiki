@@ -5,7 +5,7 @@
   * [http://lalaf.com/ihkg/ iHKG(Web)]
   * [http://hkgoldenexpress.appspot.com/ HKGolden Express] ([http://hkgoldenpexpress.codeplex.com/ source])
   * [http://hkg.badleo.com/ HKG4iP]
-  * [http://tinyurl.com/webhkg 破封鎖版高登]
+  * [http://tinyurl.com/webhkg Simple HKGolden]
   * [http://code.google.com/p/proxy-hkgolden/ proxy-hkgolden]
 
  * Browser Extension/Script
