@@ -17,7 +17,7 @@
  * SmartPhone App
   * [http://lalaf.com/ihkg/app/ iHKG]
   * [http://sites.google.com/site/maizehkg/projects/maize-hkg Maize HKG] ([http://code.google.com/p/maize-hkg/ source])
-  * [http://forum1.hkgolden.com/view.aspx?message=2064472 Golden Mobile]
+  * ~~[http://forum1.hkgolden.com/view.aspx?message=2064472 Golden Mobile]~~
 
  * Others
   * [http://hkg.anyanother.com/ HKGolden Tools]
