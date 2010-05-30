@@ -15,7 +15,7 @@
 || annuus.xpi || Firefox 3.5+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.xpi stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.xpi beta] ||
 || annuus.crx || Chrome/Chromium || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.crx stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.crx beta] ||
 || annuus.m2f || Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.m2f stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.m2f beta] ||
-|| annuus.user.js || Safari(Mac) 3+, Chrome w/o extension feature || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.user.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.user.js beta] ||
+|| annuus.user.js || Safari(Mac) 3+, Firefox w/ Greasemonkey || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.user.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.user.js beta] ||
 || annuus.privoxy.zip || Privoxy || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.privoxy.zip stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.privoxy.zip beta] ||
 
 ----
@@ -94,12 +94,5 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
  * 於config.txt加入以下兩行:
   * actionsfile annuus.action
   * filterfile annuus.filter
-
-----
-
-= Google Chrome w/o extension feature =
-
- * 下載annuus.user.js至User Scripts文件夾
- * 以--enable-user-scripts命令行參數啟動Google Chrome
 
 ----
