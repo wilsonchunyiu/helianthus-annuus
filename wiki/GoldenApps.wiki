@@ -14,6 +14,7 @@
   * [http://gist.github.com/323684 AeroHKG for Opera]
   * [http://userstyles.org/styles/26050/ AeroHKG for Firefox]
   * [https://chrome.google.com/extensions/detail/aahfckkfkbglddndjkbjoipljedjallk HKGOLDEN extra icons] ([http://userscripts.org/scripts/show/77895 userscript])
+  * [https://chrome.google.com/extensions/detail/mlbglendgipabeobmaamphghbcmgfgjl HKGolden Tidy Up] ([http://code.google.com/p/hkg-improver/ docs])
 
  * SmartPhone App
   * [http://lalaf.com/ihkg/app/ iHKG]
