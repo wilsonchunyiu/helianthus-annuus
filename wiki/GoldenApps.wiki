@@ -24,5 +24,6 @@
  * Others
   * [http://hkg.anyanother.com/ HKGolden Tools]
   * [http://hkg.westkit.net/rss.php HKGolden RSS]
+  * [http://code.google.com/p/hkgicon/ 高登ICON向量化計劃]
 
 歡迎提供連結
