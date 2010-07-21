@@ -26,8 +26,7 @@
 
 = Firefox 3.5+ =
 
- * 下載annuus.xpi
- * 將下載好的annuus.xpi拖拽至Firefox以進行安裝
+ * 左鍵點擊annuus.xpi以進行安裝
 
 ----
 
