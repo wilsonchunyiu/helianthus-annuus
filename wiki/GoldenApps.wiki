@@ -7,6 +7,7 @@
   * [http://hkg.badleo.com/ HKG4iP]
   * [http://tinyurl.com/webhkg Simple HKGolden]
   * [http://code.google.com/p/proxy-hkgolden/ proxy-hkgolden]
+  * [http://lok-hkg.appspot.com/ Lok-HKG]
 
  * Browser Extension/Script
   * [http://addons.mozilla.org/en-US/firefox/addon/51793/ Better HKGolden]
