@@ -13,6 +13,17 @@
  * 請啟用"藏隱廣告"的"相容性模式"以解決此問題.
  * 此錯誤已於v4修正.
 
+== Chrome dev 9.0.587.0 上annuus經常失效? ==
+
+這時由於此版本的Chrome與其內置的Flash插件不相容所導致.
+
+暫時解決方法:
+ # 進入about:plugins 
+ # 點擊右上角的"Details" 
+ # 到Flash處停用第一個插件 (如果只有一個則須要安裝[http://get.adobe.com/flashplayer/otherversions/ 通用版Flash]) 
+
+強烈建議於Chrome dev更新後重新啟用該插件.
+
 == Chrome dev 5.0.396.0 出現錯誤? ==
 
 這是由於此版本的Chrome存在頗嚴重的bug, 作者已發佈Hotfix version 3.7.8.4425 for Chrome dev 5.0.396.0以暫時解決此問題:
