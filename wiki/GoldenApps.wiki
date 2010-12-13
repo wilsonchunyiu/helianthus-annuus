@@ -17,6 +17,8 @@
   * [https://chrome.google.com/extensions/detail/aahfckkfkbglddndjkbjoipljedjallk HKG XIcons] ([http://userscripts.org/scripts/show/77895 userscript])
   * [https://chrome.google.com/extensions/detail/mlbglendgipabeobmaamphghbcmgfgjl HKGolden Tidy Up] ([http://code.google.com/p/hkg-improver/ docs])
   * [https://chrome.google.com/extensions/detail/gggfcpfpjhnjlfjeoipcjifadblcgnfj XKG]
+  * [https://chrome.google.com/extensions/detail/leafohoceejeoglplnpcjddegfhbebcj MKG]
+  * [https://chrome.google.com/extensions/detail/mghebpfnbflmanhpadbhbpkkfkfapnbi HKG+ Photo Packager]
 
  * SmartPhone App
   * [http://lalaf.com/ihkg/app/ iHKG]
