@@ -16,7 +16,7 @@
   * [http://userstyles.org/styles/26050/ AeroHKG for Firefox]
   * [https://chrome.google.com/extensions/detail/aahfckkfkbglddndjkbjoipljedjallk HKG XIcons] ([http://userscripts.org/scripts/show/77895 userscript])
   * [https://chrome.google.com/extensions/detail/mlbglendgipabeobmaamphghbcmgfgjl HKGolden Tidy Up] ([http://code.google.com/p/hkg-improver/ docs])
-  * [https://chrome.google.com/extensions/detail/mkfdoiipnlbkollgofncddkmlhncnkbi XKG]
+  * [https://chrome.google.com/extensions/detail/gggfcpfpjhnjlfjeoipcjifadblcgnfj XKG]
 
  * SmartPhone App
   * [http://lalaf.com/ihkg/app/ iHKG]
