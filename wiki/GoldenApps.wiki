@@ -25,7 +25,7 @@
   * [http://sites.google.com/site/maizehkg/projects/maize-hkg Maize HKG] ([http://code.google.com/p/maize-hkg/ source])
   * ~~[http://forum1.hkgolden.com/view.aspx?message=2064472 Golden Mobile]~~
   * [http://forum1.hkgolden.com/view.aspx?message=2703173 LIHK HKGolden]
-  * [http://forum1.hkgolden.com/view.aspx?message=2736895 HKG Mobile]
+  * [http://forum1.hkgolden.com/view.aspx?message=2736895 HKG Mobile] ([http://code.google.com/p/hkgmobile/ source])
   * [http://code.google.com/p/android-hkgolden/ HKG Android]
   * [http://forum1.hkgolden.com/view.aspx?type=MP&message=2710918 jHKG]
 
