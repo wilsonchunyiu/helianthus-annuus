@@ -34,5 +34,6 @@
   * [http://hkg.westkit.net/rss.php HKGolden RSS]
   * [http://code.google.com/p/hkgicon/ 高登ICON向量化計劃]
   * [http://code.google.com/p/hkgoldenhighlight/ 高登的街角 - 電子動態版高登聖誕圖]
+  * [http://www.chiuto.com/hkg/HKGpics_hitbag.php 高登圖片打包器]
 
 歡迎提供連結
