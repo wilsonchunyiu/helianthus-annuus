@@ -27,7 +27,7 @@
   * [http://forum1.hkgolden.com/view.aspx?message=2703173 LIHK HKGolden]
   * [http://forum1.hkgolden.com/view.aspx?message=2736895 HKG Mobile] ([http://code.google.com/p/hkgmobile/ source])
   * [http://code.google.com/p/android-hkgolden/ HKG Android]
-  * [http://forum1.hkgolden.com/view.aspx?type=MP&message=2710918 jHKG]
+  * [http://forum1.hkgolden.com/view.aspx?type=MP&message=2777887 jHKG]
 
  * Others
   * [http://hkg.anyanother.com/ HKGolden Tools]
