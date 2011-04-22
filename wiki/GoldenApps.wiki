@@ -8,6 +8,7 @@
   * [http://tinyurl.com/webhkg Simple HKGolden]
   * [http://code.google.com/p/proxy-hkgolden/ proxy-hkgolden]
   * [http://lok-hkg.appspot.com/ Lok-HKG]
+  * [http://code.google.com/p/phkg/ PHKG]
 
  * Browser Extension/Script
   * [http://addons.mozilla.org/en-US/firefox/addon/51793/ Better HKGolden]
@@ -19,6 +20,7 @@
   * [https://chrome.google.com/extensions/detail/gggfcpfpjhnjlfjeoipcjifadblcgnfj XKG]
   * [https://chrome.google.com/extensions/detail/leafohoceejeoglplnpcjddegfhbebcj MKG]
   * [https://chrome.google.com/extensions/detail/mghebpfnbflmanhpadbhbpkkfkfapnbi HKG+ Photo Packager]
+  * [http://userscripts.org/scripts/show/101368 HKGolden Replace Default Search]
 
  * SmartPhone App
   * [http://lalaf.com/ihkg/app/ iHKG]
@@ -35,5 +37,6 @@
   * [http://code.google.com/p/hkgicon/ 高登ICON向量化計劃]
   * [http://code.google.com/p/hkgoldenhighlight/ 高登的街角 - 電子動態版高登聖誕圖]
   * [http://www.chiuto.com/hkg/HKGpics_hitbag.php 高登圖片打包器]
+  * [https://addons.mozilla.org/en-US/firefox/addon/hkg-icons-collection/ HKG Icons Collection]
 
 歡迎提供連結
