@@ -38,5 +38,6 @@
   * [http://code.google.com/p/hkgoldenhighlight/ 高登的街角 - 電子動態版高登聖誕圖]
   * [http://www.chiuto.com/hkg/HKGpics_hitbag.php 高登圖片打包器]
   * [https://addons.mozilla.org/en-US/firefox/addon/hkg-icons-collection/ HKG Icons Collection]
+  * [http://hkgtools.appspot.com/ HKG Tools]
 
 歡迎提供連結
