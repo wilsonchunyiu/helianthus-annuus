@@ -21,6 +21,7 @@
   * [https://chrome.google.com/extensions/detail/leafohoceejeoglplnpcjddegfhbebcj MKG]
   * [https://chrome.google.com/extensions/detail/mghebpfnbflmanhpadbhbpkkfkfapnbi HKG+ Photo Packager]
   * [http://userscripts.org/scripts/show/101368 HKGolden Replace Default Search]
+  * [https://chrome.google.com/webstore/detail/eoaaeikjjonfehmfliemhgefgmaolkdb Light Golden]
 
  * SmartPhone App
   * [http://lalaf.com/ihkg/app/ iHKG]
