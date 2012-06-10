@@ -1,6 +1,8 @@
 ﻿#summary 如何安裝Helianthus.annuus v3.5+
 #labels Featured,Phase-Deploy
 
+*請注意: 作者不會於本頁之評語區作任何回覆, 如有問題請參考[AboutAuthor 聯絡方法]*
+
 || *瀏覽器* || *所需插件/軟件* ||
 || Firefox 3.5+ || --- ||
 || Chrome/Chromium || --- ||
