@@ -28,20 +28,20 @@
 
 = Firefox 3.5+ =
 
- * 左鍵點擊annuus.xpi以進行安裝
+ * 左鍵點擊annuus.xpi
 
 ----
 
 = Chrome/Chromium =
 
- * 左鍵點擊annuus.crx以進行安裝
+ * 左鍵點擊annuus.crx
  * 若出現不允許安裝之提示, 請參考以下做法:
    # 另存下載annuus.crx
    # 打開chrome://chrome/extensions/
    # 拖放annuus.crx到第2步打開之頁面
    * 或
    # 以--enable-easy-off-store-extension-install命令行參數啟動Chrome/Chromium
-   # 左鍵點擊annuus.crx以進行安裝
+   # 左鍵點擊annuus.crx
 
 ----
 
