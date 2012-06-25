@@ -17,8 +17,9 @@
 || annuus.xpi || Firefox 3.5+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.xpi stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.xpi beta] ||
 || annuus.crx || Chrome/Chromium || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.crx stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.crx beta] ||
 || annuus.oex || Opera 11+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.oex stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.oex beta] ||
+|| annuus.safariextz || Safari 5.1+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.safariextz stable] || ||
 || annuus.m2f || Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.m2f stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.m2f beta] ||
-|| annuus.user.js || Safari(Mac) 3+, Firefox w/ Greasemonkey || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.user.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.user.js beta] ||
+|| annuus.user.js || Firefox w/ Greasemonkey || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.user.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.user.js beta] ||
 || annuus.privoxy.zip || Privoxy || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.privoxy.zip stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.privoxy.zip beta] ||
 
 ----
@@ -52,6 +53,12 @@
 
 ----
 
+= Safari 5.1+ =
+
+  * 左鍵點擊annuus.safariextz
+
+----
+
 = Maxthon 2 (w/ IE8) =
 
  * 下載並開啟annuus.m2f
@@ -68,13 +75,6 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
 || 移除垃圾 || T ||
 || 移除Bookmark Bar (可加快網頁載入) || F ||
 || 快取圖片 || T ||
-
-----
-
-= Safari(Mac) 3+ =
-
- * 安裝Greasekit
- * 下載annuus.user.js並進行安裝
 
 ----
 
