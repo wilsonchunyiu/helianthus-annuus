@@ -5,17 +5,16 @@
 
 || *瀏覽器* || *所需插件/軟件* ||
 || Firefox 3.5+ || --- ||
-|| Chrome/Chromium || --- ||
-|| Opera 9+ || --- ||
-|| Opera Unite || [http://unite.opera.com/application/401/ UJS Manager] (Optional) ||
+|| Google Chrome / Chromium || --- ||
+|| Opera 11+ || --- ||
 || Maxthon 2 (w/ IE8) || --- ||
-|| Safari(Mac) 3+ || [http://8-p.info/greasekit/ GreaseKit] ||
-|| 其他瀏覽器(IE8+, Safari 3+, Maxthon 3, etc) || [http://www.privoxy.org/ Privoxy] ||
+|| Safari 4+ || --- ||
+|| 其他瀏覽器 || [http://www.privoxy.org/ Privoxy] ||
 
 || *檔案* || *相關瀏覽器/插件/軟件* |||| 下載點 ||
 || annuus.js || N/A || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.js beta] ||
 || annuus.xpi || Firefox 3.5+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.xpi stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.xpi beta] ||
-|| annuus.crx || Chrome/Chromium || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.crx stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.crx beta] ||
+|| annuus.crx || Google Chrome / Chromium || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.crx stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.crx beta] ||
 || annuus.oex || Opera 11+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.oex stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.oex beta] ||
 || annuus.safariextz || Safari 5.1+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.safariextz stable] || ||
 || annuus.m2f || Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.m2f stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.m2f beta] ||
@@ -34,7 +33,7 @@
 
 ----
 
-= Chrome/Chromium =
+= Google Chrome / Chromium =
 
  * 左鍵點擊annuus.crx
  * 若出現不允許安裝之提示, 請參考以下做法:
