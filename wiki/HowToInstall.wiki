@@ -8,7 +8,7 @@
 || Google Chrome / Chromium || --- ||
 || Opera 11+ || --- ||
 || Maxthon 2 (w/ IE8) || --- ||
-|| Safari 4+ || --- ||
+|| Safari 5.1+ || --- ||
 || 其他瀏覽器 || [http://www.privoxy.org/ Privoxy] ||
 
 || *檔案* || *相關瀏覽器/插件/軟件* |||| 下載點 ||
