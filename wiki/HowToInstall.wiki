@@ -19,7 +19,7 @@
 || annuus.oex || Opera 11+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.oex stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.oex beta] ||
 || annuus.safariextz || Safari 5.1+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.safariextz stable] || ||
 || annuus.m2f || Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.m2f stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.m2f beta] ||
-|| annuus.m2f || Maxthon 2 || || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.mxaddon beta] ||
+|| annuus.mxaddon || Maxthon 3 || || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.mxaddon beta] ||
 || annuus.user.js || Firefox w/ Greasemonkey || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.user.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.user.js beta] ||
 || annuus.privoxy.zip || Privoxy || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.privoxy.zip stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.privoxy.zip beta] ||
 
