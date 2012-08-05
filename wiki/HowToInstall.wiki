@@ -3,15 +3,6 @@
 
 *請注意: 作者不會於本頁之評語區作任何回覆, 如有問題請參考[AboutAuthor 聯絡方法]*
 
-|| *瀏覽器* || *所需插件/軟件* ||
-|| Firefox 3.5+ || --- ||
-|| Google Chrome / Chromium || --- ||
-|| Opera 11+ || --- ||
-|| Maxthon 2 (w/ IE8+) || --- ||
-|| Safari 5.1+ || --- ||
-|| Maxthon 3 || --- ||
-|| 其他瀏覽器 || [http://www.privoxy.org/ Privoxy] ||
-
 || *檔案* || *相關瀏覽器/插件/軟件* |||| 下載點 ||
 || annuus.js || N/A || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.js beta] ||
 || annuus.xpi || Firefox 3.5+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.xpi stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.xpi beta] ||
@@ -88,7 +79,7 @@ Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否�
 
 = 任何瀏覽器(如IE8) w/ Privoxy =
 
- * (本教學已假設閣下對Privoxy有基本認識)
+ * (本教學已假設閣下對[http://www.privoxy.org/ Privoxy]有基本認識)
  * 下載annuus.privoxy.zip並解壓到Privoxy主目錄
  * 於config.txt加入以下兩行:
   * actionsfile annuus.action
