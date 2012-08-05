@@ -7,7 +7,7 @@
 || Firefox 3.5+ || --- ||
 || Google Chrome / Chromium || --- ||
 || Opera 11+ || --- ||
-|| Maxthon 2 (w/ IE8) || --- ||
+|| Maxthon 2 (w/ IE8+) || --- ||
 || Safari 5.1+ || --- ||
 || Maxthon 3 || --- ||
 || 其他瀏覽器 || [http://www.privoxy.org/ Privoxy] ||
@@ -60,7 +60,7 @@
 
 ----
 
-= Maxthon 2 (w/ IE8) =
+= Maxthon 2 (w/ IE8+) =
 
  * 下載並開啟annuus.m2f
  * 正常來說Maxthon 2會自動詢問是否安裝, 如沒有請下載該過濾包並將其拖放至Maxthon 2視窗
