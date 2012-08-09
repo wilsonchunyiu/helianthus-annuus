@@ -5,12 +5,11 @@
 
 || *檔案* || *相關瀏覽器/插件/軟件* |||| 下載點 ||
 || annuus.js || N/A || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.js beta] ||
-|| annuus.xpi || Firefox 3.5+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.xpi stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.xpi beta] ||
+|| annuus.xpi || Firefox 7+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.xpi stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.xpi beta] ||
 || annuus.crx || Google Chrome / Chromium || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.crx stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.crx beta] ||
 || annuus.oex || Opera 11+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.oex stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.oex beta] ||
 || annuus.safariextz || Safari 5.1+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.safariextz stable] || ||
-|| annuus.m2f || Maxthon 2 || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.m2f stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.m2f beta] ||
-|| annuus.mxaddon || Maxthon 3 || || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.mxaddon beta] ||
+|| annuus.mxaddon || Maxthon 3 || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.mxaddon stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.mxaddon beta] ||
 || annuus.user.js || Firefox w/ Greasemonkey || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.user.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.user.js beta] ||
 || annuus.privoxy.zip || Privoxy || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.privoxy.zip stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.privoxy.zip beta] ||
 
@@ -20,7 +19,7 @@
 
 ----
 
-= Firefox 3.5+ =
+= Firefox 7+ =
 
  * 左鍵點擊annuus.xpi
 
@@ -48,25 +47,6 @@
 = Safari 5.1+ =
 
   * 左鍵點擊annuus.safariextz
-
-----
-
-= Maxthon 2 (w/ IE8+) =
-
- * 下載並開啟annuus.m2f
- * 正常來說Maxthon 2會自動詢問是否安裝, 如沒有請下載該過濾包並將其拖放至Maxthon 2視窗
- * 跟據下圖指示啟用filter
- http://helianthus-annuus.googlecode.com/svn/site/howtoinstall_m2_1.png
-
- http://helianthus-annuus.googlecode.com/svn/site/howtoinstall_m2_2.png
-
-Helianthus.Annuus: Filter同時提供額外功能, 用戶可自行選擇是否啟用:
-
-|| *功能* || *預設啟用* ||
-|| 啟用IE8標準模式及修正部份顯示錯誤 || T ||
-|| 移除垃圾 || T ||
-|| 移除Bookmark Bar (可加快網頁載入) || F ||
-|| 快取圖片 || T ||
 
 ----
 
