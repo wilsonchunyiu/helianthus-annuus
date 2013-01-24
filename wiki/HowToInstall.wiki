@@ -10,7 +10,7 @@
 || annuus.oex || Opera 11+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.oex stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.oex beta] ||
 || annuus.safariextz || Safari 5.1+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.safariextz stable] || ||
 || annuus.mxaddon || Maxthon 3 || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.mxaddon stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.mxaddon beta] ||
-|| annuus.user.js || Firefox w/ Greasemonkey || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.user.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.user.js beta] ||
+|| annuus.user.js || User Script || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.user.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.user.js beta] ||
 || annuus.privoxy.zip || Privoxy || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.privoxy.zip stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.privoxy.zip beta] ||
 
 ----
@@ -35,6 +35,8 @@
    * 或
    # 以--enable-easy-off-store-extension-install命令行參數啟動Chrome/Chromium
    # 左鍵點擊annuus.crx
+
+`***` 閣下亦可選擇配合[https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo Tampermonkey]使用user script版本以免除更新的麻煩
 
 ----
 
