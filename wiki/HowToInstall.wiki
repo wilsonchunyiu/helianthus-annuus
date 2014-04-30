@@ -3,63 +3,26 @@
 
 *請注意: 作者不會於本頁之評語區作任何回覆, 如有問題請參考[AboutAuthor 聯絡方法]*
 
-|| *檔案* || *相關瀏覽器/插件/軟件* |||| 下載點 ||
-|| annuus.js || N/A || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.js beta] ||
-|| annuus.xpi || Firefox 7+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.xpi stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.xpi beta] ||
-|| annuus.crx || Google Chrome / Chromium / Opera 15+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.crx stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.crx beta] ||
-|| annuus.oex || Opera 11/12 || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.oex stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.oex beta] ||
-|| annuus.safariextz || Safari 5.1+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.safariextz stable] || ||
-|| annuus.mxaddon || Maxthon 3 || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.mxaddon stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.mxaddon beta] ||
-|| annuus.user.js || User Script || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.user.js stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.user.js beta] ||
-|| annuus.privoxy.zip || Privoxy || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.privoxy.zip stable] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.privoxy.zip beta] ||
-
-----
-<h1>安裝方法</h1>
-<wiki:toc depth="1" />
+|| *相關瀏覽器/插件/軟件* || *stable* || *beta* ||
+|| Firefox 7+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.xpi annuus.xpi] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.xpi annuus.xpi] ||
+|| Google Chrome / Chromium || [https://chrome.google.com/webstore/detail/helianthusannuus/gelkllafbnhilefggkgjgjanooclhddn chrome web store] || ||
+|| Opera 15+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.crx annuus.crx] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.crx annuus.crx] ||
+|| Opera 11/12 || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.oex annuus.oex] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.oex annuus.oex] ||
+|| Safari 5.1+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.safariextz annuus.safariextz] || ||
+|| Maxthon 3+ || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.mxaddon annuus.mxaddon] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.mxaddon annuus.mxaddon] ||
+|| User Script || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.user.js annuus.user.js] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.user.js annuus.user.js] ||
+|| Privoxy || [http://helianthus-annuus.googlecode.com/svn/dist/v3/stable/annuus.privoxy.zip annuus.privoxy.zip] || [http://helianthus-annuus.googlecode.com/svn/dist/v3/beta/annuus.privoxy.zip annuus.privoxy.zip] ||
 
 ----
 
-= Firefox 7+ =
-
- * 左鍵點擊annuus.xpi
-
-----
-
-= Google Chrome / Chromium =
-
- * 左鍵點擊annuus.crx
- * 若出現不允許安裝之提示, 請參考以下做法:
-   # 另存下載annuus.crx
-   # 打開chrome://chrome/extensions/
-   # 拖放annuus.crx到第2步打開之頁面
-   * 或
-   # 以--enable-easy-off-store-extension-install命令行參數啟動Chrome/Chromium
-   # 左鍵點擊annuus.crx
-
-`***` 閣下亦可選擇配合[https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo Tampermonkey]使用user script版本以免除更新的麻煩
-
-----
-
-= Opera 11+ =
-
- * 左鍵點擊annuus.oex
-
-----
-
-= Safari 5.1+ =
-
-  * 左鍵點擊annuus.safariextz
-
-----
-
-= Maxthon 3 =
+== Maxthon 3+ ==
 
  * 下載並開啟annuus.mxaddon
  * 若無法開啟, 請將其拖放至Maxthon 3視窗以進行安裝
 
 ----
 
-= 任何瀏覽器(如IE8) w/ Privoxy =
+== 任何瀏覽器(如IE8) w/ Privoxy ==
 
  * (本教學已假設閣下對[http://www.privoxy.org/ Privoxy]有基本認識)
  * 下載annuus.privoxy.zip並解壓到Privoxy主目錄
